@@ -1,0 +1,21 @@
+.section {
+    padding-inline: 0;
+
+    padding-block:var(--section-padding); 
+    position: relative;
+    overflow: hidden;
+    text-align:center;
+}
+
+.sections-header {
+	padding-top: calc(var(--header-height, 80px) + 5rem) !important;
+padding-bottom: calc(0.5 * var(--section-padding)) !important;
+text-align:left;
+	h1 {
+		margin-bottom: 0.5rem;
+	}
+}
+
+.section-changelog {
+    text-align:left;
+}

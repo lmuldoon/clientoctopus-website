@@ -1,0 +1,116 @@
+.feature__container {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+
+    @screen md {
+        grid-template-columns: 2fr 2fr;
+        gap: 6rem;
+    }
+
+    &.feature__container-right {
+        @screen md {
+            //grid-template-columns: 3fr 2fr;
+        }
+
+        .feature__content {
+            order: initial;
+
+            @screen md {
+                order: 2;
+            }
+        }
+
+        .feature__image {
+            order: initial;
+
+            @screen md {
+                order: 1;
+            }
+        }
+    }
+
+    .feature__content {
+        // @screen md {
+        //     text-align: left;
+        // }
+        p {
+                color: var(--color-slate-600);
+            }
+    }
+
+    .feature__image {
+        padding-block: 10px;
+
+        img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .browser-frame {
+        box-shadow: none;
+
+        .browser-frame__content {
+            max-height: 500px;
+            min-height: 280px;
+            background:
+                repeating-linear-gradient(-55deg,
+                    rgba(99, 102, 241, 0.03) 0,
+                    rgba(99, 102, 241, 0.03) 1px,
+                    transparent 0,
+                    transparent 50%);
+            background-size: 14px 14px;
+            background-color: #f8fafc;
+            color: var(--color-grey);
+            font-size: var(--size-300);
+            letter-spacing: 0.05em;
+            overflow: auto;
+
+            img {
+                border-radius: 0;
+                box-shadow: none;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+    }
+}
+
+.features__list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    align-items: center;
+
+    @screen md {
+        align-items: start;
+    }
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.85rem;
+        font-size: var(--size-400);
+        color: var(--color-slate-600);
+        padding: 0 !important;
+        margin: 0 !important;
+
+        &::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            min-width: 8px;
+            border-radius: 50%;
+            background: var(--color-emerald);
+            border: 1px solid var(--color-emerald);
+            margin-top: 0.6em;
+            flex-shrink: 0;
+        }
+    }
+}

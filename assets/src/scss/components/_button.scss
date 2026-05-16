@@ -1,0 +1,144 @@
+/**
+ * Button styles
+ */
+
+.button {
+	@apply font-medium;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	padding: 0.65em 1.5em;
+	outline: none;
+	border-radius: 8px;
+	background-color: var(--color-lightindigo);
+	color: var(--color-white);
+	line-height: 1.2;
+	text-decoration: none;
+	text-align: center !important;
+	border: 1.5px solid transparent;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	font-size: var(--size-400);
+
+	svg {
+		vertical-align: top;
+		margin-left: 0.4em;
+		transition: transform 0.2s ease;
+		width: 18px;
+		height: 18px;
+		color: inherit;
+	}
+
+	[data-whatinput="keyboard"] &:focus {
+		box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.35);
+	}
+
+	&:hover {
+		background-color: var(--color-midblue);
+		color: var(--color-white);
+		text-decoration: none;
+
+		svg {
+			transform: translateX(4px);
+		}
+	}
+}
+
+// ─── PRIMARY ──────────────────────────────────────────────────────────────────
+
+.button--primary {
+	background-color: var(--color-indigo);
+	color: var(--color-white);
+	border-color: var(--color-indigo);
+
+	// &:hover {
+	// 	background-color: var(--color-midblue);
+	// 	border-color: var(--color-midblue);
+	// 	color: var(--color-white);
+	// }
+}
+
+// ─── GHOST (on dark backgrounds) ──────────────────────────────────────────────
+
+.button--ghost {
+	background-color: transparent;
+	color: var(--color-indigo);
+	border: 2px solid var(--color-indigo);
+
+	&:hover {
+		background-color: var(--color-indigo);
+		color: var(--color-white);
+	}
+	&.button--white {
+		border: 2px solid rgba(255,255,255,0.75);
+		color: rgba(255,255,255,0.75);
+		&:hover {
+		background-color: var(--color-white);
+		color: var(--color-indigo);
+	}
+	}
+}
+
+// ─── GHOST LIGHT (on light backgrounds) ───────────────────────────────────────
+
+.button--ghost-light {
+	background-color: transparent;
+	color: var(--color-navy);
+	border: 2px solid var(--color-grey);
+
+	&:hover {
+		background-color: rgba(99, 102, 241, 0.25);
+		background-color: var(--color-indigo);
+		color: var(--color-white);
+	}
+}
+
+// ─── OUTLINE ──────────────────────────────────────────────────────────────────
+
+.button--outline {
+	background-color: transparent;
+	color: var(--color-lightindigo);
+	border: 1.5px solid var(--color-lightindigo);
+
+	&:hover {
+		background-color: var(--color-lightindigo);
+		color: var(--color-white);
+	}
+}
+
+// ─── NAV (header CTA) ─────────────────────────────────────────────────────────
+
+.button--nav {
+	background-color: var(--color-indigo);
+	color: var(--color-white);
+	padding: 0.45em 1.1em;
+	font-size: var(--size-400);
+	border-color: var(--color-indigo);
+
+	&:hover {
+		background-color: var(--color-midblue);
+		border-color: var(--color-midblue);
+		color: var(--color-white);
+	}
+}
+
+.button--emerald {
+	background-color: var(--color-emerald);
+	border-color: var(--color-emerald);
+	&:hover {
+		background-color: var(--color-indigo);
+		border-color: var(--color-indigo);
+	}
+}
+
+.button--navy {
+	background-color: var(--color-navy);
+	border-color: var(--color-navy);
+	color: var(--color-white);
+	&:hover {
+		background-color: var(--color-midblue);
+		border-color: var(--color-midblue);
+		color: var(--color-white);
+	}
+}

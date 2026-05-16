@@ -1,0 +1,473 @@
+/**
+ * Client Octopus homepage section components
+ */
+
+// ─── SHARED SECTION HEADER ────────────────────────────────────────────────────
+
+.section-eyebrow {
+	display: inline-block;
+	font-size: var(--size-300);
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--color-indigo);
+	margin-bottom: 1rem;
+}
+
+.section-heading {
+	font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+	font-weight: 600;
+	letter-spacing: -0.025em;
+	line-height: 1.15;
+	color: var(--color-navy);
+	margin-inline: auto;
+	margin-bottom: 2rem;
+	text-wrap-style: balance;
+	max-width: 1000px;
+}
+
+.section-lede {
+	font-size: var(--size-400);
+	color: var(--color-slate-600);
+	line-height: 1.7;
+	max-width: 600px;
+	margin-inline: auto;
+
+	+.section-lede {
+		margin-block-start: 1rem;
+	}
+}
+
+// ─── REPLACES SECTION ─────────────────────────────────────────────────────────
+
+.section--replaces {
+	text-align: center;
+}
+
+.total {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: var(--size-400);
+	color: var(--color-slate-600);
+	margin: 0;
+
+	strong {
+		color: var(--color-navy);
+		font-weight: 700;
+	}
+}
+
+.after-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	background: var(--color-indigo);
+	color: var(--color-white);
+	font-size: var(--size-400);
+	font-weight: 600;
+	padding: 0.6em 1.25em;
+	border-radius: 99px;
+	margin-bottom: 1rem;
+
+	&::before {
+		content: '✓';
+		font-weight: 700;
+	}
+}
+
+.after-desc {
+	font-size: var(--size-400);
+	line-height: 1.65;
+	color: var(--color-slate-600);
+	margin-bottom: 1.25rem;
+}
+
+.after-price {
+	display: flex;
+	align-items: baseline;
+	gap: 0.4rem;
+	margin-top: 0.5rem;
+
+	strong {
+		font-size: clamp(1.75rem, 3vw, 2.25rem);
+		font-weight: 700;
+		color: var(--color-navy);
+		letter-spacing: -0.02em;
+	}
+
+	span {
+		font-size: var(--size-300);
+		color: var(--color-slate-600);
+	}
+}
+
+// ─── FEATURES GRID ────────────────────────────────────────────────────────────
+
+
+.features-heading-block {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.cf-features-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	border-top: 1px solid var(--color-grey);
+	border-left: 1px solid var(--color-grey);
+
+	@screen md {
+		// stays 3-col
+	}
+
+	// 2-col at 880px
+	@media (max-width: 880px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	// 1-col at 520px
+	@media (max-width: 520px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.feature-cell {
+	padding: clamp(1.5rem, 3vw, 2.5rem);
+	border-right: 1px solid var(--color-grey);
+	border-bottom: 1px solid var(--color-grey);
+
+	&__icon {
+		width: 48px;
+		height: 48px;
+		background: var(--color-accent2);
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin:auto;
+		margin-bottom: 1.25rem;
+		color: var(--color-indigo);
+	}
+
+	h3 {
+		font-size: var(--size-500);
+		font-weight: 600;
+		color: var(--color-navy);
+		margin-bottom: 0.5rem;
+	}
+
+	p {
+		font-size: var(--size-400);
+		line-height: 1.65;
+		color: var(--color-slate-600);
+		margin: 0;
+	}
+}
+
+// ─── PRICING ──────────────────────────────────────────────────────────────────
+
+.section--pricing {
+	text-align: center;
+}
+
+// ─── BILLING TOGGLE ───────────────────────────────────────────────────────────
+
+.cf-billing-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+	margin-top: 2rem;
+}
+
+.cf-billing-toggle__label {
+	font-size: var(--size-400);
+	font-weight: 500;
+	color: var(--color-slate-600);
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.cf-billing-toggle__save {
+	font-size: var(--size-300);
+	font-weight: 600;
+	color: var(--color-indigo);
+	margin-top: 0.6rem;
+	margin-bottom: 0;
+}
+
+.cf-billing-toggle__switch {
+	position: relative;
+	width: 44px;
+	height: 24px;
+	background: var(--color-grey);
+	border: none;
+	border-radius: 99px;
+	cursor: pointer;
+	padding: 0;
+	transition: background 0.2s ease;
+	flex-shrink: 0;
+
+	&[aria-checked="true"] {
+		background: var(--color-navy);
+	}
+}
+
+.cf-billing-toggle__knob {
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 18px;
+	height: 18px;
+	background: var(--color-white);
+	border-radius: 50%;
+	transition: transform 0.2s ease;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+	.cf-billing-toggle__switch[aria-checked="true"] & {
+		transform: translateX(20px);
+	}
+}
+
+// ─── PRICING GRID ─────────────────────────────────────────────────────────────
+
+.cf-pricing-grid {
+	display: grid;
+	gap: 1.5rem;
+	margin-top: 1.5rem;
+
+	@screen md {
+		margin-top: 3rem;
+		grid-template-columns: repeat(3, 1fr);
+		align-items: start;
+	}
+}
+
+.cf-pricing-tier {
+	background: var(--color-white);
+	border: 1.5px solid var(--color-grey);
+	border-radius: 16px;
+	padding: clamp(1.5rem, 3vw, 2.5rem);
+	position: relative;
+	text-align: left;
+
+	&--featured {
+		border-color: var(--color-navy);
+		border-width: 2px;
+	}
+}
+
+.cf-pricing-tier__pill {
+	position: absolute;
+	top: -13px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: var(--color-navy);
+	color: var(--color-white);
+	font-size: var(--size-300);
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	padding: 0.35em 1em;
+	border-radius: 99px;
+	white-space: nowrap;
+}
+
+.cf-pricing-tier__name {
+	font-size: var(--size-300);
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--color-slate-600);
+	display: block;
+	margin-bottom: 0.5rem;
+}
+
+.cf-pricing-tier__month-price {
+	font-size: clamp(2.25rem, 4vw, 3.25rem);
+	// font-size: var(--size-500);
+	font-weight: 700;
+	letter-spacing: -0.03em;
+	color: var(--color-navy);
+	line-height: 1;
+	margin-bottom: 0.25rem;
+	display: flex;
+	align-items: baseline;
+	gap: 0.05rem;
+
+	sup {
+		font-size: 0.6em;
+		font-weight: 600;
+		vertical-align: super;
+		margin-right: 1px;
+	}
+}
+
+.cf-pricing-grid:not(.is-annual) .cf-pricing-tier__year-price {
+	display: none;
+}
+
+.cf-pricing-grid.is-annual .cf-pricing-tier__month-price {
+	display: none;
+}
+
+.cf-pricing-tier__year-price {
+	font-size: clamp(2.25rem, 4vw, 3.25rem);
+	font-weight: 700;
+	letter-spacing: -0.03em;
+	color: var(--color-navy);
+	line-height: 1;
+	margin-bottom: 0.25rem;
+	display: flex;
+	align-items: baseline;
+	gap: 0.1rem;
+
+	sup {
+		font-size: 0.6em;
+		font-weight: 600;
+		vertical-align: super;
+		margin-right: 1px;
+	}
+}
+
+.cf-pricing-tier__period {
+	font-size: var(--size-500);
+}
+
+.cf-pricing-tier__note {
+	font-size: var(--size-300);
+	color: var(--color-slate-600);
+	margin-bottom: 1.5rem;
+}
+
+.cf-pricing-divider {
+	border: none;
+	border-top: 1px solid var(--color-grey);
+	margin: 1.25rem 0;
+}
+
+.cf-pricing-features {
+	list-style: none !important;
+	padding: 0 !important;
+	margin: 0 0 1.5rem !important;
+	display: flex;
+	flex-direction: column;
+	gap: 0.65rem;
+
+	li {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.65rem;
+		color: var(--color-slate-600);
+		line-height: 1.5;
+		padding: 0 !important;
+		margin: 0 !important;
+
+		&::before {
+			content: none !important;
+		}
+
+		.cf-check {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 20px;
+			height: 20px;
+			min-width: 20px;
+			border-radius: 50%;
+			background: rgba(16, 185, 129, 0.12);
+			color: #10B981;
+			flex-shrink: 0;
+			margin-top: 0.1em;
+		}
+
+		.cf-dash {
+			color: var(--color-grey);
+			flex-shrink: 0;
+			width: 1em;
+		}
+	}
+}
+
+.cf-save-badge {
+	display: inline-flex;
+	align-items: center;
+	font-size: var(--size-300);
+	font-weight: 600;
+	color: #10B981;
+	background: rgba(16, 185, 129, 0.1);
+	border-radius: 99px;
+	padding: 0.2em 0.65em;
+	margin-left: 0.5rem;
+	letter-spacing: 0;
+	vertical-align: middle;
+	line-height: 1;
+}
+
+// ─── FAQ ──────────────────────────────────────────────────────────────────────
+// Reuses .accordion / .js-accordion-trigger / .accordion-content from _faq.scss
+// Section wrapper only:
+
+.section--faq {
+	text-align: center;
+
+	.faq-layout {
+		text-align: left;
+		max-width: 720px;
+		margin: 3rem auto 0;
+	}
+
+	.accordions-wrapper {
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+	}
+}
+
+// ─── CTA STRIP ────────────────────────────────────────────────────────────────
+
+.section--cta-strip {
+	text-align: center;
+
+	h2 {
+		font-size: clamp(1.75rem, 3.5vw, 3rem);
+		font-weight: 600;
+		letter-spacing: -0.025em;
+		//color: var(--color-white);
+		margin-bottom: 1rem;
+	}
+
+	p {
+		font-size: var(--size-400);
+		//color: rgba(255, 255, 255, 0.6);
+		max-width: 500px;
+		margin-inline: auto;
+		margin-bottom: 2.25rem;
+		line-height: 1.65;
+	}
+}
+
+.cta-strip__actions {
+	display: flex;
+	gap: 0.75rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+// ─── PAGE HEADER (changelog, docs, 404) ───────────────────────────────────────
+
+.bg-darkblue,
+.bg-navy {
+	background: var(--color-navy);
+}
+
+.section--radial-light-emerald {
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+2,ffffff+2,ecfdf5+100 */
+	background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 2%, rgba(255, 255, 255, 1) 2%, rgba(236, 253, 245, 1) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.section--gradient {
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6366f1+0,10b981+100 */
+	background: linear-gradient(135deg, rgba(99, 102, 241, 1) 0%, rgba(16, 185, 129, 1) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
