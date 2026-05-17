@@ -20783,11 +20783,11 @@ iframe.wait-autoplay {
 }
 
 .card-list__icon--no {
-  color: #ef4444;
+  color: var(--color-indigo);
 }
 
 .card-list__icon--yes {
-  color: #10B981;
+  color: var(--color-indigo);
 }
 
 /**
@@ -21592,8 +21592,8 @@ iframe.wait-autoplay {
   height: 8px;
   min-width: 8px;
   border-radius: 50%;
-  background: var(--color-emerald);
-  border: 1px solid var(--color-emerald);
+  background: var(--color-indigo);
+  border: 1px solid var(--color-indigo);
   margin-top: 0.6em;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -22273,8 +22273,8 @@ iframe.wait-autoplay {
   height: 20px;
   min-width: 20px;
   border-radius: 50%;
-  background: rgba(16, 185, 129, 0.12);
-  color: #10B981;
+  background: var(--color-lightindigo);
+  color: var(--color-indigo);
   -ms-flex-negative: 0;
       flex-shrink: 0;
   margin-top: 0.1em;
@@ -22296,10 +22296,10 @@ iframe.wait-autoplay {
           align-items: center;
   font-size: var(--size-300);
   font-weight: 600;
-  color: #10B981;
-  background: rgba(16, 185, 129, 0.1);
+  color: var(--color-indigo);
+  background: var(--color-lightindigo);
   border-radius: 99px;
-  padding: 0.2em 0.65em;
+  padding: 0.25em 0.7em;
   margin-left: 0.5rem;
   letter-spacing: 0;
   vertical-align: middle;
@@ -22364,7 +22364,7 @@ iframe.wait-autoplay {
 
 .section--gradient {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6366f1+0,10b981+100 */
-  background: linear-gradient(135deg, rgb(99, 102, 241) 0%, rgb(16, 185, 129) 100%);
+  background: linear-gradient(135deg, rgb(99, 102, 241) 0%, var(--color-midblue) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
@@ -23008,6 +23008,10 @@ iframe.wait-autoplay {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.site-logo svg > g > g:first-child {
+  fill: var(--color-indigo);
 }
 
 .form {

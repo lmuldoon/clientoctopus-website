@@ -83,6 +83,6 @@
 .card-list__icon {
 	flex-shrink: 0;
 
-	&--no  { color: #ef4444; }
-	&--yes { color: #10B981; }
+	&--no  { color: var(--color-indigo); }
+	&--yes { color: var(--color-indigo); }
 }

@@ -96,7 +96,7 @@ get_header();
      PIPELINE — Interactive stepper
 ════════════════════════════════════════════════════════════════════════════════ -->
 
-	<section class="section section--pipeline menu-section bg-lightemerald">
+	<section class="section section--pipeline menu-section bg-stone">
 		<div class="container animated-up">
 
 			<p class="section-eyebrow">How it works</p>
@@ -319,10 +319,9 @@ get_header();
 
 				<!-- FREE -->
 				<div class="cf-pricing-tier">
-					<span class="cf-pricing-tier__name">Free</span>
+					<span class="cf-pricing-tier__name">Free (Forever)</span>
 					<div class="cf-pricing-tier__month-price"><span><sup>&dollar;</sup>0</span></div>
 					<div class="cf-pricing-tier__year-price"><span><sup>&dollar;</sup>0</span></div>
-					<p class="cf-pricing-tier__note">Forever free</p>
 					<hr class="cf-pricing-divider">
 					<ul class="cf-pricing-features">
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 3 proposals per month</li>

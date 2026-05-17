@@ -91,7 +91,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="section section--feature bg-lightemerald">
+	<section class="section section--feature bg-stone">
 		<div class="container animated-up">
 			<p class="section-eyebrow">Payments</p>
 			<h2 class="section-heading">Get paid faster without leaving WordPress</h2>
@@ -102,7 +102,7 @@ get_header();
 	</section>
 
 
-	<section class="section section--feature pt-0 bg-lightemerald">
+	<section class="section section--feature pt-0 bg-stone">
 		<div class="container">
 			<div class="feature__container">
 				<div class="feature__content stack animated-up">
@@ -151,7 +151,7 @@ get_header();
 
 
 
-	<section class="section section--feature bg-lightindigo">
+	<section class="section section--feature bg-stone">
 		<div class="container animated-up">
 			<p class="section-eyebrow">Client Portal</p>
 			<h2 class="section-heading">Give clients a professional portal they'll actually use</h2>
@@ -161,7 +161,7 @@ get_header();
 	</section>
 
 
-	<section class="section section--feature pt-0 bg-lightindigo">
+	<section class="section section--feature pt-0 bg-stone">
 		<div class="container">
 			<div class="feature__container">
 				<div class="feature__content stack animated-up">
