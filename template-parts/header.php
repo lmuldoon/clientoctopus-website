@@ -21,7 +21,7 @@ global $meta;
 	?>
 	<?php if ($IS_LIVE) { ?>
 		<!-- <script src="https://checkout.freemius.com/js/v1/" async></script> -->
-		<script src="https://cdn.cookiehub.eu/c2/aac6b6f4.js"></script>
+		<script src="https://cdn.cookiehub.eu/c2/beb87917.js"></script>
 		<script type="text/javascript">
 			window.dataLayer = window.dataLayer || [];
 
@@ -70,7 +70,7 @@ global $meta;
 	<script type="text/javascript" src="/<?php echo get_revision('header.js'); ?>"></script>
 	<?php if ($IS_LIVE) { ?>
 		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-GRGF49K5LV"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-1XCTJF04WL"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 
@@ -79,7 +79,7 @@ global $meta;
 			}
 			gtag('js', new Date());
 
-			gtag('config', 'G-GRGF49K5LV');
+			gtag('config', 'G-1XCTJF04WL');
 		</script>
 	<?php } ?>
 </head>

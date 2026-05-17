@@ -22368,6 +22368,10 @@ iframe.wait-autoplay {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
+.section--gradient .button {
+  background-color: var(--color-navy);
+}
+
 .section--pipeline {
   text-align: center;
 }

@@ -470,4 +470,7 @@
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6366f1+0,10b981+100 */
 	background: linear-gradient(135deg, rgba(99, 102, 241, 1) 0%, var(--color-midblue) 100%);
 	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	.button {
+		background-color: var(--color-navy);
+	}
 }

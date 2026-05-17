@@ -23,7 +23,9 @@ get_header();
 	<section class="hero">
 		<div class="container">
 			<div class="hero__inner">
-
+				<!-- <div class="tentacle">
+					<?php include_asset('static/tentacle.svg'); ?>
+				</div> -->
 				<h1>The all-in-one <br>client workflow system for WordPress</h1>
 
 				<p class="hero__lede">Create proposals, get paid, and manage your clients in one simple system &mdash; all inside the WordPress site you already own.</p>
@@ -307,13 +309,13 @@ get_header();
 			<p class="section-lede">Whether you're sending your first proposal or managing multiple client projects, Client Octopus grows with your workflow.</p>
 
 			<div class="cf-billing-toggle">
-					<span class="cf-billing-toggle__label">Monthly</span>
-					<button class="cf-billing-toggle__switch" id="js-billing-toggle" role="switch" aria-checked="false" aria-label="Toggle annual billing">
-						<span class="cf-billing-toggle__knob"></span>
-					</button>
-					<span class="cf-billing-toggle__label">Annually</span>
-				</div>
-				<p class="cf-billing-toggle__save">Pay annually and save up to 26%</p>
+				<span class="cf-billing-toggle__label">Monthly</span>
+				<button class="cf-billing-toggle__switch" id="js-billing-toggle" role="switch" aria-checked="false" aria-label="Toggle annual billing">
+					<span class="cf-billing-toggle__knob"></span>
+				</button>
+				<span class="cf-billing-toggle__label">Annually</span>
+			</div>
+			<p class="cf-billing-toggle__save">Pay annually and save up to 26%</p>
 
 			<div class="cf-pricing-grid" id="js-pricing-grid">
 
@@ -402,90 +404,90 @@ get_header();
 			<h2 class="section-heading">Common questions</h2>
 
 			<div class="faq-layout">
-			<div class="accordions-wrapper">
+				<div class="accordions-wrapper">
 
 
-				<div class="accordion">
-					<div class="js-accordion-trigger">
-						<h3>Do I need WordPress to use Client Octopus?</h3>
+					<div class="accordion">
+						<div class="js-accordion-trigger">
+							<h3>Do I need WordPress to use Client Octopus?</h3>
+						</div>
+						<div class="accordion-content">
+							<p>Yes. Client Octopus is a self-hosted WordPress plugin that runs directly inside your existing WordPress website. There’s no separate SaaS dashboard, external platform, or additional software to manage.</p>
+						</div>
 					</div>
-					<div class="accordion-content">
-						<p>Yes. Client Octopus is a self-hosted WordPress plugin that runs directly inside your existing WordPress website. There’s no separate SaaS dashboard, external platform, or additional software to manage.</p>
+
+					<div class="accordion">
+						<div class="js-accordion-trigger">
+							<h3>Who is Client Octopus built for?</h3>
+						</div>
+						<div class="accordion-content">
+							<p>Client Octopus is designed for freelancers, studios, and agencies who manage client work and want a more organised workflow for proposals, payments, projects, and client communication — without stitching together multiple tools.</p>
+						</div>
 					</div>
+
+					<div class="accordion">
+						<div class="js-accordion-trigger">
+							<h3>Can clients view proposals without logging in?</h3>
+						</div>
+						<div class="accordion-content">
+							<p>Yes. Proposals are shared using secure private links, allowing clients to review, accept, request changes, and pay directly from their browser without needing a WordPress account.</p>
+						</div>
+					</div>
+
+					<div class="accordion">
+						<div class="js-accordion-trigger">
+							<h3>How do payments work?</h3>
+						</div>
+						<div class="accordion-content">
+							<p>Client Octopus integrates with Stripe so clients can pay deposits or full balances directly from proposals and project portals. Payment statuses, receipts, and activity are tracked automatically inside WordPress.</p>
+						</div>
+					</div>
+
+					<div class="accordion">
+						<div class="js-accordion-trigger">
+							<h3>Does Client Octopus replace my existing tools?</h3>
+						</div>
+						<div class="accordion-content">
+							<p>That’s the goal. Client Octopus combines proposals, payments, project management, client portals, messaging, approvals, analytics, and automation into one connected workflow — reducing the need for multiple disconnected platforms.</p>
+						</div>
+					</div>
+
+					<div class="accordion">
+						<div class="js-accordion-trigger">
+							<h3>Where is my data stored?</h3>
+						</div>
+						<div class="accordion-content">
+							<p>Your proposals, projects, files, client records, and activity data stay inside your own WordPress installation and hosting environment. You remain in control of your data at all times.</p>
+						</div>
+					</div>
+
+					<div class="accordion">
+						<div class="js-accordion-trigger">
+							<h3>Can I customise the client experience?</h3>
+						</div>
+						<div class="accordion-content">
+							<p>Yes. Client Octopus is designed to feel like part of your own business, with branded proposals, client portals, emails, colours, and logos that match your website and workflow.</p>
+						</div>
+					</div>
+
+					<div class="accordion">
+						<div class="js-accordion-trigger">
+							<h3>Is there a free version?</h3>
+						</div>
+						<div class="accordion-content">
+							<p>Yes. The free plan includes the core proposal workflow so you can try Client Octopus before upgrading to Pro or Agency for payments, portals, projects, AI tools, collaboration, and advanced workflow features.</p>
+						</div>
+					</div>
+
 				</div>
 
-				<div class="accordion">
-					<div class="js-accordion-trigger">
-						<h3>Who is Client Octopus built for?</h3>
-					</div>
-					<div class="accordion-content">
-						<p>Client Octopus is designed for freelancers, studios, and agencies who manage client work and want a more organised workflow for proposals, payments, projects, and client communication — without stitching together multiple tools.</p>
-					</div>
+				<div class="faq-contact">
+					<p>Still have a question? <a href="mailto:info@clientoctopus.com?subject=Website%20Inquiry">Drop us a message →</a></p>
 				</div>
-
-				<div class="accordion">
-					<div class="js-accordion-trigger">
-						<h3>Can clients view proposals without logging in?</h3>
-					</div>
-					<div class="accordion-content">
-						<p>Yes. Proposals are shared using secure private links, allowing clients to review, accept, request changes, and pay directly from their browser without needing a WordPress account.</p>
-					</div>
-				</div>
-
-				<div class="accordion">
-					<div class="js-accordion-trigger">
-						<h3>How do payments work?</h3>
-					</div>
-					<div class="accordion-content">
-						<p>Client Octopus integrates with Stripe so clients can pay deposits or full balances directly from proposals and project portals. Payment statuses, receipts, and activity are tracked automatically inside WordPress.</p>
-					</div>
-				</div>
-
-				<div class="accordion">
-					<div class="js-accordion-trigger">
-						<h3>Does Client Octopus replace my existing tools?</h3>
-					</div>
-					<div class="accordion-content">
-						<p>That’s the goal. Client Octopus combines proposals, payments, project management, client portals, messaging, approvals, analytics, and automation into one connected workflow — reducing the need for multiple disconnected platforms.</p>
-					</div>
-				</div>
-
-				<div class="accordion">
-					<div class="js-accordion-trigger">
-						<h3>Where is my data stored?</h3>
-					</div>
-					<div class="accordion-content">
-						<p>Your proposals, projects, files, client records, and activity data stay inside your own WordPress installation and hosting environment. You remain in control of your data at all times.</p>
-					</div>
-				</div>
-
-				<div class="accordion">
-					<div class="js-accordion-trigger">
-						<h3>Can I customise the client experience?</h3>
-					</div>
-					<div class="accordion-content">
-						<p>Yes. Client Octopus is designed to feel like part of your own business, with branded proposals, client portals, emails, colours, and logos that match your website and workflow.</p>
-					</div>
-				</div>
-
-				<div class="accordion">
-					<div class="js-accordion-trigger">
-						<h3>Is there a free version?</h3>
-					</div>
-					<div class="accordion-content">
-						<p>Yes. The free plan includes the core proposal workflow so you can try Client Octopus before upgrading to Pro or Agency for payments, portals, projects, AI tools, collaboration, and advanced workflow features.</p>
-					</div>
-				</div>
-
 			</div>
 
-			<div class="faq-contact">
-				<p>Still have a question? <a href="mailto:info@clientoctopus.com?subject=Website%20Inquiry">Drop us a message →</a></p>
-			</div>
 		</div>
-
-	</div>
-</section>
+	</section>
 
 
 	<!-- ═══════════════════════════════════════════════════════════════════════════
