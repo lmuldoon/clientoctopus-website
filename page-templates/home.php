@@ -44,7 +44,7 @@ get_header();
 					<span class="browser-frame__url">clientoctopus.com/wp-admin/admin.php?page=clientoctopus</span>
 				</div> -->
 				<div class="browser-frame__content">
-					<img src="/static/images/screenshots/admin-plan-and-usage.jpg?v=1" alt="Client Octopus admin dashboard" width="1920" height="1180" />
+					<img src="/static/images/screenshots/admin-plan-usage.jpg?v=1" alt="Wordpress plugin Client Octopus admin dashboard" width="1920" height="1180" />
 				</div>
 			</div>
 		</div>
@@ -58,8 +58,8 @@ get_header();
 	<section class="section section--replaces bg-white">
 		<div class="container animated-up">
 
-			<p class="section-eyebrow">Replace the stack</p>
-			<h2 class="section-heading">Running client work shouldn't require five different tools</h2>
+			<p class="section-eyebrow">Eight jobs. One plugin.</p>
+			<h2 class="section-heading">Running client work shouldn't require multiple tools</h2>
 			<p class="section-lede">Most freelancers juggle proposals, invoices, email threads, Google Drive, and project trackers just to deliver one project.</p>
 			<p class="section-lede">Client Octopus brings the entire client lifecycle into WordPress — from proposal to payment to delivery.</p>
 			<div class="card-grid">
@@ -146,7 +146,7 @@ get_header();
 					</div>
 
 					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/proposal-template-wizard.jpg?v=1" alt="Client Octopus proposal builder" width="1675" height="1712" />
+						<img src="/static/images/screenshots/proposal-template-wizard.jpg?v=1" alt="Wordpress plugin Client Octopus proposal builder" width="1675" height="1712" />
 					</div>
 
 				</div>
@@ -167,7 +167,7 @@ get_header();
 					</div>
 
 					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/admin-payment-notification.png?v=1" alt="Client Octopus payment notification email" width="1140" height="1092" />
+						<img src="/static/images/screenshots/admin-payment-notification.jpg?v=1" alt="Wordpress plugin Client Octopus payment notification email" width="1264" height="1058" />
 					</div>
 
 				</div>
@@ -188,7 +188,7 @@ get_header();
 					</div>
 
 					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/admin-project-2.jpg?v=1" alt="Client Octopus admin project interface" width="1920" height="1441" />
+						<img src="/static/images/screenshots/admin-project-2.jpg?v=1" alt="Wordpress plugin Client Octopus admin project interface" width="1920" height="1441" />
 					</div>
 
 				</div>
@@ -209,7 +209,7 @@ get_header();
 					</div>
 
 					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/client-dashboard.jpg?v=1" alt="Client Octopus client dashboard" width="1920" height="1434" />
+						<img src="/static/images/screenshots/client-dashboard.jpg?v=1" alt="Wordpress plugin Client Octopus client dashboard" width="1920" height="1434" />
 					</div>
 
 				</div>
@@ -448,7 +448,7 @@ get_header();
 							<h3>Does Client Octopus replace my existing tools?</h3>
 						</div>
 						<div class="accordion-content">
-							<p>That’s the goal. Client Octopus combines proposals, payments, project management, client portals, messaging, approvals, analytics, and automation into one connected workflow — reducing the need for multiple disconnected platforms.</p>
+							<p>That’s exactly what it’s built for. Client Octopus combines proposals, payments, project management, client portals, messaging, approvals, analytics, and automation into one connected workflow — reducing the need for multiple disconnected platforms.</p>
 						</div>
 					</div>
 
