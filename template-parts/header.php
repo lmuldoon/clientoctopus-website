@@ -64,8 +64,14 @@ global $meta;
 	<link rel="manifest" href="/site.webmanifest" />
 	<!-- End Favicons -->
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<?php if ($meta->slug === 'home') : ?>
+		<link rel="preload" as="image" href="/static/images/screenshots/admin-plan-usage.jpg?v=1" fetchpriority="high">
+	<?php endif; ?>
+
 	<link rel="stylesheet" type="text/css" href="/<?php echo get_revision('screen.css'); ?>">
-	<link rel="stylesheet" type="text/css" href="/<?php echo get_revision('print.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="/<?php echo get_revision('print.css'); ?>" media="print">
 
 	<script type="text/javascript" src="/<?php echo get_revision('header.js'); ?>"></script>
 	<?php if ($IS_LIVE) { ?>
