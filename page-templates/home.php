@@ -209,7 +209,7 @@ get_header();
 					</div>
 
 					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/client-dashboard.jpg?v=1" alt="Wordpress plugin Client Octopus client dashboard" width="1920" height="1434" />
+						<img src="/static/images/screenshots/client-dashboard.jpg?v=1" alt="Wordpress plugin Client Octopus client dashboard" width="1920" height="1197" />
 					</div>
 
 				</div>
