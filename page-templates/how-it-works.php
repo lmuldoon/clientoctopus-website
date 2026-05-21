@@ -60,7 +60,7 @@ get_header();
 					<p>Client Octopus includes a guided 5-step proposal builder with customisable templates, AI-assisted writing, and drag-and-drop content sections to help you create polished proposals quickly. It also supports dynamic pricing with VAT, discounts, deposits, and multi-currency handling to keep every proposal accurate and client-ready.</p>
 				</div>
 				<div class="feature__image animated-up">
-					<img src="/static/images/screenshots/proposal-template-wizard.jpg?v=1" srcset="/static/images/screenshots/proposal-template-wizard-800.jpg 782w, /static/images/screenshots/proposal-template-wizard.jpg 1675w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus proposal builder" width="1675" height="1712" loading="lazy" />
+					<img src="/static/images/screenshots/proposal-template-wizard.jpg?v=1" srcset="/static/images/screenshots/proposal-template-wizard-800.jpg 782w, /static/images/screenshots/proposal-template-wizard.jpg 1675w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus proposal builder" width="1675" height="1712" fetchpriority="high" />
 				</div>
 			</div>
 		</div>

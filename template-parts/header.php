@@ -66,10 +66,19 @@ global $meta;
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" onload="this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"></noscript>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap">
 	<?php if ($meta->slug === 'home') : ?>
-		<link rel="preload" as="image" href="/static/images/screenshots/admin-plan-usage.jpg?v=1" fetchpriority="high">
+		<link rel="preload" as="image"
+		      href="/static/images/screenshots/admin-plan-usage.jpg?v=1"
+		      imagesrcset="/static/images/screenshots/admin-plan-usage-800.jpg 800w, /static/images/screenshots/admin-plan-usage.jpg 1920w"
+		      imagesizes="(max-width: 768px) 100vw, 900px"
+		      fetchpriority="high">
+	<?php elseif ($meta->slug === 'how-it-works') : ?>
+		<link rel="preload" as="image"
+		      href="/static/images/screenshots/proposal-template-wizard.jpg?v=1"
+		      imagesrcset="/static/images/screenshots/proposal-template-wizard-800.jpg 782w, /static/images/screenshots/proposal-template-wizard.jpg 1675w"
+		      imagesizes="(max-width: 768px) 100vw, 900px"
+		      fetchpriority="high">
 	<?php endif; ?>
 
 	<link rel="stylesheet" type="text/css" href="/<?php echo get_revision('screen.css'); ?>">
