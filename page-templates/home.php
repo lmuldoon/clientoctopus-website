@@ -44,7 +44,7 @@ get_header();
 					<span class="browser-frame__url">clientoctopus.com/wp-admin/admin.php?page=clientoctopus</span>
 				</div> -->
 				<div class="browser-frame__content">
-					<img src="/static/images/screenshots/admin-plan-usage.jpg?v=1" alt="Wordpress plugin Client Octopus admin dashboard" width="1920" height="1180" fetchpriority="high" />
+					<img src="/static/images/screenshots/admin-plan-usage.jpg?v=1" srcset="/static/images/screenshots/admin-plan-usage-800.jpg 800w, /static/images/screenshots/admin-plan-usage.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus admin dashboard" width="1920" height="1180" fetchpriority="high" />
 				</div>
 			</div>
 		</div>
@@ -146,7 +146,7 @@ get_header();
 					</div>
 
 					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/proposal-template-wizard.jpg?v=1" alt="Wordpress plugin Client Octopus proposal builder" width="1675" height="1712" loading="lazy" />
+						<img src="/static/images/screenshots/proposal-template-wizard.jpg?v=1" srcset="/static/images/screenshots/proposal-template-wizard-800.jpg 782w, /static/images/screenshots/proposal-template-wizard.jpg 1675w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus proposal builder" width="1675" height="1712" loading="lazy" />
 					</div>
 
 				</div>
@@ -167,7 +167,7 @@ get_header();
 					</div>
 
 					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/admin-payment-notification.jpg?v=1" alt="Wordpress plugin Client Octopus payment notification email" width="1264" height="1058" loading="lazy" />
+						<img src="/static/images/screenshots/admin-payment-notification.jpg?v=1" srcset="/static/images/screenshots/admin-payment-notification-800.jpg 800w, /static/images/screenshots/admin-payment-notification.jpg 1264w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus payment notification email" width="1264" height="1058" loading="lazy" />
 					</div>
 
 				</div>
@@ -188,7 +188,7 @@ get_header();
 					</div>
 
 					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/admin-project-2.jpg?v=1" alt="Wordpress plugin Client Octopus admin project interface" width="1920" height="1441" loading="lazy" />
+						<img src="/static/images/screenshots/admin-project-2.jpg?v=1" srcset="/static/images/screenshots/admin-project-2-800.jpg 800w, /static/images/screenshots/admin-project-2.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus admin project interface" width="1920" height="1441" loading="lazy" />
 					</div>
 
 				</div>
@@ -209,7 +209,7 @@ get_header();
 					</div>
 
 					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/client-dashboard.jpg?v=1" alt="Wordpress plugin Client Octopus client dashboard" width="1920" height="1197" loading="lazy" />
+						<img src="/static/images/screenshots/client-dashboard.jpg?v=1" srcset="/static/images/screenshots/client-dashboard-800.jpg 800w, /static/images/screenshots/client-dashboard.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus client dashboard" width="1920" height="1197" loading="lazy" />
 					</div>
 
 				</div>

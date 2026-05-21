@@ -21,7 +21,7 @@ global $meta;
 	?>
 	<?php if ($IS_LIVE) { ?>
 		<!-- <script src="https://checkout.freemius.com/js/v1/" async></script> -->
-		<script src="https://cdn.cookiehub.eu/c2/beb87917.js"></script>
+		<script src="https://cdn.cookiehub.eu/c2/beb87917.js" defer></script>
 		<script type="text/javascript">
 			window.dataLayer = window.dataLayer || [];
 
@@ -66,6 +66,7 @@ global $meta;
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap">
 	<?php if ($meta->slug === 'home') : ?>
 		<link rel="preload" as="image" href="/static/images/screenshots/admin-plan-usage.jpg?v=1" fetchpriority="high">
 	<?php endif; ?>

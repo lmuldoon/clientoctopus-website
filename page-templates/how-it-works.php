@@ -60,7 +60,7 @@ get_header();
 					<p>Client Octopus includes a guided 5-step proposal builder with customisable templates, AI-assisted writing, and drag-and-drop content sections to help you create polished proposals quickly. It also supports dynamic pricing with VAT, discounts, deposits, and multi-currency handling to keep every proposal accurate and client-ready.</p>
 				</div>
 				<div class="feature__image animated-up">
-					<img src="/static/images/screenshots/proposal-template-wizard.jpg?v=1" alt="Wordpress plugin Client Octopus proposal builder" width="1675" height="1712" loading="lazy" />
+					<img src="/static/images/screenshots/proposal-template-wizard.jpg?v=1" srcset="/static/images/screenshots/proposal-template-wizard-800.jpg 782w, /static/images/screenshots/proposal-template-wizard.jpg 1675w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus proposal builder" width="1675" height="1712" loading="lazy" />
 				</div>
 			</div>
 		</div>
@@ -82,7 +82,7 @@ get_header();
 							<!-- <span class="browser-frame__url">wpClient Octopus.co.uk/wp-admin/admin.php?page=Client Octopus</span> -->
 						</div>
 						<div class="browser-frame__content">
-							<img src="/static/images/screenshots/client-proposal.jpg?v=2" alt="Wordpress plugin Client Octopus proposal example" width="1600" height="3538" loading="lazy" />
+							<img src="/static/images/screenshots/client-proposal.jpg?v=2" srcset="/static/images/screenshots/client-proposal-800.jpg 361w, /static/images/screenshots/client-proposal.jpg 1600w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus proposal example" width="1600" height="3538" loading="lazy" />
 						</div>
 					</div>
 					<!-- <img src="/static/images/screenshots/client-proposal.jpg?v=1" alt="WP Mailblox editor" width="1920" height="1080" /> -->
@@ -111,7 +111,7 @@ get_header();
 					<p>Automatic payment tracking, receipt generation, and email notifications keep every stage of the payment lifecycle organised for both sides.</p>
 				</div>
 				<div class="feature__image animated-up">
-					<img src="/static/images/screenshots/client-payment-confirmed.jpg?v=1" alt="Wordpress plugin Client Octopus payment confirmation" width="1675" height="2310" loading="lazy" />
+					<img src="/static/images/screenshots/client-payment-confirmed.jpg?v=1" srcset="/static/images/screenshots/client-payment-confirmed-800.jpg 714w, /static/images/screenshots/client-payment-confirmed.jpg 1675w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus payment confirmation" width="1675" height="2310" loading="lazy" />
 				</div>
 			</div>
 		</div>
@@ -142,7 +142,7 @@ get_header();
 					<p>Everything stays centralised, searchable, and tied to the original proposal and payment history — giving you a cleaner workflow and a more professional client experience.</p>
 				</div>
 				<div class="feature__image animated-up">
-					<img src="/static/images/screenshots/admin-project.jpg?v=1" alt="Wordpress plugin Client Octopus project interface" width="1920" height="1493" loading="lazy" />
+					<img src="/static/images/screenshots/admin-project.jpg?v=1" srcset="/static/images/screenshots/admin-project-800.jpg 800w, /static/images/screenshots/admin-project.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus project interface" width="1920" height="1493" loading="lazy" />
 				</div>
 			</div>
 		</div>
@@ -171,7 +171,7 @@ get_header();
 					<p>The portal keeps communication, project activity, files, and approvals organised in one streamlined experience that feels modern, professional, and easy to use.</p>
 				</div>
 				<div class="feature__image animated-up">
-					<img src="/static/images/screenshots/client-dashboard.jpg?v=2" alt="Wordpress plugin Client Octopus client dashboard" width="1920" height="1197" loading="lazy" />
+					<img src="/static/images/screenshots/client-dashboard.jpg?v=2" srcset="/static/images/screenshots/client-dashboard-800.jpg 800w, /static/images/screenshots/client-dashboard.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus client dashboard" width="1920" height="1197" loading="lazy" />
 				</div>
 			</div>
 		</div>
@@ -199,7 +199,7 @@ get_header();
 					<p>For you, that means fewer manual emails, fewer “just checking in” conversations, and a smoother experience for everyone involved.</p>
 				</div>
 				<div class="feature__image animated-up">
-					<img src="/static/images/screenshots/client-email.jpg?v=2" alt="Wordpress plugin Client Octopus email notification" width="1675" height="1858" loading="lazy" />
+					<img src="/static/images/screenshots/client-email.jpg?v=2" srcset="/static/images/screenshots/client-email-800.jpg 791w, /static/images/screenshots/client-email.jpg 1675w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus email notification" width="1675" height="1858" loading="lazy" />
 				</div>
 			</div>
 		</div>
@@ -228,7 +228,7 @@ get_header();
 					<p>Client Octopus also lets you export reporting data as CSV files, making it easy to share insights, analyse performance externally, or keep records for your business reporting workflows.</p>
 				</div>
 				<div class="feature__image animated-up">
-					<img src="/static/images/screenshots/admin-analytics.jpg?v=1" alt="Wordpress plugin Client Octopus analytics interface" width="1920" height="1663" loading="lazy" />
+					<img src="/static/images/screenshots/admin-analytics.jpg?v=1" srcset="/static/images/screenshots/admin-analytics-800.jpg 800w, /static/images/screenshots/admin-analytics.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus analytics interface" width="1920" height="1663" loading="lazy" />
 				</div>
 			</div>
 		</div>
@@ -255,7 +255,7 @@ get_header();
 					<p>With flexible event-based automation, Client Octopus becomes the central source of truth for your entire client workflow — powering everything from onboarding to delivery without manual updates.</p>
 				</div>
 				<div class="feature__image animated-up">
-					<img src="/static/images/screenshots/admin-webhooks.jpg?v=1" alt="Wordpress plugin Client Octopus webhooks interface" width="1920" height="1107" loading="lazy" />
+					<img src="/static/images/screenshots/admin-webhooks.jpg?v=1" srcset="/static/images/screenshots/admin-webhooks-800.jpg 800w, /static/images/screenshots/admin-webhooks.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus webhooks interface" width="1920" height="1107" loading="lazy" />
 				</div>
 			</div>
 		</div>
