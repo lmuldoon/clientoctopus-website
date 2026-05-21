@@ -50,7 +50,7 @@ get_header();
 						<li>CSV importers for clients, projects, and invoices</li>
 						<li>Migration guides for Dubsado, HoneyBook, FreshBooks, and QuickBooks</li>
 						<li>Elementor, Divi, Bricks, and ACF compatibility</li>
-						<li>Free plan: 3 proposals/month, 1 seat, no Stripe or portal</li>
+						<li>Free plan: unlimited proposals, 1 seat, no Stripe or portal</li>
 						<li>Pro plan: unlimited proposals, Stripe, view-only portal, 100 AI requests/month</li>
 						<li>Agency plan: 5 team seats, full portal, projects, messaging, 500 AI requests/month</li>
 					</ul>

@@ -147,7 +147,7 @@ get_header();
 				<p>While editing a proposal, highlight any text and use the AI toolbar to <strong>Improve</strong>, <strong>Shorten</strong>, make it more <strong>Persuasive</strong>, or <strong>Generate</strong> content from a brief. See the <a href="#ai">AI Features</a> section for quota details.</p>
 
 				<h3>Limits</h3>
-				<p>Free accounts can create <strong>3 proposals per calendar month</strong>. Pro and Agency have no monthly limit. The counter resets on the 1st of each month.</p>
+				<p>All plans, including Free, can create unlimited proposals. There is no monthly cap or counter.</p>
 			</section>
 
 			<!-- ─── CLIENT PORTAL ───────────────────────────────────────────── -->
@@ -431,8 +431,8 @@ get_header();
 					</thead>
 					<tbody>
 						<tr>
-							<td>Proposals per month</td>
-							<td>3</td>
+							<td>Proposals</td>
+							<td>Unlimited</td>
 							<td>Unlimited</td>
 							<td>Unlimited</td>
 						</tr>
