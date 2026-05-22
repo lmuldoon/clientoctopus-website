@@ -20,7 +20,7 @@ global $meta;
 	$IS_LIVE = preg_match($re, $_SERVER['SERVER_NAME']);
 	?>
 	<?php if ($IS_LIVE) { ?>
-		<!-- <script src="https://checkout.freemius.com/js/v1/" async></script> -->
+		<script src="https://checkout.freemius.com/js/v1/" async></script>
 		<script src="https://cdn.cookiehub.eu/c2/beb87917.js" defer></script>
 		<script type="text/javascript">
 			window.dataLayer = window.dataLayer || [];
