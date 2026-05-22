@@ -39,9 +39,13 @@ get_header();
 				<li><a href="#projects" class="docs-nav__link">Projects &amp; Milestones</a></li>
 				<li><a href="#team" class="docs-nav__link">Team Management</a></li>
 				<li><a href="#webhooks" class="docs-nav__link">Webhooks</a></li>
+				<li><a href="#analytics" class="docs-nav__link">Analytics</a></li>
 				<li><a href="#ai" class="docs-nav__link">AI Features</a></li>
 				<li><a href="#settings" class="docs-nav__link">Settings</a></li>
 				<li><a href="#free-vs-pro" class="docs-nav__link">Free vs Pro</a></li>
+				<li><a href="#troubleshooting" class="docs-nav__link">Troubleshooting</a></li>
+				<li><a href="#privacy" class="docs-nav__link">Privacy &amp; Data</a></li>
+				<li><a href="#api" class="docs-nav__link">REST API</a></li>
 			</ul>
 		</nav>
 
@@ -113,6 +117,10 @@ get_header();
 
 				<h3>Step 3 — Create and send a proposal</h3>
 				<p>Go to <strong>Client Octopus &rarr; Proposals &rarr; New Proposal</strong>. In the proposal builder, fill in the client&rsquo;s details (name, email, company, phone) — this automatically creates their client record. Build your proposal from the template library, set pricing, and optionally enable payment collection. When ready, click <strong>Send to Client</strong>. The client receives a magic-link email — no account required to view or accept.</p>
+
+				<div class="docs-callout docs-callout--tip">
+					<p><strong>Portal URLs returning 404?</strong> Go to <strong>Settings &rarr; Permalinks</strong> and click <strong>Save Changes</strong> to flush the rewrite rules. This only needs to be done once after activation.</p>
+				</div>
 			</section>
 
 			<!-- ─── PROPOSALS ───────────────────────────────────────────────── -->
@@ -324,8 +332,67 @@ get_header();
 				</ul>
 
 				<h3>Verifying payloads</h3>
-				<p>Every request includes an <code>X-Client Octopus-Signature</code> header containing an HMAC-SHA256 signature of the raw request body, signed with your webhook secret. Verify this on your endpoint before processing the payload. The last 3 delivery attempts for each webhook are logged and visible in the admin.</p>
+				<p>Every request includes an <code>X-ClientOctopus-Signature</code> header containing an HMAC-SHA256 signature of the raw request body, signed with your webhook secret. Verify this on your endpoint before processing the payload. The last 3 delivery attempts for each webhook are logged and visible in the admin.</p>
+
+				<h3>Example verification (PHP)</h3>
+<pre><code>$secret   = 'your_webhook_secret';
+$payload  = file_get_contents( 'php://input' );
+$header   = $_SERVER['HTTP_X_CLIENTOCTOPUS_SIGNATURE'] ?? '';
+$expected = 'sha256=' . hash_hmac( 'sha256', $payload, $secret );
+
+if ( ! hash_equals( $expected, $header ) ) {
+    http_response_code( 401 );
+    exit;
+}
+
+$data = json_decode( $payload, true );
+// Process $data['event'] and $data['payload'] here</code></pre>
 			</section>
+
+			<!-- ─── ANALYTICS ──────────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="analytics">
+				<h2>Analytics</h2>
+				<p>The analytics dashboard is available on <strong>Pro and Agency</strong> plans under <strong>Client Octopus &rarr; Analytics</strong>. It gives you an at-a-glance view of your proposal pipeline and revenue performance.</p>
+
+				<h3>Overview metrics</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Metric</th>
+							<th>What it shows</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Total Revenue</td>
+							<td>Sum of all completed payments in the selected period</td>
+						</tr>
+						<tr>
+							<td>Proposals Sent</td>
+							<td>Number of proposals sent to clients</td>
+						</tr>
+						<tr>
+							<td>Acceptance Rate</td>
+							<td>Percentage of sent proposals that were accepted</td>
+						</tr>
+						<tr>
+							<td>Avg. Time to Close</td>
+							<td>Median days between proposal sent and accepted</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h3>Revenue chart</h3>
+				<p>The revenue chart plots completed payment totals over time. Use the time filter (This Week / This Month / This Year) to narrow the view. Hover over data points to see exact figures.</p>
+
+				<h3>Proposal performance</h3>
+				<p>The proposal performance table breaks down each proposal by status, value, and close time, so you can see which types of work convert fastest and at what price point.</p>
+
+				<h3>Exporting data</h3>
+				<p>Click <strong>Export CSV</strong> on the analytics page to download all proposal and payment data for the selected period. The export includes proposal ID, client name, value, status, sent date, accepted date, and payment total — suitable for spreadsheets, accountants, or external reporting tools.</p>
+			</section>
+
 
 			<!-- ─── AI ───────────────────────────────────────────────────────── -->
 
@@ -368,7 +435,7 @@ get_header();
 				<p>A 3-second cooldown applies between requests. Quotas reset on the 1st of each month. Shared across your team on Agency.</p>
 
 				<h3>How it works</h3>
-				<p>AI requests are processed through a Client Octopus relay server. Your WordPress site never calls the AI provider directly. This keeps your credentials private and allows Client Octopus to track costs and enforce plan quotas server-side.</p>
+				<p>AI requests are processed through a Client Octopus relay server. Your WordPress site never calls the AI provider directly. This keeps your credentials private and allows Client Octopus to track costs and enforce plan quotas server-side. Proposal text is sent to the relay only when you trigger an AI action and is not retained after the response is returned.</p>
 			</section>
 
 			<!-- ─── SETTINGS ────────────────────────────────────────────────── -->
@@ -522,6 +589,115 @@ get_header();
 						</tr>
 					</tbody>
 				</table>
+			</section>
+
+
+			<!-- ─── TROUBLESHOOTING ─────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="troubleshooting">
+				<h2>Troubleshooting</h2>
+
+				<h3>Client portal pages return 404</h3>
+				<p>WordPress registers the portal URL on activation. If the pages return 404, the rewrite rules need to be flushed:</p>
+				<ol>
+					<li>Go to <strong>Settings &rarr; Permalinks</strong> in the WordPress admin.</li>
+					<li>Click <strong>Save Changes</strong> without changing anything.</li>
+					<li>Reload the portal page.</li>
+				</ol>
+				<p>This only needs to be done once. If the 404 persists after flushing, check that your web server has <code>mod_rewrite</code> enabled and that <code>.htaccess</code> is writable by WordPress.</p>
+
+				<h3>Stripe webhook not delivering</h3>
+				<p>If payment events are not reaching Client Octopus, work through this checklist:</p>
+				<ul>
+					<li><strong>Correct events selected</strong> — the endpoint must be subscribed to at minimum <code>payment_intent.succeeded</code> and <code>checkout.session.completed</code>. Check <strong>Stripe Dashboard &rarr; Webhooks &rarr; [your endpoint] &rarr; Events</strong>.</li>
+					<li><strong>Signing secret copied correctly</strong> — the webhook signing secret (starting with <code>whsec_</code>) must match the value saved in <strong>Client Octopus &rarr; Settings &rarr; Stripe</strong>. It is different from your API secret key.</li>
+					<li><strong>Endpoint is publicly accessible</strong> — Stripe cannot reach <code>localhost</code> or sites behind a VPN. Use a live URL or the <a href="https://stripe.com/docs/stripe-cli" rel="noopener noreferrer" target="_blank">Stripe CLI</a> (<code>stripe listen --forward-to</code>) for local testing.</li>
+					<li><strong>Test with the Stripe CLI</strong> — run <code>stripe trigger payment_intent.succeeded</code> and check the Client Octopus activity log to confirm receipt.</li>
+				</ul>
+
+				<h3>Emails not sending</h3>
+				<p>Client Octopus sends email via <code>wp_mail()</code>. If emails are not arriving, check your WordPress mail configuration — many hosts block outgoing PHP mail by default. Install an SMTP plugin (e.g. WP Mail SMTP) and configure a transactional mail provider such as Postmark, SendGrid, or Mailgun.</p>
+			</section>
+
+
+			<!-- ─── PRIVACY & DATA ──────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="privacy">
+				<h2>Privacy &amp; Data</h2>
+
+				<h3>Where your data is stored</h3>
+				<p>All client data — names, email addresses, proposal content, project activity, and file attachments — is stored in your own WordPress database on your own server. Client Octopus does not copy or transmit this data to external servers except where explicitly described below.</p>
+
+				<h3>AI relay</h3>
+				<p>When you trigger an AI action in the proposal editor, the selected proposal text is sent to the Client Octopus relay server to process the request. The text is not stored after the response is returned. The relay does not share your content with third parties. No AI actions are triggered automatically — data is only sent when you explicitly click an AI action button.</p>
+
+				<h3>Payments</h3>
+				<p>Payment card details are handled entirely by Stripe and never pass through your WordPress site or the Client Octopus relay. Client Octopus stores only the Stripe payment intent ID, checkout session ID, and payment status — never card numbers, CVVs, or bank details.</p>
+
+				<h3>Client portal authentication</h3>
+				<p>Clients authenticate via a short-lived magic link sent to their email address. Tokens are single-use and expire after 15 minutes. Session cookies are scoped to your domain and are not shared with any third party.</p>
+
+				<h3>GDPR considerations</h3>
+				<p>Because all client data lives in your database, you are the data controller. You are responsible for your own privacy policy, cookie notice, and any data subject requests from your clients. Client Octopus does not act as a data processor on your behalf beyond the AI relay described above.</p>
+			</section>
+
+
+			<!-- ─── REST API ────────────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="api">
+				<h2>REST API</h2>
+				<p>Client Octopus exposes a REST API under the base path <code>/wp-json/clientoctopus/v1/</code>. All endpoints return JSON.</p>
+
+				<h3>Authentication</h3>
+				<p>Admin endpoints require a WordPress nonce passed in the <code>X-WP-Nonce</code> header (the calling user must be logged in to WordPress and have the <code>manage_clientoctopus</code> capability). Client-facing portal routes accept either a short-lived portal token (passed as a query parameter or <code>Authorization: Bearer</code> header) or a portal session cookie.</p>
+
+				<h3>Admin endpoints</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Method</th>
+							<th>Route</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td>GET</td><td><code>/proposals</code></td><td>List proposals</td></tr>
+						<tr><td>POST</td><td><code>/proposals/create</code></td><td>Create a proposal</td></tr>
+						<tr><td>POST</td><td><code>/proposals/{id}/send</code></td><td>Send proposal to client</td></tr>
+						<tr><td>POST</td><td><code>/proposals/{id}/duplicate</code></td><td>Clone a proposal</td></tr>
+						<tr><td>GET</td><td><code>/projects</code></td><td>List projects (Agency)</td></tr>
+						<tr><td>GET</td><td><code>/projects/{id}</code></td><td>Project details + milestones</td></tr>
+						<tr><td>POST</td><td><code>/ai/process</code></td><td>AI text action (improve / shorten / persuasive / generate)</td></tr>
+						<tr><td>GET</td><td><code>/analytics/overview</code></td><td>Revenue KPIs and chart data</td></tr>
+						<tr><td>GET</td><td><code>/webhooks</code></td><td>List configured webhooks</td></tr>
+						<tr><td>POST</td><td><code>/webhooks</code></td><td>Register a webhook</td></tr>
+						<tr><td>POST</td><td><code>/webhooks/{id}/test</code></td><td>Send a test ping</td></tr>
+						<tr><td>GET</td><td><code>/user/usage</code></td><td>Live usage stats (AI, proposals, storage, team)</td></tr>
+					</tbody>
+				</table>
+
+				<h3>Client-facing portal endpoints</h3>
+				<p>These routes do not require a WordPress login and are used by the client portal frontend.</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Method</th>
+							<th>Route</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td>GET</td><td><code>/client/proposals/{token}</code></td><td>View a proposal</td></tr>
+						<tr><td>POST</td><td><code>/client/proposals/{token}/accept</code></td><td>Accept a proposal</td></tr>
+						<tr><td>POST</td><td><code>/portal/send-magic-link</code></td><td>Request a magic link</td></tr>
+						<tr><td>POST</td><td><code>/portal/verify</code></td><td>Verify token and log in</td></tr>
+						<tr><td>GET</td><td><code>/portal/projects/{id}</code></td><td>Client project view</td></tr>
+					</tbody>
+				</table>
+
+				<div class="docs-callout docs-callout--info">
+					<p><strong>API stability:</strong> The REST API is currently internal and subject to change between minor versions. If you build integrations against it, pin your plugin version and test on upgrades. A stable, versioned public API is planned for a future release.</p>
+				</div>
 			</section>
 
 		</div><!-- /.docs-content -->
