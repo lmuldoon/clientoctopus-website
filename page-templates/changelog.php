@@ -28,6 +28,20 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.0.1</h2>
+					<span class="changelog-entry__date">July 2026</span>
+					<span class="badge badge--release">Bug Fix</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>Fixes</h3>
+					<ul>
+						<li>Onboarding wizard failed on servers that redirect URLs to add a trailing slash, causing POST requests to be converted to GET requests</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.0.0</h2>
 					<span class="changelog-entry__date">May 2026</span>
 					<span class="badge badge--release">Initial Release</span>
