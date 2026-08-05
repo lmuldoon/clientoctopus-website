@@ -80,6 +80,7 @@ get_header();
 					<ul class="card-list">
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>One proposal flow</span></li>
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Instant payments</span></li>
+						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Built-in invoicing</span></li>
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Client portal</span></li>
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Project tracking</span></li>
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Automatic notifications</span></li>
@@ -141,6 +142,7 @@ get_header();
 							<li>Pre-built templates</li>
 							<li>Guided 5-step proposal builder</li>
 							<li>Secure client approval links</li>
+							<li>Client e-signature on acceptance</li>
 							<li>AI-assisted proposal writing</li>
 						</ul>
 					</div>
@@ -161,6 +163,7 @@ get_header();
 						<ul class="features__list">
 							<li>Accept deposits and final payments</li>
 							<li>One-click "accept & pay" flow</li>
+							<li>Standalone invoices with Stripe Pay Now</li>
 							<li>Payment status tracking</li>
 							<li>Automatic email notifications</li>
 						</ul>
@@ -248,7 +251,7 @@ get_header();
 						<iconify-icon icon="lucide:file-text" width="22" height="22"></iconify-icon>
 					</div>
 					<h3>From proposal to payment</h3>
-					<p>Create proposals, collect deposits, request final balances, and track payments without switching between multiple tools.</p>
+					<p>Create proposals, send standalone invoices, collect deposits, request final balances, and track payments without switching between multiple tools.</p>
 				</div>
 
 				<div class="feature-cell">
@@ -280,7 +283,7 @@ get_header();
 						<iconify-icon icon="lucide:zap" width="22" height="22"></iconify-icon>
 					</div>
 					<h3>Automate repetitive admin work</h3>
-					<p>Trigger emails, payment requests, project creation, and external workflows automatically with built-in automation and webhooks.</p>
+					<p>Automated reminders follow up on stalled proposals, while payment requests, project creation, and external workflows trigger automatically with built-in automation and webhooks.</p>
 				</div>
 
 				<div class="feature-cell">
@@ -332,6 +335,9 @@ get_header();
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Track viewed, accepted, and declined proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated status notification emails</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Standalone invoices</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated proposal reminders</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client e-signature</li>
 					</ul>
 					<a class="button button--ghost plan-button" data-plan-id="48154" style="width:100%; justify-content:center;" href="#">Download free</a>
 				</div>
@@ -350,8 +356,12 @@ get_header();
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Track viewed, accepted, and declined proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated status notification emails</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Standalone invoices</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated proposal reminders</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client e-signature</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client portal</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe payments</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe "Pay Now" on invoices</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Analytics</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated testimonial request</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 100 AI requests/month</li>
@@ -373,8 +383,12 @@ get_header();
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Track viewed, accepted, and declined proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated status notification emails</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Standalone invoices</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated proposal reminders</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client e-signature</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client portal</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe payments</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe "Pay Now" on invoices</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Analytics</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated testimonial request</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 500 AI requests/month</li>

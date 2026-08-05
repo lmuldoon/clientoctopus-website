@@ -7,7 +7,7 @@
 global $meta;
 
 $meta->title = 'How It Works - Client Octopus';
-$meta->description = 'Learn how Client Octopus works — create proposals, send them to clients, collect payments, and manage the entire client workflow inside WordPress.';
+$meta->description = 'See how Client Octopus lets you create proposals, send them to clients, collect payments, and manage your entire client workflow inside WordPress.';
 $meta->slug = 'how-it-works';
 
 get_header();
@@ -26,7 +26,7 @@ get_header();
 
 				<h1 class="text-white">Everything from proposal to delivery in one workflow</h1>
 
-				<p class="hero__lede text-white">Client Octopus connects proposals, payments, projects, client communication, and delivery into one seamless system inside WordPress.</p>
+				<p class="hero__lede text-white">Client Octopus connects proposals, invoices, payments, projects, client communication, and delivery into one seamless system inside WordPress.</p>
 
 				<div class="hero__actions">
 					<a class="button button--primary plan-button" data-plan-id="48154" href="#">Get Client Octopus free</a>
@@ -45,7 +45,7 @@ get_header();
 		<div class="container animated-up">
 			<p class="section-eyebrow">Proposals</p>
 			<h2 class="section-heading">Create proposals that look professional and close faster</h2>
-			<p class="section-lede">Build polished client proposals in minutes with a guided workflow, reusable templates, automated pricing calculations, and AI-assisted writing. Send proposals through a branded client experience where clients can review, request changes, accept, and pay — all from a secure link without needing an account.</p>
+			<p class="section-lede">Build polished client proposals in minutes with a guided workflow, reusable templates, automated pricing calculations, and AI-assisted writing. Send proposals through a branded client experience where clients can review, request changes, accept, and pay, all from a secure link without needing an account.</p>
 
 			<p class="section-lede">Client Octopus handles the entire proposal lifecycle for you, from draft to payment, with built-in tracking, automated notifications, Stripe integration, and seamless project creation when work is approved.</p>
 		</div>
@@ -95,7 +95,7 @@ get_header();
 		<div class="container animated-up">
 			<p class="section-eyebrow">Payments</p>
 			<h2 class="section-heading">Get paid faster without leaving WordPress</h2>
-			<p class="section-lede">Turn accepted proposals into real payments instantly with built-in Stripe integration, automated deposit handling, and seamless client checkout flows. Client Octopus keeps proposals, invoices, payment requests, and project balances connected in one system — so you always know what's been paid, what's outstanding, and what happens next.</p>
+			<p class="section-lede">Turn accepted proposals into real payments instantly with built-in Stripe integration, automated deposit handling, and seamless client checkout flows. Client Octopus keeps proposals, invoices, payment requests, and project balances connected in one system, so you always know what's been paid, what's outstanding, and what happens next.</p>
 
 			<p class="section-lede">From deposits to final balances, the payment experience is designed to feel simple for clients and effortless for you.</p>
 		</div>
@@ -107,7 +107,7 @@ get_header();
 			<div class="feature__container">
 				<div class="feature__content stack animated-up">
 					<h3>A smoother payment experience for you and your clients</h3>
-					<p>Clients can review pricing, pay deposits or final balances, download receipts, and complete the entire approval process directly from their proposal or client portal — without separate invoices, confusing payment links, or endless email follow-ups.</p>
+					<p>Clients can review pricing, pay deposits or final balances, download receipts, and complete the entire approval process directly from their proposal or client portal, without confusing payment links or endless email follow-ups.</p>
 					<p>Automatic payment tracking, receipt generation, and email notifications keep every stage of the payment lifecycle organised for both sides.</p>
 				</div>
 				<div class="feature__image animated-up">
@@ -123,11 +123,38 @@ get_header();
 
 	<section class="section section--feature">
 		<div class="container animated-up">
+			<p class="section-eyebrow">Invoices</p>
+			<h2 class="section-heading">Send invoices without waiting on a proposal</h2>
+			<p class="section-lede">Standalone invoices are a separate workflow from proposals, available on every plan including Free. Assign a client, add line items with VAT and discounts, and send an auto-numbered invoice directly to their inbox, with no proposal required first.</p>
+
+			<p class="section-lede">Clients pay how it suits your plan: mark invoices as paid manually once a bank transfer lands, or let Stripe's "Pay Now" button collect payment automatically and update the invoice status for you.</p>
+		</div>
+	</section>
+
+
+	<section class="section section--feature pt-0">
+		<div class="container">
+			<div class="feature__container feature__container-right">
+				<div class="feature__content stack animated-up">
+					<h3>A dedicated invoice page your clients can pay from</h3>
+					<p>Clients open their invoice at a secure link (no login required) and see a clean, itemised breakdown with VAT, discounts, and the due date. The page supports browser printing to a tidy A4 layout, so clients who need a paper or PDF copy for their own records are covered too.</p>
+					<p>On Pro and Agency, a "Pay Now" button creates a Stripe Checkout session on demand. Once Stripe confirms payment, the invoice is automatically marked paid via webhook, with no manual reconciliation needed.</p>
+				</div>
+				<div class="feature__image animated-up">
+					<img src="/static/images/screenshots/client-invoice.jpg" alt="Wordpress plugin Client Octopus client-facing invoice page" width="1060" height="1059" loading="lazy" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="section section--feature">
+		<div class="container animated-up">
 			<p class="section-eyebrow">Projects</p>
 			<h2 class="section-heading">Keep every client project organised in one place</h2>
 			<p class="section-lede">When a proposal is accepted, Client Octopus automatically creates a project workspace where you can manage progress, track activity, communicate with clients, and keep everything related to the job connected in one system.</p>
 
-			<p class="section-lede">Instead of juggling email threads, shared drives, and separate project tools, every project stays organised inside your WordPress dashboard — from kickoff to final delivery.</p>
+			<p class="section-lede">Instead of juggling email threads, shared drives, and separate project tools, every project stays organised inside your WordPress dashboard, from kickoff to final delivery.</p>
 		</div>
 	</section>
 
@@ -139,7 +166,7 @@ get_header();
 					<h3>Turn approved work into structured projects automatically</h3>
 					<p>Accepted proposals instantly become active projects with timelines, activity tracking, client messaging, file management, and status updates already connected. Your team and clients always know what's happening, what's been delivered, and what still needs attention.</p>
 
-					<p>Everything stays centralised, searchable, and tied to the original proposal and payment history — giving you a cleaner workflow and a more professional client experience.</p>
+					<p>Everything stays centralised, searchable, and tied to the original proposal and payment history, giving you a cleaner workflow and a more professional client experience.</p>
 				</div>
 				<div class="feature__image animated-up">
 					<img src="/static/images/screenshots/admin-project.jpg?v=1" srcset="/static/images/screenshots/admin-project-800.jpg 800w, /static/images/screenshots/admin-project.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus project interface" width="1920" height="1493" loading="lazy" />
@@ -156,7 +183,7 @@ get_header();
 			<p class="section-eyebrow">Client Portal</p>
 			<h2 class="section-heading">Give clients a professional portal they'll actually use</h2>
 			<p class="section-lede">Client Octopus includes a dedicated client portal where clients can view proposals, track project progress, upload files, review deliverables, download receipts, and stay connected throughout the entire project lifecycle.</p>
-			<p class="section-lede">Instead of relying on scattered email threads and shared folders, clients get one branded space to access everything related to their work — directly inside your WordPress site.</p>
+			<p class="section-lede">Instead of relying on scattered email threads and shared folders, clients get one branded space to access everything related to their work, directly inside your WordPress site.</p>
 		</div>
 	</section>
 
@@ -182,7 +209,7 @@ get_header();
 		<div class="container animated-up">
 			<p class="section-eyebrow">Notifications</p>
 			<h2 class="section-heading">Keep clients informed automatically at every stage</h2>
-			<p class="section-lede">Client Octopus sends automated email notifications throughout the entire client lifecycle — from proposal delivery and payment confirmations to project updates, approval requests, and completed work notifications.</p>
+			<p class="section-lede">Client Octopus sends automated email notifications throughout the entire client lifecycle, from proposal delivery and payment confirmations to project updates, approval requests, and completed work notifications.</p>
 
 			<p class="section-lede">Every interaction stays clear, professional, and timely without requiring manual follow-ups or repetitive admin work.</p>
 		</div>
@@ -194,7 +221,7 @@ get_header();
 			<div class="feature__container feature__container-right">
 				<div class="feature__content stack animated-up">
 					<h3>Professional communication without the constant follow-ups</h3>
-					<p>Clients automatically receive branded email notifications whenever proposals are viewed, payments are completed, files are shared, approvals are requested, or project statuses change — helping projects move forward without missed messages or confusion.</p>
+					<p>Clients automatically receive branded email notifications whenever proposals are viewed, payments are completed, files are shared, approvals are requested, or project statuses change, helping projects move forward without missed messages or confusion.</p>
 
 					<p>For you, that means fewer manual emails, fewer “just checking in” conversations, and a smoother experience for everyone involved.</p>
 				</div>
@@ -239,7 +266,7 @@ get_header();
 		<div class="container animated-up">
 			<p class="section-eyebrow">Webhooks & Automation</p>
 			<h2 class="section-heading">Connect Client Octopus to the tools you already use</h2>
-			<p class="section-lede">Client Octopus includes webhook and automation support so every key action in your workflow can trigger external tools, internal systems, or third-party integrations. From proposal creation and acceptance to payments, project updates, and completion events — you can automate your entire client lifecycle without manual intervention.</p>
+			<p class="section-lede">Client Octopus includes webhook and automation support so every key action in your workflow can trigger external tools, internal systems, or third-party integrations. From proposal creation and acceptance to payments, project updates, and completion events, you can automate your entire client lifecycle without manual intervention.</p>
 
 			<p class="section-lede">Build workflows that connect Client Octopus to your existing stack and remove repetitive admin work from your day-to-day process.</p>
 		</div>
@@ -252,7 +279,7 @@ get_header();
 				<div class="feature__content stack animated-up">
 					<h3>Automate your client workflow end-to-end</h3>
 					<p>Trigger real-time webhooks when proposals are sent, viewed, accepted, or declined, when payments are completed, or when projects are created and updated. Connect Client Octopus to tools like Zapier, CRMs, project management platforms, spreadsheets, and internal systems to automate your entire workflow.</p>
-					<p>With flexible event-based automation, Client Octopus becomes the central source of truth for your entire client workflow — powering everything from onboarding to delivery without manual updates.</p>
+					<p>With flexible event-based automation, Client Octopus becomes the central source of truth for your entire client workflow, powering everything from onboarding to delivery without manual updates.</p>
 				</div>
 				<div class="feature__image animated-up">
 					<img src="/static/images/screenshots/admin-webhooks.jpg?v=1" srcset="/static/images/screenshots/admin-webhooks-800.jpg 800w, /static/images/screenshots/admin-webhooks.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus webhooks interface" width="1920" height="1107" loading="lazy" />
