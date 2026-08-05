@@ -28,6 +28,28 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.1.1</h2>
+					<span class="changelog-entry__date">August 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Client portal Invoices tab — authenticated clients can view all their sent, paid, and overdue invoices with status badges, amounts, and a direct link to the invoice page</li>
+						<li>Invoice payments in portal Payment History — paid invoices now appear in a dedicated Invoice Payments table alongside proposal payments</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>Invoice status not updating after Stripe payment — the invoice success page now triggers the paid status write-through immediately on return from Stripe Checkout</li>
+						<li>Invoice client name showing as "—" in the admin invoices list — the query now joins the clients table correctly</li>
+						<li>Re-send option for sent and overdue invoices — invoices can now be re-sent without being restricted to draft status only</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.1.0</h2>
 					<span class="changelog-entry__date">August 2026</span>
 					<span class="badge badge--release">New Feature</span>
