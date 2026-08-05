@@ -34,11 +34,13 @@ get_header();
 				<li><a href="#installation" class="docs-nav__link">Installation</a></li>
 				<li><a href="#quick-start" class="docs-nav__link">Quick Start</a></li>
 				<li><a href="#proposals" class="docs-nav__link">Proposals</a></li>
+				<li><a href="#invoices" class="docs-nav__link">Invoices</a></li>
 				<li><a href="#client-portal" class="docs-nav__link">Client Portal</a></li>
 				<li><a href="#payments" class="docs-nav__link">Payments &amp; Stripe</a></li>
 				<li><a href="#projects" class="docs-nav__link">Projects &amp; Milestones</a></li>
 				<li><a href="#team" class="docs-nav__link">Team Management</a></li>
 				<li><a href="#webhooks" class="docs-nav__link">Webhooks</a></li>
+				<li><a href="#automations" class="docs-nav__link">Automated Reminders</a></li>
 				<li><a href="#analytics" class="docs-nav__link">Analytics</a></li>
 				<li><a href="#ai" class="docs-nav__link">AI Features</a></li>
 				<li><a href="#settings" class="docs-nav__link">Settings</a></li>
@@ -145,6 +147,9 @@ get_header();
 				<h3>Editing proposal content</h3>
 				<p>After creating a proposal, the proposal detail screen shows a summary of the settings (client, pricing, payment options). To write or edit the actual proposal content — sections, text, and line items — click the <strong>Edit Content</strong> button. This opens the full proposal editor where you can build out your proposal before sending it to the client.</p>
 
+				<h3>E-signature</h3>
+				<p>When a client accepts a proposal, they're prompted to type their full legal name and confirm a checkbox in a signing modal. The typed name and acceptance timestamp are recorded on the proposal and visible in the admin.</p>
+
 				<h3>Templates</h3>
 				<p>The template library provides preset proposal layouts. Start from a template and customise content, line items, and pricing per client. Templates are filtered by your current plan.</p>
 
@@ -156,6 +161,25 @@ get_header();
 
 				<h3>Limits</h3>
 				<p>All plans, including Free, can create unlimited proposals. There is no monthly cap or counter.</p>
+			</section>
+
+			<!-- ─── INVOICES ────────────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="invoices">
+				<h2>Invoices</h2>
+				<p>Standalone invoices are separate from proposals and available on <strong>every plan</strong>, including Free. Use them when you need to bill a client directly without going through the proposal workflow.</p>
+
+				<h3>Creating and sending an invoice</h3>
+				<p>Go to <strong>Client Octopus &rarr; Invoices &rarr; New Invoice</strong>. Assign a client, add line items, and optionally apply a discount and VAT. Each invoice is auto-numbered (<code>INV-0001</code>, <code>INV-0002</code>, &hellip;). Click <strong>Send</strong> to email the client a link to their invoice — no WordPress account required to view it.</p>
+
+				<h3>Statuses</h3>
+				<p>Invoices move through <strong>Draft &rarr; Sent &rarr; Paid</strong>, with <strong>Overdue</strong> applied automatically once the due date passes and <strong>Cancelled</strong> available at any point before payment.</p>
+
+				<h3>Client-facing invoice page</h3>
+				<p>Clients view their invoice at a unique link, with no login required. The page supports browser printing to a clean, A4-formatted layout — useful for clients who need a paper or PDF copy for their own records.</p>
+
+				<h3>Getting paid</h3>
+				<p>On the <strong>Free</strong> plan, clients pay you directly (e.g. bank transfer) and you mark the invoice as <strong>Paid</strong> manually from the admin. On <strong>Pro and Agency</strong>, a <strong>Pay Now</strong> button appears on the client-facing invoice page — it creates a Stripe Checkout session on demand, and the invoice is automatically marked paid once Stripe confirms the payment via webhook.</p>
 			</section>
 
 			<!-- ─── CLIENT PORTAL ───────────────────────────────────────────── -->
@@ -329,6 +353,15 @@ get_header();
 					<li><code>payment.completed</code></li>
 					<li><code>project.created</code></li>
 					<li><code>project.completed</code></li>
+					<li><code>invoice.sent</code></li>
+					<li><code>invoice.paid</code></li>
+					<li><code>invoice.overdue</code></li>
+					<li><code>invoice.cancelled</code></li>
+					<li><code>milestone.submitted</code></li>
+					<li><code>milestone.approved</code></li>
+					<li><code>milestone.completed</code></li>
+					<li><code>approval.responded</code></li>
+					<li><code>message.sent</code></li>
 				</ul>
 
 				<h3>Verifying payloads</h3>
@@ -347,6 +380,40 @@ if ( ! hash_equals( $expected, $header ) ) {
 
 $data = json_decode( $payload, true );
 // Process $data['event'] and $data['payload'] here</code></pre>
+			</section>
+
+			<!-- ─── AUTOMATED REMINDERS ─────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="automations">
+				<h2>Automated Reminders</h2>
+				<p>Automated reminders are available on <strong>every plan</strong>, including Free. They send follow-up emails to clients on your behalf so proposals don't stall waiting on a response.</p>
+
+				<h3>Triggers</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Trigger</th>
+							<th>Fires when</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Not viewed</td>
+							<td>A sent proposal hasn't been opened by the client</td>
+						</tr>
+						<tr>
+							<td>Not accepted</td>
+							<td>A viewed proposal hasn't been accepted, declined, or had revisions requested</td>
+						</tr>
+						<tr>
+							<td>Expiring soon</td>
+							<td>A proposal's expiry date is approaching and it's still awaiting a response</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h3>Configuring delays</h3>
+				<p>Each trigger has its own configurable delay, in days, under <strong>Client Octopus &rarr; Settings &rarr; Automations</strong>. Reminders are checked once daily via WordPress cron, so a change to the delay takes effect on the next daily run.</p>
 			</section>
 
 			<!-- ─── ANALYTICS ──────────────────────────────────────────────── -->
@@ -558,6 +625,24 @@ $data = json_decode( $payload, true );
 							<td>Full</td>
 						</tr>
 						<tr>
+							<td>Invoices</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+						</tr>
+						<tr>
+							<td>Stripe "Pay Now" on invoices</td>
+							<td>&mdash;</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+						</tr>
+						<tr>
+							<td>Automated reminders</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+						</tr>
+						<tr>
 							<td>Projects &amp; milestones</td>
 							<td>&mdash;</td>
 							<td>&mdash;</td>
@@ -673,6 +758,12 @@ $data = json_decode( $payload, true );
 						<tr><td>POST</td><td><code>/webhooks</code></td><td>Register a webhook</td></tr>
 						<tr><td>POST</td><td><code>/webhooks/{id}/test</code></td><td>Send a test ping</td></tr>
 						<tr><td>GET</td><td><code>/user/usage</code></td><td>Live usage stats (AI, proposals, storage, team)</td></tr>
+						<tr><td>GET</td><td><code>/invoices</code></td><td>List invoices</td></tr>
+						<tr><td>POST</td><td><code>/invoices/create</code></td><td>Create an invoice</td></tr>
+						<tr><td>POST</td><td><code>/invoices/{id}/send</code></td><td>Send invoice to client</td></tr>
+						<tr><td>POST</td><td><code>/invoices/{id}/mark-paid</code></td><td>Mark an invoice as paid manually</td></tr>
+						<tr><td>GET</td><td><code>/automations</code></td><td>List automation reminder settings</td></tr>
+						<tr><td>POST</td><td><code>/automations/{trigger}</code></td><td>Update a reminder trigger's settings</td></tr>
 					</tbody>
 				</table>
 
@@ -692,6 +783,8 @@ $data = json_decode( $payload, true );
 						<tr><td>POST</td><td><code>/portal/send-magic-link</code></td><td>Request a magic link</td></tr>
 						<tr><td>POST</td><td><code>/portal/verify</code></td><td>Verify token and log in</td></tr>
 						<tr><td>GET</td><td><code>/portal/projects/{id}</code></td><td>Client project view</td></tr>
+						<tr><td>GET</td><td><code>/invoices/public/{token}</code></td><td>View an invoice</td></tr>
+						<tr><td>POST</td><td><code>/invoices/{id}/pay</code></td><td>Create a Stripe checkout session for an invoice (Pro/Agency)</td></tr>
 					</tbody>
 				</table>
 

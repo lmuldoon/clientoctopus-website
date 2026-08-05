@@ -28,6 +28,24 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.1.0</h2>
+					<span class="changelog-entry__date">August 2026</span>
+					<span class="badge badge--release">New Feature</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Standalone invoices — create auto-numbered invoices (INV-0001…), assign clients, add line items, discounts, and VAT, then send to clients via email. Client-facing invoice page supports browser printing to a clean A4 layout</li>
+						<li>Stripe "Pay Now" button on client-facing invoices (Pro) — Stripe Checkout is created on demand; invoice auto-marks as paid via webhook</li>
+						<li>E-signature on proposal acceptance — clients type their full legal name and confirm a checkbox in a signing modal; the signed certificate is recorded on the proposal and visible in the admin</li>
+						<li>Automated proposal reminder emails — three configurable triggers: proposal not viewed, not accepted, and expiring soon. Cron-based, runs daily</li>
+						<li>Expanded outbound webhook events — 12+ events now covering the full proposal and invoice lifecycle, including invoice.sent, invoice.paid, invoice.overdue, and invoice.cancelled</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.0.1</h2>
 					<span class="changelog-entry__date">July 2026</span>
 					<span class="badge badge--release">Bug Fix</span>
