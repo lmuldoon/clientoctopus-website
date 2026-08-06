@@ -7,7 +7,7 @@
 global $meta;
 
 $meta->title = 'Client Octopus — The Client OS for WordPress Freelancers';
-$meta->description = 'Create proposals, take payments, and manage clients through a white-label portal — all inside your WordPress site.';
+$meta->description = 'Create proposals, invoices, take payments, and manage clients through a white-label portal — all inside your WordPress site.';
 $meta->slug = 'home';
 
 get_header();
@@ -62,37 +62,9 @@ get_header();
 			<h2 class="section-heading">Running client work shouldn't require multiple tools</h2>
 			<p class="section-lede">Most freelancers juggle proposals, invoices, email threads, Google Drive, and project trackers just to deliver one project.</p>
 			<p class="section-lede">Client Octopus brings the entire client lifecycle into WordPress — from proposal to payment to delivery.</p>
-			<div class="card-grid">
-
-				<div class="card card--before">
-					<span class="card__title">Before Client Octopus</span>
-					<ul class="card-list">
-						<li><iconify-icon class="card-list__icon card-list__icon--no" icon="lucide:x" width="14" height="14"></iconify-icon><span>PDF proposals</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--no" icon="lucide:x" width="14" height="14"></iconify-icon><span>Payment links</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--no" icon="lucide:x" width="14" height="14"></iconify-icon><span>Endless email threads</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--no" icon="lucide:x" width="14" height="14"></iconify-icon><span>"Did you receive the invoice?"</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--no" icon="lucide:x" width="14" height="14"></iconify-icon><span>Scattered client files</span></li>
-					</ul>
-				</div>
-
-				<div class="card card--after">
-					<span class="card__title card__title--after">After Client Octopus</span>
-					<ul class="card-list">
-						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>One proposal flow</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Instant payments</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Built-in invoicing</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Client portal</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Project tracking</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Automatic notifications</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Approvals + delivery</span></li>
-					</ul>
-				</div>
-
-			</div>
 
 		</div>
 	</section>
-
 
 
 	<!-- ═══════════════════════════════════════════════════════════════════════════

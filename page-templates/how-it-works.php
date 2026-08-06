@@ -7,7 +7,7 @@
 global $meta;
 
 $meta->title = 'How It Works - Client Octopus';
-$meta->description = 'See how Client Octopus lets you create proposals, send them to clients, collect payments, and manage your entire client workflow inside WordPress.';
+$meta->description = 'See how Client Octopus lets you create proposals, invoices, send them to clients, collect payments, and manage your entire client workflow inside WordPress.';
 $meta->slug = 'how-it-works';
 
 get_header();
@@ -148,7 +148,7 @@ get_header();
 	</section>
 
 
-	<section class="section section--feature">
+	<section class="section section--feature bg-stone">
 		<div class="container animated-up">
 			<p class="section-eyebrow">Projects</p>
 			<h2 class="section-heading">Keep every client project organised in one place</h2>
@@ -159,7 +159,7 @@ get_header();
 	</section>
 
 
-	<section class="section section--feature pt-0">
+	<section class="section section--feature pt-0 bg-stone">
 		<div class="container">
 			<div class="feature__container feature__container-right">
 				<div class="feature__content stack animated-up">
@@ -178,7 +178,7 @@ get_header();
 
 
 
-	<section class="section section--feature bg-stone">
+	<section class="section section--feature">
 		<div class="container animated-up">
 			<p class="section-eyebrow">Client Portal</p>
 			<h2 class="section-heading">Give clients a professional portal they'll actually use</h2>
@@ -188,7 +188,7 @@ get_header();
 	</section>
 
 
-	<section class="section section--feature pt-0 bg-stone">
+	<section class="section section--feature pt-0">
 		<div class="container">
 			<div class="feature__container">
 				<div class="feature__content stack animated-up">
@@ -205,7 +205,7 @@ get_header();
 	</section>
 
 
-	<section class="section section--feature">
+	<section class="section section--feature bg-stone">
 		<div class="container animated-up">
 			<p class="section-eyebrow">Notifications</p>
 			<h2 class="section-heading">Keep clients informed automatically at every stage</h2>
@@ -216,7 +216,7 @@ get_header();
 	</section>
 
 
-	<section class="section section--feature pt-0">
+	<section class="section section--feature pt-0 bg-stone">
 		<div class="container">
 			<div class="feature__container feature__container-right">
 				<div class="feature__content stack animated-up">
@@ -234,7 +234,7 @@ get_header();
 
 
 
-	<section class="section section--feature bg-stone">
+	<section class="section section--feature">
 		<div class="container animated-up">
 			<p class="section-eyebrow">Analytics</p>
 			<h2 class="section-heading">Understand how your business is performing at a glance</h2>
@@ -245,7 +245,7 @@ get_header();
 	</section>
 
 
-	<section class="section section--feature pt-0 bg-stone">
+	<section class="section section--feature pt-0">
 		<div class="container">
 			<div class="feature__container">
 				<div class="feature__content stack animated-up">
@@ -262,7 +262,7 @@ get_header();
 	</section>
 
 
-	<section class="section section--feature">
+	<section class="section section--feature bg-stone">
 		<div class="container animated-up">
 			<p class="section-eyebrow">Webhooks & Automation</p>
 			<h2 class="section-heading">Connect Client Octopus to the tools you already use</h2>
@@ -273,7 +273,7 @@ get_header();
 	</section>
 
 
-	<section class="section section--feature pt-0">
+	<section class="section section--feature pt-0 bg-stone">
 		<div class="container">
 			<div class="feature__container feature__container-right">
 				<div class="feature__content stack animated-up">
