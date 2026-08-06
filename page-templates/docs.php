@@ -210,8 +210,12 @@ get_header();
 							<td>List of their proposals — view, accept, decline, or request revision</td>
 						</tr>
 						<tr>
+							<td><code>/clientoctopus/invoices</code></td>
+							<td>All sent, paid, and overdue invoices, with status badges and a link to each invoice</td>
+						</tr>
+						<tr>
 							<td><code>/clientoctopus/payments</code></td>
-							<td>Payment history and receipts</td>
+							<td>Payment history and receipts, including invoice payments</td>
 						</tr>
 						<tr>
 							<td><code>/clientoctopus/projects</code></td>
