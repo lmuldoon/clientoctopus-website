@@ -28,6 +28,36 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.1.2</h2>
+					<span class="changelog-entry__date">August 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Portal Button Colour setting — buttons across the client portal and public proposal/invoice/payment pages can use a dedicated colour distinct from the Brand Colour, with automatically chosen contrast-safe text</li>
+						<li>Login Background Image setting — upload a background image for the client portal login screen; the login card automatically becomes a frosted glass panel with the logo moved inside it for legibility over a photo</li>
+						<li>Print / Save as PDF button on the client-facing invoice page</li>
+					</ul>
+
+					<h3>Improved</h3>
+					<ul>
+						<li>Client portal now uses a consistent font across every screen, and generic coloured left-border accents have been removed from cards, navigation, and headings across the portal and admin in favour of cleaner treatments</li>
+						<li>Admin Proposals, Invoices, and Projects screens now share consistent filter tabs, empty states, table layout, and horizontal scrolling on smaller screens</li>
+						<li>Clicking an invoice in the portal's Payment History now opens it in a new tab instead of navigating away from the page</li>
+						<li>Client invoice page redesigned to match the payment receipt's look, with a branded header band and a new footer message</li>
+						<li>Pricing and line-item tables on proposals, receipts, and invoices now share the same styling for full visual consistency</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>Proposal and invoice total amounts could become unreadable when a tenant's Brand Colour was too light — these now automatically fall back to a readable colour</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.1.1</h2>
 					<span class="changelog-entry__date">August 2026</span>
 					<span class="badge badge--release">Update</span>

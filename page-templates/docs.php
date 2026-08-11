@@ -176,7 +176,7 @@ get_header();
 				<p>Invoices move through <strong>Draft &rarr; Sent &rarr; Paid</strong>, with <strong>Overdue</strong> applied automatically once the due date passes and <strong>Cancelled</strong> available at any point before payment.</p>
 
 				<h3>Client-facing invoice page</h3>
-				<p>Clients view their invoice at a unique link, with no login required. The page supports browser printing to a clean, A4-formatted layout — useful for clients who need a paper or PDF copy for their own records.</p>
+				<p>Clients view their invoice at a unique link, with no login required. A <strong>Print / Save as PDF</strong> button on the page renders a clean, A4-formatted layout — useful for clients who need a paper or PDF copy for their own records.</p>
 
 				<h3>Getting paid</h3>
 				<p>On the <strong>Free</strong> plan, clients pay you directly (e.g. bank transfer) and you mark the invoice as <strong>Paid</strong> manually from the admin. On <strong>Pro and Agency</strong>, a <strong>Pay Now</strong> button appears on the client-facing invoice page — it creates a Stripe Checkout session on demand, and the invoice is automatically marked paid once Stripe confirms the payment via webhook.</p>
@@ -191,6 +191,7 @@ get_header();
 				<h3>How clients log in</h3>
 				<p>Client Octopus uses <strong>magic links</strong>. When a proposal is accepted, the client receives an email with a one-time login link. Clicking it authenticates them and redirects to the portal dashboard. Links are single-use and expire after 24 hours. Clients can optionally set a password for future logins.</p>
 				<p>The portal login page lives at <code>/clientoctopus/login</code> on your site. No custom domain or subdomain is required — it runs on the same domain as your WordPress install.</p>
+				<p>Under <strong>Client Octopus &rarr; Settings</strong>, you can upload a <strong>Login Background Image</strong> for this screen. When set, the login card becomes a frosted glass panel with your logo moved inside it, so it stays legible over the photo.</p>
 
 				<h3>Portal pages</h3>
 				<table>
@@ -541,8 +542,16 @@ $data = json_decode( $payload, true );
 							<td>Proposal CTA buttons, portal accent colour</td>
 						</tr>
 						<tr>
+							<td>Portal Button Colour</td>
+							<td>Optional override for buttons in the client portal and public proposal/invoice/payment pages, used when Brand Colour doesn't work well as a solid button fill. Leave blank to use Brand Colour — button text colour is chosen automatically for contrast</td>
+						</tr>
+						<tr>
 							<td>Logo URL</td>
 							<td>Emails, portal header — recommended max 180&times;48&nbsp;px</td>
+						</tr>
+						<tr>
+							<td>Login Background Image</td>
+							<td>Background image for the client portal login screen (Pro/Agency). The login card automatically becomes a frosted glass panel with the logo moved inside it for legibility over the photo</td>
 						</tr>
 					</tbody>
 				</table>
