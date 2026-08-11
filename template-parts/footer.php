@@ -52,6 +52,7 @@ global $meta;
 
 			<div class="site-footer__bottom">
 				<p class="site-footer__copy">&copy; <?php echo date('Y'); ?> <a href="https://codievolt.com" target="_blank" rel="noopener">Codievolt</a>. All rights reserved.</p>
+				<a href="https://www.saashub.com/client-octopus?utm_source=badge&utm_campaign=badge&utm_content=client-octopus&badge_variant=color&badge_kind=approved" target="_blank" rel="noopener noreferrer"><img src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1" alt="Client Octopus badge" loading="lazy" /></a>
 			</div>
 		</div>
 	</footer> <!-- /.site-footer -->
