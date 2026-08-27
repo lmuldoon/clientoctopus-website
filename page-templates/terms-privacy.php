@@ -41,7 +41,7 @@ get_header();
 				<p>Client Octopus is provided "as is", without warranty of any kind. We are not liable for any direct, indirect, incidental or consequential damages arising from your use of the plugin, including but not limited to email delivery failures, data loss or API service interruptions from third-party platforms.</p>
 
 				<h3>Third-party services</h3>
-				<p>Client Octopus integrates with <strong>Stripe</strong> for payment processing. Use of Stripe is subject to the <a href="https://stripe.com/gb/legal/ssa" target="_blank" rel="noopener">Stripe Services Agreement</a> and <a href="https://stripe.com/gb/privacy" target="_blank" rel="noopener">Stripe Privacy Policy</a>. Client Octopus passes payment data directly to Stripe via their API and does not store card details within your WordPress installation.</p>
+				<p>Client Octopus integrates with <strong>Stripe</strong> and <strong>PayPal</strong> for payment processing — you choose one as your active payment provider. Use of Stripe is subject to the <a href="https://stripe.com/gb/legal/ssa" target="_blank" rel="noopener">Stripe Services Agreement</a> and <a href="https://stripe.com/gb/privacy" target="_blank" rel="noopener">Stripe Privacy Policy</a>. Use of PayPal is subject to the <a href="https://www.paypal.com/uk/webapps/mpp/ua/useragreement-full" target="_blank" rel="noopener">PayPal User Agreement</a> and <a href="https://www.paypal.com/uk/webapps/mpp/ua/privacy-full" target="_blank" rel="noopener">PayPal Privacy Statement</a>. Client Octopus passes payment data directly to whichever provider is active via their API and does not store card details within your WordPress installation.</p>
 
 				<hr>
 

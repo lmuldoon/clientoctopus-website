@@ -36,7 +36,7 @@ get_header();
 				<li><a href="#proposals" class="docs-nav__link">Proposals</a></li>
 				<li><a href="#invoices" class="docs-nav__link">Invoices</a></li>
 				<li><a href="#client-portal" class="docs-nav__link">Client Portal</a></li>
-				<li><a href="#payments" class="docs-nav__link">Payments &amp; Stripe</a></li>
+				<li><a href="#payments" class="docs-nav__link">Payments</a></li>
 				<li><a href="#projects" class="docs-nav__link">Projects &amp; Milestones</a></li>
 				<li><a href="#team" class="docs-nav__link">Team Management</a></li>
 				<li><a href="#webhooks" class="docs-nav__link">Webhooks</a></li>
@@ -59,7 +59,7 @@ get_header();
 			<section class="docs-section stack" id="getting-started">
 				<h2>Getting Started</h2>
 				<p>Client Octopus is a WordPress plugin that turns your WordPress admin into a complete client management system. It covers the full client lifecycle: proposals, payments, a client portal, project milestones, file delivery, approvals, and team messaging — all without leaving WordPress.</p>
-				<p>Three plans are available. The <strong>Free</strong> plan covers proposals and the client database. <strong>Pro</strong> adds Stripe payments, the client portal, AI writing tools, webhooks, and analytics. <strong>Agency</strong> adds projects, milestones, messaging, file storage, approval workflows, and up to five team seats.</p>
+				<p>Three plans are available. The <strong>Free</strong> plan covers proposals and the client database. <strong>Pro</strong> adds Stripe or PayPal payments, the client portal, AI writing tools, webhooks, and analytics. <strong>Agency</strong> adds projects, milestones, messaging, file storage, approval workflows, and up to five team seats.</p>
 			</section>
 
 			<!-- ─── REQUIREMENTS ────────────────────────────────────────────── -->
@@ -69,7 +69,7 @@ get_header();
 				<ul>
 					<li>WordPress 6.0 or later</li>
 					<li>PHP 8.0 or later</li>
-					<li>A Stripe account (Pro and Agency only — required for payment collection)</li>
+					<li>A Stripe or PayPal account (Pro and Agency only — required for payment collection)</li>
 				</ul>
 				<p>Client Octopus is single-site only. Multisite networks are not supported.</p>
 
@@ -114,8 +114,8 @@ get_header();
 				<h3>Step 1 — Add your branding</h3>
 				<p>Go to <strong>Client Octopus &rarr; Settings</strong>. Enter your business name, sender email, brand colour, and logo URL. These are applied to all outgoing emails and the client portal.</p>
 
-				<h3>Step 2 — Connect Stripe (Pro / Agency)</h3>
-				<p>Go to <strong>Client Octopus &rarr; Settings</strong> and enter your Stripe publishable key, secret key, and webhook signing secret before sending any proposals, so payment collection is ready from the start. See the <a href="#payments">Payments &amp; Stripe</a> section for the full setup steps.</p>
+				<h3>Step 2 — Connect a payment provider (Pro / Agency)</h3>
+				<p>Go to <strong>Client Octopus &rarr; Settings</strong> and choose Stripe or PayPal as your payment provider, then enter its API credentials and webhook details before sending any proposals, so payment collection is ready from the start. See the <a href="#payments">Payments</a> section for the full setup steps.</p>
 
 				<h3>Step 3 — Create and send a proposal</h3>
 				<p>Go to <strong>Client Octopus &rarr; Proposals &rarr; New Proposal</strong>. In the proposal builder, fill in the client&rsquo;s details (name, email, company, phone) — this automatically creates their client record. Build your proposal from the template library, set pricing, and optionally enable payment collection. When ready, click <strong>Send to Client</strong>. The client receives a magic-link email — no account required to view or accept.</p>
@@ -154,7 +154,7 @@ get_header();
 				<p>The template library provides preset proposal layouts. Start from a template and customise content, line items, and pricing per client. Templates are filtered by your current plan.</p>
 
 				<h3>Payment collection</h3>
-				<p>Enable payment on any proposal (Pro/Agency). Set a deposit percentage (1–100%) if you want to collect a partial amount at acceptance and the balance on completion, or collect the full amount upfront. Stripe handles all PCI compliance.</p>
+				<p>Enable payment on any proposal (Pro/Agency). Set a deposit percentage (1–100%) if you want to collect a partial amount at acceptance and the balance on completion, or collect the full amount upfront. Your payment provider (Stripe or PayPal) handles all PCI compliance.</p>
 
 				<h3>AI writing assist (Pro / Agency)</h3>
 				<p>While editing a proposal, highlight any text and use the AI toolbar to <strong>Improve</strong>, <strong>Shorten</strong>, make it more <strong>Persuasive</strong>, or <strong>Generate</strong> content from a brief. See the <a href="#ai">AI Features</a> section for quota details.</p>
@@ -179,7 +179,11 @@ get_header();
 				<p>Clients view their invoice at a unique link, with no login required. A <strong>Print / Save as PDF</strong> button on the page renders a clean, A4-formatted layout — useful for clients who need a paper or PDF copy for their own records.</p>
 
 				<h3>Getting paid</h3>
-				<p>On the <strong>Free</strong> plan, clients pay you directly (e.g. bank transfer) and you mark the invoice as <strong>Paid</strong> manually from the admin. On <strong>Pro and Agency</strong>, a <strong>Pay Now</strong> button appears on the client-facing invoice page — it creates a Stripe Checkout session on demand, and the invoice is automatically marked paid once Stripe confirms the payment via webhook.</p>
+				<p>On the <strong>Free</strong> plan, clients pay you directly (e.g. bank transfer) and you mark the invoice as <strong>Paid</strong> manually from the admin. On <strong>Pro and Agency</strong>, a <strong>Pay Now</strong> button appears on the client-facing invoice page — it routes to whichever payment provider you've configured (Stripe or PayPal), and the invoice is automatically marked paid once the provider confirms the payment via webhook. See <a href="#payments">Payments</a> for provider setup.</p>
+
+				<h3>Recurring invoices</h3>
+				<p>For clients you bill on a schedule, set up a recurring profile instead of creating invoices manually each time. Choose a client and a cadence — weekly, monthly, quarterly, or yearly — and Client Octopus automatically generates and sends a fresh invoice on that schedule. Recurring profiles support their own Payment Terms and Notes &amp; Payment Instructions, matching standalone invoices, and are available on <strong>every plan</strong>.</p>
+				<p>Each generated invoice is still paid individually through the existing Pay Now flow — recurring profiles automate invoice creation and delivery, not payment collection. Pause, resume, or cancel a profile at any time from <strong>Client Octopus &rarr; Recurring Invoices</strong>.</p>
 			</section>
 
 			<!-- ─── CLIENT PORTAL ───────────────────────────────────────────── -->
@@ -236,8 +240,8 @@ get_header();
 			<!-- ─── PAYMENTS ────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="payments">
-				<h2>Payments &amp; Stripe</h2>
-				<p>Payment collection requires a Stripe account and is available on Pro and Agency plans.</p>
+				<h2>Payments</h2>
+				<p>Payment collection is available on Pro and Agency plans. Choose <strong>Stripe</strong> or <strong>PayPal</strong> as your active payment provider under <strong>Client Octopus &rarr; Settings &rarr; Payment Provider</strong> — whichever you choose, clients always see a single "Pay Now" button on proposals and invoices, and it routes to that provider automatically.</p>
 
 				<h3>Connecting Stripe</h3>
 				<ol>
@@ -258,15 +262,25 @@ get_header();
 				<p>The key changes: "Workbench → Webhooks → Add destination" replaces the old "Webhooks → Add endpoint" path, and the two async payment events are added alongside checkout.session.completed (needed for bank transfers and other delayed payment methods).</p>
 
 				<p><strong>Testing with sandbox mode:</strong> Use your <code>pk_test_…</code> / <code>sk_test_…</code> keys and create a separate webhook endpoint in Stripe pointing to your staging/test site. Test card number <code>4242 4242 4242 4242</code> (any future expiry, any CVC) triggers a successful payment.</p>
-				
+
+				<h3>Connecting PayPal</h3>
+				<ol>
+					<li>Log in to the <a href="https://developer.paypal.com/dashboard/applications" rel="noopener noreferrer" target="_blank">PayPal Developer Dashboard</a> and create (or open) an app under <strong>Apps &amp; Credentials</strong>.</li>
+					<li>Copy the app's <strong>Client ID</strong> and <strong>Secret</strong>.</li>
+					<li>In <strong>Client Octopus &rarr; Settings</strong>, set <strong>Payment Provider</strong> to <strong>PayPal</strong>, then paste the Client ID and Secret into the PayPal API Credentials fields.</li>
+					<li>Set <strong>Mode</strong> to <strong>Sandbox</strong> for testing or <strong>Live</strong> for real payments — this must match whether your Client ID/Secret came from a sandbox or live app.</li>
+					<li>Configure a webhook in the PayPal Developer Dashboard pointing to the webhook URL shown in Client Octopus &rarr; Settings, then paste the resulting <strong>Webhook ID</strong> back into the PayPal API Credentials fields.</li>
+				</ol>
+				<p>Switching <strong>Payment Provider</strong> back to Stripe at any time keeps your PayPal credentials saved but inactive — clients will see Stripe checkout again immediately.</p>
+
 				<h3>Deposit payments</h3>
-				<p>On any proposal, enable payment and set a <strong>deposit percentage</strong> (1–100%). The client pays the deposit when they accept. You can mark the balance as due on project completion, which triggers a second Stripe checkout session.</p>
+				<p>On any proposal, enable payment and set a <strong>deposit percentage</strong> (1–100%). The client pays the deposit when they accept. You can mark the balance as due on project completion, which triggers a second checkout session with your active payment provider.</p>
 
 				<h3>Currencies</h3>
-				<p>GBP is the default. Any currency supported by your Stripe account can be used — set the currency on each proposal individually.</p>
+				<p>GBP is the default. Any currency supported by your active payment provider can be used — set the currency on each proposal individually.</p>
 
 				<h3>Refunds</h3>
-				<p>Refunds can be initiated from <strong>Client Octopus &rarr; Proposals</strong> on any completed payment. This calls the Stripe API directly — no manual action in the Stripe dashboard is needed.</p>
+				<p>Refunds can be initiated from <strong>Client Octopus &rarr; Proposals</strong> on any completed payment made via Stripe — no manual action in the Stripe dashboard is needed. Refunds for PayPal payments currently need to be issued directly from your PayPal account.</p>
 			</section>
 
 			<!-- ─── PROJECTS ────────────────────────────────────────────────── -->
@@ -556,8 +570,14 @@ $data = json_decode( $payload, true );
 					</tbody>
 				</table>
 
+				<h3>Payment Provider (Pro / Agency)</h3>
+				<p>Choose <strong>Stripe</strong> or <strong>PayPal</strong> as your active payment provider. Only the credential fields for the selected provider are shown; switching providers doesn't clear the other provider's saved credentials.</p>
+
 				<h3>Stripe API Keys (Pro / Agency)</h3>
-				<p>Enter your Stripe <strong>Publishable Key</strong> (<code>pk_live_&hellip;</code> or <code>pk_test_&hellip;</code>) and <strong>Secret Key</strong> (<code>sk_live_&hellip;</code> or <code>sk_test_&hellip;</code>). A status badge shows whether Client Octopus is in Live or Test mode. See <a href="#payments">Payments &amp; Stripe</a> for webhook setup.</p>
+				<p>Enter your Stripe <strong>Publishable Key</strong> (<code>pk_live_&hellip;</code> or <code>pk_test_&hellip;</code>) and <strong>Secret Key</strong> (<code>sk_live_&hellip;</code> or <code>sk_test_&hellip;</code>). A status badge shows whether Client Octopus is in Live or Test mode. See <a href="#payments">Payments</a> for webhook setup.</p>
+
+				<h3>PayPal API Credentials (Pro / Agency)</h3>
+				<p>Enter your PayPal <strong>Client ID</strong> and <strong>Secret</strong> from the PayPal Developer Dashboard, set <strong>Mode</strong> to Sandbox or Live, and paste in the <strong>Webhook ID</strong> from your configured PayPal webhook. A status badge shows whether Client Octopus is in Live or Test mode. See <a href="#payments">Payments</a> for full setup steps.</p>
 
 				<h3>Testimonial Emails (Pro / Agency)</h3>
 				<p>Enable automated review-request emails sent to clients after their final payment is collected. Configure the email body, the URL you want them to visit (e.g. a Google Reviews or Trustpilot page), and the button label (default: &ldquo;Leave a Review&rdquo;).</p>
@@ -596,7 +616,7 @@ $data = json_decode( $payload, true );
 							<td>&#10003;</td>
 						</tr>
 						<tr>
-							<td>Stripe payments</td>
+							<td>Stripe or PayPal payments</td>
 							<td>&mdash;</td>
 							<td>&#10003;</td>
 							<td>&#10003;</td>
@@ -644,7 +664,13 @@ $data = json_decode( $payload, true );
 							<td>&#10003;</td>
 						</tr>
 						<tr>
-							<td>Stripe "Pay Now" on invoices</td>
+							<td>Recurring invoices</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+						</tr>
+						<tr>
+							<td>"Pay Now" on invoices</td>
 							<td>&mdash;</td>
 							<td>&#10003;</td>
 							<td>&#10003;</td>
@@ -704,13 +730,20 @@ $data = json_decode( $payload, true );
 				</ol>
 				<p>This only needs to be done once. If the 404 persists after flushing, check that your web server has <code>mod_rewrite</code> enabled and that <code>.htaccess</code> is writable by WordPress.</p>
 
-				<h3>Stripe webhook not delivering</h3>
+				<h3>Payment webhook not delivering</h3>
 				<p>If payment events are not reaching Client Octopus, work through this checklist:</p>
+				<p><strong>Stripe:</strong></p>
 				<ul>
 					<li><strong>Correct events selected</strong> — the endpoint must be subscribed to at minimum <code>payment_intent.succeeded</code> and <code>checkout.session.completed</code>. Check <strong>Stripe Dashboard &rarr; Webhooks &rarr; [your endpoint] &rarr; Events</strong>.</li>
 					<li><strong>Signing secret copied correctly</strong> — the webhook signing secret (starting with <code>whsec_</code>) must match the value saved in <strong>Client Octopus &rarr; Settings &rarr; Stripe</strong>. It is different from your API secret key.</li>
 					<li><strong>Endpoint is publicly accessible</strong> — Stripe cannot reach <code>localhost</code> or sites behind a VPN. Use a live URL or the <a href="https://stripe.com/docs/stripe-cli" rel="noopener noreferrer" target="_blank">Stripe CLI</a> (<code>stripe listen --forward-to</code>) for local testing.</li>
 					<li><strong>Test with the Stripe CLI</strong> — run <code>stripe trigger payment_intent.succeeded</code> and check the Client Octopus activity log to confirm receipt.</li>
+				</ul>
+				<p><strong>PayPal:</strong></p>
+				<ul>
+					<li><strong>Webhook ID saved correctly</strong> — the Webhook ID from the PayPal Developer Dashboard must match the value saved in <strong>Client Octopus &rarr; Settings &rarr; PayPal API Credentials</strong>.</li>
+					<li><strong>Sandbox/Live mode matches</strong> — a sandbox app's webhook events won't reach a site configured for Live mode, and vice versa.</li>
+					<li><strong>Endpoint is publicly accessible</strong> — same requirement as Stripe; PayPal cannot reach <code>localhost</code> or sites behind a VPN.</li>
 				</ul>
 
 				<h3>Emails not sending</h3>
@@ -730,7 +763,7 @@ $data = json_decode( $payload, true );
 				<p>When you trigger an AI action in the proposal editor, the selected proposal text is sent to the Client Octopus relay server to process the request. The text is not stored after the response is returned. The relay does not share your content with third parties. No AI actions are triggered automatically — data is only sent when you explicitly click an AI action button.</p>
 
 				<h3>Payments</h3>
-				<p>Payment card details are handled entirely by Stripe and never pass through your WordPress site or the Client Octopus relay. Client Octopus stores only the Stripe payment intent ID, checkout session ID, and payment status — never card numbers, CVVs, or bank details.</p>
+				<p>Payment card details are handled entirely by your active payment provider (Stripe or PayPal) and never pass through your WordPress site or the Client Octopus relay. Client Octopus stores only the provider's payment/order reference and payment status — never card numbers, CVVs, or bank details.</p>
 
 				<h3>Client portal authentication</h3>
 				<p>Clients authenticate via a short-lived magic link sent to their email address. Tokens are single-use and expire after 15 minutes. Session cookies are scoped to your domain and are not shared with any third party.</p>
@@ -775,6 +808,10 @@ $data = json_decode( $payload, true );
 						<tr><td>POST</td><td><code>/invoices/create</code></td><td>Create an invoice</td></tr>
 						<tr><td>POST</td><td><code>/invoices/{id}/send</code></td><td>Send invoice to client</td></tr>
 						<tr><td>POST</td><td><code>/invoices/{id}/mark-paid</code></td><td>Mark an invoice as paid manually</td></tr>
+						<tr><td>GET</td><td><code>/recurring-profiles</code></td><td>List recurring invoice profiles</td></tr>
+						<tr><td>POST</td><td><code>/recurring-profiles/create</code></td><td>Create a recurring invoice profile</td></tr>
+						<tr><td>POST</td><td><code>/recurring-profiles/{id}/pause</code></td><td>Pause a recurring profile</td></tr>
+						<tr><td>POST</td><td><code>/recurring-profiles/{id}/cancel</code></td><td>Cancel a recurring profile</td></tr>
 						<tr><td>GET</td><td><code>/automations</code></td><td>List automation reminder settings</td></tr>
 						<tr><td>POST</td><td><code>/automations/{trigger}</code></td><td>Update a reminder trigger's settings</td></tr>
 					</tbody>
@@ -797,7 +834,7 @@ $data = json_decode( $payload, true );
 						<tr><td>POST</td><td><code>/portal/verify</code></td><td>Verify token and log in</td></tr>
 						<tr><td>GET</td><td><code>/portal/projects/{id}</code></td><td>Client project view</td></tr>
 						<tr><td>GET</td><td><code>/invoices/public/{token}</code></td><td>View an invoice</td></tr>
-						<tr><td>POST</td><td><code>/invoices/{id}/pay</code></td><td>Create a Stripe checkout session for an invoice (Pro/Agency)</td></tr>
+						<tr><td>POST</td><td><code>/invoices/{id}/pay</code></td><td>Create a checkout session for an invoice with the active payment provider (Pro/Agency)</td></tr>
 					</tbody>
 				</table>
 

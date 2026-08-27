@@ -28,6 +28,34 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.1.3</h2>
+					<span class="changelog-entry__date">August 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Recurring Invoices — set up a profile for a client (weekly, monthly, quarterly, or yearly) and Client Octopus automatically generates and sends a fresh invoice on schedule; clients still pay each one manually via the existing Pay Now flow</li>
+						<li>PayPal as an alternate payment provider (Pro &amp; Agency) — choose either Stripe or PayPal as your active gateway; clients always see a single "Pay Now" button that routes to whichever gateway is configured, on both proposals and standalone invoices</li>
+						<li>"+ Add New Client" button in the Invoices and Recurring Invoices client picker for adding a client without leaving the form</li>
+						<li>Pagination on the Proposals, Projects, Invoices, Recurring Invoices, and Clients admin screens</li>
+					</ul>
+
+					<h3>Improved</h3>
+					<ul>
+						<li>Client search — in the client picker and the main Clients screen — now correctly filters by name, email, or company instead of always showing the full list</li>
+						<li>Faster plugin activation, particularly on sites that have been through several updates</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>Webhook "Copy" buttons in Settings could silently fail to copy on non-HTTPS local development sites; now falls back to a compatible copy method</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.1.2</h2>
 					<span class="changelog-entry__date">August 2026</span>
 					<span class="badge badge--release">Update</span>

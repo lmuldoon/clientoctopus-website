@@ -47,7 +47,7 @@ get_header();
 			<h2 class="section-heading">Create proposals that look professional and close faster</h2>
 			<p class="section-lede">Build polished client proposals in minutes with a guided workflow, reusable templates, automated pricing calculations, and AI-assisted writing. Send proposals through a branded client experience where clients can review, request changes, accept, and pay, all from a secure link without needing an account.</p>
 
-			<p class="section-lede">Client Octopus handles the entire proposal lifecycle for you, from draft to payment, with built-in tracking, automated notifications, Stripe integration, and seamless project creation when work is approved.</p>
+			<p class="section-lede">Client Octopus handles the entire proposal lifecycle for you, from draft to payment, with built-in tracking, automated notifications, Stripe or PayPal integration, and seamless project creation when work is approved.</p>
 		</div>
 	</section>
 
@@ -71,7 +71,7 @@ get_header();
 			<div class="feature__container feature__container-right">
 				<div class="feature__content stack animated-up">
 					<h3>Give clients a smoother approval experience</h3>
-					<p>Client Octopus lets you securely share proposals via email with one click, where clients can accept, decline, or request revisions, with Stripe payments available on acceptance. It also provides real-time proposal status tracking, email notifications, and fully mobile-friendly proposal pages for a smooth client experience across devices.</p>
+					<p>Client Octopus lets you securely share proposals via email with one click, where clients can accept, decline, or request revisions, with Stripe or PayPal payments available on acceptance. It also provides real-time proposal status tracking, email notifications, and fully mobile-friendly proposal pages for a smooth client experience across devices.</p>
 				</div>
 				<div class="feature__image animated-up">
 					<div class="browser-frame">
@@ -95,7 +95,7 @@ get_header();
 		<div class="container animated-up">
 			<p class="section-eyebrow">Payments</p>
 			<h2 class="section-heading">Get paid faster without leaving WordPress</h2>
-			<p class="section-lede">Turn accepted proposals into real payments instantly with built-in Stripe integration, automated deposit handling, and seamless client checkout flows. Client Octopus keeps proposals, invoices, payment requests, and project balances connected in one system, so you always know what's been paid, what's outstanding, and what happens next.</p>
+			<p class="section-lede">Turn accepted proposals into real payments instantly with built-in Stripe or PayPal integration, automated deposit handling, and seamless client checkout flows. Client Octopus keeps proposals, invoices, payment requests, and project balances connected in one system, so you always know what's been paid, what's outstanding, and what happens next.</p>
 
 			<p class="section-lede">From deposits to final balances, the payment experience is designed to feel simple for clients and effortless for you.</p>
 		</div>
@@ -127,7 +127,9 @@ get_header();
 			<h2 class="section-heading">Send invoices without waiting on a proposal</h2>
 			<p class="section-lede">Standalone invoices are a separate workflow from proposals, available on every plan including Free. Assign a client, add line items with VAT and discounts, and send an auto-numbered invoice directly to their inbox, with no proposal required first.</p>
 
-			<p class="section-lede">Clients pay how it suits your plan: mark invoices as paid manually once a bank transfer lands, or let Stripe's "Pay Now" button collect payment automatically and update the invoice status for you.</p>
+			<p class="section-lede">Clients pay how it suits your plan: mark invoices as paid manually once a bank transfer lands, or let the "Pay Now" button — powered by Stripe or PayPal, whichever you've connected — collect payment automatically and update the invoice status for you.</p>
+
+			<p class="section-lede">Bill the same client on a schedule? Set up a recurring profile — weekly, monthly, quarterly, or yearly — and Client Octopus generates and sends a fresh invoice automatically every cycle, with each one still paid individually through the same Pay Now flow.</p>
 		</div>
 	</section>
 
@@ -138,7 +140,7 @@ get_header();
 				<div class="feature__content stack animated-up">
 					<h3>A dedicated invoice page your clients can pay from</h3>
 					<p>Clients open their invoice at a secure link (no login required) and see a clean, itemised breakdown with VAT, discounts, and the due date. The page supports browser printing to a tidy A4 layout, so clients who need a paper or PDF copy for their own records are covered too.</p>
-					<p>On Pro and Agency, a "Pay Now" button creates a Stripe Checkout session on demand. Once Stripe confirms payment, the invoice is automatically marked paid via webhook, with no manual reconciliation needed.</p>
+					<p>On Pro and Agency, a "Pay Now" button creates a checkout session on demand with your active payment provider — Stripe or PayPal. Once the provider confirms payment, the invoice is automatically marked paid via webhook, with no manual reconciliation needed.</p>
 				</div>
 				<div class="feature__image animated-up">
 					<img src="/static/images/screenshots/client-invoice.jpg" alt="Wordpress plugin Client Octopus client-facing invoice page" width="1060" height="1059" loading="lazy" />

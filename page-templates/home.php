@@ -130,12 +130,12 @@ get_header();
 					<div class="pipeline-panel__content">
 						<h3 class="pipeline-panel__headline">Get paid without friction</h3>
 						<p class="pipeline-panel__desc">
-							Turn accepted proposals into payments instantly with built-in Stripe integration, including deposits and remaining balances — all tracked automatically.
+							Turn accepted proposals into payments instantly with built-in Stripe or PayPal integration, including deposits and remaining balances — all tracked automatically.
 						</p>
 						<ul class="features__list">
 							<li>Accept deposits and final payments</li>
 							<li>One-click "accept & pay" flow</li>
-							<li>Standalone invoices with Stripe Pay Now</li>
+							<li>Standalone and recurring invoices with instant Pay Now</li>
 							<li>Payment status tracking</li>
 							<li>Automatic email notifications</li>
 						</ul>
@@ -308,6 +308,7 @@ get_header();
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated status notification emails</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Standalone invoices</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Recurring invoices</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated proposal reminders</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client e-signature</li>
 					</ul>
@@ -329,11 +330,12 @@ get_header();
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated status notification emails</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Standalone invoices</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Recurring invoices</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated proposal reminders</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client e-signature</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client portal</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe payments</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe "Pay Now" on invoices</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe or PayPal payments</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> "Pay Now" on invoices</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Analytics</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated testimonial request</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 100 AI requests/month</li>
@@ -356,11 +358,12 @@ get_header();
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated status notification emails</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Standalone invoices</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Recurring invoices</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated proposal reminders</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client e-signature</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client portal</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe payments</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe "Pay Now" on invoices</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe or PayPal payments</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> "Pay Now" on invoices</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Analytics</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated testimonial request</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 500 AI requests/month</li>
@@ -425,7 +428,7 @@ get_header();
 							<h3>How do payments work?</h3>
 						</div>
 						<div class="accordion-content">
-							<p>Client Octopus integrates with Stripe so clients can pay deposits or full balances directly from proposals and project portals. Payment statuses, receipts, and activity are tracked automatically inside WordPress.</p>
+							<p>Client Octopus integrates with Stripe or PayPal so clients can pay deposits or full balances directly from proposals, invoices, and project portals. Payment statuses, receipts, and activity are tracked automatically inside WordPress.</p>
 						</div>
 					</div>
 
