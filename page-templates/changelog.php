@@ -28,6 +28,40 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.2.0</h2>
+					<span class="changelog-entry__date">August 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Package Selector pricing mode for proposals — toggle between Flat Pricing and Package Selector when building a proposal; define unlimited pricing tiers (each with its own independent line items) plus optional add-ons. The client picks a tier, toggles any add-ons, and sees the total recalculate live before accepting</li>
+						<li>Recurring Billing for proposals — toggle a proposal to Recurring billing instead of one-off/deposit pricing, set the frequency, start date, and end condition, and Client Octopus automatically creates a real Recurring Invoice profile the moment the client accepts, fully editable afterward. Recurring proposals never take a deposit or direct payment; billing runs exclusively through the generated invoice</li>
+						<li>Auto-charge for recurring invoices (Pro &amp; Agency) — opt a recurring profile into automatically charging the client's saved Stripe or PayPal payment method each cycle instead of sending a "Pay Now" link. The first invoice is still paid manually, which securely saves the payment method for reuse. A failed charge is retried automatically with the client notified each time, then the profile pauses itself for you to follow up — it resumes automatically once payment succeeds again</li>
+						<li>Payment failure notifications — you and the client are now both emailed when a payment attempt on an invoice or proposal is declined, expired, cancelled, or needs additional verification from the client's bank</li>
+					</ul>
+
+					<h3>Improved</h3>
+					<ul>
+						<li>The Pricing block in the proposal editor can now be reordered like any other section, and renders on the client-facing proposal wherever it's placed instead of always appearing last</li>
+						<li>The Marketing Campaign proposal template is now available on every plan (previously Pro-only)</li>
+						<li>The proposal expiry date is now a required field with no pre-filled default, closing a gap where a blank date could silently skip the "expiring soon" reminder</li>
+						<li>Uninstall data protection — Settings &rarr; Danger Zone now has a "Delete all Client Octopus data when this plugin is deleted" checkbox, off by default. Deleting the plugin now only removes the code — your proposals, clients, projects, and invoices survive and are there again on reinstall — unless you explicitly opt into a full wipe</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>Inconsistent admin form field styling caused by WordPress's default styles overriding the plugin's design</li>
+						<li>Inconsistent field heights for dropdowns in the proposal wizard and recurring invoice editor</li>
+						<li>Recurring profiles with a future start date billing immediately instead of waiting</li>
+						<li>The payment confirmation popup sometimes showing the full total instead of the actual deposit/balance being charged</li>
+						<li>A cosmetic JavaScript error that could appear after successfully sending or duplicating a proposal</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.1.3</h2>
 					<span class="changelog-entry__date">August 2026</span>
 					<span class="badge badge--release">Update</span>

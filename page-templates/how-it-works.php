@@ -48,6 +48,8 @@ get_header();
 			<p class="section-lede">Build polished client proposals in minutes with a guided workflow, reusable templates, automated pricing calculations, and AI-assisted writing. Send proposals through a branded client experience where clients can review, request changes, accept, and pay, all from a secure link without needing an account.</p>
 
 			<p class="section-lede">Client Octopus handles the entire proposal lifecycle for you, from draft to payment, with built-in tracking, automated notifications, Stripe or PayPal integration, and seamless project creation when work is approved.</p>
+
+			<p class="section-lede">Pricing isn't limited to a single flat total either. Switch a proposal to <strong>Package Selector</strong> pricing to offer unlimited tiers — each with its own line items — plus optional add-ons, and let the client pick what fits as the total recalculates live. Or set a proposal to <strong>Recurring billing</strong> instead of a one-off payment, and the moment it's accepted, Client Octopus automatically creates a Recurring Invoice profile to handle billing from there on.</p>
 		</div>
 	</section>
 
@@ -108,7 +110,7 @@ get_header();
 				<div class="feature__content stack animated-up">
 					<h3>A smoother payment experience for you and your clients</h3>
 					<p>Clients can review pricing, pay deposits or final balances, download receipts, and complete the entire approval process directly from their proposal or client portal, without confusing payment links or endless email follow-ups.</p>
-					<p>Automatic payment tracking, receipt generation, and email notifications keep every stage of the payment lifecycle organised for both sides.</p>
+					<p>Automatic payment tracking, receipt generation, and email notifications keep every stage of the payment lifecycle organised for both sides. If a payment is declined, expires, is cancelled, or needs extra verification from the client's bank, both of you are notified automatically instead of being left wondering what happened.</p>
 				</div>
 				<div class="feature__image animated-up">
 					<img src="/static/images/screenshots/client-payment-confirmed.jpg?v=1" srcset="/static/images/screenshots/client-payment-confirmed-800.jpg 714w, /static/images/screenshots/client-payment-confirmed.jpg 1675w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus payment confirmation" width="1675" height="2310" loading="lazy" />
@@ -129,7 +131,9 @@ get_header();
 
 			<p class="section-lede">Clients pay how it suits your plan: mark invoices as paid manually once a bank transfer lands, or let the "Pay Now" button — powered by Stripe or PayPal, whichever you've connected — collect payment automatically and update the invoice status for you.</p>
 
-			<p class="section-lede">Bill the same client on a schedule? Set up a recurring profile — weekly, monthly, quarterly, or yearly — and Client Octopus generates and sends a fresh invoice automatically every cycle, with each one still paid individually through the same Pay Now flow.</p>
+			<p class="section-lede">Bill the same client on a schedule? Set up a recurring profile — weekly, monthly, quarterly, or yearly — and Client Octopus generates and sends a fresh invoice automatically every cycle, with each one still paid individually through the same Pay Now flow by default.</p>
+
+			<p class="section-lede">On Pro and Agency, opt a recurring profile into <strong>Auto-charge</strong> instead, and Client Octopus charges the client's saved Stripe or PayPal payment method automatically each cycle — no Pay Now link needed. The first invoice is always paid manually to securely save the payment method; if a later charge fails, the client is notified and it's retried automatically, with the profile pausing itself for you to follow up after repeated failures.</p>
 		</div>
 	</section>
 

@@ -113,6 +113,7 @@ get_header();
 						<ul class="features__list">
 							<li>Pre-built templates</li>
 							<li>Guided 5-step proposal builder</li>
+							<li>Tiered Package Selector pricing</li>
 							<li>Secure client approval links</li>
 							<li>Client e-signature on acceptance</li>
 							<li>AI-assisted proposal writing</li>
@@ -303,6 +304,7 @@ get_header();
 					<ul class="cf-pricing-features">
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Unlimited proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Proposal builder</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Package Selector pricing</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 1 team seat</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Track viewed, accepted, and declined proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
@@ -325,6 +327,7 @@ get_header();
 					<ul class="cf-pricing-features">
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Unlimited proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Proposal builder</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Package Selector pricing</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 1 team seat</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Track viewed, accepted, and declined proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
@@ -336,6 +339,7 @@ get_header();
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client portal</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe or PayPal payments</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> "Pay Now" on invoices</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Auto-charge recurring invoices</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Analytics</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated testimonial request</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 100 AI requests/month</li>
@@ -353,6 +357,7 @@ get_header();
 					<ul class="cf-pricing-features">
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Unlimited proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Proposal builder</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Package Selector pricing</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 5 team seats</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Track viewed, accepted, and declined proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
@@ -364,6 +369,7 @@ get_header();
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client portal</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe or PayPal payments</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> "Pay Now" on invoices</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Auto-charge recurring invoices</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Analytics</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated testimonial request</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 500 AI requests/month</li>
@@ -447,6 +453,15 @@ get_header();
 						</div>
 						<div class="accordion-content">
 							<p>Your proposals, projects, files, client records, and activity data stay inside your own WordPress installation and hosting environment. You remain in control of your data at all times.</p>
+						</div>
+					</div>
+
+					<div class="accordion">
+						<div class="js-accordion-trigger">
+							<h3>What happens to my data if I uninstall the plugin?</h3>
+						</div>
+						<div class="accordion-content">
+							<p>Nothing — by default, uninstalling Client Octopus only removes the plugin's code. Your proposals, clients, projects, and invoices stay in your database and are there again if you reinstall or upgrade. A permanent-delete option is available under Settings &rarr; Danger Zone if you want to wipe everything for good.</p>
 						</div>
 					</div>
 

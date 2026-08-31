@@ -141,20 +141,26 @@ get_header();
 					<li><strong>Declined</strong> — Client rejected the proposal. An optional decline reason is stored.</li>
 					<li><strong>Revision Requested</strong> — Client asked for changes. Their note is stored and visible in the admin.</li>
 					<li><strong>Completed</strong> — Work finished and any payment collected. On Agency, the associated project is locked.</li>
-					<li><strong>Expired</strong> — The proposal link is no longer valid (if an expiry date was set).</li>
+					<li><strong>Expired</strong> — The proposal link is no longer valid once its expiry date passes. Expiry date is required on every proposal.</li>
 				</ol>
 
 				<h3>Editing proposal content</h3>
-				<p>After creating a proposal, the proposal detail screen shows a summary of the settings (client, pricing, payment options). To write or edit the actual proposal content — sections, text, and line items — click the <strong>Edit Content</strong> button. This opens the full proposal editor where you can build out your proposal before sending it to the client.</p>
+				<p>After creating a proposal, the proposal detail screen shows a summary of the settings (client, pricing, payment options). To write or edit the actual proposal content — sections, text, and line items — click the <strong>Edit Content</strong> button. This opens the full proposal editor where you can build out your proposal before sending it to the client. Content blocks, including the Pricing block, can be reordered — the client-facing proposal renders each block wherever you place it, rather than always pushing pricing to the end.</p>
+
+				<h3>Package Selector pricing</h3>
+				<p>Every proposal uses one of two pricing modes. <strong>Flat Pricing</strong> is a single set of line items totalling one price, same as before. <strong>Package Selector</strong> lets you define unlimited pricing tiers — each with its own independent line items — plus optional add-ons the client can toggle on top of whichever tier they pick. The client-facing proposal recalculates the total live as they choose, and their selection is locked in the moment they accept. Available on <strong>every plan</strong>.</p>
+
+				<h3>Recurring billing</h3>
+				<p>A proposal can be set to <strong>Recurring billing</strong> instead of a one-off payment or deposit. Set the frequency, start date, and end condition on the proposal — the moment the client accepts, Client Octopus automatically creates a Recurring Invoice profile for them, fully editable afterward just like one created manually from <strong>Client Octopus &rarr; Recurring Invoices</strong>. Recurring proposals don't take a deposit or direct payment at acceptance; billing runs entirely through the generated invoice profile. Available on <strong>every plan</strong>.</p>
 
 				<h3>E-signature</h3>
 				<p>When a client accepts a proposal, they're prompted to type their full legal name and confirm a checkbox in a signing modal. The typed name and acceptance timestamp are recorded on the proposal and visible in the admin.</p>
 
 				<h3>Templates</h3>
-				<p>The template library provides preset proposal layouts. Start from a template and customise content, line items, and pricing per client. Templates are filtered by your current plan.</p>
+				<p>The template library provides preset proposal layouts. Start from a template and customise content, line items, and pricing per client. Most templates are filtered by your current plan, but the Marketing Campaign template is available on every plan.</p>
 
 				<h3>Payment collection</h3>
-				<p>Enable payment on any proposal (Pro/Agency). Set a deposit percentage (1–100%) if you want to collect a partial amount at acceptance and the balance on completion, or collect the full amount upfront. Your payment provider (Stripe or PayPal) handles all PCI compliance.</p>
+				<p>Enable payment on any proposal (Pro/Agency). Set a deposit percentage (1–100%) if you want to collect a partial amount at acceptance and the balance on completion, or collect the full amount upfront. Your payment provider (Stripe or PayPal) handles all PCI compliance. This doesn't apply to proposals set to <strong>Recurring billing</strong> — those never take a deposit or direct payment at acceptance; see <a href="#proposals">Recurring billing</a> above.</p>
 
 				<h3>AI writing assist (Pro / Agency)</h3>
 				<p>While editing a proposal, highlight any text and use the AI toolbar to <strong>Improve</strong>, <strong>Shorten</strong>, make it more <strong>Persuasive</strong>, or <strong>Generate</strong> content from a brief. See the <a href="#ai">AI Features</a> section for quota details.</p>
@@ -183,7 +189,11 @@ get_header();
 
 				<h3>Recurring invoices</h3>
 				<p>For clients you bill on a schedule, set up a recurring profile instead of creating invoices manually each time. Choose a client and a cadence — weekly, monthly, quarterly, or yearly — and Client Octopus automatically generates and sends a fresh invoice on that schedule. Recurring profiles support their own Payment Terms and Notes &amp; Payment Instructions, matching standalone invoices, and are available on <strong>every plan</strong>.</p>
-				<p>Each generated invoice is still paid individually through the existing Pay Now flow — recurring profiles automate invoice creation and delivery, not payment collection. Pause, resume, or cancel a profile at any time from <strong>Client Octopus &rarr; Recurring Invoices</strong>.</p>
+				<p>By default, each generated invoice is still paid individually through the existing Pay Now flow — recurring profiles automate invoice creation and delivery, not payment collection. Pause, resume, or cancel a profile at any time from <strong>Client Octopus &rarr; Recurring Invoices</strong>.</p>
+
+				<h3>Auto-charge (Pro / Agency)</h3>
+				<p>Opt a recurring profile into <strong>Auto-charge</strong> to automatically charge the client's saved Stripe or PayPal payment method each billing cycle instead of sending a Pay Now link every time. The first invoice on the profile is always paid manually first — that's what securely saves the client's payment method for reuse on future cycles.</p>
+				<p>If a charge fails, the client is notified and Client Octopus retries automatically. After repeated failures, the profile pauses itself so you can follow up with the client — it resumes automatically the next time a charge succeeds. Auto-charge requires a fully configured payment provider; if you switch providers or your gateway configuration becomes invalid, affected profiles fall back to the manual Pay Now flow rather than failing silently.</p>
 			</section>
 
 			<!-- ─── CLIENT PORTAL ───────────────────────────────────────────── -->
@@ -281,6 +291,9 @@ get_header();
 
 				<h3>Refunds</h3>
 				<p>Refunds can be initiated from <strong>Client Octopus &rarr; Proposals</strong> on any completed payment made via Stripe — no manual action in the Stripe dashboard is needed. Refunds for PayPal payments currently need to be issued directly from your PayPal account.</p>
+
+				<h3>Payment failure notifications</h3>
+				<p>If a payment attempt on a proposal or invoice is declined, expired, cancelled, or needs extra verification from the client's bank, both you and the client are emailed automatically. Verification-required attempts get distinct, reassuring copy explaining the next step, rather than reading like a broken card.</p>
 			</section>
 
 			<!-- ─── PROJECTS ────────────────────────────────────────────────── -->
@@ -581,6 +594,9 @@ $data = json_decode( $payload, true );
 
 				<h3>Testimonial Emails (Pro / Agency)</h3>
 				<p>Enable automated review-request emails sent to clients after their final payment is collected. Configure the email body, the URL you want them to visit (e.g. a Google Reviews or Trustpilot page), and the button label (default: &ldquo;Leave a Review&rdquo;).</p>
+
+				<h3>Danger Zone</h3>
+				<p>By default, uninstalling Client Octopus only removes the plugin's code — your proposals, clients, projects, and invoices stay in your database and are there again if you reinstall or upgrade. To permanently delete all Client Octopus data when the plugin is deleted, enable <strong>Delete all Client Octopus data when this plugin is deleted</strong> under Danger Zone. This is off by default and should only be enabled if you intend to remove Client Octopus and its data for good.</p>
 			</section>
 
 			<!-- ─── FREE VS PRO ──────────────────────────────────────────────── -->
@@ -611,6 +627,12 @@ $data = json_decode( $payload, true );
 						</tr>
 						<tr>
 							<td>Proposal templates</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+						</tr>
+						<tr>
+							<td>Package Selector pricing</td>
 							<td>&#10003;</td>
 							<td>&#10003;</td>
 							<td>&#10003;</td>
@@ -666,6 +688,12 @@ $data = json_decode( $payload, true );
 						<tr>
 							<td>Recurring invoices</td>
 							<td>&#10003;</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+						</tr>
+						<tr>
+							<td>Auto-charge recurring invoices</td>
+							<td>&mdash;</td>
 							<td>&#10003;</td>
 							<td>&#10003;</td>
 						</tr>
