@@ -16,3 +16,8 @@ robots.txt
 documents
 clientflow
 clientoctopus
+clientoctopus.zip
+*.zip
+
+# Ignore private downloads (plugin builds, licence giveaways, etc.)
+static/downloads/
