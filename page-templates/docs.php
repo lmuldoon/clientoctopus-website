@@ -33,8 +33,11 @@ get_header();
 				<li><a href="#requirements" class="docs-nav__link">Requirements</a></li>
 				<li><a href="#installation" class="docs-nav__link">Installation</a></li>
 				<li><a href="#quick-start" class="docs-nav__link">Quick Start</a></li>
+				<li><a href="#leads" class="docs-nav__link">Lead Capture</a></li>
 				<li><a href="#proposals" class="docs-nav__link">Proposals</a></li>
 				<li><a href="#invoices" class="docs-nav__link">Invoices</a></li>
+				<li><a href="#booking" class="docs-nav__link">Call Booking</a></li>
+				<li><a href="#calendar-sync" class="docs-nav__link">Calendar Sync</a></li>
 				<li><a href="#client-portal" class="docs-nav__link">Client Portal</a></li>
 				<li><a href="#payments" class="docs-nav__link">Payments</a></li>
 				<li><a href="#projects" class="docs-nav__link">Projects &amp; Milestones</a></li>
@@ -58,8 +61,8 @@ get_header();
 
 			<section class="docs-section stack" id="getting-started">
 				<h2>Getting Started</h2>
-				<p>Client Octopus is a WordPress plugin that turns your WordPress admin into a complete client management system. It covers the full client lifecycle: proposals, payments, a client portal, project milestones, file delivery, approvals, and team messaging — all without leaving WordPress.</p>
-				<p>Three plans are available. The <strong>Free</strong> plan covers proposals and the client database. <strong>Pro</strong> adds Stripe or PayPal payments, the client portal, AI writing tools, webhooks, and analytics. <strong>Agency</strong> adds projects, milestones, messaging, file storage, approval workflows, and up to five team seats.</p>
+				<p>Client Octopus is a WordPress plugin that turns your WordPress admin into a complete client management system. It covers the full client lifecycle: lead capture, proposals, call booking, payments, a client portal, project milestones, file delivery, approvals, and team messaging — all without leaving WordPress.</p>
+				<p>Three plans are available. The <strong>Free</strong> plan covers lead capture, proposals, invoices, and the client database. <strong>Pro</strong> adds Stripe or PayPal payments, call booking with calendar sync, the client portal, AI writing tools, webhooks, and analytics. <strong>Agency</strong> adds projects, milestones, messaging, file storage, approval workflows, and up to five team seats.</p>
 			</section>
 
 			<!-- ─── REQUIREMENTS ────────────────────────────────────────────── -->
@@ -123,6 +126,25 @@ get_header();
 				<div class="docs-callout docs-callout--tip">
 					<p><strong>Portal URLs returning 404?</strong> Go to <strong>Settings &rarr; Permalinks</strong> and click <strong>Save Changes</strong> to flush the rewrite rules. This only needs to be done once after activation.</p>
 				</div>
+			</section>
+
+			<!-- ─── LEAD CAPTURE ────────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="leads">
+				<h2>Lead Capture</h2>
+				<p>Collect inquiries directly into Client Octopus instead of a separate form plugin. Available on <strong>every plan</strong>, including Free.</p>
+
+				<h3>Adding the form to a page</h3>
+				<p>Add the <code>[clientoctopus_lead_form]</code> shortcode to any page or post. Under <strong>Client Octopus &rarr; Settings &rarr; Leads</strong>, choose which fields to show (Name and Email are always on; Phone, Company, Message, Budget Range, and Preferred Contact Method are optional), mark any of them as required, and customise their labels. You can also add a consent line for the visitor to agree to before submitting.</p>
+
+				<h3>Where submissions go</h3>
+				<p>Every submission lands in the <strong>Leads</strong> admin screen, where you can filter by status (<strong>New</strong>, <strong>Contacted</strong>, <strong>Archived</strong>), mark a lead as contacted, archive it, or <strong>convert it straight into a client record</strong> with one click.</p>
+
+				<h3>Spam prevention</h3>
+				<p>Optionally enable <strong>Cloudflare Turnstile</strong> CAPTCHA and configure submission-rate limits under Settings &rarr; Leads to help block automated spam. Both are off by default.</p>
+
+				<h3>Notifications</h3>
+				<p>You're emailed the moment a lead comes in. You can also turn on an automatic reply to the person who submitted the form — if Call Booking is enabled, this reply can include a "Pick a Time to Talk" link straight to your booking page.</p>
 			</section>
 
 			<!-- ─── PROPOSALS ───────────────────────────────────────────────── -->
@@ -194,6 +216,38 @@ get_header();
 				<h3>Auto-charge (Pro / Agency)</h3>
 				<p>Opt a recurring profile into <strong>Auto-charge</strong> to automatically charge the client's saved Stripe or PayPal payment method each billing cycle instead of sending a Pay Now link every time. The first invoice on the profile is always paid manually first — that's what securely saves the client's payment method for reuse on future cycles.</p>
 				<p>If a charge fails, the client is notified and Client Octopus retries automatically. After repeated failures, the profile pauses itself so you can follow up with the client — it resumes automatically the next time a charge succeeds. Auto-charge requires a fully configured payment provider; if you switch providers or your gateway configuration becomes invalid, affected profiles fall back to the manual Pay Now flow rather than failing silently.</p>
+			</section>
+
+			<!-- ─── CALL BOOKING ────────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="booking">
+				<h2>Call Booking</h2>
+				<p>Let leads and clients book a call with you directly, without back-and-forth emails. Available on <strong>Pro and Agency</strong>.</p>
+
+				<h3>Adding the booking form to a page</h3>
+				<p>Configure your weekly availability, buffer time between calls, minimum notice required before a booking, and maximum booking window (how far in advance someone can book) under <strong>Client Octopus &rarr; Settings &rarr; Booking</strong>. Then add the <code>[clientoctopus_booking_form]</code> shortcode to any page — visitors see your available slots and book one directly.</p>
+
+				<h3>Confirmations and reminders</h3>
+				<p>Both you and the client receive a confirmation email with a calendar invite (<code>.ics</code> attachment) and a one-click "Add to Google Calendar" link, followed by a reminder email an hour before the call.</p>
+
+				<h3>Managing bookings</h3>
+				<p>View, search, and cancel booked calls from the <strong>Bookings</strong> admin screen.</p>
+			</section>
+
+			<!-- ─── CALENDAR SYNC ───────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="calendar-sync">
+				<h2>Calendar Sync</h2>
+				<p>Keep your booking availability accurate against your real calendar, and have confirmed bookings show up there automatically. Available on <strong>Pro and Agency</strong>.</p>
+
+				<h3>Connecting a calendar</h3>
+				<p>Under <strong>Client Octopus &rarr; Settings &rarr; Booking</strong>, connect <strong>Google Calendar</strong>, <strong>Microsoft 365/Outlook</strong>, or <strong>Apple iCloud</strong>. Google and Microsoft connect via OAuth through the Client Octopus relay service; Apple iCloud connects directly from your site using your Apple ID and an app-specific password. If more than one calendar is found on a connected Apple iCloud account, you're asked which one to sync.</p>
+
+				<h3>How syncing works</h3>
+				<p>Existing events on any connected calendar automatically block matching slots in your booking availability, shown with their real event title — so you never get double-booked. Every confirmed booking made through Client Octopus is also pushed out to every connected calendar as a real event, including your configured meeting link, so it's already on your calendar without any manual entry.</p>
+
+				<h3>Manual sync</h3>
+				<p>Syncing normally happens automatically in the background. Use the <strong>Sync now</strong> button in Settings to pull the latest calendar events immediately, or <strong>Sync existing bookings</strong> to push any bookings made before you connected a calendar out to it right away.</p>
 			</section>
 
 			<!-- ─── CLIENT PORTAL ───────────────────────────────────────────── -->
@@ -394,6 +448,7 @@ get_header();
 					<li><code>milestone.completed</code></li>
 					<li><code>approval.responded</code></li>
 					<li><code>message.sent</code></li>
+					<li><code>lead.captured</code></li>
 				</ul>
 
 				<h3>Verifying payloads</h3>
@@ -541,7 +596,7 @@ $data = json_decode( $payload, true );
 
 			<section class="docs-section stack" id="settings">
 				<h2>Settings</h2>
-				<p>All settings are under <strong>Client Octopus &rarr; Settings</strong>. This page requires the WordPress <code>manage_options</code> capability (site administrators only).</p>
+				<p>All settings are under <strong>Client Octopus &rarr; Settings</strong>, organised into tabs: <strong>Branding</strong>, <strong>Payments</strong>, <strong>Leads</strong>, <strong>Booking</strong>, <strong>Automations</strong>, and <strong>Advanced</strong>. This page requires the WordPress <code>manage_options</code> capability (site administrators only).</p>
 
 				<h3>Branding (all plans)</h3>
 				<table>
@@ -614,6 +669,12 @@ $data = json_decode( $payload, true );
 					</thead>
 					<tbody>
 						<tr>
+							<td>Lead Capture</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+						</tr>
+						<tr>
 							<td>Proposals</td>
 							<td>Unlimited</td>
 							<td>Unlimited</td>
@@ -678,6 +739,18 @@ $data = json_decode( $payload, true );
 							<td>&mdash;</td>
 							<td>Basic</td>
 							<td>Full</td>
+						</tr>
+						<tr>
+							<td>Call Booking</td>
+							<td>&mdash;</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
+						</tr>
+						<tr>
+							<td>Calendar Sync</td>
+							<td>&mdash;</td>
+							<td>&#10003;</td>
+							<td>&#10003;</td>
 						</tr>
 						<tr>
 							<td>Invoices</td>
@@ -842,6 +915,11 @@ $data = json_decode( $payload, true );
 						<tr><td>POST</td><td><code>/recurring-profiles/{id}/cancel</code></td><td>Cancel a recurring profile</td></tr>
 						<tr><td>GET</td><td><code>/automations</code></td><td>List automation reminder settings</td></tr>
 						<tr><td>POST</td><td><code>/automations/{trigger}</code></td><td>Update a reminder trigger's settings</td></tr>
+						<tr><td>GET</td><td><code>/leads</code></td><td>List leads</td></tr>
+						<tr><td>POST</td><td><code>/leads/{id}/status</code></td><td>Update a lead's status (new / contacted / archived)</td></tr>
+						<tr><td>POST</td><td><code>/leads/{id}/convert</code></td><td>Convert a lead into a client</td></tr>
+						<tr><td>GET</td><td><code>/bookings</code></td><td>List bookings (Pro/Agency)</td></tr>
+						<tr><td>POST</td><td><code>/bookings/{id}/cancel</code></td><td>Cancel a booking (Pro/Agency)</td></tr>
 					</tbody>
 				</table>
 
@@ -863,6 +941,9 @@ $data = json_decode( $payload, true );
 						<tr><td>GET</td><td><code>/portal/projects/{id}</code></td><td>Client project view</td></tr>
 						<tr><td>GET</td><td><code>/invoices/public/{token}</code></td><td>View an invoice</td></tr>
 						<tr><td>POST</td><td><code>/invoices/{id}/pay</code></td><td>Create a checkout session for an invoice with the active payment provider (Pro/Agency)</td></tr>
+						<tr><td>POST</td><td><code>/leads/submit</code></td><td>Submit the lead capture form</td></tr>
+						<tr><td>GET</td><td><code>/bookings/availability</code></td><td>Get available booking slots (Pro/Agency)</td></tr>
+						<tr><td>POST</td><td><code>/bookings/create</code></td><td>Book a call (Pro/Agency)</td></tr>
 					</tbody>
 				</table>
 

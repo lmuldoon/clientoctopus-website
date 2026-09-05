@@ -103,6 +103,18 @@
         position: relative;
         display: grid;
     }
+
+    &.pipeline-panel--full {
+        @screen md {
+            grid-template-columns: 1fr;
+        }
+
+        .pipeline-panel__content {
+            text-align: center;
+            max-width: 640px;
+            margin-inline: auto;
+        }
+    }
 }
 
 @keyframes fadeIn {

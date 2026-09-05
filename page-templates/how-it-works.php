@@ -7,7 +7,7 @@
 global $meta;
 
 $meta->title = 'How It Works - Client Octopus';
-$meta->description = 'See how Client Octopus lets you create proposals, invoices, send them to clients, collect payments, and manage your entire client workflow inside WordPress.';
+$meta->description = 'See how Client Octopus lets you capture leads, book calls, create proposals and invoices, collect payments, and manage your entire client workflow inside WordPress.';
 $meta->slug = 'how-it-works';
 
 get_header();
@@ -26,13 +26,28 @@ get_header();
 
 				<h1 class="text-white">Everything from proposal to delivery in one workflow</h1>
 
-				<p class="hero__lede text-white">Client Octopus connects proposals, invoices, payments, projects, client communication, and delivery into one seamless system inside WordPress.</p>
+				<p class="hero__lede text-white">Client Octopus connects lead capture, booking, proposals, invoices, payments, projects, client communication, and delivery into one seamless system inside WordPress.</p>
 
 				<div class="hero__actions">
 					<a class="button button--primary plan-button" data-plan-id="48154" href="#">Get Client Octopus free</a>
 				</div>
 
 			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════════════════════════════
+     LEAD CAPTURE
+════════════════════════════════════════════════════════════════════════════════ -->
+
+	<section class="section section--feature bg-stone">
+		<div class="container animated-up">
+			<p class="section-eyebrow">Lead Capture</p>
+			<h2 class="section-heading">Turn website visitors into leads, automatically</h2>
+			<p class="section-lede">Embed the <code>[clientoctopus_lead_form]</code> shortcode on any page and every inquiry lands directly in Client Octopus, instead of a separate form plugin you have to check on its own. Choose which fields to show and require, customise their labels, and add a consent line — available on every plan, including Free.</p>
+
+			<p class="section-lede">Every submission appears in a dedicated Leads screen where you can track status, mark a lead as contacted, archive it, or convert it straight into a client record with one click. Optional Cloudflare Turnstile CAPTCHA and configurable submission rate limits help keep automated spam out, and you can turn on an automatic reply to whoever submits the form — including a direct link to book a call, if Call Booking is enabled.</p>
 		</div>
 	</section>
 
@@ -150,6 +165,23 @@ get_header();
 					<img src="/static/images/screenshots/client-invoice.jpg" alt="Wordpress plugin Client Octopus client-facing invoice page" width="1060" height="1059" loading="lazy" />
 				</div>
 			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════════════════════════════
+     CALL BOOKING & CALENDAR SYNC
+════════════════════════════════════════════════════════════════════════════════ -->
+
+	<section class="section section--feature">
+		<div class="container animated-up">
+			<p class="section-eyebrow">Call Booking</p>
+			<h2 class="section-heading">Let leads and clients book time with you directly</h2>
+			<p class="section-lede">Add the <code>[clientoctopus_booking_form]</code> shortcode to any page and visitors can book a call based on your configured weekly availability, buffer time between calls, minimum notice, and how far in advance someone's allowed to book. Available on <strong>Pro and Agency</strong>.</p>
+
+			<p class="section-lede">Both you and the client get a confirmation email with a calendar invite (<code>.ics</code> attachment) and a one-click "Add to Google Calendar" link, followed by a reminder an hour before the call. Manage every booking — view, search, cancel — from a dedicated Bookings screen.</p>
+
+			<p class="section-lede">Connect <strong>Google Calendar</strong>, <strong>Microsoft 365/Outlook</strong>, or <strong>Apple iCloud</strong> to sync both ways: existing events on your calendar automatically block matching slots in your availability (shown with their real event title), and every confirmed booking is pushed out to every connected calendar as a real event, including your meeting link — no manually adding calls to your calendar ever again.</p>
 		</div>
 	</section>
 

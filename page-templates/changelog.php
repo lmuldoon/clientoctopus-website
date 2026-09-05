@@ -28,6 +28,44 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.3.1</h2>
+					<span class="changelog-entry__date">September 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Lead Capture — embed a <code>[clientoctopus_lead_form]</code> shortcode on any page to collect inquiries directly into Client Octopus instead of a separate form plugin. Choose which fields to show and require, customise labels, and add a consent line. Available on all plans</li>
+						<li>Leads admin screen — view, filter by status, mark as contacted, archive, or convert a lead straight into a client record with one click</li>
+						<li>A <code>lead.captured</code> webhook event for connecting new leads to your CRM, Zapier, or Slack (Pro &amp; Agency)</li>
+						<li>Optional Cloudflare Turnstile CAPTCHA and configurable submission-rate limits to help prevent automated spam on the lead capture form</li>
+						<li>Optional automatic reply email to anyone who submits the lead capture form, which can include a "Pick a Time to Talk" link to your Booking Page when Booking is enabled</li>
+						<li>Call Booking (Pro &amp; Agency) — add the <code>[clientoctopus_booking_form]</code> shortcode to a page and let leads and clients book a call directly, based on your configured weekly availability, buffer time, minimum notice, and maximum booking window</li>
+						<li>Bookings admin screen — view, search, and cancel booked calls</li>
+						<li>Booking confirmation and 1-hour reminder emails, with a calendar invite (.ics) attachment and a one-click "Add to Google Calendar" link</li>
+						<li>Calendar Sync (Pro &amp; Agency) — connect Google Calendar, Microsoft 365/Outlook, or Apple iCloud in Settings. Existing events on any connected calendar automatically block matching slots in your booking availability, shown with their real event title</li>
+						<li>Confirmed bookings are automatically pushed out to every connected calendar as a real event, including your configured meeting link</li>
+						<li>"Sync now" and "Sync existing bookings" buttons in Settings, and an Apple iCloud calendar picker when more than one calendar is found on the connected account</li>
+					</ul>
+
+					<h3>Improved</h3>
+					<ul>
+						<li>The Settings page is now organised into tabs (Branding, Payments, Leads, Booking, Automations, Advanced) instead of one long scrolling page</li>
+						<li>Various security hardening across client data access, file handling, and API rate limiting</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>A recurring invoice profile with no payment method on file would previously regenerate unpaid invoices indefinitely with no notification — it now correctly pauses and notifies the owner after repeated attempts, same as a real card decline</li>
+						<li>Testimonial request emails were never sent for clients on recurring/retainer billing, even once they were fully paid up</li>
+						<li>The "View Project" link in the project-completion email pointed at the portal's login page instead of the client's actual invoices</li>
+						<li>A completed project's status could still be freely changed back to Active or On Hold, and completing a project gave no indication if the client still had an active recurring billing profile attached — completing a project now offers to pause any active recurring profile for that client, and a fully-settled completed project is locked from further status changes</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.2.0</h2>
 					<span class="changelog-entry__date">August 2026</span>
 					<span class="badge badge--release">Update</span>

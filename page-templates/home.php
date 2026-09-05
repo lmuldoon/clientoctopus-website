@@ -7,7 +7,7 @@
 global $meta;
 
 $meta->title = 'Client Octopus — The Client OS for WordPress Freelancers';
-$meta->description = 'Create proposals, invoices, take payments, and manage clients through a white-label portal — all inside your WordPress site.';
+$meta->description = 'Capture leads, book calls, create proposals and invoices, take payments, and manage clients through a white-label portal — all inside your WordPress site.';
 $meta->slug = 'home';
 
 get_header();
@@ -28,7 +28,7 @@ get_header();
 				</div> -->
 				<h1>The all-in-one <br>client workflow system for WordPress</h1>
 
-				<p class="hero__lede">Create proposals, get paid, and manage your clients in one simple system &mdash; all inside the WordPress site you already own.</p>
+				<p class="hero__lede">Capture leads, book calls, create proposals, get paid, and manage your clients in one simple system &mdash; all inside the WordPress site you already own.</p>
 
 				<div class="hero__actions">
 					<a class="button button--primary plan-button" data-plan-id="48154" href="#">Get Client Octopus free</a>
@@ -58,10 +58,10 @@ get_header();
 	<section class="section section--replaces bg-white">
 		<div class="container animated-up">
 
-			<p class="section-eyebrow">Eight jobs. One plugin.</p>
+			<p class="section-eyebrow">Ten jobs. One plugin.</p>
 			<h2 class="section-heading">Running client work shouldn't require multiple tools</h2>
-			<p class="section-lede">Most freelancers juggle proposals, invoices, email threads, Google Drive, and project trackers just to deliver one project.</p>
-			<p class="section-lede">Client Octopus brings the entire client lifecycle into WordPress — from proposal to payment to delivery.</p>
+			<p class="section-lede">Most freelancers juggle a lead form, a scheduling app, proposals, invoices, email threads, Google Drive, and project trackers just to land and deliver one project.</p>
+			<p class="section-lede">Client Octopus brings the entire client lifecycle into WordPress — from lead to booked call to proposal to payment to delivery.</p>
 
 		</div>
 	</section>
@@ -83,27 +83,54 @@ get_header();
 				<div class="pipeline-track">
 					<button class="pipeline-step" data-stage="0" type="button">
 						<span class="pipeline-step__dot">01</span>
-						<span class="pipeline-step__label">Proposal</span>
+						<span class="pipeline-step__label">Leads</span>
 					</button>
 					<button class="pipeline-step" data-stage="1" type="button">
 						<span class="pipeline-step__dot">02</span>
-						<span class="pipeline-step__label">Payments</span>
+						<span class="pipeline-step__label">Proposal</span>
 					</button>
 					<button class="pipeline-step" data-stage="2" type="button">
 						<span class="pipeline-step__dot">03</span>
-						<span class="pipeline-step__label">Projects</span>
+						<span class="pipeline-step__label">Payments</span>
 					</button>
 					<button class="pipeline-step" data-stage="3" type="button">
 						<span class="pipeline-step__dot">04</span>
+						<span class="pipeline-step__label">Projects</span>
+					</button>
+					<button class="pipeline-step" data-stage="4" type="button">
+						<span class="pipeline-step__dot">05</span>
 						<span class="pipeline-step__label">Delivery</span>
 					</button>
-					<!-- <button class="pipeline-step" data-stage="5" type="button">
-						<span class="pipeline-step__dot">05</span>
+					<!-- <button class="pipeline-step" data-stage="6" type="button">
+						<span class="pipeline-step__dot">06</span>
 						<span class="pipeline-step__label">Retention</span>
 					</button> -->
 				</div>
 
 				<div class="pipeline-panel is-active">
+
+					<div class="pipeline-panel__content">
+						<h3 class="pipeline-panel__headline">Never lose a lead again</h3>
+						<p class="pipeline-panel__desc">
+							Embed a lead capture form on any page and every inquiry lands straight in Client Octopus — no separate form plugin, no missed emails.
+						</p>
+						<ul class="features__list">
+							<li>Choose which fields to show and require</li>
+							<li>Custom labels and a consent line</li>
+							<li>Optional CAPTCHA and rate limiting</li>
+							<li>Automatic reply to the submitter</li>
+							<li>Let leads book a call directly (Pro/Agency)</li>
+							<li>Convert a lead to a client in one click</li>
+						</ul>
+					</div>
+
+					<div class="pipeline-screenshot" aria-hidden="true">
+						<img src="/static/images/screenshots/client-lead-form.jpg" alt="Wordpress plugin Client Octopus lead capture form" width="1390" height="1600" loading="lazy" />
+					</div>
+
+				</div>
+
+				<div class="pipeline-panel">
 
 					<div class="pipeline-panel__content">
 						<h3 class="pipeline-panel__headline">Proposals that close themselves</h3>
@@ -302,6 +329,7 @@ get_header();
 					<div class="cf-pricing-tier__year-price"><span><sup>&dollar;</sup>0</span></div>
 					<hr class="cf-pricing-divider">
 					<ul class="cf-pricing-features">
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Lead Capture</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Unlimited proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Proposal builder</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Package Selector pricing</li>
@@ -325,6 +353,7 @@ get_header();
 					<div class="cf-pricing-tier__year-price"><span><sup>&dollar;</sup>89</span><span class="cf-pricing-tier__period">/ year</span><span class="cf-save-badge">Save 26%</span></div>
 					<hr class="cf-pricing-divider">
 					<ul class="cf-pricing-features">
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Lead Capture</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Unlimited proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Proposal builder</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Package Selector pricing</li>
@@ -337,6 +366,8 @@ get_header();
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated proposal reminders</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client e-signature</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client portal</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Call Booking</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Calendar Sync</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe or PayPal payments</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> "Pay Now" on invoices</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Auto-charge recurring invoices</li>
@@ -355,6 +386,7 @@ get_header();
 					<div class="cf-pricing-tier__year-price"><span><sup>&dollar;</sup>229</span><span class="cf-pricing-tier__period">/ year</span><span class="cf-save-badge">Save 24%</span></div>
 					<hr class="cf-pricing-divider">
 					<ul class="cf-pricing-features">
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Lead Capture</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Unlimited proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Proposal builder</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Package Selector pricing</li>
@@ -367,6 +399,8 @@ get_header();
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated proposal reminders</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client e-signature</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client portal</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Call Booking</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Calendar Sync</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe or PayPal payments</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> "Pay Now" on invoices</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Auto-charge recurring invoices</li>
@@ -417,6 +451,24 @@ get_header();
 						</div>
 						<div class="accordion-content">
 							<p>Client Octopus is designed for freelancers, studios, and agencies who manage client work and want a more organised workflow for proposals, payments, projects, and client communication — without stitching together multiple tools.</p>
+						</div>
+					</div>
+
+					<div class="accordion">
+						<div class="js-accordion-trigger">
+							<h3>Can I collect leads before they become clients?</h3>
+						</div>
+						<div class="accordion-content">
+							<p>Yes, on all plans. Embed the lead capture form on any page with the [clientoctopus_lead_form] shortcode. You choose which fields to show and require, add a consent line, and optionally enable Cloudflare Turnstile CAPTCHA and submission rate limits to help prevent automated spam. Every submission lands in a dedicated Leads admin screen where you can track status, mark as contacted, archive, or convert a lead straight into a client record.</p>
+						</div>
+					</div>
+
+					<div class="accordion">
+						<div class="js-accordion-trigger">
+							<h3>Can I let clients or visitors book a call with me?</h3>
+						</div>
+						<div class="accordion-content">
+							<p>Yes, on the Pro and Agency plans. Add the [clientoctopus_booking_form] shortcode to any page and visitors can book a call based on your configured weekly availability, buffer time, minimum notice, and maximum booking window. Both you and the client get a confirmation email with a calendar invite, followed by a 1-hour reminder. Connect Google Calendar, Microsoft 365/Outlook, or Apple iCloud to automatically block your existing events and push confirmed bookings out to your calendar.</p>
 						</div>
 					</div>
 
