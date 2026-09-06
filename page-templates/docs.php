@@ -247,7 +247,7 @@ get_header();
 				<p>Existing events on any connected calendar automatically block matching slots in your booking availability, shown with their real event title — so you never get double-booked. Every confirmed booking made through Client Octopus is also pushed out to every connected calendar as a real event, including your configured meeting link, so it's already on your calendar without any manual entry.</p>
 
 				<h3>Manual sync</h3>
-				<p>Syncing normally happens automatically in the background. Use the <strong>Sync now</strong> button in Settings to pull the latest calendar events immediately, or <strong>Sync existing bookings</strong> to push any bookings made before you connected a calendar out to it right away.</p>
+				<p>Syncing normally happens automatically in the background, roughly every 15 minutes. If you've just added or removed an event and don't want to wait, use the <strong>Sync now</strong> button in Settings to pull the latest calendar events immediately, or <strong>Sync existing bookings</strong> to push any bookings made before you connected a calendar out to it right away.</p>
 			</section>
 
 			<!-- ─── CLIENT PORTAL ───────────────────────────────────────────── -->
