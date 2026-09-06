@@ -26,7 +26,7 @@ get_header();
 	</div>
 
 	<div class="section">
-		<div class="container small-text-container">
+		<div class="container small-text-container animated-up">
 			<p class="section-lede">The short version: HoneyBook is an established, well-designed SaaS platform with its own built-in AI assistant, aimed at creative businesses of any size. Client Octopus is a WordPress plugin — cheaper at every tier, with a genuine free plan instead of a trial, and automations and call booking included from its lowest paid tier rather than gated behind a mid-tier upgrade. If you want a fully standalone app with no WordPress site involved, HoneyBook fits naturally. If your business already runs on WordPress, Client Octopus keeps everything in one place.</p>
 		</div>
 	</div>
@@ -67,7 +67,7 @@ get_header();
 	<!-- ─── DETAILED COMPARISON ─────────────────────────────────────── -->
 
 	<section class="section section--feature">
-		<div class="container">
+		<div class="container animated-up">
 			<p class="section-eyebrow">Feature by feature</p>
 			<h2 class="section-heading">The detailed comparison</h2>
 
@@ -176,7 +176,7 @@ get_header();
 	<!-- ─── WHO IT'S FOR ────────────────────────────────────────────── -->
 
 	<section class="section section--feature bg-stone">
-		<div class="container">
+		<div class="container animated-up">
 			<p class="section-eyebrow">Who each is best for</p>
 			<h2 class="section-heading">Be honest with yourself about which fits</h2>
 
@@ -195,7 +195,7 @@ get_header();
 	<!-- ─── MIGRATION ───────────────────────────────────────────────── -->
 
 	<section class="section section--feature">
-		<div class="container">
+		<div class="container animated-up">
 			<p class="section-eyebrow">Switching over</p>
 			<h2 class="section-heading">Moving from HoneyBook</h2>
 			<p class="section-lede">HoneyBook makes exporting straightforward — go to Clients &rarr; Contacts, then Download spreadsheet to get a CSV of your contact list. Client Octopus doesn't have a bulk CSV importer yet, so for now clients are added individually to the client database, which works fine for most freelancer-sized lists but is worth knowing upfront if you're migrating hundreds of contacts at once. Active proposals and invoices are rebuilt using Client Octopus's own builders — see the <a href="/docs">documentation</a> for a full walkthrough of each.</p>

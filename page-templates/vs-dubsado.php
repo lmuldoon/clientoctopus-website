@@ -26,7 +26,7 @@ get_header();
 	</div>
 
 	<div class="section">
-		<div class="container small-text-container">
+		<div class="container small-text-container animated-up">
 			<p class="section-lede">The short version: Dubsado is a mature, standalone SaaS CRM built for creative freelancers, with deep scheduling and automation on its top tier. Client Octopus is a WordPress plugin that lives inside the site you already run, includes automated reminders and call booking from its cheapest paid tier, and has a genuinely usable free plan rather than a time-limited trial. If you don't run WordPress, Dubsado is the more natural fit. If you do, Client Octopus keeps everything — and your data — in one place you already control.</p>
 		</div>
 	</div>
@@ -67,7 +67,7 @@ get_header();
 	<!-- ─── DETAILED COMPARISON ─────────────────────────────────────── -->
 
 	<section class="section section--feature">
-		<div class="container">
+		<div class="container animated-up">
 			<p class="section-eyebrow">Feature by feature</p>
 			<h2 class="section-heading">The detailed comparison</h2>
 
@@ -176,7 +176,7 @@ get_header();
 	<!-- ─── WHO IT'S FOR ────────────────────────────────────────────── -->
 
 	<section class="section section--feature bg-stone">
-		<div class="container">
+		<div class="container animated-up">
 			<p class="section-eyebrow">Who each is best for</p>
 			<h2 class="section-heading">Be honest with yourself about which fits</h2>
 
@@ -195,7 +195,7 @@ get_header();
 	<!-- ─── MIGRATION ───────────────────────────────────────────────── -->
 
 	<section class="section section--feature">
-		<div class="container">
+		<div class="container animated-up">
 			<p class="section-eyebrow">Switching over</p>
 			<h2 class="section-heading">Moving from Dubsado</h2>
 			<p class="section-lede">Dubsado has a straightforward CSV export — go to Address Book or Leads and click Export to download your client list. Client Octopus doesn't have a bulk CSV importer yet, so for now clients are added individually to the client database, which works fine for most freelancer-sized lists but is worth knowing upfront if you're migrating hundreds of contacts at once. Active proposals and invoices are rebuilt using Client Octopus's own builders — see the <a href="/docs">documentation</a> for a full walkthrough of each.</p>
