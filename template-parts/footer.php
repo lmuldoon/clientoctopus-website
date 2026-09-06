@@ -38,6 +38,7 @@ global $meta;
 					<ul>
 						<li><a href="/how-it-works">How it works</a></li>
 						<li><a href="/#pricing">Pricing</a></li>
+						<li><a href="/alternatives">Comparisons</a></li>
 						<li><a href="/whats-next">What's next</a></li>
 						<li><a href="/changelog">Changelog</a></li>
 					</ul>

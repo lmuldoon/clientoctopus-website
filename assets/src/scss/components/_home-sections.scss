@@ -38,6 +38,16 @@
 	}
 }
 
+.section-subheading {
+	letter-spacing: -0.025em;
+	line-height: 1.15;
+	color: var(--color-navy);
+	margin-inline: auto;
+	margin-block:2rem 1.25rem;
+	text-wrap-style: balance;
+	max-width: 1000px;
+}
+
 // ─── REPLACES SECTION ─────────────────────────────────────────────────────────
 
 .section--replaces {

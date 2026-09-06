@@ -20,6 +20,24 @@
   </url>
 
   <url>
+    <loc>https://clientoctopus.com/alternatives</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://clientoctopus.com/vs-dubsado</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://clientoctopus.com/vs-honeybook</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://clientoctopus.com/changelog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
