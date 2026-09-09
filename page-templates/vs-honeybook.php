@@ -56,7 +56,7 @@ get_header();
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Runs inside the WordPress site you already own</span></li>
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Free plan with unlimited proposals, invoices, and leads</span></li>
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Pro from $9.99/mo &mdash; includes automations and call booking</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Agency includes 5 team seats for $24.99/mo</span></li>
+						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Agency includes 10 team seats for $24.99/mo</span></li>
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Lead capture form has no lead-count cap on any plan</span></li>
 					</ul>
 				</div>
@@ -84,7 +84,7 @@ get_header();
 			<p class="section-lede">HoneyBook AI is built in from the Starter plan. Client Octopus's AI writing tools are more narrowly scoped — improving, shortening, and generating proposal content specifically — and are available on Pro and Agency (100 and 500 requests/month respectively), not the free plan.</p>
 
 			<h3 class="section-subheading">Team members</h3>
-			<p class="section-lede">HoneyBook's Starter plan doesn't include additional team members at all; Essentials ($49/mo) allows up to 2, and unlimited members require Premium at $109/month. Client Octopus's Agency plan ($24.99/month) includes 5 seats outright.</p>
+			<p class="section-lede">HoneyBook's Starter plan doesn't include additional team members at all; Essentials ($49/mo) allows up to 2, and unlimited members require Premium at $109/month. Client Octopus's Agency plan ($24.99/month) includes 10 seats outright.</p>
 
 			<h3 class="section-subheading">Feature comparison</h3>
 			<table class="docs-comparison-table">
@@ -162,7 +162,7 @@ get_header();
 						<td>Pro/Agency</td>
 					</tr>
 					<tr>
-						<td>5 team seats</td>
+						<td>10 team seats</td>
 						<td>Premium ($109/mo)</td>
 						<td>Agency ($24.99/mo)</td>
 					</tr>
@@ -198,7 +198,7 @@ get_header();
 		<div class="container animated-up">
 			<p class="section-eyebrow">Switching over</p>
 			<h2 class="section-heading">Moving from HoneyBook</h2>
-			<p class="section-lede">HoneyBook makes exporting straightforward — go to Clients &rarr; Contacts, then Download spreadsheet to get a CSV of your contact list. Client Octopus doesn't have a bulk CSV importer yet, so for now clients are added individually to the client database, which works fine for most freelancer-sized lists but is worth knowing upfront if you're migrating hundreds of contacts at once. Active proposals and invoices are rebuilt using Client Octopus's own builders — see the <a href="/docs">documentation</a> for a full walkthrough of each.</p>
+			<p class="section-lede">HoneyBook makes exporting straightforward — go to Clients &rarr; Contacts, then Download spreadsheet to get a CSV of your contact list. Client Octopus has its own CSV importer for clients — upload the file you exported from HoneyBook, map the columns yourself (including split First/Last Name fields), preview the results, and bulk-create your client records. Active proposals and invoices are rebuilt using Client Octopus's own builders — see the <a href="/docs">documentation</a> for a full walkthrough of each.</p>
 			<p class="section-lede">If you get stuck partway through, reply to any Client Octopus email or reach out via the contact link in the footer and it'll get to a real person, not a support queue.</p>
 		</div>
 	</section>

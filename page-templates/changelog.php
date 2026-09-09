@@ -28,6 +28,35 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.3.2</h2>
+					<span class="changelog-entry__date">September 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Import Clients from CSV — upload a client list exported from Moxie, HoneyBook, Dubsado, or any other tool, map the columns yourself (including split First/Last Name columns), preview the results, and bulk-create client records. Available on all plans</li>
+						<li>Export Clients to CSV — download your client list to bring into Mailchimp, Campaign Monitor, or any other tool. Available on all plans</li>
+						<li>Export Invoices to CSV — download your invoice list, including client, amount, status, and dates, to bring into Xero, QuickBooks, or any other accounting tool. Available on all plans</li>
+						<li>Purchase Order (PO) numbers — add a client's PO number to a proposal any time after it's sent, and it's automatically applied to every invoice generated from that proposal, including ones already sent. Invoices can also be given a PO number directly, with suggestions drawn from that client's recent PO numbers. Available on all plans</li>
+						<li>Proposal deposits now automatically generate a matching, already-paid Invoice record for accurate bookkeeping and CSV export, without changing how the client pays. When a proposal or project is marked complete, the remaining balance is now billed as a real payable invoice instead of a link that could point nowhere (Pro &amp; Agency)</li>
+					</ul>
+
+					<h3>Improved</h3>
+					<ul>
+						<li>Agency plan team seats increased from 5 to 10</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>A daily background sync could report a blank account email to the AI relay service in certain non-interactive contexts, leaving some entries in the relay's admin view unlabelled. Corrected to always read the actual connected licence account</li>
+						<li>Popups (Import Clients, and the invoice/proposal quick-edit modals) could render clipped or fail to cover the full admin page in some layouts</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.3.1</h2>
 					<span class="changelog-entry__date">September 2026</span>
 					<span class="badge badge--release">Update</span>

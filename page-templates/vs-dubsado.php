@@ -56,7 +56,7 @@ get_header();
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Runs inside the WordPress site you already own</span></li>
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Free plan with unlimited proposals, invoices, and leads</span></li>
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Pro from $9.99/mo &mdash; includes automations and call booking</span></li>
-						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Agency includes 5 team seats flat, no per-user add-on math</span></li>
+						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>Agency includes 10 team seats flat, no per-user add-on math</span></li>
 						<li><iconify-icon class="card-list__icon card-list__icon--yes" icon="lucide:check" width="14" height="14"></iconify-icon><span>No per-brand fees</span></li>
 					</ul>
 				</div>
@@ -84,7 +84,7 @@ get_header();
 			<p class="section-lede">Dubsado's automated workflows and advanced scheduling are genuinely mature, but only available on the $55/month Premier plan. Client Octopus includes automated proposal reminders on every plan, including Free, and call booking with two-way Google/Microsoft/Apple Calendar sync from the $9.99/month Pro plan.</p>
 
 			<h3 class="section-subheading">Team members</h3>
-			<p class="section-lede">Dubsado includes 3 free users, then charges $25/month for 4&ndash;10 users, scaling up to $60/month for larger teams. Client Octopus's Agency plan ($24.99/month) includes 5 team seats in the price, with no separate per-user billing to calculate.</p>
+			<p class="section-lede">Dubsado includes 3 free users, then charges $25/month for 4&ndash;10 users, scaling up to $60/month for larger teams. Client Octopus's Agency plan ($24.99/month) includes 10 team seats in the price, with no separate per-user billing to calculate.</p>
 
 			<h3 class="section-subheading">Feature comparison</h3>
 			<table class="docs-comparison-table">
@@ -164,7 +164,7 @@ get_header();
 					<tr>
 						<td>Team seats included</td>
 						<td>3</td>
-						<td>5 (Agency)</td>
+						<td>10 (Agency)</td>
 					</tr>
 				</tbody>
 			</table>
@@ -198,7 +198,7 @@ get_header();
 		<div class="container animated-up">
 			<p class="section-eyebrow">Switching over</p>
 			<h2 class="section-heading">Moving from Dubsado</h2>
-			<p class="section-lede">Dubsado has a straightforward CSV export — go to Address Book or Leads and click Export to download your client list. Client Octopus doesn't have a bulk CSV importer yet, so for now clients are added individually to the client database, which works fine for most freelancer-sized lists but is worth knowing upfront if you're migrating hundreds of contacts at once. Active proposals and invoices are rebuilt using Client Octopus's own builders — see the <a href="/docs">documentation</a> for a full walkthrough of each.</p>
+			<p class="section-lede">Dubsado has a straightforward CSV export — go to Address Book or Leads and click Export to download your client list. Client Octopus has its own CSV importer for clients — upload the file you exported from Dubsado, map the columns yourself (including split First/Last Name fields), preview the results, and bulk-create your client records. Active proposals and invoices are rebuilt using Client Octopus's own builders — see the <a href="/docs">documentation</a> for a full walkthrough of each.</p>
 			<p class="section-lede">If you get stuck partway through, reply to any Client Octopus email or reach out via the contact link in the footer and it'll get to a real person, not a support queue.</p>
 		</div>
 	</section>

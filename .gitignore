@@ -21,3 +21,7 @@ clientoctopus.zip
 
 # Ignore private downloads (plugin builds, licence giveaways, etc.)
 static/downloads/
+
+# Ignore prospecting research (contains real people's contact info)
+client-octopus-prospects.json
+*.md

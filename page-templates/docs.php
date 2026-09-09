@@ -62,7 +62,7 @@ get_header();
 			<section class="docs-section stack" id="getting-started">
 				<h2>Getting Started</h2>
 				<p>Client Octopus is a WordPress plugin that turns your WordPress admin into a complete client management system. It covers the full client lifecycle: lead capture, proposals, call booking, payments, a client portal, project milestones, file delivery, approvals, and team messaging — all without leaving WordPress.</p>
-				<p>Three plans are available. The <strong>Free</strong> plan covers lead capture, proposals, invoices, and the client database. <strong>Pro</strong> adds Stripe or PayPal payments, call booking with calendar sync, the client portal, AI writing tools, webhooks, and analytics. <strong>Agency</strong> adds projects, milestones, messaging, file storage, approval workflows, and up to five team seats.</p>
+				<p>Three plans are available. The <strong>Free</strong> plan covers lead capture, proposals, invoices, and the client database. <strong>Pro</strong> adds Stripe or PayPal payments, call booking with calendar sync, the client portal, AI writing tools, webhooks, and analytics. <strong>Agency</strong> adds projects, milestones, messaging, file storage, approval workflows, and up to 10 team seats.</p>
 			</section>
 
 			<!-- ─── REQUIREMENTS ────────────────────────────────────────────── -->

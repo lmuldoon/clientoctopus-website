@@ -32,7 +32,7 @@ get_header();
 				<p>Download the latest version of Client Octopus below, then upload and activate it the same way as any other WordPress plugin (<strong>Plugins &rarr; Add New &rarr; Upload Plugin</strong>).</p>
 				<p>Your Agency licence key will be sent to you separately by email — activate it under <strong>Client Octopus &rarr; Account</strong> once the plugin is installed.</p>
 
-				<a class="button button--primary" href="/static/downloads/clientoctopus-premium.1.3.1.zip" download>Download Client Octopus (v1.3.1)</a>
+				<a class="button button--primary" href="/static/downloads/clientoctopus-premium.1.3.2.zip" download>Download Client Octopus (v1.3.2)</a>
 			</div>
 		</div>
 	</div>
