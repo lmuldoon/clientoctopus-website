@@ -34,6 +34,7 @@ get_header();
 				<li><a href="#installation" class="docs-nav__link">Installation</a></li>
 				<li><a href="#quick-start" class="docs-nav__link">Quick Start</a></li>
 				<li><a href="#leads" class="docs-nav__link">Lead Capture</a></li>
+				<li><a href="#clients" class="docs-nav__link">Clients</a></li>
 				<li><a href="#proposals" class="docs-nav__link">Proposals</a></li>
 				<li><a href="#invoices" class="docs-nav__link">Invoices</a></li>
 				<li><a href="#booking" class="docs-nav__link">Call Booking</a></li>
@@ -147,6 +148,28 @@ get_header();
 				<p>You're emailed the moment a lead comes in. You can also turn on an automatic reply to the person who submitted the form — if Call Booking is enabled, this reply can include a "Pick a Time to Talk" link straight to your booking page.</p>
 			</section>
 
+			<!-- ─── CLIENTS ─────────────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="clients">
+				<h2>Clients</h2>
+				<p>Every proposal, invoice, project, and booking is tied to a client record. Client Octopus supports <strong>unlimited clients</strong> on every plan, including Free.</p>
+
+				<h3>Client Detail</h3>
+				<p>Opening a client shows an <strong>Activity Timeline</strong> of every proposal, invoice, and payment associated with them, so you don't have to piece their history together from separate admin screens. Quick-create buttons let you start a new Proposal, Invoice, or Recurring Invoice already prefilled with that client, and two stats — <strong>Lifetime Value</strong> and <strong>Outstanding Balance</strong> — sit at the top of the page. If a client has been billed in more than one currency, both stats are shown broken out per currency rather than added together into one misleading number.</p>
+
+				<h3>Tags</h3>
+				<p>Add custom tags to any client to organise and filter your client list — useful for grouping by service type, retainer status, referral source, or anything else that matters to your workflow. Manage the tags available across your account from the <strong>Manage Tags</strong> screen.</p>
+
+				<h3>Duplicate protection</h3>
+				<p>When creating a client, Client Octopus checks the email and phone number against your existing records and warns you before a duplicate is created — useful when a returning client comes in through a new lead or a different proposal.</p>
+
+				<h3>Exporting</h3>
+				<p>Export your full client list to CSV at any time, or export a single client's complete transaction history from their Client Detail page — useful for accountants, spreadsheets, or bringing records into another tool.</p>
+
+				<h3>Importing</h3>
+				<p>Bring clients in from another tool via CSV. Upload your export from Moxie, HoneyBook, Dubsado, or anywhere else, map the columns yourself (including split First/Last Name columns), preview the results, and bulk-create the records.</p>
+			</section>
+
 			<!-- ─── PROPOSALS ───────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="proposals">
@@ -174,6 +197,9 @@ get_header();
 
 				<h3>Recurring billing</h3>
 				<p>A proposal can be set to <strong>Recurring billing</strong> instead of a one-off payment or deposit. Set the frequency, start date, and end condition on the proposal — the moment the client accepts, Client Octopus automatically creates a Recurring Invoice profile for them, fully editable afterward just like one created manually from <strong>Client Octopus &rarr; Recurring Invoices</strong>. Recurring proposals don't take a deposit or direct payment at acceptance; billing runs entirely through the generated invoice profile. Available on <strong>every plan</strong>.</p>
+
+				<h3>Payment Plans</h3>
+				<p>A proposal can also be set to <strong>Payment Plan</strong> billing — a fixed number of equal instalments on a schedule (e.g. 3 monthly payments), instead of a single payment, a deposit, or open-ended recurring billing. Choose Payment Plan as the billing type when creating the proposal, then set how many instalments and how often. The client sees the full payment schedule before accepting. Once accepted, each instalment is invoiced and emailed automatically as it comes due, and — on Pro/Agency — can be auto-charged to the client's saved card the same way a recurring profile can. Unlike Recurring billing, a Payment Plan has a fixed end point: once the set number of instalments is paid, billing stops on its own. Available on <strong>every plan</strong>.</p>
 
 				<h3>E-signature</h3>
 				<p>When a client accepts a proposal, they're prompted to type their full legal name and confirm a checkbox in a signing modal. The typed name and acceptance timestamp are recorded on the proposal and visible in the admin.</p>
@@ -437,6 +463,7 @@ get_header();
 					<li><code>proposal.declined</code></li>
 					<li><code>proposal.revision_requested</code></li>
 					<li><code>payment.completed</code></li>
+					<li><code>payment.failed</code></li>
 					<li><code>project.created</code></li>
 					<li><code>project.completed</code></li>
 					<li><code>invoice.sent</code></li>
@@ -545,6 +572,9 @@ $data = json_decode( $payload, true );
 
 				<h3>Exporting data</h3>
 				<p>Click <strong>Export CSV</strong> on the analytics page to download all proposal and payment data for the selected period. The export includes proposal ID, client name, value, status, sent date, accepted date, and payment total — suitable for spreadsheets, accountants, or external reporting tools.</p>
+
+				<h3>Reporting Currency (Pro / Agency)</h3>
+				<p>If you bill clients in more than one currency, set a <strong>Reporting Currency</strong> in <strong>Client Octopus &rarr; Settings</strong>. Once set, the Revenue KPI and revenue chart convert every proposal, invoice, and payment into that currency using daily exchange rates, instead of incorrectly adding figures in different currencies together as if they were the same one. This only affects the Analytics dashboard — Client Detail always shows each client's Lifetime Value and Outstanding Balance in their real billed currency, unconverted.</p>
 			</section>
 
 

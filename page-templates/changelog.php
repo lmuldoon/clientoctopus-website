@@ -28,6 +28,47 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.4.0</h2>
+					<span class="changelog-entry__date">September 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Client Detail — an Activity Timeline of proposals, invoices, and payments for that client, quick-create actions for a new Proposal, Invoice, or Recurring Invoice already prefilled with the client, Lifetime Value and Outstanding Balance stats, and Client Tags with a Manage Tags screen for filtering your client list. Available on all plans</li>
+						<li>Duplicate client protection — creating a client with an email or phone number that matches an existing client now warns you before a duplicate record is created</li>
+						<li>Export a client's full transaction history to CSV</li>
+						<li>Invoice Overdue Automated Reminders — automatically follow up on invoices that have passed their due date, alongside the existing Automated Reminders for proposals</li>
+						<li>Analytics Reporting Currency — choose which currency Analytics converts figures into, in Settings. The Revenue KPI and revenue chart now correctly convert proposals, invoices, and payments made in other currencies using daily exchange rates, instead of adding every currency together as if it were one (Pro &amp; Agency)</li>
+						<li>Payment Plans — split a proposal's total into equal instalments billed on a schedule (e.g. 3 monthly payments), as an alternative to a single payment, a deposit, or open-ended recurring billing. Choose "Payment Plan" as the billing type when creating a proposal, set how many payments and how often, and the rest — invoicing, emails, and optionally auto-charging the client's saved card — happens automatically. Available on all plans</li>
+					</ul>
+
+					<h3>Improved</h3>
+					<ul>
+						<li>Outstanding Balance and Lifetime Value on Client Detail now show each currency separately for clients billed in more than one currency, instead of incorrectly adding different currencies together into one number</li>
+						<li>Several admin screens (Proposals, Invoices, Recurring Invoices, Leads) no longer show an empty page after deleting the last item on it</li>
+						<li>Client phone numbers are no longer truncated when longer than 20 characters</li>
+						<li>Recurring invoices can no longer be saved with an incomplete "Ends" condition, which previously could result in a billing schedule that never stopped</li>
+						<li>The Team screen's member table now matches the styling used across the rest of the admin instead of using its own inconsistent layout</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>Invoices that passed their due date were never actually marked overdue in the background, so the overdue badge shown in the admin table and client portal could go stale until the invoice was next opened. Overdue status is now refreshed automatically every day</li>
+						<li>Proposal currency is now validated to the same supported currencies as Invoices and Recurring Invoices, preventing an unrecognised currency code from being saved</li>
+						<li>Plan changes (upgrade, downgrade, and cancellation) now sync correctly in both directions — previously a downgrade or cancellation wasn't always reflected locally, which could leave an account with more access than its current plan allows</li>
+						<li>Tightened access control on account setup and the internal usage-report endpoint so both are restricted to the site administrator, not any invited team member</li>
+						<li>Analytics revenue could be double-counted for proposals paid via a deposit followed by a final invoice — the Revenue KPI, chart, and CSV export now count each payment once</li>
+						<li>A payment completed just after its invoice was cancelled, or just after its proposal was declined, is no longer silently applied as if nothing had changed — the underlying charge is preserved for reconciliation instead</li>
+						<li>The client portal's one-time login link could, in rare cases, be used more than once if opened twice in quick succession</li>
+						<li>A cancelled call-booking slot could become permanently unbookable instead of reopening</li>
+						<li>Various background jobs (reminders, calendar sync) are now more resilient to being triggered more than once in overlapping runs</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.3.2</h2>
 					<span class="changelog-entry__date">September 2026</span>
 					<span class="badge badge--release">Update</span>
