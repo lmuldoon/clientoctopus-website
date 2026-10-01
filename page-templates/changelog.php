@@ -28,6 +28,68 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.4.1</h2>
+					<span class="changelog-entry__date">October 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Emails, the settings and plan screens, and the public booking and lead capture forms are now translatable, with a translation template included for translators. The React-based admin screens, the client portal, and the proposal view are not covered yet</li>
+						<li>Set a Default Currency in Settings, and during first-time setup. New proposals and invoices open in your currency instead of always defaulting to British Pounds. Existing records keep the currency they were created with</li>
+						<li>15 more currencies, bringing the total to 20 — Japanese Yen, Swiss Franc, New Zealand Dollar, Swedish Krona, Norwegian Krone, Danish Krone, Singapore Dollar, Hong Kong Dollar, Indian Rupee, Polish Zloty, Czech Koruna, Brazilian Real, Mexican Peso, South African Rand, and South Korean Won — all working everywhere the original five did, including Analytics currency conversion</li>
+						<li>Choose Stripe or PayPal during first-time setup and enter your details there, instead of finishing PayPal setup afterwards in Settings</li>
+						<li>Pick your logo from the WordPress Media Library, in Settings and during setup, instead of pasting in a direct image URL</li>
+						<li>VAT Registration Number in Settings — once set, it's filled in automatically on new invoices and on invoices generated from an accepted proposal, instead of being typed in by hand each time</li>
+						<li>Add images to a proposal — pick from your Media Library, choose full, wide, or half width, and add a description for clients using a screen reader. Images appear in the client's copy and when printed</li>
+						<li>Change a team member's role from the Team screen, applying immediately instead of requiring removal and re-invitation (Agency)</li>
+						<li>The signing certificate on an accepted proposal now records the device the client signed from, and a fingerprint of the proposal exactly as it stood when they accepted it — if the proposal is edited afterwards, the certificate reports that it has changed since signing</li>
+						<li>Clients can now unsubscribe from reminder emails — proposal reminders, invoice reminders, call reminders, and testimonial requests each carry an unsubscribe link and a preferences page. Essential emails (proposals, invoices, receipts, booking confirmations, portal logins, approval requests) are never affected</li>
+						<li>Each client's detail screen now shows which reminder emails they still receive and which they've unsubscribed from, with a button to copy their preferences link</li>
+					</ul>
+
+					<h3>Improved</h3>
+					<ul>
+						<li>Webhooks are now queued and delivered in the background with automatic retries, so a proposal acceptance no longer waits on them and a temporary outage at the receiving end no longer loses the event permanently. Repeated failures pause the webhook with the full response recorded for diagnosis (Pro &amp; Agency)</li>
+						<li>The plan comparison screen was missing seven features that differ between plans — Call Booking, Calendar Sync, Webhooks, Analytics, Testimonials, Leads, and Invoices — so it understated what the paid plans include</li>
+						<li>Accessibility — popups now keep keyboard focus inside them, close with the Escape key, and return focus to where you were when they close. Form fields across the admin are now properly associated with their labels</li>
+						<li>The Plan &amp; Usage screen has been reorganised — your plan and usage figures sit in a single band at the top, quick actions moved up beneath it, and the feature list is grouped into Win Clients, Deliver Work, and Get Paid &amp; Automate instead of one long grid</li>
+						<li>Emails that can be unsubscribed from now include standard List-Unsubscribe headers, so Gmail and Outlook can offer their own one-click unsubscribe button</li>
+						<li>Privacy requests handled through Tools &rarr; Export/Erase Personal Data now cover far more than before — booked calls, the name and IP address recorded when a proposal is signed, project messages, approval comments, and unsubscribe records, alongside the client records and leads already covered</li>
+						<li>An erasure request now reports honestly about what was kept — booked calls, project messages, and approval comments are deleted outright, while invoices, payments, and accepted proposals are kept but stripped of personal details (including anonymising the signing IP) because accounting records must be retained for tax purposes</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>Currencies written without decimal places, such as Japanese Yen and South Korean Won, are no longer shown with a meaningless ".00" on the end</li>
+						<li>Online payments in Japanese Yen or South Korean Won were sent to Stripe at 100 times the correct amount, and rejected by PayPal, because the code assumed every currency has a sub-unit like pence. Affected proposals, invoices, recurring billing, and payment plans</li>
+						<li>Payment confirmation emails showed the currency code and two decimal places regardless of currency, so a yen payment read "JPY 17,088.00" instead of "&yen;17,088"</li>
+						<li>A recurring invoice set to auto-charge tried to charge the first invoice before the client had a chance to pay one and save a card, incorrectly telling them their card was declined. Auto-charge now starts from the second invoice (Pro &amp; Agency)</li>
+						<li>The currency dropdowns listed Canadian and Australian Dollars with a plain "$", making them impossible to tell apart from US Dollars</li>
+						<li>Booking cancellation links in emails could be triggered by corporate mail scanners and link previewers, silently cancelling a confirmed booking nobody actually cancelled. Cancelling now requires a deliberate confirmation step (Pro &amp; Agency)</li>
+						<li>Team members with the Viewer role could perform destructive actions — bulk-deleting leads, cancelling booked calls, editing blocked time, changing automated email content — that now correctly require Editor or Admin</li>
+						<li>Team members with the app's Admin role could create brand-new WordPress user accounts and email a password-reset link to any address. Creating a new WordPress account now requires a site administrator</li>
+						<li>Downgrading from Agency to Pro left Messaging, File Sharing, and Approvals usable on existing projects — these are now correctly restricted, with existing conversations and files still readable but not addable to</li>
+						<li>Ticking "Delete all Client Octopus data when this plugin is deleted" left six database tables behind, including active portal session tokens, encrypted calendar credentials, and client-uploaded files. Uninstalling now removes all of it</li>
+						<li>Public proposal and invoice links now use a cryptographically secure random token instead of a predictable one. Links already issued remain valid</li>
+						<li>The payment status check did not verify its token, so payment amount, currency, and status could be read without it</li>
+						<li>Currency symbols didn't match between the admin and the client's emailed invoice copy — now consistent everywhere</li>
+						<li>The project completion email always showed the outstanding balance in pounds regardless of the proposal's actual currency</li>
+						<li>The button on the project completion email read "View Project" but opened the final invoice — it now reads "Pay Final Invoice" or "View in Portal" depending on whether a balance remains</li>
+						<li>The client email preferences page offered to switch off reminders your plan can't send in the first place — only categories your plan actually sends are now listed</li>
+						<li>When a client's portal session expired, the portal showed raw error text instead of returning them to the login screen</li>
+						<li>Database updates could run too late after an automatic plugin update, including when updated via WordPress auto-update or a manual file upload rather than activation</li>
+						<li>Team members always saw "0" on the unread messages badge regardless of actual unread count (Agency)</li>
+						<li>AI usage records stored no token counts and no cost, leaving AI usage reporting blank (Pro &amp; Agency)</li>
+						<li>Free-plan users opening Bookings or Analytics saw an error message with no way forward — both now explain the feature and link to upgrade</li>
+						<li>The Unsubscribe link in reminder emails acted as soon as it was followed, so mail scanners could unsubscribe a client who never clicked it. It now opens a preferences page instead</li>
+						<li>The booking confirmation and reminder emails didn't state which timezone the time was in, which could read as a different time than the one the visitor actually booked</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.4.0</h2>
 					<span class="changelog-entry__date">September 2026</span>
 					<span class="badge badge--release">Update</span>

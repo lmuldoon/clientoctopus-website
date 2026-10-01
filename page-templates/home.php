@@ -44,7 +44,7 @@ get_header();
 					<span class="browser-frame__url">clientoctopus.com/wp-admin/admin.php?page=clientoctopus</span>
 				</div> -->
 				<div class="browser-frame__content">
-					<img src="/static/images/screenshots/admin-plan-usage.jpg?v=1" srcset="/static/images/screenshots/admin-plan-usage-800.jpg 800w, /static/images/screenshots/admin-plan-usage.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus admin dashboard" width="1920" height="1180" fetchpriority="high" />
+					<img src="/static/images/screenshots/admin-plan-usage.jpg?v=3" srcset="/static/images/screenshots/admin-plan-usage-800.jpg 800w, /static/images/screenshots/admin-plan-usage.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus admin dashboard" width="1920" height="1080" fetchpriority="high" />
 				</div>
 			</div>
 		</div>

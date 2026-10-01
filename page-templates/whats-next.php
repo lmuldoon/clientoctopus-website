@@ -50,7 +50,6 @@ get_header();
 					<p class="section-lede">Upcoming improvements focused on helping you close more deals, increase project value, and give clients more flexible ways to move forward.</p>
 					<div>
 						<ul class="card-list">
-							<li>Payment plans & instalments</li>
 							<li>Accept now, pay later workflows</li>
 							<li>Optional proposal upsells</li>
 							<li>Discount & promo codes</li>
@@ -63,10 +62,9 @@ get_header();
 					<p class="section-lede">New tools designed to help agencies standardise processes, reduce repetitive work, and manage larger volumes of client projects more efficiently.</p>
 					<div>
 						<ul class="card-list">
-							<li>Reusable custom proposal templates</li>
-							<li>AI-generated proposal drafts</li>
+							<li>Save your own proposals as reusable templates</li>
 							<li>Time tracking & profitability insights</li>
-							<li>Team collaboration improvements</li>
+							<li>Support ticket system in the client portal</li>
 						</ul>
 					</div>
 				</div>
@@ -76,10 +74,9 @@ get_header();
 					<p class="section-lede">Expand your workflow with integrations and automations that keep your proposals, payments, projects, and notifications connected across the tools you already use.</p>
 					<div>
 						<ul class="card-list">
-							<li>Xero & QuickBooks syncing</li>
-							<li>Slack notifications</li>
-							<li>Calendly & Cal.com integrations</li>
-							<li>Expanded webhook events</li>
+							<li>Native Xero & QuickBooks sync</li>
+							<li>Built-in Slack app (no Zapier required)</li>
+							<li>More outbound webhook events</li>
 						</ul>
 					</div>
 				</div>

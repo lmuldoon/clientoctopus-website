@@ -191,6 +191,7 @@ get_header();
 
 				<h3>Editing proposal content</h3>
 				<p>After creating a proposal, the proposal detail screen shows a summary of the settings (client, pricing, payment options). To write or edit the actual proposal content — sections, text, and line items — click the <strong>Edit Content</strong> button. This opens the full proposal editor where you can build out your proposal before sending it to the client. Content blocks, including the Pricing block, can be reordered — the client-facing proposal renders each block wherever you place it, rather than always pushing pricing to the end.</p>
+				<p>Add images anywhere in a proposal by picking one from your Media Library. Choose full, wide, or half width, and add a description for clients using a screen reader — images appear both in the client's copy and when they print or save the proposal as a PDF.</p>
 
 				<h3>Package Selector pricing</h3>
 				<p>Every proposal uses one of two pricing modes. <strong>Flat Pricing</strong> is a single set of line items totalling one price, same as before. <strong>Package Selector</strong> lets you define unlimited pricing tiers — each with its own independent line items — plus optional add-ons the client can toggle on top of whichever tier they pick. The client-facing proposal recalculates the total live as they choose, and their selection is locked in the moment they accept. Available on <strong>every plan</strong>.</p>
@@ -202,7 +203,7 @@ get_header();
 				<p>A proposal can also be set to <strong>Payment Plan</strong> billing — a fixed number of equal instalments on a schedule (e.g. 3 monthly payments), instead of a single payment, a deposit, or open-ended recurring billing. Choose Payment Plan as the billing type when creating the proposal, then set how many instalments and how often. The client sees the full payment schedule before accepting. Once accepted, each instalment is invoiced and emailed automatically as it comes due, and — on Pro/Agency — can be auto-charged to the client's saved card the same way a recurring profile can. Unlike Recurring billing, a Payment Plan has a fixed end point: once the set number of instalments is paid, billing stops on its own. Available on <strong>every plan</strong>.</p>
 
 				<h3>E-signature</h3>
-				<p>When a client accepts a proposal, they're prompted to type their full legal name and confirm a checkbox in a signing modal. The typed name and acceptance timestamp are recorded on the proposal and visible in the admin.</p>
+				<p>When a client accepts a proposal, they're prompted to type their full legal name and confirm a checkbox in a signing modal. The typed name, acceptance timestamp, and the device they signed from are recorded on the proposal and visible in the admin. The certificate also stores a fingerprint of the proposal exactly as it stood at the moment of signing — if the proposal is edited afterwards, the certificate reports that it has changed since signing rather than silently appearing to cover the new version.</p>
 
 				<h3>Templates</h3>
 				<p>The template library provides preset proposal layouts. Start from a template and customise content, line items, and pricing per client. Most templates are filtered by your current plan, but the Marketing Campaign template is available on every plan.</p>
@@ -225,6 +226,9 @@ get_header();
 
 				<h3>Creating and sending an invoice</h3>
 				<p>Go to <strong>Client Octopus &rarr; Invoices &rarr; New Invoice</strong>. Assign a client, add line items, and optionally apply a discount and VAT. Each invoice is auto-numbered (<code>INV-0001</code>, <code>INV-0002</code>, &hellip;). Click <strong>Send</strong> to email the client a link to their invoice — no WordPress account required to view it.</p>
+
+				<h3>VAT registration number</h3>
+				<p>If you're VAT registered, set your <strong>VAT Registration Number</strong> once in Settings and it's filled in automatically on every new invoice, including ones generated from an accepted proposal — no retyping it by hand each time. Leave it blank if you're not VAT registered.</p>
 
 				<h3>Statuses</h3>
 				<p>Invoices move through <strong>Draft &rarr; Sent &rarr; Paid</strong>, with <strong>Overdue</strong> applied automatically once the due date passes and <strong>Cancelled</strong> available at any point before payment.</p>
@@ -367,7 +371,7 @@ get_header();
 				<p>On any proposal, enable payment and set a <strong>deposit percentage</strong> (1–100%). The client pays the deposit when they accept. You can mark the balance as due on project completion, which triggers a second checkout session with your active payment provider.</p>
 
 				<h3>Currencies</h3>
-				<p>GBP is the default. Any currency supported by your active payment provider can be used — set the currency on each proposal individually.</p>
+				<p>Client Octopus supports 20 currencies, including GBP, USD, EUR, CAD, AUD, JPY, CHF, NZD, SEK, NOK, DKK, SGD, HKD, INR, PLN, CZK, BRL, MXN, ZAR, and KRW. Set a <strong>Default Currency</strong> in Settings (or during first-time setup) so new proposals and invoices open in the currency you actually bill in, or set the currency on each proposal individually. Existing records keep whichever currency they were created with if you change your default later.</p>
 
 				<h3>Refunds</h3>
 				<p>Refunds can be initiated from <strong>Client Octopus &rarr; Proposals</strong> on any completed payment made via Stripe — no manual action in the Stripe dashboard is needed. Refunds for PayPal payments currently need to be issued directly from your PayPal account.</p>
@@ -478,6 +482,9 @@ get_header();
 					<li><code>lead.captured</code></li>
 				</ul>
 
+				<h3>Delivery and retries</h3>
+				<p>Deliveries are queued and sent in the background rather than inline, so triggering an event (like a proposal being accepted) never waits on your endpoint responding. If a delivery fails — your endpoint is down, times out, or returns an error — Client Octopus retries automatically rather than losing the event. A webhook that keeps failing is paused, with the full response from the last attempt recorded so you can diagnose what went wrong.</p>
+
 				<h3>Verifying payloads</h3>
 				<p>Every request includes an <code>X-ClientOctopus-Signature</code> header containing an HMAC-SHA256 signature of the raw request body, signed with your webhook secret. Verify this on your endpoint before processing the payload. The last 3 delivery attempts for each webhook are logged and visible in the admin.</p>
 
@@ -523,11 +530,18 @@ $data = json_decode( $payload, true );
 							<td>Expiring soon</td>
 							<td>A proposal's expiry date is approaching and it's still awaiting a response</td>
 						</tr>
+						<tr>
+							<td>Invoice overdue</td>
+							<td>An invoice has passed its due date and hasn't been marked paid</td>
+						</tr>
 					</tbody>
 				</table>
 
 				<h3>Configuring delays</h3>
 				<p>Each trigger has its own configurable delay, in days, under <strong>Client Octopus &rarr; Settings &rarr; Automations</strong>. Reminders are checked once daily via WordPress cron, so a change to the delay takes effect on the next daily run.</p>
+
+				<h3>Client unsubscribe</h3>
+				<p>Every reminder email carries an unsubscribe link and a preferences page where the client can switch proposal reminders, invoice reminders, call reminders, and testimonial requests on or off individually. Essential emails — proposals, invoices, payment receipts, booking confirmations, portal login links, and approval requests — are never affected, since they concern work already agreed. A client's current preferences, and a link to copy them, are shown on their Client Detail page.</p>
 			</section>
 
 			<!-- ─── ANALYTICS ──────────────────────────────────────────────── -->
@@ -679,6 +693,9 @@ $data = json_decode( $payload, true );
 
 				<h3>Testimonial Emails (Pro / Agency)</h3>
 				<p>Enable automated review-request emails sent to clients after their final payment is collected. Configure the email body, the URL you want them to visit (e.g. a Google Reviews or Trustpilot page), and the button label (default: &ldquo;Leave a Review&rdquo;).</p>
+
+				<h3>Translations</h3>
+				<p>Emails, the Settings and Plan &amp; Usage screens, and the public booking and lead capture forms can be translated using a standard WordPress translation plugin (e.g. Loco Translate) with the included translation template. The React-based admin screens, the client portal, and the client-facing proposal view aren't covered yet.</p>
 
 				<h3>Danger Zone</h3>
 				<p>By default, uninstalling Client Octopus only removes the plugin's code — your proposals, clients, projects, and invoices stay in your database and are there again if you reinstall or upgrade. To permanently delete all Client Octopus data when the plugin is deleted, enable <strong>Delete all Client Octopus data when this plugin is deleted</strong> under Danger Zone. This is off by default and should only be enabled if you intend to remove Client Octopus and its data for good.</p>
@@ -901,6 +918,7 @@ $data = json_decode( $payload, true );
 
 				<h3>GDPR considerations</h3>
 				<p>Because all client data lives in your database, you are the data controller. You are responsible for your own privacy policy, cookie notice, and any data subject requests from your clients. Client Octopus does not act as a data processor on your behalf beyond the AI relay described above.</p>
+				<p>Client Octopus integrates with WordPress's own <strong>Tools &rarr; Export/Erase Personal Data</strong> tools, so you don't have to track down a client's records by hand when a request comes in. An export or erasure request covers client records, leads, booked calls, the name and IP address recorded when a proposal was signed, project messages, approval comments, and unsubscribe preferences. Erasure deletes booked calls, project messages, and approval comments outright; invoices, payments, and accepted proposals are kept but stripped of personal details (including anonymising the signing IP), since accounting records have to be retained for tax purposes — the confirmation shown at the end of an erasure states exactly what was kept and why.</p>
 			</section>
 
 

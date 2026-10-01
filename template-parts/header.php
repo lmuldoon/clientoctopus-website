@@ -69,7 +69,7 @@ global $meta;
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap">
 	<?php if ($meta->slug === 'home') : ?>
 		<link rel="preload" as="image"
-		      href="/static/images/screenshots/admin-plan-usage.jpg?v=1"
+		      href="/static/images/screenshots/admin-plan-usage.jpg?v=3"
 		      imagesrcset="/static/images/screenshots/admin-plan-usage-800.jpg 800w, /static/images/screenshots/admin-plan-usage.jpg 1920w"
 		      imagesizes="(max-width: 768px) 100vw, 900px"
 		      fetchpriority="high">
