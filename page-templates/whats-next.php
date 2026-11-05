@@ -75,7 +75,6 @@ get_header();
 					<div>
 						<ul class="card-list">
 							<li>Native Xero & QuickBooks sync</li>
-							<li>Built-in Slack app (no Zapier required)</li>
 							<li>More outbound webhook events</li>
 						</ul>
 					</div>

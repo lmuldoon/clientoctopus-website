@@ -188,6 +188,7 @@ get_header();
 					<li><strong>Completed</strong> — Work finished and any payment collected. On Agency, the associated project is locked.</li>
 					<li><strong>Expired</strong> — The proposal link is no longer valid once its expiry date passes. Expiry date is required on every proposal.</li>
 				</ol>
+				<p><strong>Accepted and completed proposals are read-only.</strong> Once a client has signed, the proposal can no longer be edited — this protects the signing certificate, which records a fingerprint of the proposal as it stood at signing and would otherwise report a tampered document. If you need to change something after acceptance, duplicate the proposal to create an editable copy rather than editing the signed original.</p>
 
 				<h3>Editing proposal content</h3>
 				<p>After creating a proposal, the proposal detail screen shows a summary of the settings (client, pricing, payment options). To write or edit the actual proposal content — sections, text, and line items — click the <strong>Edit Content</strong> button. This opens the full proposal editor where you can build out your proposal before sending it to the client. Content blocks, including the Pricing block, can be reordered — the client-facing proposal renders each block wherever you place it, rather than always pushing pricing to the end.</p>
@@ -325,7 +326,7 @@ get_header();
 
 				<h3>Basic vs Full portal</h3>
 				<p><strong>Pro (Basic)</strong> — Clients can view proposals, accept or decline, and see payment history. No project access.</p>
-				<p><strong>Agency (Full)</strong> — Clients also see project milestones, can approve deliverables, download files, and message the agency directly from the portal.</p>
+				<p><strong>Agency (Full)</strong> — Clients also see project milestones, can approve deliverables, download files, and message the agency directly from the portal. An unread-message indicator shows on the Projects menu and on the project itself, so a client can see at a glance which project has something new waiting for them.</p>
 
 				<h3>Permalinks</h3>
 				<p>If portal URLs return 404, go to <strong>Settings &rarr; Permalinks</strong> and click <strong>Save Changes</strong> to regenerate the rewrite rules.</p>
@@ -459,6 +460,9 @@ get_header();
 					<li>Copy the generated <strong>signing secret</strong> — you&rsquo;ll use this to verify payloads on your endpoint.</li>
 					<li>Use the <strong>Test</strong> button to send a sample payload and confirm delivery.</li>
 				</ol>
+
+				<h3>Sending to Slack</h3>
+				<p>Choose <strong>Slack</strong> as the destination type instead of a generic endpoint, and paste the <strong>Incoming Webhook URL</strong> from your Slack workspace (Slack &rarr; Apps &rarr; Incoming Webhooks). Events are formatted as readable chat messages rather than raw JSON, so there's nothing to parse on your end. Since Slack's own webhook format doesn't support the signature header described below, payload verification doesn't apply to a Slack destination.</p>
 
 				<h3>Available events</h3>
 				<ul>

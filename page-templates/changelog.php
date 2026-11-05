@@ -28,6 +28,34 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.4.2</h2>
+					<span class="changelog-entry__date">November 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Slack is now a webhook destination — choose Slack when adding a webhook and paste your Incoming Webhook URL, and events arrive as readable chat messages (Pro &amp; Agency)</li>
+						<li>The client portal shows which project has unread messages, on the Projects menu and on the project itself (Agency)</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>Editing a proposal through the wizard replaced any content you had written in the content editor with the template's default text. If you wrote your own sections and later reopened the wizard to change a price, your writing was lost. Choosing a different template still resets the sections, as before</li>
+						<li>An accepted proposal could still be edited, which silently broke its signature — the signing certificate then reported the client's own signed document as altered. Accepted and completed proposals are now read-only; duplicate one to make an editable copy</li>
+						<li>Previously, a Slack URL was rejected by Slack and the webhook switched itself off after repeated failures</li>
+						<li>An invoice raised from a proposal could never be marked paid by hand, so a client paying by bank transfer could not be recorded at all. It can now, and the payment is counted in your revenue figures, the client's lifetime value, and their activity timeline. An invoice already paid by card or PayPal is still protected from being counted twice</li>
+						<li>Deposit and balance invoices showed the amount not yet due as a "Discount" — a 25% deposit on a &pound;10,000 proposal appeared to give the client &pound;7,500 off. The line is now labelled for what it is</li>
+						<li>Six webhook events could be sent by the plugin but not chosen when setting one up — new client messages, the three milestone events, approval responses, and proposal revision requests. Every event your plan can send is now listed, and none that it cannot (Pro &amp; Agency)</li>
+						<li>A project's Messages tab showed the unread count for your whole account, so a project with nothing new still carried a badge (Agency)</li>
+						<li>New-message emails opened the portal home page or the project list rather than the conversation. They now open the message itself, on both sides (Agency)</li>
+						<li>A project's message view loaded every message ever sent, and reloaded all of them every thirty seconds. It now loads the most recent 200 and says so when there are more, which keeps a long-running conversation quick to open</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.4.1</h2>
 					<span class="changelog-entry__date">October 2026</span>
 					<span class="badge badge--release">Update</span>
