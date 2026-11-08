@@ -193,6 +193,13 @@ get_header();
 				<h3>Editing proposal content</h3>
 				<p>After creating a proposal, the proposal detail screen shows a summary of the settings (client, pricing, payment options). To write or edit the actual proposal content — sections, text, and line items — click the <strong>Edit Content</strong> button. This opens the full proposal editor where you can build out your proposal before sending it to the client. Content blocks, including the Pricing block, can be reordered — the client-facing proposal renders each block wherever you place it, rather than always pushing pricing to the end.</p>
 				<p>Add images anywhere in a proposal by picking one from your Media Library. Choose full, wide, or half width, and add a description for clients using a screen reader — images appear both in the client's copy and when they print or save the proposal as a PDF.</p>
+				<p>Wrap a word in <code>**double asterisks**</code> to make it bold. This works in body sections, bullet lists, line item and add-on descriptions, and invoice descriptions and notes.</p>
+
+				<h3>Terms and conditions</h3>
+				<p>Add a <strong>Terms and Conditions</strong> block anywhere in a proposal — typically below the pricing. It renders as small print rather than body copy, so it reads like terms rather than part of your pitch. Set a default under <strong>Settings &rarr; Branding</strong> so you write your terms once instead of retyping them on every proposal; the Retainer template uses this default out of the box.</p>
+
+				<h3>Custom document terminology</h3>
+				<p>If you send estimates, quotes, or statements of work rather than "proposals," set the word you use under <strong>Settings &rarr; Branding</strong> — with an optional plural for labels like "Statement of Work," where adding an "s" would read oddly. It replaces "Proposal" everywhere a client sees it: the document itself, the Accept and Decline buttons, the wording they sign against, the browser tab, the client portal, and every email they receive.</p>
 
 				<h3>Package Selector pricing</h3>
 				<p>Every proposal uses one of two pricing modes. <strong>Flat Pricing</strong> is a single set of line items totalling one price, same as before. <strong>Package Selector</strong> lets you define unlimited pricing tiers — each with its own independent line items — plus optional add-ons the client can toggle on top of whichever tier they pick. The client-facing proposal recalculates the total live as they choose, and their selection is locked in the moment they accept. Available on <strong>every plan</strong>.</p>
@@ -657,7 +664,27 @@ $data = json_decode( $payload, true );
 					<tbody>
 						<tr>
 							<td>Business Name</td>
-							<td>Emails, portal header</td>
+							<td>Client-facing proposals, the client portal, and emails sent to clients</td>
+						</tr>
+						<tr>
+							<td>Business Address</td>
+							<td>Foot of proposals and invoices, client portal, payment receipts, and client emails. Left out if blank &mdash; required for a valid VAT invoice if you're VAT registered (see <a href="#invoices">Invoices</a>)</td>
+						</tr>
+						<tr>
+							<td>Phone Number</td>
+							<td>Same places as Business Address. Left out if blank</td>
+						</tr>
+						<tr>
+							<td>Business Email</td>
+							<td>Same places as Business Address. Left out if blank</td>
+						</tr>
+						<tr>
+							<td>Website</td>
+							<td>Same places as Business Address. Left out if blank</td>
+						</tr>
+						<tr>
+							<td>Powered by Client Octopus credit</td>
+							<td>Off by default. When enabled, a small credit appears on client-facing proposals, the client portal, and your emails. Nothing of ours appears anywhere your clients look unless you opt in</td>
 						</tr>
 						<tr>
 							<td>Sender Name</td>

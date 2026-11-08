@@ -28,6 +28,42 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.4.3</h2>
+					<span class="changelog-entry__date">November 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Terms and conditions are now a section type of their own, so they can be placed anywhere in a proposal &mdash; below the pricing, typically &mdash; and they render as small print rather than as body copy. Settings &rarr; Branding takes a default, so you write them once instead of on every proposal</li>
+						<li>Your business address, phone number, email address, and website can be set under Settings &rarr; Branding, and appear wherever your clients deal with you &mdash; at the foot of proposals and invoices, in your client portal, on payment receipts, and in every email you send them, including booking confirmations. Each line is left out when you leave it blank. If you're VAT registered, the address matters: an invoice is only valid if it carries one</li>
+						<li>If you send estimates or quotes rather than proposals, Settings &rarr; Branding now takes the word you use &mdash; and an optional plural, for a label like "Statement of Work" where adding an "s" would read oddly. It replaces "Proposal" throughout everything your clients see: the document and its Accept and Decline buttons, the wording you ask them to sign against, the browser tab, your client portal, and the emails they receive</li>
+						<li>Bold text, written by wrapping a word in <code>**double asterisks**</code>, now works everywhere your clients read your writing &mdash; body sections, bullet lists, line item and add-on descriptions, and invoice descriptions and notes. Previously only body sections supported it</li>
+						<li>Proposals now show the date they were sent, alongside the expiry date, so a client can see how current the quote is</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>The "Powered by Client Octopus" credit appeared on client-facing proposals and in the client portal with no way to switch it off, on every plan. It is now controlled by the existing Branding setting, which is off by default &mdash; so unless you opt in, nothing of ours appears on anything your clients see. If you had already enabled it for emails, it will now also show on proposals and the portal</li>
+						<li>The Business Name you set under Branding was ignored on client-facing proposals, the client portal, and two of the emails sent to clients &mdash; all four showed your WordPress site title instead, despite the setting saying it applies to them</li>
+						<li>The Blank template filled every new proposal with the placeholder text "Proposal Title" and "Add your proposal introduction here." That was real content, not a prompt, so it was sent to clients as written. A blank proposal now starts blank</li>
+						<li>A proposal's expiry date was never shown to the client unless it had already expired or was within seven days. It now appears in the header throughout, and the internal status label is no longer shown to clients</li>
+						<li>On a phone, the action bar at the foot of a proposal squeezed its buttons into a row too narrow for them, so "Accept Proposal" was cut off at the edge of the screen and could not be reached. The row now scrolls sideways, and the page leaves enough room below it that the last of the content is no longer hidden behind the bar</li>
+						<li>Multi-line boxes in Settings &mdash; the lead auto-reply, booking confirmation, and testimonial message bodies &mdash; were only one line tall with the text pressed against the top edge. They now open at a sensible height and can be dragged taller</li>
+						<li>Several things your clients read were not translatable, so they stayed in English on a translated site &mdash; the expiry dates on a proposal, the accepted and declined notices, and a number of labels in the client portal</li>
+						<li>"Prepared for" ran into the client's name with no space between them</li>
+						<li>A package tier left with no line items showed clients a selectable "&pound;0.00" option they could accept but never pay, failing at checkout with a message about the total not being set. Tiers now need at least one line item, and any already saved without one are hidden from the client</li>
+					</ul>
+
+					<h3>Tweaked</h3>
+					<ul>
+						<li>The proposal title is a little smaller, so a longer title sits better against the rest of the document</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.4.2</h2>
 					<span class="changelog-entry__date">November 2026</span>
 					<span class="badge badge--release">Update</span>

@@ -51,7 +51,6 @@ get_header();
 					<div>
 						<ul class="card-list">
 							<li>Accept now, pay later workflows</li>
-							<li>Optional proposal upsells</li>
 							<li>Discount & promo codes</li>
 						</ul>
 					</div>
