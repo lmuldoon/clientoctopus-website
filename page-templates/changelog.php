@@ -28,6 +28,20 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.4.4</h2>
+					<span class="changelog-entry__date">November 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>Fixes</h3>
+					<ul>
+						<li>Improved text input behaviour across plugin dialogs, resolving an issue with cursor positioning that affected fields such as Email Subject in Send Proposal and the client name field when signing a proposal</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.4.3</h2>
 					<span class="changelog-entry__date">November 2026</span>
 					<span class="badge badge--release">Update</span>
