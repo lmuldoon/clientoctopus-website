@@ -193,7 +193,8 @@ get_header();
 				<h3>Editing proposal content</h3>
 				<p>After creating a proposal, the proposal detail screen shows a summary of the settings (client, pricing, payment options). To write or edit the actual proposal content — sections, text, and line items — click the <strong>Edit Content</strong> button. This opens the full proposal editor where you can build out your proposal before sending it to the client. Content blocks, including the Pricing block, can be reordered — the client-facing proposal renders each block wherever you place it, rather than always pushing pricing to the end.</p>
 				<p>Add images anywhere in a proposal by picking one from your Media Library. Choose full, wide, or half width, and add a description for clients using a screen reader — images appear both in the client's copy and when they print or save the proposal as a PDF.</p>
-				<p>Wrap a word in <code>**double asterisks**</code> to make it bold. This works in body sections, bullet lists, line item and add-on descriptions, and invoice descriptions and notes.</p>
+				<p>Two more block types round out the editor: a <strong>Callout</strong> puts something in a tinted box so it can't be missed — a deadline, an exclusion, a condition — and a <strong>Divider</strong> draws a plain rule between sections. A <strong>Subheading</strong> block adds a smaller heading inside a section, a step down in size from a full heading and without the rule line that marks a new section starting.</p>
+				<p>Wrap a word in <code>**double asterisks**</code> to make it bold, and start a line with <code>- </code> for a bullet or <code>1. </code> for a numbered step. This works in body sections, Callouts, line item and add-on descriptions, package tiers, and invoice descriptions and notes — so a scope of work doesn't have to be crammed into one long sentence.</p>
 
 				<h3>Terms and conditions</h3>
 				<p>Add a <strong>Terms and Conditions</strong> block anywhere in a proposal — typically below the pricing. It renders as small print rather than body copy, so it reads like terms rather than part of your pitch. Set a default under <strong>Settings &rarr; Branding</strong> so you write your terms once instead of retyping them on every proposal; the Retainer template uses this default out of the box.</p>
@@ -403,6 +404,7 @@ get_header();
 
 				<h3>Milestones</h3>
 				<p>Break a project into milestones under <strong>Client Octopus &rarr; Projects &rarr; [project name]</strong>. Each milestone has a title, description, due date, and status (<strong>Pending</strong>, <strong>In Progress</strong>, <strong>Submitted</strong>, or <strong>Completed</strong>). Milestones can be reordered by dragging.</p>
+				<p>When a client accepts a proposal, a milestone is created automatically for each line item — its name comes from the first line of the line item, with the rest kept as its detail and shown underneath in both the project and the client portal.</p>
 
 				<h3>Approvals</h3>
 				<p>Create approval requests against any project for designs, content, deliverables, or other items. The client sees the request in the portal and can approve or reject it with a comment. Statuses: <strong>Pending</strong>, <strong>Approved</strong>, <strong>Rejected</strong>.</p>

@@ -28,6 +28,31 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.4.5</h2>
+					<span class="changelog-entry__date">November 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Two more content blocks for proposals &mdash; a <strong>Callout</strong> puts something in a tinted box so it cannot be missed (a deadline, an exclusion, a condition), and a <strong>Divider</strong> draws a plain rule between sections. Both can hold bullets and bold like any other text</li>
+						<li><strong>Subheadings</strong> &mdash; a new content block for a smaller heading inside a section, a step down in size from a full heading and without the rule line that marks the start of a new section</li>
+						<li>Line item descriptions can now run to several lines and contain lists &mdash; start a line with "- " for a bullet or "1. " for a numbered step, and wrap a word in <code>**double asterisks**</code> for bold. This works on proposals, package tiers, add-ons, and invoices, so a scope of work no longer has to be crammed into one long sentence</li>
+						<li>When a proposal is accepted, a milestone now takes its name from the first line of the line item and keeps the rest as its detail, shown beneath it in the project and in the client portal. Previously that detail was squeezed into the milestone name and cut off after 255 characters</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>On a downloaded PDF, a pricing table or list of invoice line items no longer gets left as a stub at the foot of a page. If the heading row and at least two lines fit, it still splits as before; if fewer would fit, the whole table drops to the next page rather than leaving a lonely row behind. A single line item with a long bulleted description is no longer cut through the middle, the totals are no longer severed from each other, and the "Pricing Breakdown" label now travels with the table it belongs to</li>
+						<li>On a downloaded proposal PDF, your address, phone, email, and website now sit in the header, stacked and right-aligned opposite your logo, instead of being left stranded mid-page when a footer couldn't be pinned to a short final page. On screen they stay where they were, in the footer, and invoices are unchanged</li>
+						<li>On a downloaded PDF, the logo, title, and "Prepared for" line sat further in from the edge than the rest of the document</li>
+						<li>Line items on recurring billing profiles were not being cleaned up when saved, unlike those on proposals and invoices</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.4.4</h2>
 					<span class="changelog-entry__date">November 2026</span>
 					<span class="badge badge--release">Update</span>
