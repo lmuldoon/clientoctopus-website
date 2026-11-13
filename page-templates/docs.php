@@ -45,6 +45,7 @@ get_header();
 				<li><a href="#team" class="docs-nav__link">Team Management</a></li>
 				<li><a href="#webhooks" class="docs-nav__link">Webhooks</a></li>
 				<li><a href="#automations" class="docs-nav__link">Automated Reminders</a></li>
+				<li><a href="#time-tracking" class="docs-nav__link">Time Tracking</a></li>
 				<li><a href="#analytics" class="docs-nav__link">Analytics</a></li>
 				<li><a href="#ai" class="docs-nav__link">AI Features</a></li>
 				<li><a href="#settings" class="docs-nav__link">Settings</a></li>
@@ -234,7 +235,13 @@ get_header();
 				<p>Standalone invoices are separate from proposals and available on <strong>every plan</strong>, including Free. Use them when you need to bill a client directly without going through the proposal workflow.</p>
 
 				<h3>Creating and sending an invoice</h3>
-				<p>Go to <strong>Client Octopus &rarr; Invoices &rarr; New Invoice</strong>. Assign a client, add line items, and optionally apply a discount and VAT. Each invoice is auto-numbered (<code>INV-0001</code>, <code>INV-0002</code>, &hellip;). Click <strong>Send</strong> to email the client a link to their invoice — no WordPress account required to view it.</p>
+				<p>Go to <strong>Client Octopus &rarr; Invoices &rarr; New Invoice</strong>. Assign a client, add line items, and optionally apply a discount and VAT. Each invoice is auto-numbered (<code>INV-0001</code>, <code>INV-0002</code>, &hellip;). Click <strong>Send</strong> to email the client a link to their invoice — no WordPress account required to view it. Saving keeps you in the editor so you can carry on working, rather than sending you back to the invoice list.</p>
+
+				<h3>Quantity and unit price</h3>
+				<p>Tick <strong>Itemise with quantity and unit price</strong> on a line item to bill it as a quantity and a rate instead of a single amount — the line reads "12.5 &times; 75.00" with the total worked out for you, which is what hourly, day-rate, and per-unit work needs. Invoices that don't use it are unaffected, and the line total is always calculated on the server, so it can never disagree with what the client is actually charged. An invoice raised from an accepted proposal keeps that proposal's quantities instead of flattening every line to one figure.</p>
+
+				<h3>Billing tracked time</h3>
+				<p>If you track time against a client (Pro/Agency — see <a href="#time-tracking">Time Tracking</a>), add it to a draft invoice as quantity-and-rate line items via <strong>Add unbilled time</strong>, grouped however you like. See the Time Tracking section for the full billing flow, including the 60-day staleness guard and what happens if the invoice is cancelled.</p>
 
 				<h3>VAT registration number</h3>
 				<p>If you're VAT registered, set your <strong>VAT Registration Number</strong> once in Settings and it's filled in automatically on every new invoice, including ones generated from an accepted proposal — no retyping it by hand each time. Leave it blank if you're not VAT registered.</p>
@@ -557,6 +564,28 @@ $data = json_decode( $payload, true );
 				<p>Every reminder email carries an unsubscribe link and a preferences page where the client can switch proposal reminders, invoice reminders, call reminders, and testimonial requests on or off individually. Essential emails — proposals, invoices, payment receipts, booking confirmations, portal login links, and approval requests — are never affected, since they concern work already agreed. A client's current preferences, and a link to copy them, are shown on their Client Detail page.</p>
 			</section>
 
+			<!-- ─── TIME TRACKING ──────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="time-tracking">
+				<h2>Time Tracking</h2>
+				<p>Time tracking is available on <strong>Pro and Agency</strong> plans under <strong>Client Octopus &rarr; Time</strong>.</p>
+
+				<h3>Starting a timer</h3>
+				<p>Start a timer from the Time screen, or from the clock icon in the WordPress toolbar on any admin page. The timer lives on your site rather than in your browser, so it keeps running even if you close the tab — it's only stopped when you stop it.</p>
+
+				<h3>Logging time manually</h3>
+				<p>Prefer to log time after the fact? Add an entry directly with a duration, date, and description. Every entry — timed or manual — is assigned to a client and, on Agency, optionally to a project, and can be marked <strong>non-billable</strong> if it shouldn't be invoiced. Durations can be corrected in place afterwards.</p>
+
+				<h3>Team timesheets (Agency)</h3>
+				<p>On Agency accounts with more than one team member, the timesheet shows who logged each entry and can be filtered by person, so you can see where time is actually going across the team.</p>
+
+				<h3>Hourly rates</h3>
+				<p>Set a default hourly rate under <strong>Settings</strong>, override it on an individual client, or override it again on a specific project — the most specific rate wins. Each rate carries its own currency and is never converted: billing tracked time onto an invoice in a different currency is refused rather than guessed at. Optionally round tracked time to the nearest 5, 6, 15, or 30 minutes when it's invoiced — your timesheet still shows what actually happened; only the invoiced figure is rounded.</p>
+
+				<h3>Billing tracked time</h3>
+				<p>On a draft invoice, click <strong>Add unbilled time</strong> to see everything not yet invoiced for that client. Choose how it's summarised — one line per entry, per day, per project, or as a single total — and it's added as proper quantity-and-rate line items. Hours are never billed twice. Anything older than 60 days is listed but left unticked by default, so old work doesn't get swept onto an invoice by accident. If the invoice is later cancelled or deleted, those hours return to the unbilled pool automatically.</p>
+			</section>
+
 			<!-- ─── ANALYTICS ──────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="analytics">
@@ -795,6 +824,12 @@ $data = json_decode( $payload, true );
 							<td>&mdash;</td>
 							<td>&#10003;</td>
 							<td>&#10003;</td>
+						</tr>
+						<tr>
+							<td>Time tracking</td>
+							<td>&mdash;</td>
+							<td>&#10003;</td>
+							<td>&#10003; (with per-team-member timesheets)</td>
 						</tr>
 						<tr>
 							<td>Webhooks</td>

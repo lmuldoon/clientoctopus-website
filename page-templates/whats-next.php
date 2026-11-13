@@ -62,7 +62,7 @@ get_header();
 					<div>
 						<ul class="card-list">
 							<li>Save your own proposals as reusable templates</li>
-							<li>Time tracking & profitability insights</li>
+							<li>Profitability reporting by client and project</li>
 							<li>Support ticket system in the client portal</li>
 						</ul>
 					</div>

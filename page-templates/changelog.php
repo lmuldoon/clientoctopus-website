@@ -28,6 +28,32 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.4.6</h2>
+					<span class="changelog-entry__date">November 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>Time tracking &mdash; start a timer from the new Time screen, or from the clock in the WordPress toolbar on any admin page; it keeps running if you close the tab, because the timer lives on your site rather than in the browser. Log time after the fact too, assign it to a client and, on Agency, to a project, and mark anything non-billable. Durations can be corrected in place afterwards. On Agency accounts with more than one team member, the timesheet also shows who logged each entry and can be filtered by person (Pro &amp; Agency)</li>
+						<li>Bill tracked time onto an invoice &mdash; on a draft invoice, "Add unbilled time" lists what hasn't been invoiced yet and adds it as proper quantity-and-rate lines, summarised one line per entry, per day, per project, or as a single total. Hours are never billed twice; anything older than 60 days is listed but left unticked, so old work isn't swept onto an invoice by accident; and deleting or cancelling the invoice hands the hours back as unbilled</li>
+						<li>Hourly rates &mdash; set a default under Settings, or a rate on an individual client, or on a project; the most specific one wins. Each rate carries its own currency and is never converted: billing time onto an invoice in a different currency is refused rather than guessed at. Optional rounding, up to the nearest 5, 6, 15, or 30 minutes, applied when time is invoiced so your timesheet still shows what actually happened</li>
+						<li>Invoice line items can now carry a quantity and a unit price, not just a single amount. Tick "Itemise with quantity and unit price" on an invoice and each line reads "12.5 x 75.00" with the line total worked out for you &mdash; what hourly, day-rate, and per-unit work needs. Invoices that don't use it are completely unchanged, and the line total is always calculated on the server so it can't disagree with what the client is charged</li>
+						<li>An invoice raised from an accepted proposal now keeps the quantities from that proposal instead of flattening each line into one figure. Proposals whose lines are all a quantity of one are unaffected</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>PayPal could not take payment on an invoice in a currency without decimal places, such as Japanese Yen or South Korean Won &mdash; the amount was sent with two decimals, which PayPal rejects outright. Auto-charging a recurring profile in those currencies failed the same way, counting as a declined payment and eventually pausing the schedule. The equivalent fault on proposals was fixed in 1.4.1; these two paths were missed</li>
+						<li>Client invoices showed amounts in currencies without decimal places with a meaningless ".00" on the end &mdash; a Yen invoice read "&yen;17,088.00" throughout, including the total due. Overdue reminder emails did the same</li>
+						<li>Saving a new invoice now keeps you in the editor instead of sending you back to the invoice list, so you can carry on working on it</li>
+						<li>Updating the plugin no longer prints a wall of PHP warnings and database errors on sites configured to display them. Nothing was ever changed or lost &mdash; it just looked alarming</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.4.5</h2>
 					<span class="changelog-entry__date">November 2026</span>
 					<span class="badge badge--release">Update</span>
