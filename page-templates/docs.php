@@ -138,9 +138,9 @@ $docs_start = [
 	</div>
 
 	<div class="docs-start">
-		<div class="container">
+		<div class="container animated-up">
 			<h2 class="docs-start__heading">Start here</h2>
-			<div class="docs-start__grid">
+			<div class="docs-start__grid animated-up">
 				<?php foreach ($docs_start as [$id, $title, $desc]) : ?>
 					<a class="docs-task-card" href="#<?php echo $id; ?>">
 						<span class="docs-task-card__text">
@@ -154,7 +154,7 @@ $docs_start = [
 		</div>
 	</div>
 
-	<div class="docs-layout container">
+	<div class="docs-layout container animated-up">
 
 		<!-- Sidebar Nav -->
 		<nav class="docs-sidebar" aria-label="Documentation navigation">
