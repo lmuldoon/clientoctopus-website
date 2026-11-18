@@ -326,7 +326,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="section section--cta-strip bg-lightindigo">
+	<section class="section section--cta-strip bg-indigo">
 		<div class="container animated-up">
 
 			<h2>Ready to streamline your client workflow?</h2>
@@ -334,7 +334,7 @@ get_header();
 
 			<div class="cta-strip__actions">
 				<a class="button button--primary plan-button" data-plan-id="48154" href="#">Get Client Octopus free</a>
-				<a class="button button--ghost" href="/#pricing">See pricing</a>
+				<a class="button button--ghost button--white" href="/#pricing">See pricing</a>
 			</div>
 
 		</div>

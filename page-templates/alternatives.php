@@ -71,7 +71,7 @@ get_header();
 		</div>
 	</div>
 
-	<section class="section section--cta-strip bg-lightindigo">
+	<section class="section section--cta-strip bg-indigo">
 		<div class="container animated-up">
 			<h2>Not sure which tool is right for you?</h2>
 			<p>Try Client Octopus free — no trial clock, no credit card required.</p>

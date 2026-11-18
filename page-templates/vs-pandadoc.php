@@ -224,13 +224,13 @@ get_header();
 
 	<!-- ─── CTA ─────────────────────────────────────────────────────── -->
 
-	<section class="section section--cta-strip bg-lightindigo">
+	<section class="section section--cta-strip bg-indigo">
 		<div class="container animated-up">
 			<h2>Try Client Octopus free</h2>
 			<p class="section-lede">No document cap, no trial clock — the free plan runs indefinitely.</p>
 			<div class="cta-strip__actions">
 				<a class="button button--primary plan-button" data-plan-id="48154" href="#">Get Client Octopus free</a>
-				<a class="button button--ghost" href="/alternatives">See other comparisons</a>
+				<a class="button button--ghost button--white" href="/alternatives">See other comparisons</a>
 			</div>
 		</div>
 	</section>
