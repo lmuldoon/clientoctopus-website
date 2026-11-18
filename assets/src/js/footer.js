@@ -26,6 +26,7 @@ initAnimations();
 
 require('./scripts/accordian-controller');
 import './scripts/lazyload-frame';
+import './scripts/docs';
 
 import GLightbox from 'glightbox';
 
@@ -120,6 +121,9 @@ $(window).on('scroll', debounce(function () {
 		.not('[href="#0"]')
 		.not('[role="tab"]')
 		.not('.glightbox-inline')
+		.filter(function () {
+			return !$(this).closest('.docs-page').length; // docs.js switches sections itself
+		})
 		.on('click', function (event) {
 			if (
 				location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') &&
@@ -151,37 +155,6 @@ $(window).on('scroll', debounce(function () {
 				});
 			}
 		});
-})(jQuery);
-
-
-// ─── DOCS SIDEBAR SCROLL SPY ─────────────────────────────────────────────────
-
-(function ($) {
-	const $navLinks = $('.docs-nav__link');
-	if (!$navLinks.length) return;
-
-	const $sections = $('.docs-section');
-	const $header = $('.site-header');
-
-	function updateDocsNav() {
-		const headerHeight = $header.outerHeight();
-		const scrollPosition = $(window).scrollTop() + headerHeight + 32;
-		let currentSection = null;
-
-		$sections.each(function () {
-			if ($(this).offset().top <= scrollPosition) {
-				currentSection = $(this);
-			}
-		});
-
-		if (!currentSection) return;
-
-		const sectionId = currentSection.attr('id');
-		$navLinks.removeClass('is-active');
-		$('.docs-nav__link[href="#' + sectionId + '"]').addClass('is-active');
-	}
-
-	$(window).on('load scroll', updateDocsNav);
 })(jQuery);
 
 

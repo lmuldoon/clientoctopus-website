@@ -11,6 +11,113 @@ $meta->description = 'Documentation for Client Octopus — guides, setup instruc
 $meta->slug = 'docs';
 get_header();
 
+// Single source of truth for sidebar groups, section order, breadcrumbs and prev/next.
+$docs_groups = [
+	'Get started' => [
+		'getting-started' => 'Getting Started',
+		'requirements'    => 'Requirements',
+		'installation'    => 'Installation',
+		'quick-start'     => 'Quick Start',
+	],
+	'Win clients' => [
+		'leads'         => 'Lead Capture',
+		'clients'       => 'Clients',
+		'proposals'     => 'Proposals',
+		'booking'       => 'Call Booking',
+		'calendar-sync' => 'Calendar Sync',
+	],
+	'Get paid' => [
+		'invoices' => 'Invoices',
+		'payments' => 'Payments',
+	],
+	'Deliver and run' => [
+		'client-portal' => 'Client Portal',
+		'projects'      => 'Projects &amp; Milestones',
+		'team'          => 'Team Management',
+		'webhooks'      => 'Webhooks',
+		'automations'   => 'Automated Reminders',
+		'time-tracking' => 'Time Tracking',
+		'analytics'     => 'Analytics',
+		'ai'            => 'AI Features',
+	],
+	'Reference' => [
+		'settings'        => 'Settings',
+		'free-vs-pro'     => 'Free vs Pro',
+		'troubleshooting' => 'Troubleshooting',
+		'privacy'         => 'Privacy &amp; Data',
+		'api'             => 'REST API',
+	],
+];
+
+$docs_plans = [
+	'leads'         => ['Free', 'Pro', 'Agency'],
+	'clients'       => ['Free', 'Pro', 'Agency'],
+	'proposals'     => ['Free', 'Pro', 'Agency'],
+	'booking'       => ['Pro', 'Agency'],
+	'calendar-sync' => ['Pro', 'Agency'],
+	'invoices'      => ['Free', 'Pro', 'Agency'],
+	'payments'      => ['Pro', 'Agency'],
+	'client-portal' => ['Pro', 'Agency'],
+	'projects'      => ['Agency'],
+	'team'          => ['Agency'],
+	'webhooks'      => ['Pro', 'Agency'],
+	'automations'   => ['Free', 'Pro', 'Agency'],
+	'time-tracking' => ['Pro', 'Agency'],
+	'analytics'     => ['Pro', 'Agency'],
+	'ai'            => ['Pro', 'Agency'],
+];
+
+$docs_titles = [];
+$docs_group_of = [];
+foreach ($docs_groups as $group => $items) {
+	foreach ($items as $id => $title) {
+		$docs_titles[$id] = $title;
+		$docs_group_of[$id] = $group;
+	}
+}
+
+$docs_crumb = function ($id) use ($docs_titles, $docs_group_of) {
+	echo '<p class="docs-crumb">' . $docs_group_of[$id] . ' / ' . $docs_titles[$id] . '</p>';
+};
+
+$docs_badges = function ($id) use ($docs_plans) {
+	if (empty($docs_plans[$id])) {
+		return;
+	}
+	echo '<div class="docs-badges">';
+	foreach ($docs_plans[$id] as $plan) {
+		echo '<span class="badge badge--plan badge--' . strtolower($plan) . '">' . $plan . '</span>';
+	}
+	echo '</div>';
+};
+
+$docs_pager = function ($id) use ($docs_titles) {
+	$ids = array_keys($docs_titles);
+	$i = array_search($id, $ids, true);
+	$prev = $i > 0 ? $ids[$i - 1] : null;
+	$next = $i < count($ids) - 1 ? $ids[$i + 1] : null;
+
+	echo '<nav class="docs-pager" aria-label="Previous and next sections">';
+	if ($prev) {
+		echo '<a class="docs-pager__link" href="#' . $prev . '"><span class="docs-pager__label">&larr; Previous</span><span class="docs-pager__title">' . $docs_titles[$prev] . '</span></a>';
+	} else {
+		echo '<span></span>';
+	}
+	if ($next) {
+		echo '<a class="docs-pager__link docs-pager__link--next" href="#' . $next . '"><span class="docs-pager__label">Next &rarr;</span><span class="docs-pager__title">' . $docs_titles[$next] . '</span></a>';
+	}
+	echo '</nav>';
+};
+
+$docs_start = [
+	['installation', 'Install the plugin', 'From WordPress.org or a ZIP file.'],
+	['quick-start', 'Quick start', 'Branding, payments and your first proposal.'],
+	['leads', 'Add the lead form', 'Drop a shortcode on any page.'],
+	['payments', 'Connect Stripe or PayPal', 'Take deposits and payments.'],
+	['client-portal', 'Set up the client portal', 'Magic-link login, branded to you.'],
+	['troubleshooting', 'Fix a problem', 'Portal 404s, webhooks and email.'],
+];
+
 ?>
 
 <article class="docs-page">
@@ -20,6 +127,29 @@ get_header();
 			<div class="animated-up">
 				<h1 class="text-white">Documentation</h1>
 				<p style="color: rgba(255,255,255,0.75);">Everything you need to install, configure, and get the most out of Client Octopus.</p>
+
+				<div class="docs-search" role="search">
+					<iconify-icon class="docs-search__icon" icon="lucide:search" width="18" height="18" aria-hidden="true"></iconify-icon>
+					<input class="docs-search__input" id="js-docs-search" type="search" placeholder="Search the docs" autocomplete="off" aria-label="Search the docs" aria-controls="js-docs-search-results" aria-expanded="false">
+					<ul class="docs-search__results" id="js-docs-search-results" role="listbox" hidden></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="docs-start">
+		<div class="container">
+			<h2 class="docs-start__heading">Start here</h2>
+			<div class="docs-start__grid">
+				<?php foreach ($docs_start as [$id, $title, $desc]) : ?>
+					<a class="docs-task-card" href="#<?php echo $id; ?>">
+						<span class="docs-task-card__text">
+							<span class="docs-task-card__title"><?php echo $title; ?></span>
+							<span class="docs-task-card__desc"><?php echo $desc; ?></span>
+						</span>
+						<iconify-icon icon="lucide:arrow-right" width="18" height="18" aria-hidden="true"></iconify-icon>
+					</a>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</div>
@@ -27,50 +157,57 @@ get_header();
 	<div class="docs-layout container">
 
 		<!-- Sidebar Nav -->
-		<nav class="docs-sidebar animated-up" aria-label="Documentation navigation">
-			<ul class="docs-nav">
-				<li><a href="#getting-started" class="docs-nav__link">Getting Started</a></li>
-				<li><a href="#requirements" class="docs-nav__link">Requirements</a></li>
-				<li><a href="#installation" class="docs-nav__link">Installation</a></li>
-				<li><a href="#quick-start" class="docs-nav__link">Quick Start</a></li>
-				<li><a href="#leads" class="docs-nav__link">Lead Capture</a></li>
-				<li><a href="#clients" class="docs-nav__link">Clients</a></li>
-				<li><a href="#proposals" class="docs-nav__link">Proposals</a></li>
-				<li><a href="#invoices" class="docs-nav__link">Invoices</a></li>
-				<li><a href="#booking" class="docs-nav__link">Call Booking</a></li>
-				<li><a href="#calendar-sync" class="docs-nav__link">Calendar Sync</a></li>
-				<li><a href="#client-portal" class="docs-nav__link">Client Portal</a></li>
-				<li><a href="#payments" class="docs-nav__link">Payments</a></li>
-				<li><a href="#projects" class="docs-nav__link">Projects &amp; Milestones</a></li>
-				<li><a href="#team" class="docs-nav__link">Team Management</a></li>
-				<li><a href="#webhooks" class="docs-nav__link">Webhooks</a></li>
-				<li><a href="#automations" class="docs-nav__link">Automated Reminders</a></li>
-				<li><a href="#time-tracking" class="docs-nav__link">Time Tracking</a></li>
-				<li><a href="#analytics" class="docs-nav__link">Analytics</a></li>
-				<li><a href="#ai" class="docs-nav__link">AI Features</a></li>
-				<li><a href="#settings" class="docs-nav__link">Settings</a></li>
-				<li><a href="#free-vs-pro" class="docs-nav__link">Free vs Pro</a></li>
-				<li><a href="#troubleshooting" class="docs-nav__link">Troubleshooting</a></li>
-				<li><a href="#privacy" class="docs-nav__link">Privacy &amp; Data</a></li>
-				<li><a href="#api" class="docs-nav__link">REST API</a></li>
-			</ul>
+		<nav class="docs-sidebar" aria-label="Documentation navigation">
+			<?php foreach ($docs_groups as $group => $items) : ?>
+				<p class="docs-nav__group"><?php echo $group; ?></p>
+				<ul class="docs-nav">
+					<?php foreach ($items as $id => $title) : ?>
+						<li><a href="#<?php echo $id; ?>" class="docs-nav__link"><?php echo $title; ?></a></li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endforeach; ?>
 		</nav>
 
-		<!-- Main Content -->
-		<div class="docs-content animated-up">
+		<!-- On this page (filled by JS from the current section's subheadings) -->
+		<aside class="docs-toc" id="js-docs-toc" aria-label="On this page" hidden>
+			<p class="docs-nav__group">On this page</p>
+			<ul class="docs-toc__list"></ul>
+		</aside>
 
-			<!-- ─── GETTING STARTED ─────────────────────────────────────────── -->
+		<!-- Main Content -->
+		<div class="docs-content">
+
+			<div class="docs-jump" hidden>
+				<label class="docs-nav__group" for="js-docs-jump">Jump to section</label>
+				<select class="docs-jump__select" id="js-docs-jump">
+					<?php foreach ($docs_groups as $group => $items) : ?>
+						<optgroup label="<?php echo $group; ?>">
+							<?php foreach ($items as $id => $title) : ?>
+								<option value="<?php echo $id; ?>"><?php echo $title; ?></option>
+							<?php endforeach; ?>
+						</optgroup>
+					<?php endforeach; ?>
+				</select>
+			</div>
+
+			<!-- ─── GETTING STARTED ───────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="getting-started">
+				<?php $docs_crumb('getting-started'); ?>
 				<h2>Getting Started</h2>
+				<?php $docs_badges('getting-started'); ?>
 				<p>Client Octopus is a WordPress plugin that turns your WordPress admin into a complete client management system. It covers the full client lifecycle: lead capture, proposals, call booking, payments, a client portal, project milestones, file delivery, approvals, and team messaging — all without leaving WordPress.</p>
 				<p>Three plans are available. The <strong>Free</strong> plan covers lead capture, proposals, invoices, and the client database. <strong>Pro</strong> adds Stripe or PayPal payments, call booking with calendar sync, the client portal, AI writing tools, webhooks, and analytics. <strong>Agency</strong> adds projects, milestones, messaging, file storage, approval workflows, and up to 10 team seats.</p>
+
+				<?php $docs_pager('getting-started'); ?>
 			</section>
 
-			<!-- ─── REQUIREMENTS ────────────────────────────────────────────── -->
+			<!-- ─── REQUIREMENTS ──────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="requirements">
+				<?php $docs_crumb('requirements'); ?>
 				<h2>Requirements</h2>
+				<?php $docs_badges('requirements'); ?>
 				<ul>
 					<li>WordPress 6.0 or later</li>
 					<li>PHP 8.0 or later</li>
@@ -79,27 +216,34 @@ get_header();
 				<p>Client Octopus is single-site only. Multisite networks are not supported.</p>
 
 				<h3 class="h4">Email deliverability</h3>
-				<p>Client Octopus sends transactional emails (proposal delivery, portal invites, payment confirmations, testimonial requests) via WordPress's built-in <code>wp_mail()</code>. Without an SMTP plugin, emails may be marked as spam or fail to deliver entirely depending on your hosting environment.</p>
+				<div class="docs-callout docs-callout--warning">
+					<span class="docs-callout__label">Heads up</span>
+					<p>Client Octopus sends transactional emails (proposal delivery, portal invites, payment confirmations, testimonial requests) via WordPress's built-in <code>wp_mail()</code>. Without an SMTP plugin, emails may be marked as spam or fail to deliver entirely depending on your hosting environment.</p>
+				</div>
 				<p>For reliable delivery, install an SMTP plugin and connect it to a transactional email provider:</p>
 				<ul>
 					<li><strong>SMTP plugins:</strong> WP Mail SMTP, FluentSMTP, GoSMTP</li>
 					<li><strong>Transactional providers:</strong> Mailgun, Postmark, SendGrid</li>
 				</ul>
+
+				<?php $docs_pager('requirements'); ?>
 			</section>
 
-			<!-- ─── INSTALLATION ────────────────────────────────────────────── -->
+			<!-- ─── INSTALLATION ──────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="installation">
+				<?php $docs_crumb('installation'); ?>
 				<h2>Installation</h2>
+				<?php $docs_badges('installation'); ?>
 
-				<h3 class="h4">From WordPress.org (Free)</h3>
+				<h3 class="h4">From WordPress.org <span class="badge badge--plan badge--free">Free</span></h3>
 				<ol>
 					<li>In your WordPress admin, go to <strong>Plugins &rarr; Add New</strong>.</li>
 					<li>Search for <strong>Client Octopus</strong>.</li>
 					<li>Click <strong>Install Now</strong>, then <strong>Activate</strong>.</li>
 				</ol>
 
-				<h3 class="h4">From a ZIP file (Pro / Agency)</h3>
+				<h3 class="h4">From a ZIP file <span class="badge badge--plan badge--pro">Pro</span> <span class="badge badge--plan badge--agency">Agency</span></h3>
 				<ol>
 					<li>Download the plugin ZIP from your purchase confirmation email.</li>
 					<li>In your WordPress admin, go to <strong>Plugins &rarr; Add New &rarr; Upload Plugin</strong>.</li>
@@ -108,36 +252,53 @@ get_header();
 				</ol>
 
 				<p>On activation, Client Octopus creates its database tables, registers the client portal rewrite rules, and schedules a monthly usage-reset cron event. If the client portal URLs return 404 after activation, go to <strong>Settings &rarr; Permalinks</strong> and click <strong>Save Changes</strong> to flush the rewrite rules.</p>
+
+				<?php $docs_pager('installation'); ?>
 			</section>
 
-			<!-- ─── QUICK START ─────────────────────────────────────────────── -->
+			<!-- ─── QUICK START ───────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="quick-start">
+				<?php $docs_crumb('quick-start'); ?>
 				<h2>Quick Start</h2>
+				<?php $docs_badges('quick-start'); ?>
 				<p>After activation a <strong>Client Octopus</strong> entry appears in your WordPress admin sidebar. The first time you open it, the setup wizard guides you through the essential steps. You can revisit any of these from <strong>Client Octopus &rarr; Settings</strong> later.</p>
 
 				<h3 class="h4">Step 1 — Add your branding</h3>
 				<p>Go to <strong>Client Octopus &rarr; Settings</strong>. Enter your business name, sender email, brand colour, and logo URL. These are applied to all outgoing emails and the client portal.</p>
 
-				<h3 class="h4">Step 2 — Connect a payment provider (Pro / Agency)</h3>
+				<h3 class="h4">Step 2 — Connect a payment provider <span class="badge badge--plan badge--pro">Pro</span> <span class="badge badge--plan badge--agency">Agency</span></h3>
 				<p>Go to <strong>Client Octopus &rarr; Settings</strong> and choose Stripe or PayPal as your payment provider, then enter its API credentials and webhook details before sending any proposals, so payment collection is ready from the start. See the <a href="#payments">Payments</a> section for the full setup steps.</p>
 
 				<h3 class="h4">Step 3 — Create and send a proposal</h3>
 				<p>Go to <strong>Client Octopus &rarr; Proposals &rarr; New Proposal</strong>. In the proposal builder, fill in the client&rsquo;s details (name, email, company, phone) — this automatically creates their client record. Build your proposal from the template library, set pricing, and optionally enable payment collection. When ready, click <strong>Send to Client</strong>. The client receives a magic-link email — no account required to view or accept.</p>
 
 				<div class="docs-callout docs-callout--tip">
+					<span class="docs-callout__label">Tip</span>
 					<p><strong>Portal URLs returning 404?</strong> Go to <strong>Settings &rarr; Permalinks</strong> and click <strong>Save Changes</strong> to flush the rewrite rules. This only needs to be done once after activation.</p>
 				</div>
+
+				<?php $docs_pager('quick-start'); ?>
 			</section>
 
-			<!-- ─── LEAD CAPTURE ────────────────────────────────────────────── -->
+			<!-- ─── LEADS ─────────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="leads">
+				<?php $docs_crumb('leads'); ?>
 				<h2>Lead Capture</h2>
+				<?php $docs_badges('leads'); ?>
 				<p>Collect inquiries directly into Client Octopus instead of a separate form plugin. Available on <strong>every plan</strong>, including Free.</p>
 
 				<h3 class="h4">Adding the form to a page</h3>
-				<p>Add the <code>[clientoctopus_lead_form]</code> shortcode to any page or post. Under <strong>Client Octopus &rarr; Settings &rarr; Leads</strong>, choose which fields to show (Name and Email are always on; Phone, Company, Message, Budget Range, and Preferred Contact Method are optional), mark any of them as required, and customise their labels. You can also add a consent line for the visitor to agree to before submitting.</p>
+				<p>Add this shortcode to any page or post:</p>
+				<div class="docs-code">
+					<div class="docs-code__bar">
+						<span class="docs-code__label">Shortcode</span>
+						<button class="docs-code__copy" type="button">Copy</button>
+					</div>
+<pre><code>[clientoctopus_lead_form]</code></pre>
+				</div>
+				<p>Under <strong>Client Octopus &rarr; Settings &rarr; Leads</strong>, choose which fields to show (Name and Email are always on; Phone, Company, Message, Budget Range, and Preferred Contact Method are optional), mark any of them as required, and customise their labels. You can also add a consent line for the visitor to agree to before submitting.</p>
 
 				<h3 class="h4">Where submissions go</h3>
 				<p>Every submission lands in the <strong>Leads</strong> admin screen, where you can filter by status (<strong>New</strong>, <strong>Contacted</strong>, <strong>Archived</strong>), mark a lead as contacted, archive it, or <strong>convert it straight into a client record</strong> with one click.</p>
@@ -147,12 +308,16 @@ get_header();
 
 				<h3 class="h4">Notifications</h3>
 				<p>You're emailed the moment a lead comes in. You can also turn on an automatic reply to the person who submitted the form — if Call Booking is enabled, this reply can include a "Pick a Time to Talk" link straight to your booking page.</p>
+
+				<?php $docs_pager('leads'); ?>
 			</section>
 
-			<!-- ─── CLIENTS ─────────────────────────────────────────────────── -->
+			<!-- ─── CLIENTS ───────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="clients">
+				<?php $docs_crumb('clients'); ?>
 				<h2>Clients</h2>
+				<?php $docs_badges('clients'); ?>
 				<p>Every proposal, invoice, project, and booking is tied to a client record. Client Octopus supports <strong>unlimited clients</strong> on every plan, including Free.</p>
 
 				<h3 class="h4">Client Detail</h3>
@@ -169,12 +334,16 @@ get_header();
 
 				<h3 class="h4">Importing</h3>
 				<p>Bring clients in from another tool via CSV. Upload your export from Moxie, HoneyBook, Dubsado, or anywhere else, map the columns yourself (including split First/Last Name columns), preview the results, and bulk-create the records.</p>
+
+				<?php $docs_pager('clients'); ?>
 			</section>
 
-			<!-- ─── PROPOSALS ───────────────────────────────────────────────── -->
+			<!-- ─── PROPOSALS ─────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="proposals">
+				<?php $docs_crumb('proposals'); ?>
 				<h2>Proposals</h2>
+				<?php $docs_badges('proposals'); ?>
 				<p>Proposals are the core workflow in Client Octopus. Each proposal has a unique shareable link that clients open without needing a WordPress account.</p>
 
 				<h3 class="h4">Lifecycle</h3>
@@ -221,17 +390,68 @@ get_header();
 				<h3 class="h4">Payment collection</h3>
 				<p>Enable payment on any proposal (Pro/Agency). Set a deposit percentage (1–100%) if you want to collect a partial amount at acceptance and the balance on completion, or collect the full amount upfront. Your payment provider (Stripe or PayPal) handles all PCI compliance. This doesn't apply to proposals set to <strong>Recurring billing</strong> — those never take a deposit or direct payment at acceptance; see <a href="#proposals">Recurring billing</a> above.</p>
 
-				<h3 class="h4">AI writing assist (Pro / Agency)</h3>
+				<h3 class="h4">AI writing assist <span class="badge badge--plan badge--pro">Pro</span> <span class="badge badge--plan badge--agency">Agency</span></h3>
 				<p>While editing a proposal, highlight any text and use the AI toolbar to <strong>Improve</strong>, <strong>Shorten</strong>, make it more <strong>Persuasive</strong>, or <strong>Generate</strong> content from a brief. See the <a href="#ai">AI Features</a> section for quota details.</p>
 
 				<h3 class="h4">Limits</h3>
 				<p>All plans, including Free, can create unlimited proposals. There is no monthly cap or counter.</p>
+
+				<?php $docs_pager('proposals'); ?>
 			</section>
 
-			<!-- ─── INVOICES ────────────────────────────────────────────────── -->
+			<!-- ─── BOOKING ───────────────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="booking">
+				<?php $docs_crumb('booking'); ?>
+				<h2>Call Booking</h2>
+				<?php $docs_badges('booking'); ?>
+				<p>Let leads and clients book a call with you directly, without back-and-forth emails. Available on <strong>Pro and Agency</strong>.</p>
+
+				<h3 class="h4">Adding the booking form to a page</h3>
+				<p>Configure your weekly availability, buffer time between calls, minimum notice required before a booking, and maximum booking window (how far in advance someone can book) under <strong>Client Octopus &rarr; Settings &rarr; Booking</strong>. Then add this shortcode to any page, and visitors see your available slots and book one directly:</p>
+				<div class="docs-code">
+					<div class="docs-code__bar">
+						<span class="docs-code__label">Shortcode</span>
+						<button class="docs-code__copy" type="button">Copy</button>
+					</div>
+<pre><code>[clientoctopus_booking_form]</code></pre>
+				</div>
+
+				<h3 class="h4">Confirmations and reminders</h3>
+				<p>Both you and the client receive a confirmation email with a calendar invite (<code>.ics</code> attachment) and a one-click "Add to Google Calendar" link, followed by a reminder email an hour before the call.</p>
+
+				<h3 class="h4">Managing bookings</h3>
+				<p>View, search, and cancel booked calls from the <strong>Bookings</strong> admin screen.</p>
+
+				<?php $docs_pager('booking'); ?>
+			</section>
+
+			<!-- ─── CALENDAR SYNC ─────────────────────────────────────────────── -->
+
+			<section class="docs-section stack" id="calendar-sync">
+				<?php $docs_crumb('calendar-sync'); ?>
+				<h2>Calendar Sync</h2>
+				<?php $docs_badges('calendar-sync'); ?>
+				<p>Keep your booking availability accurate against your real calendar, and have confirmed bookings show up there automatically. Available on <strong>Pro and Agency</strong>.</p>
+
+				<h3 class="h4">Connecting a calendar</h3>
+				<p>Under <strong>Client Octopus &rarr; Settings &rarr; Booking</strong>, connect <strong>Google Calendar</strong>, <strong>Microsoft 365/Outlook</strong>, or <strong>Apple iCloud</strong>. Google and Microsoft connect via OAuth through the Client Octopus relay service; Apple iCloud connects directly from your site using your Apple ID and an app-specific password. If more than one calendar is found on a connected Apple iCloud account, you're asked which one to sync.</p>
+
+				<h3 class="h4">How syncing works</h3>
+				<p>Existing events on any connected calendar automatically block matching slots in your booking availability, shown with their real event title — so you never get double-booked. Every confirmed booking made through Client Octopus is also pushed out to every connected calendar as a real event, including your configured meeting link, so it's already on your calendar without any manual entry.</p>
+
+				<h3 class="h4">Manual sync</h3>
+				<p>Syncing normally happens automatically in the background, roughly every 15 minutes. If you've just added or removed an event and don't want to wait, use the <strong>Sync now</strong> button in Settings to pull the latest calendar events immediately, or <strong>Sync existing bookings</strong> to push any bookings made before you connected a calendar out to it right away.</p>
+
+				<?php $docs_pager('calendar-sync'); ?>
+			</section>
+
+			<!-- ─── INVOICES ──────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="invoices">
+				<?php $docs_crumb('invoices'); ?>
 				<h2>Invoices</h2>
+				<?php $docs_badges('invoices'); ?>
 				<p>Standalone invoices are separate from proposals and available on <strong>every plan</strong>, including Free. Use them when you need to bill a client directly without going through the proposal workflow.</p>
 
 				<h3 class="h4">Creating and sending an invoice</h3>
@@ -259,47 +479,116 @@ get_header();
 				<p>For clients you bill on a schedule, set up a recurring profile instead of creating invoices manually each time. Choose a client and a cadence — weekly, monthly, quarterly, or yearly — and Client Octopus automatically generates and sends a fresh invoice on that schedule. Recurring profiles support their own Payment Terms and Notes &amp; Payment Instructions, matching standalone invoices, and are available on <strong>every plan</strong>.</p>
 				<p>By default, each generated invoice is still paid individually through the existing Pay Now flow — recurring profiles automate invoice creation and delivery, not payment collection. Pause, resume, or cancel a profile at any time from <strong>Client Octopus &rarr; Recurring Invoices</strong>.</p>
 
-				<h3 class="h4">Auto-charge (Pro / Agency)</h3>
+				<h3 class="h4">Auto-charge <span class="badge badge--plan badge--pro">Pro</span> <span class="badge badge--plan badge--agency">Agency</span></h3>
 				<p>Opt a recurring profile into <strong>Auto-charge</strong> to automatically charge the client's saved Stripe or PayPal payment method each billing cycle instead of sending a Pay Now link every time. The first invoice on the profile is always paid manually first — that's what securely saves the client's payment method for reuse on future cycles.</p>
 				<p>If a charge fails, the client is notified and Client Octopus retries automatically. After repeated failures, the profile pauses itself so you can follow up with the client — it resumes automatically the next time a charge succeeds. Auto-charge requires a fully configured payment provider; if you switch providers or your gateway configuration becomes invalid, affected profiles fall back to the manual Pay Now flow rather than failing silently.</p>
+
+				<?php $docs_pager('invoices'); ?>
 			</section>
 
-			<!-- ─── CALL BOOKING ────────────────────────────────────────────── -->
+			<!-- ─── PAYMENTS ──────────────────────────────────────────────────── -->
 
-			<section class="docs-section stack" id="booking">
-				<h2>Call Booking</h2>
-				<p>Let leads and clients book a call with you directly, without back-and-forth emails. Available on <strong>Pro and Agency</strong>.</p>
+			<section class="docs-section stack" id="payments">
+				<?php $docs_crumb('payments'); ?>
+				<h2>Payments</h2>
+				<?php $docs_badges('payments'); ?>
+				<p class="docs-intro">Payment collection is available on Pro and Agency plans. Choose <strong>Stripe</strong> or <strong>PayPal</strong> as your active payment provider under <strong>Client Octopus &rarr; Settings &rarr; Payment Provider</strong>. Whichever you choose, clients always see a single &ldquo;Pay Now&rdquo; button on proposals and invoices, and it routes to that provider automatically.</p>
 
-				<h3 class="h4">Adding the booking form to a page</h3>
-				<p>Configure your weekly availability, buffer time between calls, minimum notice required before a booking, and maximum booking window (how far in advance someone can book) under <strong>Client Octopus &rarr; Settings &rarr; Booking</strong>. Then add the <code>[clientoctopus_booking_form]</code> shortcode to any page — visitors see your available slots and book one directly.</p>
+				<h3 class="h4">Connecting Stripe</h3>
+				<ol>
+					<li>Log in to your <a href="https://dashboard.stripe.com/apikeys" rel="noopener noreferrer" target="_blank">Stripe dashboard</a> and copy your <strong>Publishable key</strong> and <strong>Secret key</strong>.</li>
+					<li>In your WordPress admin, go to <strong>Client Octopus &rarr; Settings</strong>.</li>
+					<li>Paste both keys into the Stripe API Keys fields and save. The status badge will show <strong>Live</strong> or <strong>Test</strong> depending on which key prefix you entered.</li>
+				</ol>
 
-				<h3 class="h4">Confirmations and reminders</h3>
-				<p>Both you and the client receive a confirmation email with a calendar invite (<code>.ics</code> attachment) and a one-click "Add to Google Calendar" link, followed by a reminder email an hour before the call.</p>
+				<div class="docs-callout docs-callout--tip">
+					<span class="docs-callout__label">Tip</span>
+					<p><strong>Testing in sandbox mode.</strong> Use your <code>pk_test_…</code> and <code>sk_test_…</code> keys and create a separate webhook endpoint in Stripe pointing to your staging or test site. The test card number <code>4242 4242 4242 4242</code> (any future expiry, any CVC) triggers a successful payment.</p>
+				</div>
 
-				<h3 class="h4">Managing bookings</h3>
-				<p>View, search, and cancel booked calls from the <strong>Bookings</strong> admin screen.</p>
+				<h3 class="h4">Setting up the webhook</h3>
+				<ol>
+					<li>In your Stripe Dashboard, go to <strong>Developers &rarr; Workbench &rarr; Webhooks</strong> and click <strong>Add destination</strong>.</li>
+					<li>Select <strong>Webhook endpoint</strong> as the destination type.</li>
+					<li>Copy the <strong>Webhook Endpoint URL</strong> from <strong>Client Octopus &rarr; Settings</strong> and paste it into the Endpoint URL field.</li>
+					<li>Under events, select the five events shown below.</li>
+					<li>Save the endpoint, then click into it to reveal the <strong>Signing secret</strong> (<code>whsec_…</code>).</li>
+					<li>Paste that secret into the <strong>Stripe Webhook Signing Secret</strong> field in <strong>Client Octopus &rarr; Settings</strong>.</li>
+				</ol>
+
+				<div class="docs-code">
+					<div class="docs-code__bar">
+						<span class="docs-code__label">Events to select</span>
+						<button class="docs-code__copy" type="button">Copy</button>
+					</div>
+<pre><code>checkout.session.completed
+checkout.session.async_payment_succeeded
+checkout.session.async_payment_failed
+checkout.session.expired
+payment_intent.payment_failed</code></pre>
+				</div>
+
+				<p>Those are the only five events Client Octopus acts on, and each one earns its place. <code>checkout.session.completed</code> is what marks an invoice or proposal paid. The two <code>async_payment</code> events cover bank transfers and other delayed methods, where the session finishes before the money actually arrives. <code>checkout.session.expired</code> and <code>payment_intent.payment_failed</code> are what allow a failed payment to be marked failed rather than left sitting as pending. Any other Stripe event sent to this endpoint is accepted and ignored.</p>
+				<p>If you set this up before, note that Stripe moved the path: <strong>Workbench &rarr; Webhooks &rarr; Add destination</strong> replaces the older <strong>Webhooks &rarr; Add endpoint</strong>.</p>
+
+				<h3 class="h4">Connecting PayPal</h3>
+				<ol>
+					<li>Log in to the <a href="https://developer.paypal.com/dashboard/applications" rel="noopener noreferrer" target="_blank">PayPal Developer Dashboard</a> and create (or open) an app under <strong>Apps &amp; Credentials</strong>.</li>
+					<li>Copy the app's <strong>Client ID</strong> and <strong>Secret</strong>.</li>
+					<li>In <strong>Client Octopus &rarr; Settings</strong>, set <strong>Payment Provider</strong> to <strong>PayPal</strong>, then paste the Client ID and Secret into the PayPal API Credentials fields.</li>
+					<li>Set <strong>Mode</strong> to <strong>Sandbox</strong> for testing or <strong>Live</strong> for real payments. This must match whether your Client ID and Secret came from a sandbox or live app.</li>
+					<li>Configure a webhook in the PayPal Developer Dashboard pointing to the webhook URL shown in Client Octopus &rarr; Settings, then paste the resulting <strong>Webhook ID</strong> back into the PayPal API Credentials fields.</li>
+					<li>Subscribe that webhook to the four event types shown below. Selecting &ldquo;All events&rdquo; also works; selecting fewer than these four means some payments will never be recorded.</li>
+				</ol>
+
+				<div class="docs-code">
+					<div class="docs-code__bar">
+						<span class="docs-code__label">Events to select</span>
+						<button class="docs-code__copy" type="button">Copy</button>
+					</div>
+<pre><code>CHECKOUT.ORDER.APPROVED
+PAYMENT.CAPTURE.COMPLETED
+PAYMENT.CAPTURE.DENIED
+CHECKOUT.ORDER.VOIDED</code></pre>
+				</div>
+				<p>Switching <strong>Payment Provider</strong> back to Stripe at any time keeps your PayPal credentials saved but inactive — clients will see Stripe checkout again immediately.</p>
+
+				<h3 class="h4">Deposit payments</h3>
+				<p>On any proposal, enable payment and set a <strong>deposit percentage</strong> (1–100%). The client pays the deposit when they accept. You can mark the balance as due on project completion, which triggers a second checkout session with your active payment provider.</p>
+
+				<h3 class="h4">Currencies</h3>
+				<p>Client Octopus supports 20 currencies, including GBP, USD, EUR, CAD, AUD, JPY, CHF, NZD, SEK, NOK, DKK, SGD, HKD, INR, PLN, CZK, BRL, MXN, ZAR, and KRW. Set a <strong>Default Currency</strong> in Settings (or during first-time setup) so new proposals and invoices open in the currency you actually bill in, or set the currency on each proposal individually. Existing records keep whichever currency they were created with if you change your default later.</p>
+
+				<h3 class="h4">Refunds</h3>
+				<p>Refunds can be initiated from <strong>Client Octopus &rarr; Proposals</strong> on any completed payment made via Stripe — no manual action in the Stripe dashboard is needed. Refunds for PayPal payments currently need to be issued directly from your PayPal account.</p>
+
+				<h3 class="h4">Payment failure notifications</h3>
+				<p>If a payment attempt on a proposal or invoice is declined, expired, cancelled, or needs extra verification from the client's bank, both you and the client are emailed automatically. Verification-required attempts get distinct, reassuring copy explaining the next step, rather than reading like a broken card.</p>
+
+				<h3 class="h4">What each plan includes</h3>
+				<div class="docs-plan-table">
+					<table>
+						<thead>
+							<tr><th>Feature</th><th>Free</th><th>Pro</th><th>Agency</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>Stripe or PayPal payments</td><td><span class="docs-dash" aria-label="Not included">&mdash;</span></td><td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td><td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td></tr>
+							<tr><td>Deposit payments</td><td><span class="docs-dash" aria-label="Not included">&mdash;</span></td><td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td><td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td></tr>
+							<tr><td>Auto-charge recurring invoices</td><td><span class="docs-dash" aria-label="Not included">&mdash;</span></td><td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td><td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td></tr>
+							<tr><td>&ldquo;Pay Now&rdquo; on invoices</td><td><span class="docs-dash" aria-label="Not included">&mdash;</span></td><td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td><td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td></tr>
+						</tbody>
+					</table>
+				</div>
+
+				<?php $docs_pager('payments'); ?>
 			</section>
 
-			<!-- ─── CALENDAR SYNC ───────────────────────────────────────────── -->
-
-			<section class="docs-section stack" id="calendar-sync">
-				<h2>Calendar Sync</h2>
-				<p>Keep your booking availability accurate against your real calendar, and have confirmed bookings show up there automatically. Available on <strong>Pro and Agency</strong>.</p>
-
-				<h3 class="h4">Connecting a calendar</h3>
-				<p>Under <strong>Client Octopus &rarr; Settings &rarr; Booking</strong>, connect <strong>Google Calendar</strong>, <strong>Microsoft 365/Outlook</strong>, or <strong>Apple iCloud</strong>. Google and Microsoft connect via OAuth through the Client Octopus relay service; Apple iCloud connects directly from your site using your Apple ID and an app-specific password. If more than one calendar is found on a connected Apple iCloud account, you're asked which one to sync.</p>
-
-				<h3 class="h4">How syncing works</h3>
-				<p>Existing events on any connected calendar automatically block matching slots in your booking availability, shown with their real event title — so you never get double-booked. Every confirmed booking made through Client Octopus is also pushed out to every connected calendar as a real event, including your configured meeting link, so it's already on your calendar without any manual entry.</p>
-
-				<h3 class="h4">Manual sync</h3>
-				<p>Syncing normally happens automatically in the background, roughly every 15 minutes. If you've just added or removed an event and don't want to wait, use the <strong>Sync now</strong> button in Settings to pull the latest calendar events immediately, or <strong>Sync existing bookings</strong> to push any bookings made before you connected a calendar out to it right away.</p>
-			</section>
-
-			<!-- ─── CLIENT PORTAL ───────────────────────────────────────────── -->
+			<!-- ─── CLIENT PORTAL ─────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="client-portal">
+				<?php $docs_crumb('client-portal'); ?>
 				<h2>Client Portal</h2>
+				<?php $docs_badges('client-portal'); ?>
 				<p>The client portal is a set of pages hosted on your WordPress site where clients can review proposals, track payments, and (on Agency) interact with their projects. It is available on Pro and Agency plans.</p>
 
 				<h3 class="h4">How clients log in</h3>
@@ -345,63 +634,16 @@ get_header();
 
 				<h3 class="h4">Permalinks</h3>
 				<p>If portal URLs return 404, go to <strong>Settings &rarr; Permalinks</strong> and click <strong>Save Changes</strong> to regenerate the rewrite rules.</p>
+
+				<?php $docs_pager('client-portal'); ?>
 			</section>
 
-			<!-- ─── PAYMENTS ────────────────────────────────────────────────── -->
-
-			<section class="docs-section stack" id="payments">
-				<h2>Payments</h2>
-				<p>Payment collection is available on Pro and Agency plans. Choose <strong>Stripe</strong> or <strong>PayPal</strong> as your active payment provider under <strong>Client Octopus &rarr; Settings &rarr; Payment Provider</strong> — whichever you choose, clients always see a single "Pay Now" button on proposals and invoices, and it routes to that provider automatically.</p>
-
-				<h3 class="h4">Connecting Stripe</h3>
-				<ol>
-					<li>Log in to your <a href="https://dashboard.stripe.com/apikeys" rel="noopener noreferrer" target="_blank">Stripe dashboard</a> and copy your <strong>Publishable key</strong> and <strong>Secret key</strong>.</li>
-					<li>In your WordPress admin, go to <strong>Client Octopus &rarr; Settings</strong>.</li>
-					<li>Paste both keys into the Stripe API Keys fields and save. The status badge will show <strong>Live</strong> or <strong>Test</strong> depending on which key prefix you entered.</li>
-				</ol>
-
-				<h3 class="h4">Setting up the webhook</h3>
-				<ol>
-					<li>In your Stripe Dashboard, go to <strong>Developers → Workbench → Webhooks</strong> and click <strong>Add destination</strong>.</li>
-					<li>Select <strong>Webhook endpoint</strong> as the destination type.</li>
-					<li>Copy the <strong>Webhook Endpoint URL</strong> from <strong>Client Octopus → Settings</strong> and paste it into the Endpoint URL field.</li>
-					<li>Under events, select all five: <code>checkout.session.completed</code>, <code>checkout.session.async_payment_succeeded</code>, <code>checkout.session.async_payment_failed</code>, <code>checkout.session.expired</code>, and <code>payment_intent.payment_failed</code>.</li>
-					<li>Save the endpoint, then click into it to reveal the <strong>Signing secret</strong> (<code>whsec_…</code>).</li>
-					<li>Paste that secret into the <strong>Stripe Webhook Signing Secret</strong> field in <strong>Client Octopus → Settings</strong>.</li>
-				</ol>
-				<p>Those are the only five events Client Octopus acts on, and each one earns its place. <code>checkout.session.completed</code> is what marks an invoice or proposal paid. The two <code>async_payment</code> events cover bank transfers and other delayed methods, where the session finishes before the money actually arrives. <code>checkout.session.expired</code> and <code>payment_intent.payment_failed</code> are what allow a failed payment to be marked failed rather than left sitting as pending. Any other Stripe event sent to this endpoint is accepted and ignored.</p>
-				<p>If you set this up before, note that Stripe moved the path: <strong>Workbench → Webhooks → Add destination</strong> replaces the older <strong>Webhooks → Add endpoint</strong>.</p>
-
-				<p><strong>Testing with sandbox mode:</strong> Use your <code>pk_test_…</code> / <code>sk_test_…</code> keys and create a separate webhook endpoint in Stripe pointing to your staging/test site. Test card number <code>4242 4242 4242 4242</code> (any future expiry, any CVC) triggers a successful payment.</p>
-
-				<h3 class="h4">Connecting PayPal</h3>
-				<ol>
-					<li>Log in to the <a href="https://developer.paypal.com/dashboard/applications" rel="noopener noreferrer" target="_blank">PayPal Developer Dashboard</a> and create (or open) an app under <strong>Apps &amp; Credentials</strong>.</li>
-					<li>Copy the app's <strong>Client ID</strong> and <strong>Secret</strong>.</li>
-					<li>In <strong>Client Octopus &rarr; Settings</strong>, set <strong>Payment Provider</strong> to <strong>PayPal</strong>, then paste the Client ID and Secret into the PayPal API Credentials fields.</li>
-					<li>Set <strong>Mode</strong> to <strong>Sandbox</strong> for testing or <strong>Live</strong> for real payments — this must match whether your Client ID/Secret came from a sandbox or live app.</li>
-					<li>Configure a webhook in the PayPal Developer Dashboard pointing to the webhook URL shown in Client Octopus &rarr; Settings, then paste the resulting <strong>Webhook ID</strong> back into the PayPal API Credentials fields.</li>
-					<li>Subscribe that webhook to four event types: <code>CHECKOUT.ORDER.APPROVED</code>, <code>PAYMENT.CAPTURE.COMPLETED</code>, <code>PAYMENT.CAPTURE.DENIED</code>, and <code>CHECKOUT.ORDER.VOIDED</code>. Selecting &ldquo;All events&rdquo; also works; selecting fewer than these four means some payments will never be recorded.</li>
-				</ol>
-				<p>Switching <strong>Payment Provider</strong> back to Stripe at any time keeps your PayPal credentials saved but inactive — clients will see Stripe checkout again immediately.</p>
-
-				<h3 class="h4">Deposit payments</h3>
-				<p>On any proposal, enable payment and set a <strong>deposit percentage</strong> (1–100%). The client pays the deposit when they accept. You can mark the balance as due on project completion, which triggers a second checkout session with your active payment provider.</p>
-
-				<h3 class="h4">Currencies</h3>
-				<p>Client Octopus supports 20 currencies, including GBP, USD, EUR, CAD, AUD, JPY, CHF, NZD, SEK, NOK, DKK, SGD, HKD, INR, PLN, CZK, BRL, MXN, ZAR, and KRW. Set a <strong>Default Currency</strong> in Settings (or during first-time setup) so new proposals and invoices open in the currency you actually bill in, or set the currency on each proposal individually. Existing records keep whichever currency they were created with if you change your default later.</p>
-
-				<h3 class="h4">Refunds</h3>
-				<p>Refunds can be initiated from <strong>Client Octopus &rarr; Proposals</strong> on any completed payment made via Stripe — no manual action in the Stripe dashboard is needed. Refunds for PayPal payments currently need to be issued directly from your PayPal account.</p>
-
-				<h3 class="h4">Payment failure notifications</h3>
-				<p>If a payment attempt on a proposal or invoice is declined, expired, cancelled, or needs extra verification from the client's bank, both you and the client are emailed automatically. Verification-required attempts get distinct, reassuring copy explaining the next step, rather than reading like a broken card.</p>
-			</section>
-
-			<!-- ─── PROJECTS ────────────────────────────────────────────────── -->
+			<!-- ─── PROJECTS ──────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="projects">
+				<?php $docs_crumb('projects'); ?>
 				<h2>Projects &amp; Milestones</h2>
+				<?php $docs_badges('projects'); ?>
 				<p>Projects are available on the <strong>Agency plan</strong> only. When a client accepts a proposal, a project is automatically created and linked to that proposal and client.</p>
 
 				<h3 class="h4">Project statuses</h3>
@@ -423,13 +665,17 @@ get_header();
 
 				<h3 class="h4">Messaging</h3>
 				<p>Each project has a message thread visible to both the agency team and the client. Clients send messages from the portal; the agency replies from the WordPress admin. Unread message counts appear as a badge on the <strong>Projects</strong> menu item. Messages are marked read when either party opens the thread.</p>
+
+				<?php $docs_pager('projects'); ?>
 			</section>
 
-			<!-- ─── TEAM ─────────────────────────────────────────────────────── -->
+			<!-- ─── TEAM ──────────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="team">
+				<?php $docs_crumb('team'); ?>
 				<h2>Team Management</h2>
-				<p>Team seats are available on the <strong>Agency plan</strong>. Agency accounts support up to <strong>5 users</strong> (the account owner plus 4 invited members).</p>
+				<?php $docs_badges('team'); ?>
+				<p>Team seats are available on the <strong>Agency plan</strong>. Agency accounts support up to <strong>10 users</strong> (the account owner plus 9 invited members).</p>
 
 				<h3 class="h4">Inviting a team member</h3>
 				<ol>
@@ -463,12 +709,16 @@ get_header();
 				</table>
 
 				<p>All data created by a team member is owned by and counted against the account owner. Usage quotas (AI, storage, proposals) are shared across the team.</p>
+
+				<?php $docs_pager('team'); ?>
 			</section>
 
-			<!-- ─── WEBHOOKS ────────────────────────────────────────────────── -->
+			<!-- ─── WEBHOOKS ──────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="webhooks">
+				<?php $docs_crumb('webhooks'); ?>
 				<h2>Webhooks</h2>
+				<?php $docs_badges('webhooks'); ?>
 				<p>Webhooks are available on <strong>Pro and Agency</strong>. They allow Client Octopus to notify external services (Zapier, Make, custom endpoints) when events occur.</p>
 
 				<h3 class="h4">Registering a webhook</h3>
@@ -510,7 +760,12 @@ get_header();
 				<h3 class="h4">Verifying payloads</h3>
 				<p>Every request includes an <code>X-ClientOctopus-Signature</code> header containing an HMAC-SHA256 signature of the raw request body, signed with your webhook secret. Verify this on your endpoint before processing the payload. The last 3 delivery attempts for each webhook are logged and visible in the admin.</p>
 
-				<h3 class="h4">Example verification (PHP)</h3>
+				<h3 class="h4">Example verification</h3>
+				<div class="docs-code">
+					<div class="docs-code__bar">
+						<span class="docs-code__label">PHP</span>
+						<button class="docs-code__copy" type="button">Copy</button>
+					</div>
 <pre><code>$secret   = 'your_webhook_secret';
 $payload  = file_get_contents( 'php://input' );
 $header   = $_SERVER['HTTP_X_CLIENTOCTOPUS_SIGNATURE'] ?? '';
@@ -523,12 +778,17 @@ if ( ! hash_equals( $expected, $header ) ) {
 
 $data = json_decode( $payload, true );
 // Process $data['event'] and $data['payload'] here</code></pre>
+				</div>
+
+				<?php $docs_pager('webhooks'); ?>
 			</section>
 
-			<!-- ─── AUTOMATED REMINDERS ─────────────────────────────────────── -->
+			<!-- ─── AUTOMATIONS ───────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="automations">
+				<?php $docs_crumb('automations'); ?>
 				<h2>Automated Reminders</h2>
+				<?php $docs_badges('automations'); ?>
 				<p>Automated reminders are available on <strong>every plan</strong>, including Free. They send follow-up emails to clients on your behalf so proposals don't stall waiting on a response.</p>
 
 				<h3 class="h4">Triggers</h3>
@@ -564,12 +824,16 @@ $data = json_decode( $payload, true );
 
 				<h3 class="h4">Client unsubscribe</h3>
 				<p>Every reminder email carries an unsubscribe link and a preferences page where the client can switch proposal reminders, invoice reminders, call reminders, and testimonial requests on or off individually. Essential emails — proposals, invoices, payment receipts, booking confirmations, portal login links, and approval requests — are never affected, since they concern work already agreed. A client's current preferences, and a link to copy them, are shown on their Client Detail page.</p>
+
+				<?php $docs_pager('automations'); ?>
 			</section>
 
-			<!-- ─── TIME TRACKING ──────────────────────────────────────────── -->
+			<!-- ─── TIME TRACKING ─────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="time-tracking">
+				<?php $docs_crumb('time-tracking'); ?>
 				<h2>Time Tracking</h2>
+				<?php $docs_badges('time-tracking'); ?>
 				<p>Time tracking is available on <strong>Pro and Agency</strong> plans under <strong>Client Octopus &rarr; Time</strong>.</p>
 
 				<h3 class="h4">Starting a timer</h3>
@@ -578,7 +842,7 @@ $data = json_decode( $payload, true );
 				<h3 class="h4">Logging time manually</h3>
 				<p>Prefer to log time after the fact? Add an entry directly with a duration, date, and description. Every entry — timed or manual — is assigned to a client and, on Agency, optionally to a project, and can be marked <strong>non-billable</strong> if it shouldn't be invoiced. Durations can be corrected in place afterwards.</p>
 
-				<h3 class="h4">Team timesheets (Agency)</h3>
+				<h3 class="h4">Team timesheets <span class="badge badge--plan badge--agency">Agency</span></h3>
 				<p>On Agency accounts with more than one team member, the timesheet shows who logged each entry and can be filtered by person, so you can see where time is actually going across the team.</p>
 
 				<h3 class="h4">Hourly rates</h3>
@@ -586,12 +850,16 @@ $data = json_decode( $payload, true );
 
 				<h3 class="h4">Billing tracked time</h3>
 				<p>On a draft invoice, click <strong>Add unbilled time</strong> to see everything not yet invoiced for that client. Choose how it's summarised — one line per entry, per day, per project, or as a single total — and it's added as proper quantity-and-rate line items. Hours are never billed twice. Anything older than 60 days is listed but left unticked by default, so old work doesn't get swept onto an invoice by accident. If the invoice is later cancelled or deleted, those hours return to the unbilled pool automatically.</p>
+
+				<?php $docs_pager('time-tracking'); ?>
 			</section>
 
-			<!-- ─── ANALYTICS ──────────────────────────────────────────────── -->
+			<!-- ─── ANALYTICS ─────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="analytics">
+				<?php $docs_crumb('analytics'); ?>
 				<h2>Analytics</h2>
+				<?php $docs_badges('analytics'); ?>
 				<p>The analytics dashboard is available on <strong>Pro and Agency</strong> plans under <strong>Client Octopus &rarr; Analytics</strong>. It gives you an at-a-glance view of your proposal pipeline and revenue performance.</p>
 
 				<h3 class="h4">Overview metrics</h3>
@@ -631,15 +899,18 @@ $data = json_decode( $payload, true );
 				<h3 class="h4">Exporting data</h3>
 				<p>Click <strong>Export CSV</strong> on the analytics page to download all proposal and payment data for the selected period. The export includes proposal ID, client name, value, status, sent date, accepted date, and payment total — suitable for spreadsheets, accountants, or external reporting tools.</p>
 
-				<h3 class="h4">Reporting Currency (Pro / Agency)</h3>
+				<h3 class="h4">Reporting Currency <span class="badge badge--plan badge--pro">Pro</span> <span class="badge badge--plan badge--agency">Agency</span></h3>
 				<p>If you bill clients in more than one currency, set a <strong>Reporting Currency</strong> in <strong>Client Octopus &rarr; Settings</strong>. Once set, the Revenue KPI and revenue chart convert every proposal, invoice, and payment into that currency using daily exchange rates, instead of incorrectly adding figures in different currencies together as if they were the same one. This only affects the Analytics dashboard — Client Detail always shows each client's Lifetime Value and Outstanding Balance in their real billed currency, unconverted.</p>
+
+				<?php $docs_pager('analytics'); ?>
 			</section>
 
-
-			<!-- ─── AI ───────────────────────────────────────────────────────── -->
+			<!-- ─── AI ────────────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="ai">
+				<?php $docs_crumb('ai'); ?>
 				<h2>AI Features</h2>
+				<?php $docs_badges('ai'); ?>
 				<p>AI writing assistance is available on <strong>Pro and Agency</strong> plans. It works inside the proposal editor.</p>
 
 				<h3 class="h4">How to use it</h3>
@@ -678,12 +949,16 @@ $data = json_decode( $payload, true );
 
 				<h3 class="h4">How it works</h3>
 				<p>AI requests are processed through a Client Octopus relay server. Your WordPress site never calls the AI provider directly. This keeps your credentials private and allows Client Octopus to track costs and enforce plan quotas server-side. Proposal text is sent to the relay only when you trigger an AI action and is not retained after the response is returned.</p>
+
+				<?php $docs_pager('ai'); ?>
 			</section>
 
-			<!-- ─── SETTINGS ────────────────────────────────────────────────── -->
+			<!-- ─── SETTINGS ──────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="settings">
+				<?php $docs_crumb('settings'); ?>
 				<h2>Settings</h2>
+				<?php $docs_badges('settings'); ?>
 				<p>All settings are under <strong>Client Octopus &rarr; Settings</strong>, organised into tabs: <strong>Branding</strong>, <strong>Payments</strong>, <strong>Leads</strong>, <strong>Booking</strong>, <strong>Automations</strong>, and <strong>Advanced</strong>. This page requires the WordPress <code>manage_options</code> capability (site administrators only).</p>
 
 				<h3 class="h4">Branding (all plans)</h3>
@@ -746,29 +1021,37 @@ $data = json_decode( $payload, true );
 					</tbody>
 				</table>
 
-				<h3 class="h4">Payment Provider (Pro / Agency)</h3>
+				<h3 class="h4">Payment Provider <span class="badge badge--plan badge--pro">Pro</span> <span class="badge badge--plan badge--agency">Agency</span></h3>
 				<p>Choose <strong>Stripe</strong> or <strong>PayPal</strong> as your active payment provider. Only the credential fields for the selected provider are shown; switching providers doesn't clear the other provider's saved credentials.</p>
 
-				<h3 class="h4">Stripe API Keys (Pro / Agency)</h3>
+				<h3 class="h4">Stripe API Keys <span class="badge badge--plan badge--pro">Pro</span> <span class="badge badge--plan badge--agency">Agency</span></h3>
 				<p>Enter your Stripe <strong>Publishable Key</strong> (<code>pk_live_&hellip;</code> or <code>pk_test_&hellip;</code>) and <strong>Secret Key</strong> (<code>sk_live_&hellip;</code> or <code>sk_test_&hellip;</code>). A status badge shows whether Client Octopus is in Live or Test mode. See <a href="#payments">Payments</a> for webhook setup.</p>
 
-				<h3 class="h4">PayPal API Credentials (Pro / Agency)</h3>
+				<h3 class="h4">PayPal API Credentials <span class="badge badge--plan badge--pro">Pro</span> <span class="badge badge--plan badge--agency">Agency</span></h3>
 				<p>Enter your PayPal <strong>Client ID</strong> and <strong>Secret</strong> from the PayPal Developer Dashboard, set <strong>Mode</strong> to Sandbox or Live, and paste in the <strong>Webhook ID</strong> from your configured PayPal webhook. A status badge shows whether Client Octopus is in Live or Test mode. See <a href="#payments">Payments</a> for full setup steps.</p>
 
-				<h3 class="h4">Testimonial Emails (Pro / Agency)</h3>
+				<h3 class="h4">Testimonial Emails <span class="badge badge--plan badge--pro">Pro</span> <span class="badge badge--plan badge--agency">Agency</span></h3>
 				<p>Enable automated review-request emails sent to clients after their final payment is collected. Configure the email body, the URL you want them to visit (e.g. a Google Reviews or Trustpilot page), and the button label (default: &ldquo;Leave a Review&rdquo;).</p>
 
 				<h3 class="h4">Translations</h3>
 				<p>Emails, the Settings and Plan &amp; Usage screens, and the public booking and lead capture forms can be translated using a standard WordPress translation plugin (e.g. Loco Translate) with the included translation template. The React-based admin screens, the client portal, and the client-facing proposal view aren't covered yet.</p>
 
 				<h3 class="h4">Danger Zone</h3>
-				<p>By default, uninstalling Client Octopus only removes the plugin's code — your proposals, clients, projects, and invoices stay in your database and are there again if you reinstall or upgrade. To permanently delete all Client Octopus data when the plugin is deleted, enable <strong>Delete all Client Octopus data when this plugin is deleted</strong> under Danger Zone. This is off by default and should only be enabled if you intend to remove Client Octopus and its data for good.</p>
+				<div class="docs-callout docs-callout--warning">
+					<span class="docs-callout__label">Heads up</span>
+					<p>By default, uninstalling Client Octopus only removes the plugin's code — your proposals, clients, projects, and invoices stay in your database and are there again if you reinstall or upgrade. To permanently delete all Client Octopus data when the plugin is deleted, enable <strong>Delete all Client Octopus data when this plugin is deleted</strong> under Danger Zone. This is off by default and should only be enabled if you intend to remove Client Octopus and its data for good.</p>
+				</div>
+
+				<?php $docs_pager('settings'); ?>
 			</section>
 
-			<!-- ─── FREE VS PRO ──────────────────────────────────────────────── -->
+			<!-- ─── FREE VS PRO ───────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="free-vs-pro">
+				<?php $docs_crumb('free-vs-pro'); ?>
 				<h2>Free vs Pro vs Agency</h2>
+				<?php $docs_badges('free-vs-pro'); ?>
+				<div class="docs-plan-table">
 				<table>
 					<thead>
 						<tr>
@@ -781,9 +1064,9 @@ $data = json_decode( $payload, true );
 					<tbody>
 						<tr>
 							<td>Lead Capture</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Proposals</td>
@@ -793,151 +1076,155 @@ $data = json_decode( $payload, true );
 						</tr>
 						<tr>
 							<td>Client database</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Proposal templates</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Package Selector pricing</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Stripe or PayPal payments</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Deposit payments</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Analytics</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Time tracking</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
-							<td>&#10003; (with per-team-member timesheets)</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> (with per-team-member timesheets)</td>
 						</tr>
 						<tr>
 							<td>Webhooks</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Testimonial emails</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>AI requests/month</td>
-							<td>&mdash;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
 							<td>100</td>
 							<td>500</td>
 						</tr>
 						<tr>
 							<td>Client portal</td>
-							<td>&mdash;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
 							<td>Basic</td>
 							<td>Full</td>
 						</tr>
 						<tr>
 							<td>Call Booking</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Calendar Sync</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Invoices</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Recurring invoices</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Auto-charge recurring invoices</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>"Pay Now" on invoices</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Automated reminders</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Projects &amp; milestones</td>
-							<td>&mdash;</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Approvals</td>
-							<td>&mdash;</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>Client messaging</td>
-							<td>&mdash;</td>
-							<td>&mdash;</td>
-							<td>&#10003;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
 							<td>File uploads</td>
-							<td>&mdash;</td>
-							<td>&mdash;</td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
+							<td><span class="docs-dash" aria-label="Not included">&mdash;</span></td>
 							<td>1 GB total</td>
 						</tr>
 						<tr>
 							<td>Team seats</td>
 							<td>1</td>
 							<td>1</td>
-							<td>5</td>
+							<td>10</td>
 						</tr>
 					</tbody>
 				</table>
+				</div>
+
+				<?php $docs_pager('free-vs-pro'); ?>
 			</section>
 
-
-			<!-- ─── TROUBLESHOOTING ─────────────────────────────────────────── -->
+			<!-- ─── TROUBLESHOOTING ───────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="troubleshooting">
+				<?php $docs_crumb('troubleshooting'); ?>
 				<h2>Troubleshooting</h2>
+				<?php $docs_badges('troubleshooting'); ?>
 
 				<h3 class="h4">Client portal pages return 404</h3>
 				<p>WordPress registers the portal URL on activation. If the pages return 404, the rewrite rules need to be flushed:</p>
@@ -966,13 +1253,16 @@ $data = json_decode( $payload, true );
 
 				<h3 class="h4">Emails not sending</h3>
 				<p>Client Octopus sends email via <code>wp_mail()</code>. If emails are not arriving, check your WordPress mail configuration — many hosts block outgoing PHP mail by default. Install an SMTP plugin (e.g. WP Mail SMTP) and configure a transactional mail provider such as Postmark, SendGrid, or Mailgun.</p>
+
+				<?php $docs_pager('troubleshooting'); ?>
 			</section>
 
-
-			<!-- ─── PRIVACY & DATA ──────────────────────────────────────────── -->
+			<!-- ─── PRIVACY ───────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="privacy">
+				<?php $docs_crumb('privacy'); ?>
 				<h2>Privacy &amp; Data</h2>
+				<?php $docs_badges('privacy'); ?>
 
 				<h3 class="h4">Where your data is stored</h3>
 				<p>All client data — names, email addresses, proposal content, project activity, and file attachments — is stored in your own WordPress database on your own server. Client Octopus does not copy or transmit this data to external servers except where explicitly described below.</p>
@@ -984,18 +1274,21 @@ $data = json_decode( $payload, true );
 				<p>Payment card details are handled entirely by your active payment provider (Stripe or PayPal) and never pass through your WordPress site or the Client Octopus relay. Client Octopus stores only the provider's payment/order reference and payment status — never card numbers, CVVs, or bank details.</p>
 
 				<h3 class="h4">Client portal authentication</h3>
-				<p>Clients authenticate via a short-lived magic link sent to their email address. Tokens are single-use and expire after 15 minutes. Session cookies are scoped to your domain and are not shared with any third party.</p>
+				<p>Clients authenticate via a magic link sent to their email address. Tokens are single-use and expire after 24 hours. Session cookies are scoped to your domain and are not shared with any third party.</p>
 
 				<h3 class="h4">GDPR considerations</h3>
 				<p>Because all client data lives in your database, you are the data controller. You are responsible for your own privacy policy, cookie notice, and any data subject requests from your clients. Client Octopus does not act as a data processor on your behalf beyond the AI relay described above.</p>
 				<p>Client Octopus integrates with WordPress's own <strong>Tools &rarr; Export/Erase Personal Data</strong> tools, so you don't have to track down a client's records by hand when a request comes in. An export or erasure request covers client records, leads, booked calls, the name and IP address recorded when a proposal was signed, project messages, approval comments, and unsubscribe preferences. Erasure deletes booked calls, project messages, and approval comments outright; invoices, payments, and accepted proposals are kept but stripped of personal details (including anonymising the signing IP), since accounting records have to be retained for tax purposes — the confirmation shown at the end of an erasure states exactly what was kept and why.</p>
+
+				<?php $docs_pager('privacy'); ?>
 			</section>
 
-
-			<!-- ─── REST API ────────────────────────────────────────────────── -->
+			<!-- ─── API ───────────────────────────────────────────────────────── -->
 
 			<section class="docs-section stack" id="api">
+				<?php $docs_crumb('api'); ?>
 				<h2>REST API</h2>
+				<?php $docs_badges('api'); ?>
 				<p>Client Octopus exposes a REST API under the base path <code>/wp-json/clientoctopus/v1/</code>. All endpoints return JSON.</p>
 
 				<h3 class="h4">Authentication</h3>
@@ -1065,10 +1358,18 @@ $data = json_decode( $payload, true );
 					</tbody>
 				</table>
 
-				<div class="docs-callout docs-callout--info">
-					<p><strong>API stability:</strong> The REST API is currently internal and subject to change between minor versions. If you build integrations against it, pin your plugin version and test on upgrades. A stable, versioned public API is planned for a future release.</p>
+				<div class="docs-callout docs-callout--warning">
+					<span class="docs-callout__label">Heads up</span>
+					<p><strong>API stability.</strong> The REST API is currently internal and subject to change between minor versions. If you build integrations against it, pin your plugin version and test on upgrades. A stable, versioned public API is planned for a future release.</p>
 				</div>
+
+				<?php $docs_pager('api'); ?>
 			</section>
+
+			<div class="faq-contact docs-contact">
+				<p class="faq-contact__title">Still have a question?</p>
+				<a class="faq-contact__link" href="mailto:info@clientoctopus.com?subject=Docs%20question">Drop us a message &rarr;</a>
+			</div>
 
 		</div><!-- /.docs-content -->
 

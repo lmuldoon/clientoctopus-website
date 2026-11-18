@@ -2,39 +2,200 @@
  * Docs page — layout, sidebar, callouts, tables
  */
 
-.docs-page {
-	// nothing extra needed at root
+// ─── HEADER SEARCH ────────────────────────────────────────────────────────────
+
+.docs-page .sections-header {
+	overflow: visible; // let the search results drop over the band below
+	z-index: 5;
 }
 
-// ─── HEADER STRIP ─────────────────────────────────────────────────────────────
+.docs-search {
+	position: relative;
+	max-width: 560px;
+	margin-top: 1.75rem;
+}
 
-// ─── TWO-COLUMN LAYOUT ────────────────────────────────────────────────────────
+.docs-search__icon {
+	position: absolute;
+	left: 1.1rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--color-slate-600);
+	pointer-events: none;
+}
+
+.docs-search__input {
+	width: 100%;
+	padding: 0.95rem 1.25rem 0.95rem 3rem;
+	border: none;
+	border-radius: 999px;
+	background: var(--color-white);
+	color: var(--color-navy);
+	font: inherit;
+	font-size: var(--size-400);
+	box-shadow: 0 8px 30px rgba(15, 23, 42, 0.18);
+
+	&::placeholder {
+		color: var(--color-slate-600);
+	}
+
+	&:focus {
+		outline: 3px solid rgba(255, 255, 255, 0.6);
+		outline-offset: 2px;
+	}
+
+	&::-webkit-search-cancel-button {
+		cursor: pointer;
+	}
+}
+
+.docs-search__results {
+	position: absolute;
+	top: calc(100% + 0.5rem);
+	left: 0;
+	right: 0;
+	max-height: 360px;
+	overflow-y: auto;
+	margin: 0;
+	padding: 0.4rem;
+	list-style: none;
+	background: var(--color-white);
+	border-radius: 16px;
+	box-shadow: 0 24px 60px rgba(15, 23, 42, 0.2);
+	text-align: left;
+}
+
+.docs-search__result {
+	display: block;
+	padding: 0.65rem 0.85rem;
+	border-radius: 10px;
+	color: var(--color-navy);
+	text-decoration: none;
+
+	&:hover,
+	&.is-highlighted {
+		background: var(--color-lightindigo);
+		text-decoration: none;
+	}
+}
+
+.docs-search__result-title {
+	display: block;
+	font-size: var(--size-400);
+	font-weight: 600;
+}
+
+.docs-search__result-crumb {
+	display: block;
+	font-size: var(--size-300);
+	color: var(--color-slate-600);
+}
+
+.docs-search__empty {
+	padding: 0.75rem 0.85rem;
+	font-size: var(--size-400);
+	color: var(--color-slate-600);
+}
+
+// ─── START HERE ───────────────────────────────────────────────────────────────
+
+.docs-start {
+	background: var(--bg-stone);
+	padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.docs-start__heading {
+	font-size: clamp(1.5rem, 2.5vw, 2rem);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	margin-bottom: 1.5rem;
+}
+
+.docs-start__grid {
+	display: grid;
+	gap: 1rem;
+
+	@screen md {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@screen lg {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.docs-task-card {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1.25rem 1.5rem;
+	background: var(--color-white);
+	border: 1.5px solid var(--color-grey);
+	border-radius: 16px;
+	color: var(--color-navy);
+	text-decoration: none;
+	transition: border-color 0.15s ease;
+
+	iconify-icon {
+		flex-shrink: 0;
+		transition: transform 0.15s ease;
+	}
+
+	&:hover,
+	&:focus-visible {
+		border-color: var(--color-indigo);
+		text-decoration: none;
+
+		iconify-icon {
+			transform: translateX(3px);
+		}
+	}
+}
+
+.docs-task-card__title {
+	display: block;
+	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+	font-weight: 700;
+	margin-bottom: 0.2rem;
+}
+
+.docs-task-card__desc {
+	display: block;
+	font-size: var(--size-400);
+	color: var(--color-slate-600);
+	line-height: 1.5;
+}
+
+// ─── THREE-COLUMN LAYOUT ──────────────────────────────────────────────────────
 
 .docs-layout {
 	display: grid;
-	grid-template-columns: 1fr;
-	gap: 0;
+	grid-template-columns: minmax(0, 1fr);
 	align-items: start;
-	padding-block: var(--section-padding);
+	padding-block: clamp(2.5rem, 5vw, 4.5rem) var(--section-padding);
 
 	@screen lg {
-		grid-template-columns: 240px 1fr;
-		gap: clamp(2rem, 4vw, 5rem);
-		align-items: start;
+		grid-template-columns: 220px minmax(0, 1fr);
+		gap: clamp(2rem, 4vw, 4rem);
 	}
 
-	@screen xl {
-		grid-template-columns: 280px 1fr;
+	// Room for the "On this page" rail on common laptop widths (Tailwind xl is 1480px)
+	@media (min-width: 1200px) {
+		grid-template-columns: 220px minmax(0, 1fr) 190px;
+		gap: 3rem;
 	}
 }
 
 // ─── SIDEBAR ──────────────────────────────────────────────────────────────────
 
 .docs-sidebar {
-	display: none; // mobile: hidden, replaced by in-page anchor links
+	display: none; // mobile: hidden; search and Start here cover navigation
 
 	@screen lg {
 		display: block;
+		grid-column: 1;
+		grid-row: 1;
 		position: sticky;
 		top: calc(var(--header-height, 80px) + 2rem);
 		max-height: calc(100vh - var(--header-height, 80px) - 4rem);
@@ -43,52 +204,106 @@
 	}
 }
 
+.docs-nav__group {
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--color-slate-600);
+	margin: 1.75rem 0 0.5rem;
+	padding-left: 0.85rem;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
 .docs-nav {
 	list-style: none !important;
 	padding: 0 !important;
 	margin: 0 !important;
-}
 
-.docs-nav li {
-	margin: 0 !important;
-	padding: 0 !important;
+	li {
+		margin: 0 !important;
+		padding: 0 !important;
 
-	&::before {
-		content: none !important;
+		&::before {
+			content: none !important;
+		}
 	}
 }
 
 .docs-nav__link {
 	display: block;
-	padding: 0.45em 0.75em;
-	font-size: var(--size-400);
-	color: rgba(0, 0, 0, 0.6);
+	padding: 0.45em 0.85em;
+	border-radius: 10px;
+	font-size: 0.9rem;
+	color: var(--color-navy);
 	text-decoration: none;
-	border-left: 2px solid transparent;
-	border-radius: 0 4px 4px 0;
-	transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+	transition: background 0.15s ease;
 
 	&:hover,
-	&:focus {
-		color: var(--color-midblue);
-		border-left-color: var(--color-midblue);
-		background: rgba(2, 116, 165, 0.05);
+	&:focus-visible {
+		background: var(--bg-stone);
 		text-decoration: none;
 	}
 
 	&.is-active {
-		color: var(--color-midblue);
-		border-left-color: var(--color-midblue);
+		background: var(--color-lightindigo);
 		font-weight: 600;
 	}
 }
 
-.docs-nav--sub {
-	padding-left: 1rem !important;
+// ─── ON THIS PAGE ─────────────────────────────────────────────────────────────
 
-	.docs-nav__link {
-		font-size: var(--size-300);
-		padding-block: 0.35em;
+.docs-toc {
+	display: none;
+
+	@media (min-width: 1200px) {
+		grid-column: 3;
+		grid-row: 1;
+		position: sticky;
+		top: calc(var(--header-height, 80px) + 2rem);
+
+		&:not([hidden]) {
+			display: block;
+		}
+	}
+
+	.docs-nav__group {
+		padding-left: 0;
+	}
+}
+
+.docs-toc__list {
+	list-style: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+
+	li {
+		margin: 0 0 0.6rem !important;
+		padding: 0 !important;
+
+		&::before {
+			content: none !important;
+		}
+	}
+
+	a {
+		font-size: 0.85rem;
+		line-height: 1.4;
+		color: var(--color-slate-600);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-navy);
+			text-decoration: none;
+		}
+
+		&.is-active {
+			color: var(--color-navy);
+			font-weight: 600;
+		}
 	}
 }
 
@@ -96,23 +311,45 @@
 
 .docs-content {
 	min-width: 0; // prevent grid blowout
-	overflow: hidden;
+
+	@screen lg {
+		grid-column: 2;
+		grid-row: 1;
+	}
 }
 
 .docs-section {
-	padding-block-end: clamp(2rem, 3vw, 3.5rem);
-	&:not(:first-of-type) {
-		padding-block-start: clamp(2rem, 3vw, 3.5rem);
+	padding-block: clamp(2.5rem, 4vw, 4rem);
+	scroll-margin-top: calc(var(--header-height, 80px) + 1rem);
+
+	&:first-of-type {
+		padding-top: 0;
 	}
+
+	& + .docs-section {
+		border-top: 1px solid var(--color-grey);
+	}
+
 	h2 {
-		margin-top: 0;
-		margin-bottom: 1.25rem;
-		padding-top: 0.25rem; // visual breathing room for anchor scroll
+		font-size: clamp(2rem, 3.5vw, 2.75rem);
+		font-weight: 800;
+		letter-spacing: -0.025em;
+		margin: 0 0 0.75rem;
+	}
+
+	.docs-crumb + h2 {
+		margin-block-start: 0.35rem;
 	}
 
 	h3 {
-		margin-top: 2rem;
+		margin-top: 2.75rem;
 		margin-bottom: 0.75rem;
+		scroll-margin-top: calc(var(--header-height, 80px) + 1.5rem);
+
+		.badge {
+			margin-left: 0.3rem;
+			vertical-align: middle;
+		}
 	}
 
 	h4 {
@@ -120,19 +357,11 @@
 		margin-bottom: 0.5rem;
 	}
 
-	p, li {
-		font-size: var(--size-400);
-	}
-
-	ol {
-		padding-left: 1.5rem;
-		margin-bottom: 1rem;
-
-		li {
-			padding-left: 0.5rem;
-			margin-bottom: 0.5rem;
-			padding-inline-start: 0;
-		}
+	p,
+	li {
+		font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+		line-height: 1.7;
+		max-width: 70ch;
 	}
 
 	hr {
@@ -140,41 +369,314 @@
 	}
 
 	code {
-		font-family: 'Courier New', Courier, monospace;
-		font-size: 0.875em;
-		background: var(--color-grey);
-		padding: 0.15em 0.4em;
-		border-radius: 4px;
-		color: var(--color-darkblue);
+		font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+		font-size: 0.85em;
+		background: var(--bg-stone);
+		box-shadow: inset 0 0 0 1px var(--color-grey);
+		padding: 0.15em 0.45em;
+		border-radius: 6px;
+		color: var(--color-navy);
+	}
+}
+
+// One section at a time (set by docs.js); without JS the full page shows.
+.docs-content.is-single .docs-section {
+	padding-top: 0;
+	border-top: none;
+}
+
+.docs-section[hidden] {
+	display: none !important;
+}
+
+.docs-jump {
+	margin-bottom: 2rem;
+
+	&[hidden] {
+		display: none;
+	}
+
+	@screen lg {
+		display: none;
+	}
+
+	.docs-nav__group {
+		display: block;
+		padding-left: 0;
+	}
+}
+
+.docs-jump__select {
+	width: 100%;
+	padding: 0.8rem 1rem;
+	border: 1.5px solid var(--color-grey);
+	border-radius: 12px;
+	background: var(--color-white);
+	color: var(--color-navy);
+	font: inherit;
+	font-size: var(--size-400);
+	font-weight: 600;
+}
+
+.docs-crumb {
+	font-size: var(--size-300);
+	color: var(--color-slate-600);
+	margin: 0;
+}
+
+.docs-badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+}
+
+.docs-section p.docs-intro {
+	font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.2rem);
+}
+
+// ─── NUMBERED STEPS ───────────────────────────────────────────────────────────
+
+.docs-section ol {
+	list-style: none;
+	counter-reset: docs-step;
+	padding-left: 0;
+	margin-bottom: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	> li {
+		counter-increment: docs-step;
+		position: relative;
+		padding-left: 2.75rem;
+		margin: 0;
+
+		&::before {
+			content: counter(docs-step);
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 1.75rem;
+			height: 1.75rem;
+			border-radius: 50%;
+			background: var(--color-black);
+			color: var(--color-white);
+			font-size: 0.8rem;
+			font-weight: 700;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 	}
 }
 
 // ─── CALLOUTS ─────────────────────────────────────────────────────────────────
 
 .docs-callout {
-	border-left: 4px solid;
-	padding: 1rem 1.25rem;
-	border-radius: 0 8px 8px 0;
-	font-size: var(--size-400);
-	margin-block: 1.5rem;
-
-	&.docs-callout--info {
-		border-color: var(--color-midblue);
-		background: rgba(2, 116, 165, 0.07);
-		color: var(--color-darkblue);
-	}
-
-	&.docs-callout--tip {
-		border-color: var(--color-success);
-		background: rgba(75, 181, 67, 0.07);
-		color: var(--color-darkblue);
-	}
+	padding: 1.25rem 1.5rem;
+	border-radius: 16px;
+	background: var(--color-lightindigo);
+	color: var(--color-navy);
 
 	&.docs-callout--warning {
-		border-color: var(--color-warning);
-		background: rgba(255, 103, 0, 0.07);
-		color: var(--color-darkblue);
+		background: var(--bg-stone);
+		box-shadow: inset 0 0 0 1px var(--color-grey);
 	}
+
+	p {
+		margin: 0;
+		max-width: none;
+		font-size: var(--size-400);
+	}
+
+	p + p {
+		margin-top: 0.75rem;
+	}
+}
+
+.docs-callout__label {
+	display: inline-block;
+	margin-bottom: 0.6rem;
+	padding: 0.2em 0.7em;
+	border-radius: 999px;
+	background: var(--color-black);
+	color: var(--color-white);
+	font-size: 0.7rem;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+// ─── CODE BLOCKS ──────────────────────────────────────────────────────────────
+
+.docs-code {
+	background: var(--color-black);
+	border-radius: 16px;
+	overflow: hidden;
+
+	pre {
+		margin: 0;
+		padding: 1.25rem 1.5rem;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	pre code {
+		display: block;
+		padding: 0;
+		background: none;
+		box-shadow: none;
+		border-radius: 0;
+		color: var(--color-grey);
+		font-size: 0.85rem;
+		line-height: 1.7;
+		white-space: pre;
+	}
+}
+
+.docs-code__bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.6rem 0.75rem 0.6rem 1.5rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.docs-code__label {
+	font-size: var(--size-300);
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.docs-code__copy {
+	padding: 0.4em 0.9em;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 8px;
+	background: transparent;
+	color: var(--color-white);
+	font: inherit;
+	font-size: var(--size-300);
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.15s ease;
+
+	&:hover,
+	&:focus-visible {
+		background: rgba(255, 255, 255, 0.1);
+	}
+}
+
+// ─── PLAN TABLES ──────────────────────────────────────────────────────────────
+
+.docs-plan-table {
+	border: 1px solid var(--color-grey);
+	border-radius: 16px;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+
+	table {
+		display: table;
+		width: 100%;
+		min-width: 460px;
+		border-collapse: collapse;
+		font-size: var(--size-400);
+	}
+
+	th,
+	td {
+		padding: 0.8rem 1rem;
+		border: none;
+		border-bottom: 1px solid var(--color-grey);
+		text-align: center;
+		white-space: normal;
+	}
+
+	th:first-child,
+	td:first-child {
+		text-align: left;
+		min-width: 0;
+	}
+
+	thead th {
+		background: var(--bg-stone);
+		font-weight: 700;
+		font-size: var(--size-300);
+	}
+
+	// Pro column
+	th:nth-child(3),
+	td:nth-child(3) {
+		background: var(--color-lightindigo);
+	}
+
+	tbody tr:last-child td {
+		border-bottom: none;
+	}
+
+	tbody tr:nth-child(even) {
+		background: none;
+	}
+}
+
+.docs-tick {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background: var(--color-black);
+	color: var(--color-white);
+	vertical-align: middle;
+}
+
+.docs-dash {
+	color: var(--color-slate-600);
+}
+
+// ─── PREVIOUS / NEXT ──────────────────────────────────────────────────────────
+
+.docs-pager {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	margin-top: 3rem !important;
+}
+
+.docs-pager__link {
+	display: block;
+	padding: 1rem 1.25rem;
+	border-radius: 16px;
+	background: var(--bg-stone);
+	color: var(--color-navy);
+	text-decoration: none;
+	transition: background 0.15s ease;
+
+	&:hover,
+	&:focus-visible {
+		background: var(--color-lightindigo);
+		text-decoration: none;
+	}
+
+	&--next {
+		text-align: right;
+	}
+}
+
+.docs-pager__label {
+	display: block;
+	font-size: var(--size-300);
+	color: var(--color-slate-600);
+	margin-bottom: 0.2rem;
+}
+
+.docs-pager__title {
+	display: block;
+	font-weight: 700;
+}
+
+.docs-contact {
+	margin-top: 1rem;
 }
 
 // ─── BLOCK REFERENCE TABLE ────────────────────────────────────────────────────
@@ -225,27 +727,10 @@
 	letter-spacing: 0.05em;
 }
 
-// ─── PLATFORM SUBSECTIONS ─────────────────────────────────────────────────────
-
-.docs-platform flow {
-	padding: 1.5rem;
-	background: var(--color-grey);
-	border-radius: 8px;
-	margin-block: 1.5rem;
-
-	h3 {
-		margin-top: 0;
-	}
-
-	ol {
-		margin-bottom: 0;
-	}
-}
-
 // ─── GENERIC DOCS TABLES ──────────────────────────────────────────────────────
-// Plain <table> elements inside .docs-section get scroll wrapping on small screens.
+// Plain <table> elements directly inside .docs-section get scroll wrapping on small screens.
 
-.docs-section table:not(.docs-comparison-table) {
+.docs-section > table:not(.docs-comparison-table) {
 	display: block;
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
@@ -256,22 +741,18 @@
 	th,
 	td {
 		padding: 0.55em 0.9em;
-		border: 1px solid rgba(0, 0, 0, 0.1);
+		border: 1px solid var(--color-grey);
 		text-align: left;
 		white-space: nowrap;
 	}
 
 	thead {
-		background: var(--color-grey);
+		background: var(--bg-stone);
 
 		th {
-			font-weight: 600;
+			font-weight: 700;
 			font-size: var(--size-300);
 		}
-	}
-
-	tbody tr:nth-child(even) {
-		background: rgba(0, 0, 0, 0.02);
 	}
 
 	// Allow description cells to wrap
@@ -281,7 +762,7 @@
 	}
 }
 
-// ─── COMPARISON TABLE ─────────────────────────────────────────────────────────
+// ─── COMPARISON TABLE (vs pages) ──────────────────────────────────────────────
 
 .docs-comparison-table {
 	width: 100%;
@@ -290,6 +771,7 @@
 	overflow: hidden;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	margin-block-start: 2.5rem;
+
 	th,
 	td {
 		padding: 0.65em 1em;
