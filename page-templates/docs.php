@@ -597,6 +597,7 @@ CHECKOUT.ORDER.VOIDED</code></pre>
 				<p>Under <strong>Client Octopus &rarr; Settings</strong>, you can upload a <strong>Login Background Image</strong> for this screen. When set, the login card becomes a frosted glass panel with your logo moved inside it, so it stays legible over the photo.</p>
 
 				<h3 class="h4">Portal pages</h3>
+				<div class="docs-table">
 				<table>
 					<thead>
 						<tr>
@@ -627,6 +628,7 @@ CHECKOUT.ORDER.VOIDED</code></pre>
 						</tr>
 					</tbody>
 				</table>
+				</div>
 
 				<h3 class="h4">Basic vs Full portal</h3>
 				<p><strong>Pro (Basic)</strong> — Clients can view proposals, accept or decline, and see payment history. No project access.</p>
@@ -685,6 +687,7 @@ CHECKOUT.ORDER.VOIDED</code></pre>
 				</ol>
 
 				<h3 class="h4">Roles</h3>
+				<div class="docs-table">
 				<table>
 					<thead>
 						<tr>
@@ -707,6 +710,7 @@ CHECKOUT.ORDER.VOIDED</code></pre>
 						</tr>
 					</tbody>
 				</table>
+				</div>
 
 				<p>All data created by a team member is owned by and counted against the account owner. Usage quotas (AI, storage, proposals) are shared across the team.</p>
 
@@ -792,6 +796,7 @@ $data = json_decode( $payload, true );
 				<p>Automated reminders are available on <strong>every plan</strong>, including Free. They send follow-up emails to clients on your behalf so proposals don't stall waiting on a response.</p>
 
 				<h3 class="h4">Triggers</h3>
+				<div class="docs-table">
 				<table>
 					<thead>
 						<tr>
@@ -818,6 +823,7 @@ $data = json_decode( $payload, true );
 						</tr>
 					</tbody>
 				</table>
+				</div>
 
 				<h3 class="h4">Configuring delays</h3>
 				<p>Each trigger has its own configurable delay, in days, under <strong>Client Octopus &rarr; Settings &rarr; Automations</strong>. Reminders are checked once daily via WordPress cron, so a change to the delay takes effect on the next daily run.</p>
@@ -863,6 +869,7 @@ $data = json_decode( $payload, true );
 				<p>The analytics dashboard is available on <strong>Pro and Agency</strong> plans under <strong>Client Octopus &rarr; Analytics</strong>. It gives you an at-a-glance view of your proposal pipeline and revenue performance.</p>
 
 				<h3 class="h4">Overview metrics</h3>
+				<div class="docs-table">
 				<table>
 					<thead>
 						<tr>
@@ -889,6 +896,7 @@ $data = json_decode( $payload, true );
 						</tr>
 					</tbody>
 				</table>
+				</div>
 
 				<h3 class="h4">Revenue chart</h3>
 				<p>The revenue chart plots completed payment totals over time. Use the time filter (This Week / This Month / This Year) to narrow the view. Hover over data points to see exact figures.</p>
@@ -923,6 +931,7 @@ $data = json_decode( $payload, true );
 				</ul>
 
 				<h3 class="h4">Quotas and limits</h3>
+				<div class="docs-table">
 				<table>
 					<thead>
 						<tr>
@@ -945,6 +954,7 @@ $data = json_decode( $payload, true );
 						</tr>
 					</tbody>
 				</table>
+				</div>
 				<p>A 3-second cooldown applies between requests. Quotas reset on the 1st of each month. Shared across your team on Agency.</p>
 
 				<h3 class="h4">How it works</h3>
@@ -962,6 +972,7 @@ $data = json_decode( $payload, true );
 				<p>All settings are under <strong>Client Octopus &rarr; Settings</strong>, organised into tabs: <strong>Branding</strong>, <strong>Payments</strong>, <strong>Leads</strong>, <strong>Booking</strong>, <strong>Automations</strong>, and <strong>Advanced</strong>. This page requires the WordPress <code>manage_options</code> capability (site administrators only).</p>
 
 				<h3 class="h4">Branding (all plans)</h3>
+				<div class="docs-table">
 				<table>
 					<thead>
 						<tr>
@@ -1020,6 +1031,7 @@ $data = json_decode( $payload, true );
 						</tr>
 					</tbody>
 				</table>
+				</div>
 
 				<h3 class="h4">Payment Provider <span class="badge badge--plan badge--pro">Pro</span> <span class="badge badge--plan badge--agency">Agency</span></h3>
 				<p>Choose <strong>Stripe</strong> or <strong>PayPal</strong> as your active payment provider. Only the credential fields for the selected provider are shown; switching providers doesn't clear the other provider's saved credentials.</p>
@@ -1295,6 +1307,7 @@ $data = json_decode( $payload, true );
 				<p>Admin endpoints require a WordPress nonce passed in the <code>X-WP-Nonce</code> header (the calling user must be logged in to WordPress and have the <code>manage_clientoctopus</code> capability). Client-facing portal routes accept either a short-lived portal token (passed as a query parameter or <code>Authorization: Bearer</code> header) or a portal session cookie.</p>
 
 				<h3 class="h4">Admin endpoints</h3>
+				<div class="docs-table">
 				<table>
 					<thead>
 						<tr>
@@ -1333,9 +1346,11 @@ $data = json_decode( $payload, true );
 						<tr><td>POST</td><td><code>/bookings/{id}/cancel</code></td><td>Cancel a booking (Pro/Agency)</td></tr>
 					</tbody>
 				</table>
+				</div>
 
 				<h3 class="h4">Client-facing portal endpoints</h3>
 				<p>These routes do not require a WordPress login and are used by the client portal frontend.</p>
+				<div class="docs-table">
 				<table>
 					<thead>
 						<tr>
@@ -1357,6 +1372,7 @@ $data = json_decode( $payload, true );
 						<tr><td>POST</td><td><code>/bookings/create</code></td><td>Book a call (Pro/Agency)</td></tr>
 					</tbody>
 				</table>
+				</div>
 
 				<div class="docs-callout docs-callout--warning">
 					<span class="docs-callout__label">Heads up</span>

@@ -566,8 +566,10 @@
 	}
 }
 
-// ─── PLAN TABLES ──────────────────────────────────────────────────────────────
+// ─── TABLES ───────────────────────────────────────────────────────────────────
+// Every docs table sits in a rounded container that scrolls sideways on small screens.
 
+.docs-table,
 .docs-plan-table {
 	border: 1px solid var(--color-grey);
 	border-radius: 16px;
@@ -575,9 +577,7 @@
 	-webkit-overflow-scrolling: touch;
 
 	table {
-		display: table;
 		width: 100%;
-		min-width: 460px;
 		border-collapse: collapse;
 		font-size: var(--size-400);
 	}
@@ -587,14 +587,8 @@
 		padding: 0.8rem 1rem;
 		border: none;
 		border-bottom: 1px solid var(--color-grey);
-		text-align: center;
-		white-space: normal;
-	}
-
-	th:first-child,
-	td:first-child {
 		text-align: left;
-		min-width: 0;
+		vertical-align: top;
 	}
 
 	thead th {
@@ -603,18 +597,55 @@
 		font-size: var(--size-300);
 	}
 
-	// Pro column
-	th:nth-child(3),
-	td:nth-child(3) {
-		background: var(--color-lightindigo);
-	}
-
 	tbody tr:last-child td {
 		border-bottom: none;
 	}
+}
 
-	tbody tr:nth-child(even) {
-		background: none;
+.docs-section .docs-table + *,
+.docs-section .docs-plan-table + * {
+	margin-block-start: 1.5rem;
+}
+
+// Reference tables: short label columns stay on one line, the last column wraps
+.docs-table {
+	td,
+	th {
+		white-space: nowrap;
+	}
+
+	td:last-child,
+	th:last-child {
+		white-space: normal;
+		min-width: 14rem;
+	}
+
+	td + td,
+	th + th {
+		border-left: 1px solid var(--color-grey);
+	}
+}
+
+// Plan comparison: centred plan columns, Pro column highlighted
+.docs-plan-table {
+	table {
+		min-width: 460px;
+	}
+
+	th,
+	td {
+		text-align: center;
+		vertical-align: middle;
+	}
+
+	th:first-child,
+	td:first-child {
+		text-align: left;
+	}
+
+	th:nth-child(3),
+	td:nth-child(3) {
+		background: var(--color-lightindigo);
 	}
 }
 
@@ -725,41 +756,6 @@
 	font-size: var(--size-300);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-}
-
-// ─── GENERIC DOCS TABLES ──────────────────────────────────────────────────────
-// Plain <table> elements directly inside .docs-section get scroll wrapping on small screens.
-
-.docs-section > table:not(.docs-comparison-table) {
-	display: block;
-	overflow-x: auto;
-	-webkit-overflow-scrolling: touch;
-	max-width: 100%;
-	font-size: var(--size-400);
-	border-collapse: collapse;
-
-	th,
-	td {
-		padding: 0.55em 0.9em;
-		border: 1px solid var(--color-grey);
-		text-align: left;
-		white-space: nowrap;
-	}
-
-	thead {
-		background: var(--bg-stone);
-
-		th {
-			font-weight: 700;
-			font-size: var(--size-300);
-		}
-	}
-
-	// Allow description cells to wrap
-	td:last-child {
-		white-space: normal;
-		min-width: 14rem;
-	}
 }
 
 // ─── COMPARISON TABLE (vs pages) ──────────────────────────────────────────────
