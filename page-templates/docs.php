@@ -365,11 +365,12 @@ get_header();
 					<li>In your Stripe Dashboard, go to <strong>Developers → Workbench → Webhooks</strong> and click <strong>Add destination</strong>.</li>
 					<li>Select <strong>Webhook endpoint</strong> as the destination type.</li>
 					<li>Copy the <strong>Webhook Endpoint URL</strong> from <strong>Client Octopus → Settings</strong> and paste it into the Endpoint URL field.</li>
-					<li>Under events, select: <code>checkout.session.completed</code>, <code>checkout.session.expired</code>, <code>checkout.session.async_payment_succeeded</code>, and <code>checkout.session.async_payment_failed</code>.</li>
+					<li>Under events, select all five: <code>checkout.session.completed</code>, <code>checkout.session.async_payment_succeeded</code>, <code>checkout.session.async_payment_failed</code>, <code>checkout.session.expired</code>, and <code>payment_intent.payment_failed</code>.</li>
 					<li>Save the endpoint, then click into it to reveal the <strong>Signing secret</strong> (<code>whsec_…</code>).</li>
 					<li>Paste that secret into the <strong>Stripe Webhook Signing Secret</strong> field in <strong>Client Octopus → Settings</strong>.</li>
 				</ol>
-				<p>The key changes: "Workbench → Webhooks → Add destination" replaces the old "Webhooks → Add endpoint" path, and the two async payment events are added alongside checkout.session.completed (needed for bank transfers and other delayed payment methods).</p>
+				<p>Those are the only five events Client Octopus acts on, and each one earns its place. <code>checkout.session.completed</code> is what marks an invoice or proposal paid. The two <code>async_payment</code> events cover bank transfers and other delayed methods, where the session finishes before the money actually arrives. <code>checkout.session.expired</code> and <code>payment_intent.payment_failed</code> are what allow a failed payment to be marked failed rather than left sitting as pending. Any other Stripe event sent to this endpoint is accepted and ignored.</p>
+				<p>If you set this up before, note that Stripe moved the path: <strong>Workbench → Webhooks → Add destination</strong> replaces the older <strong>Webhooks → Add endpoint</strong>.</p>
 
 				<p><strong>Testing with sandbox mode:</strong> Use your <code>pk_test_…</code> / <code>sk_test_…</code> keys and create a separate webhook endpoint in Stripe pointing to your staging/test site. Test card number <code>4242 4242 4242 4242</code> (any future expiry, any CVC) triggers a successful payment.</p>
 
@@ -380,6 +381,7 @@ get_header();
 					<li>In <strong>Client Octopus &rarr; Settings</strong>, set <strong>Payment Provider</strong> to <strong>PayPal</strong>, then paste the Client ID and Secret into the PayPal API Credentials fields.</li>
 					<li>Set <strong>Mode</strong> to <strong>Sandbox</strong> for testing or <strong>Live</strong> for real payments — this must match whether your Client ID/Secret came from a sandbox or live app.</li>
 					<li>Configure a webhook in the PayPal Developer Dashboard pointing to the webhook URL shown in Client Octopus &rarr; Settings, then paste the resulting <strong>Webhook ID</strong> back into the PayPal API Credentials fields.</li>
+					<li>Subscribe that webhook to four event types: <code>CHECKOUT.ORDER.APPROVED</code>, <code>PAYMENT.CAPTURE.COMPLETED</code>, <code>PAYMENT.CAPTURE.DENIED</code>, and <code>CHECKOUT.ORDER.VOIDED</code>. Selecting &ldquo;All events&rdquo; also works; selecting fewer than these four means some payments will never be recorded.</li>
 				</ol>
 				<p>Switching <strong>Payment Provider</strong> back to Stripe at any time keeps your PayPal credentials saved but inactive — clients will see Stripe checkout again immediately.</p>
 
@@ -950,10 +952,10 @@ $data = json_decode( $payload, true );
 				<p>If payment events are not reaching Client Octopus, work through this checklist:</p>
 				<p><strong>Stripe:</strong></p>
 				<ul>
-					<li><strong>Correct events selected</strong> — the endpoint must be subscribed to at minimum <code>payment_intent.succeeded</code> and <code>checkout.session.completed</code>. Check <strong>Stripe Dashboard &rarr; Webhooks &rarr; [your endpoint] &rarr; Events</strong>.</li>
+					<li><strong>Correct events selected</strong> — at minimum the endpoint must be subscribed to <code>checkout.session.completed</code>, the event that marks a payment received. The full set of five is listed under <a href="#payments">Payments</a>. Check <strong>Stripe Dashboard &rarr; Webhooks &rarr; [your endpoint] &rarr; Events</strong>. Note that <code>payment_intent.succeeded</code> is <em>not</em> used by Client Octopus — subscribing to that alone shows successful deliveries in Stripe while no payment is ever recorded.</li>
 					<li><strong>Signing secret copied correctly</strong> — the webhook signing secret (starting with <code>whsec_</code>) must match the value saved in <strong>Client Octopus &rarr; Settings &rarr; Stripe</strong>. It is different from your API secret key.</li>
 					<li><strong>Endpoint is publicly accessible</strong> — Stripe cannot reach <code>localhost</code> or sites behind a VPN. Use a live URL or the <a href="https://stripe.com/docs/stripe-cli" rel="noopener noreferrer" target="_blank">Stripe CLI</a> (<code>stripe listen --forward-to</code>) for local testing.</li>
-					<li><strong>Test with the Stripe CLI</strong> — run <code>stripe trigger payment_intent.succeeded</code> and check the Client Octopus activity log to confirm receipt.</li>
+					<li><strong>Test with the Stripe CLI</strong> — run <code>stripe trigger checkout.session.completed</code>. To confirm it arrived, open the endpoint in the <strong>Stripe Dashboard</strong> and check its delivery list: a <code>200</code> response means Client Octopus received and accepted the event. Triggering <code>payment_intent.succeeded</code> also returns <code>200</code> but does nothing, so it is not a useful test.</li>
 				</ul>
 				<p><strong>PayPal:</strong></p>
 				<ul>
