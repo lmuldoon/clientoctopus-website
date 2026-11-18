@@ -7,7 +7,7 @@
 global $meta;
 
 $meta->title = 'Client Octopus Alternatives &amp; Comparisons — Client Octopus';
-$meta->description = 'See how Client Octopus compares to other client management tools for freelancers and agencies, including Dubsado and HoneyBook.';
+$meta->description = 'See how Client Octopus compares to other client management and proposal tools for freelancers and agencies, including Dubsado, HoneyBook, Bonsai, PandaDoc, and Proposify.';
 $meta->slug = 'alternatives';
 
 get_header();
@@ -40,6 +40,30 @@ get_header();
 					<span class="card__title">Client Octopus vs HoneyBook</span>
 					<p style="color: var(--color-slate-600); margin-bottom: 1.5rem;">A polished all-in-one platform with built-in AI versus a lower-cost plugin that lives inside the site you already run.</p>
 					<a class="button button--ghost" href="/vs-honeybook" style="width:100%; justify-content:center;">Compare &rarr;</a>
+				</div>
+
+				<div class="card card--before">
+					<span class="card__title">Client Octopus vs Bonsai</span>
+					<p style="color: var(--color-slate-600); margin-bottom: 1.5rem;">A mature all-in-one freelance platform versus a WordPress plugin with a genuinely free tier and no branding fees.</p>
+					<a class="button button--ghost" href="/vs-bonsai" style="width:100%; justify-content:center;">Compare &rarr;</a>
+				</div>
+
+				<div class="card card--before">
+					<span class="card__title">Client Octopus vs PandaDoc</span>
+					<p style="color: var(--color-slate-600); margin-bottom: 1.5rem;">A document and e-signature SaaS versus a full client workflow &mdash; database, invoicing, and payments included.</p>
+					<a class="button button--ghost" href="/vs-pandadoc" style="width:100%; justify-content:center;">Compare &rarr;</a>
+				</div>
+
+				<div class="card card--before">
+					<span class="card__title">Client Octopus vs Proposify</span>
+					<p style="color: var(--color-slate-600); margin-bottom: 1.5rem;">A sales proposal platform for teams versus a plugin that carries straight through to recurring billing.</p>
+					<a class="button button--ghost" href="/vs-proposify" style="width:100%; justify-content:center;">Compare &rarr;</a>
+				</div>
+
+				<div class="card card--before">
+					<span class="card__title">Best WordPress Proposal Plugins</span>
+					<p style="color: var(--color-slate-600); margin-bottom: 1.5rem;">A wider roundup — six real tools, WordPress plugins and SaaS alike, checked against each vendor's own pricing page.</p>
+					<a class="button button--ghost" href="/best-wordpress-proposal-plugins" style="width:100%; justify-content:center;">See the roundup &rarr;</a>
 				</div>
 
 			</div>

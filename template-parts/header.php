@@ -47,6 +47,8 @@ global $meta;
 
 	<?php if (isset($meta->noindex) && $meta->noindex) : ?>
 		<meta name="robots" content="noindex">
+	<?php else : ?>
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 	<?php endif; ?>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,6 +56,7 @@ global $meta;
 
 	<title><?php echo $meta->title; ?></title>
 	<meta name="description" content="<?php echo $meta->description; ?>">
+	<link rel="canonical" href="https://clientoctopus.com<?php echo ($meta->slug === 'home') ? '/' : '/' . $meta->slug; ?>">
 
 	<!-- Start Favicons -->
 	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
