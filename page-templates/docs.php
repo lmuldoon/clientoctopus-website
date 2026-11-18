@@ -78,7 +78,7 @@ get_header();
 				</ul>
 				<p>Client Octopus is single-site only. Multisite networks are not supported.</p>
 
-				<h3>Email deliverability</h3>
+				<h3 class="h4">Email deliverability</h3>
 				<p>Client Octopus sends transactional emails (proposal delivery, portal invites, payment confirmations, testimonial requests) via WordPress's built-in <code>wp_mail()</code>. Without an SMTP plugin, emails may be marked as spam or fail to deliver entirely depending on your hosting environment.</p>
 				<p>For reliable delivery, install an SMTP plugin and connect it to a transactional email provider:</p>
 				<ul>
@@ -92,14 +92,14 @@ get_header();
 			<section class="docs-section stack" id="installation">
 				<h2>Installation</h2>
 
-				<h3>From WordPress.org (Free)</h3>
+				<h3 class="h4">From WordPress.org (Free)</h3>
 				<ol>
 					<li>In your WordPress admin, go to <strong>Plugins &rarr; Add New</strong>.</li>
 					<li>Search for <strong>Client Octopus</strong>.</li>
 					<li>Click <strong>Install Now</strong>, then <strong>Activate</strong>.</li>
 				</ol>
 
-				<h3>From a ZIP file (Pro / Agency)</h3>
+				<h3 class="h4">From a ZIP file (Pro / Agency)</h3>
 				<ol>
 					<li>Download the plugin ZIP from your purchase confirmation email.</li>
 					<li>In your WordPress admin, go to <strong>Plugins &rarr; Add New &rarr; Upload Plugin</strong>.</li>
@@ -116,13 +116,13 @@ get_header();
 				<h2>Quick Start</h2>
 				<p>After activation a <strong>Client Octopus</strong> entry appears in your WordPress admin sidebar. The first time you open it, the setup wizard guides you through the essential steps. You can revisit any of these from <strong>Client Octopus &rarr; Settings</strong> later.</p>
 
-				<h3>Step 1 — Add your branding</h3>
+				<h3 class="h4">Step 1 — Add your branding</h3>
 				<p>Go to <strong>Client Octopus &rarr; Settings</strong>. Enter your business name, sender email, brand colour, and logo URL. These are applied to all outgoing emails and the client portal.</p>
 
-				<h3>Step 2 — Connect a payment provider (Pro / Agency)</h3>
+				<h3 class="h4">Step 2 — Connect a payment provider (Pro / Agency)</h3>
 				<p>Go to <strong>Client Octopus &rarr; Settings</strong> and choose Stripe or PayPal as your payment provider, then enter its API credentials and webhook details before sending any proposals, so payment collection is ready from the start. See the <a href="#payments">Payments</a> section for the full setup steps.</p>
 
-				<h3>Step 3 — Create and send a proposal</h3>
+				<h3 class="h4">Step 3 — Create and send a proposal</h3>
 				<p>Go to <strong>Client Octopus &rarr; Proposals &rarr; New Proposal</strong>. In the proposal builder, fill in the client&rsquo;s details (name, email, company, phone) — this automatically creates their client record. Build your proposal from the template library, set pricing, and optionally enable payment collection. When ready, click <strong>Send to Client</strong>. The client receives a magic-link email — no account required to view or accept.</p>
 
 				<div class="docs-callout docs-callout--tip">
@@ -136,16 +136,16 @@ get_header();
 				<h2>Lead Capture</h2>
 				<p>Collect inquiries directly into Client Octopus instead of a separate form plugin. Available on <strong>every plan</strong>, including Free.</p>
 
-				<h3>Adding the form to a page</h3>
+				<h3 class="h4">Adding the form to a page</h3>
 				<p>Add the <code>[clientoctopus_lead_form]</code> shortcode to any page or post. Under <strong>Client Octopus &rarr; Settings &rarr; Leads</strong>, choose which fields to show (Name and Email are always on; Phone, Company, Message, Budget Range, and Preferred Contact Method are optional), mark any of them as required, and customise their labels. You can also add a consent line for the visitor to agree to before submitting.</p>
 
-				<h3>Where submissions go</h3>
+				<h3 class="h4">Where submissions go</h3>
 				<p>Every submission lands in the <strong>Leads</strong> admin screen, where you can filter by status (<strong>New</strong>, <strong>Contacted</strong>, <strong>Archived</strong>), mark a lead as contacted, archive it, or <strong>convert it straight into a client record</strong> with one click.</p>
 
-				<h3>Spam prevention</h3>
+				<h3 class="h4">Spam prevention</h3>
 				<p>Optionally enable <strong>Cloudflare Turnstile</strong> CAPTCHA and configure submission-rate limits under Settings &rarr; Leads to help block automated spam. Both are off by default.</p>
 
-				<h3>Notifications</h3>
+				<h3 class="h4">Notifications</h3>
 				<p>You're emailed the moment a lead comes in. You can also turn on an automatic reply to the person who submitted the form — if Call Booking is enabled, this reply can include a "Pick a Time to Talk" link straight to your booking page.</p>
 			</section>
 
@@ -155,19 +155,19 @@ get_header();
 				<h2>Clients</h2>
 				<p>Every proposal, invoice, project, and booking is tied to a client record. Client Octopus supports <strong>unlimited clients</strong> on every plan, including Free.</p>
 
-				<h3>Client Detail</h3>
+				<h3 class="h4">Client Detail</h3>
 				<p>Opening a client shows an <strong>Activity Timeline</strong> of every proposal, invoice, and payment associated with them, so you don't have to piece their history together from separate admin screens. Quick-create buttons let you start a new Proposal, Invoice, or Recurring Invoice already prefilled with that client, and two stats — <strong>Lifetime Value</strong> and <strong>Outstanding Balance</strong> — sit at the top of the page. If a client has been billed in more than one currency, both stats are shown broken out per currency rather than added together into one misleading number.</p>
 
-				<h3>Tags</h3>
+				<h3 class="h4">Tags</h3>
 				<p>Add custom tags to any client to organise and filter your client list — useful for grouping by service type, retainer status, referral source, or anything else that matters to your workflow. Manage the tags available across your account from the <strong>Manage Tags</strong> screen.</p>
 
-				<h3>Duplicate protection</h3>
+				<h3 class="h4">Duplicate protection</h3>
 				<p>When creating a client, Client Octopus checks the email and phone number against your existing records and warns you before a duplicate is created — useful when a returning client comes in through a new lead or a different proposal.</p>
 
-				<h3>Exporting</h3>
+				<h3 class="h4">Exporting</h3>
 				<p>Export your full client list to CSV at any time, or export a single client's complete transaction history from their Client Detail page — useful for accountants, spreadsheets, or bringing records into another tool.</p>
 
-				<h3>Importing</h3>
+				<h3 class="h4">Importing</h3>
 				<p>Bring clients in from another tool via CSV. Upload your export from Moxie, HoneyBook, Dubsado, or anywhere else, map the columns yourself (including split First/Last Name columns), preview the results, and bulk-create the records.</p>
 			</section>
 
@@ -177,7 +177,7 @@ get_header();
 				<h2>Proposals</h2>
 				<p>Proposals are the core workflow in Client Octopus. Each proposal has a unique shareable link that clients open without needing a WordPress account.</p>
 
-				<h3>Lifecycle</h3>
+				<h3 class="h4">Lifecycle</h3>
 				<p>A proposal moves through the following statuses:</p>
 				<ol>
 					<li><strong>Draft</strong> — Created but not yet sent. You can edit all content freely.</li>
@@ -191,40 +191,40 @@ get_header();
 				</ol>
 				<p><strong>Accepted and completed proposals are read-only.</strong> Once a client has signed, the proposal can no longer be edited — this protects the signing certificate, which records a fingerprint of the proposal as it stood at signing and would otherwise report a tampered document. If you need to change something after acceptance, duplicate the proposal to create an editable copy rather than editing the signed original.</p>
 
-				<h3>Editing proposal content</h3>
+				<h3 class="h4">Editing proposal content</h3>
 				<p>After creating a proposal, the proposal detail screen shows a summary of the settings (client, pricing, payment options). To write or edit the actual proposal content — sections, text, and line items — click the <strong>Edit Content</strong> button. This opens the full proposal editor where you can build out your proposal before sending it to the client. Content blocks, including the Pricing block, can be reordered — the client-facing proposal renders each block wherever you place it, rather than always pushing pricing to the end.</p>
 				<p>Add images anywhere in a proposal by picking one from your Media Library. Choose full, wide, or half width, and add a description for clients using a screen reader — images appear both in the client's copy and when they print or save the proposal as a PDF.</p>
 				<p>Two more block types round out the editor: a <strong>Callout</strong> puts something in a tinted box so it can't be missed — a deadline, an exclusion, a condition — and a <strong>Divider</strong> draws a plain rule between sections. A <strong>Subheading</strong> block adds a smaller heading inside a section, a step down in size from a full heading and without the rule line that marks a new section starting.</p>
 				<p>Wrap a word in <code>**double asterisks**</code> to make it bold, and start a line with <code>- </code> for a bullet or <code>1. </code> for a numbered step. This works in body sections, Callouts, line item and add-on descriptions, package tiers, and invoice descriptions and notes — so a scope of work doesn't have to be crammed into one long sentence.</p>
 
-				<h3>Terms and conditions</h3>
+				<h3 class="h4">Terms and conditions</h3>
 				<p>Add a <strong>Terms and Conditions</strong> block anywhere in a proposal — typically below the pricing. It renders as small print rather than body copy, so it reads like terms rather than part of your pitch. Set a default under <strong>Settings &rarr; Branding</strong> so you write your terms once instead of retyping them on every proposal; the Retainer template uses this default out of the box.</p>
 
-				<h3>Custom document terminology</h3>
+				<h3 class="h4">Custom document terminology</h3>
 				<p>If you send estimates, quotes, or statements of work rather than "proposals," set the word you use under <strong>Settings &rarr; Branding</strong> — with an optional plural for labels like "Statement of Work," where adding an "s" would read oddly. It replaces "Proposal" everywhere a client sees it: the document itself, the Accept and Decline buttons, the wording they sign against, the browser tab, the client portal, and every email they receive.</p>
 
-				<h3>Package Selector pricing</h3>
+				<h3 class="h4">Package Selector pricing</h3>
 				<p>Every proposal uses one of two pricing modes. <strong>Flat Pricing</strong> is a single set of line items totalling one price, same as before. <strong>Package Selector</strong> lets you define unlimited pricing tiers — each with its own independent line items — plus optional add-ons the client can toggle on top of whichever tier they pick. The client-facing proposal recalculates the total live as they choose, and their selection is locked in the moment they accept. Available on <strong>every plan</strong>.</p>
 
-				<h3>Recurring billing</h3>
+				<h3 class="h4">Recurring billing</h3>
 				<p>A proposal can be set to <strong>Recurring billing</strong> instead of a one-off payment or deposit. Set the frequency, start date, and end condition on the proposal — the moment the client accepts, Client Octopus automatically creates a Recurring Invoice profile for them, fully editable afterward just like one created manually from <strong>Client Octopus &rarr; Recurring Invoices</strong>. Recurring proposals don't take a deposit or direct payment at acceptance; billing runs entirely through the generated invoice profile. Available on <strong>every plan</strong>.</p>
 
-				<h3>Payment Plans</h3>
+				<h3 class="h4">Payment Plans</h3>
 				<p>A proposal can also be set to <strong>Payment Plan</strong> billing — a fixed number of equal instalments on a schedule (e.g. 3 monthly payments), instead of a single payment, a deposit, or open-ended recurring billing. Choose Payment Plan as the billing type when creating the proposal, then set how many instalments and how often. The client sees the full payment schedule before accepting. Once accepted, each instalment is invoiced and emailed automatically as it comes due, and — on Pro/Agency — can be auto-charged to the client's saved card the same way a recurring profile can. Unlike Recurring billing, a Payment Plan has a fixed end point: once the set number of instalments is paid, billing stops on its own. Available on <strong>every plan</strong>.</p>
 
-				<h3>E-signature</h3>
+				<h3 class="h4">E-signature</h3>
 				<p>When a client accepts a proposal, they're prompted to type their full legal name and confirm a checkbox in a signing modal. The typed name, acceptance timestamp, and the device they signed from are recorded on the proposal and visible in the admin. The certificate also stores a fingerprint of the proposal exactly as it stood at the moment of signing — if the proposal is edited afterwards, the certificate reports that it has changed since signing rather than silently appearing to cover the new version.</p>
 
-				<h3>Templates</h3>
+				<h3 class="h4">Templates</h3>
 				<p>The template library provides preset proposal layouts. Start from a template and customise content, line items, and pricing per client. Most templates are filtered by your current plan, but the Marketing Campaign template is available on every plan.</p>
 
-				<h3>Payment collection</h3>
+				<h3 class="h4">Payment collection</h3>
 				<p>Enable payment on any proposal (Pro/Agency). Set a deposit percentage (1–100%) if you want to collect a partial amount at acceptance and the balance on completion, or collect the full amount upfront. Your payment provider (Stripe or PayPal) handles all PCI compliance. This doesn't apply to proposals set to <strong>Recurring billing</strong> — those never take a deposit or direct payment at acceptance; see <a href="#proposals">Recurring billing</a> above.</p>
 
-				<h3>AI writing assist (Pro / Agency)</h3>
+				<h3 class="h4">AI writing assist (Pro / Agency)</h3>
 				<p>While editing a proposal, highlight any text and use the AI toolbar to <strong>Improve</strong>, <strong>Shorten</strong>, make it more <strong>Persuasive</strong>, or <strong>Generate</strong> content from a brief. See the <a href="#ai">AI Features</a> section for quota details.</p>
 
-				<h3>Limits</h3>
+				<h3 class="h4">Limits</h3>
 				<p>All plans, including Free, can create unlimited proposals. There is no monthly cap or counter.</p>
 			</section>
 
@@ -234,32 +234,32 @@ get_header();
 				<h2>Invoices</h2>
 				<p>Standalone invoices are separate from proposals and available on <strong>every plan</strong>, including Free. Use them when you need to bill a client directly without going through the proposal workflow.</p>
 
-				<h3>Creating and sending an invoice</h3>
+				<h3 class="h4">Creating and sending an invoice</h3>
 				<p>Go to <strong>Client Octopus &rarr; Invoices &rarr; New Invoice</strong>. Assign a client, add line items, and optionally apply a discount and VAT. Each invoice is auto-numbered (<code>INV-0001</code>, <code>INV-0002</code>, &hellip;). Click <strong>Send</strong> to email the client a link to their invoice — no WordPress account required to view it. Saving keeps you in the editor so you can carry on working, rather than sending you back to the invoice list.</p>
 
-				<h3>Quantity and unit price</h3>
+				<h3 class="h4">Quantity and unit price</h3>
 				<p>Tick <strong>Itemise with quantity and unit price</strong> on a line item to bill it as a quantity and a rate instead of a single amount — the line reads "12.5 &times; 75.00" with the total worked out for you, which is what hourly, day-rate, and per-unit work needs. Invoices that don't use it are unaffected, and the line total is always calculated on the server, so it can never disagree with what the client is actually charged. An invoice raised from an accepted proposal keeps that proposal's quantities instead of flattening every line to one figure.</p>
 
-				<h3>Billing tracked time</h3>
+				<h3 class="h4">Billing tracked time</h3>
 				<p>If you track time against a client (Pro/Agency — see <a href="#time-tracking">Time Tracking</a>), add it to a draft invoice as quantity-and-rate line items via <strong>Add unbilled time</strong>, grouped however you like. See the Time Tracking section for the full billing flow, including the 60-day staleness guard and what happens if the invoice is cancelled.</p>
 
-				<h3>VAT registration number</h3>
+				<h3 class="h4">VAT registration number</h3>
 				<p>If you're VAT registered, set your <strong>VAT Registration Number</strong> once in Settings and it's filled in automatically on every new invoice, including ones generated from an accepted proposal — no retyping it by hand each time. Leave it blank if you're not VAT registered.</p>
 
-				<h3>Statuses</h3>
+				<h3 class="h4">Statuses</h3>
 				<p>Invoices move through <strong>Draft &rarr; Sent &rarr; Paid</strong>, with <strong>Overdue</strong> applied automatically once the due date passes and <strong>Cancelled</strong> available at any point before payment.</p>
 
-				<h3>Client-facing invoice page</h3>
+				<h3 class="h4">Client-facing invoice page</h3>
 				<p>Clients view their invoice at a unique link, with no login required. A <strong>Print / Save as PDF</strong> button on the page renders a clean, A4-formatted layout — useful for clients who need a paper or PDF copy for their own records.</p>
 
-				<h3>Getting paid</h3>
+				<h3 class="h4">Getting paid</h3>
 				<p>On the <strong>Free</strong> plan, clients pay you directly (e.g. bank transfer) and you mark the invoice as <strong>Paid</strong> manually from the admin. On <strong>Pro and Agency</strong>, a <strong>Pay Now</strong> button appears on the client-facing invoice page — it routes to whichever payment provider you've configured (Stripe or PayPal), and the invoice is automatically marked paid once the provider confirms the payment via webhook. See <a href="#payments">Payments</a> for provider setup.</p>
 
-				<h3>Recurring invoices</h3>
+				<h3 class="h4">Recurring invoices</h3>
 				<p>For clients you bill on a schedule, set up a recurring profile instead of creating invoices manually each time. Choose a client and a cadence — weekly, monthly, quarterly, or yearly — and Client Octopus automatically generates and sends a fresh invoice on that schedule. Recurring profiles support their own Payment Terms and Notes &amp; Payment Instructions, matching standalone invoices, and are available on <strong>every plan</strong>.</p>
 				<p>By default, each generated invoice is still paid individually through the existing Pay Now flow — recurring profiles automate invoice creation and delivery, not payment collection. Pause, resume, or cancel a profile at any time from <strong>Client Octopus &rarr; Recurring Invoices</strong>.</p>
 
-				<h3>Auto-charge (Pro / Agency)</h3>
+				<h3 class="h4">Auto-charge (Pro / Agency)</h3>
 				<p>Opt a recurring profile into <strong>Auto-charge</strong> to automatically charge the client's saved Stripe or PayPal payment method each billing cycle instead of sending a Pay Now link every time. The first invoice on the profile is always paid manually first — that's what securely saves the client's payment method for reuse on future cycles.</p>
 				<p>If a charge fails, the client is notified and Client Octopus retries automatically. After repeated failures, the profile pauses itself so you can follow up with the client — it resumes automatically the next time a charge succeeds. Auto-charge requires a fully configured payment provider; if you switch providers or your gateway configuration becomes invalid, affected profiles fall back to the manual Pay Now flow rather than failing silently.</p>
 			</section>
@@ -270,13 +270,13 @@ get_header();
 				<h2>Call Booking</h2>
 				<p>Let leads and clients book a call with you directly, without back-and-forth emails. Available on <strong>Pro and Agency</strong>.</p>
 
-				<h3>Adding the booking form to a page</h3>
+				<h3 class="h4">Adding the booking form to a page</h3>
 				<p>Configure your weekly availability, buffer time between calls, minimum notice required before a booking, and maximum booking window (how far in advance someone can book) under <strong>Client Octopus &rarr; Settings &rarr; Booking</strong>. Then add the <code>[clientoctopus_booking_form]</code> shortcode to any page — visitors see your available slots and book one directly.</p>
 
-				<h3>Confirmations and reminders</h3>
+				<h3 class="h4">Confirmations and reminders</h3>
 				<p>Both you and the client receive a confirmation email with a calendar invite (<code>.ics</code> attachment) and a one-click "Add to Google Calendar" link, followed by a reminder email an hour before the call.</p>
 
-				<h3>Managing bookings</h3>
+				<h3 class="h4">Managing bookings</h3>
 				<p>View, search, and cancel booked calls from the <strong>Bookings</strong> admin screen.</p>
 			</section>
 
@@ -286,13 +286,13 @@ get_header();
 				<h2>Calendar Sync</h2>
 				<p>Keep your booking availability accurate against your real calendar, and have confirmed bookings show up there automatically. Available on <strong>Pro and Agency</strong>.</p>
 
-				<h3>Connecting a calendar</h3>
+				<h3 class="h4">Connecting a calendar</h3>
 				<p>Under <strong>Client Octopus &rarr; Settings &rarr; Booking</strong>, connect <strong>Google Calendar</strong>, <strong>Microsoft 365/Outlook</strong>, or <strong>Apple iCloud</strong>. Google and Microsoft connect via OAuth through the Client Octopus relay service; Apple iCloud connects directly from your site using your Apple ID and an app-specific password. If more than one calendar is found on a connected Apple iCloud account, you're asked which one to sync.</p>
 
-				<h3>How syncing works</h3>
+				<h3 class="h4">How syncing works</h3>
 				<p>Existing events on any connected calendar automatically block matching slots in your booking availability, shown with their real event title — so you never get double-booked. Every confirmed booking made through Client Octopus is also pushed out to every connected calendar as a real event, including your configured meeting link, so it's already on your calendar without any manual entry.</p>
 
-				<h3>Manual sync</h3>
+				<h3 class="h4">Manual sync</h3>
 				<p>Syncing normally happens automatically in the background, roughly every 15 minutes. If you've just added or removed an event and don't want to wait, use the <strong>Sync now</strong> button in Settings to pull the latest calendar events immediately, or <strong>Sync existing bookings</strong> to push any bookings made before you connected a calendar out to it right away.</p>
 			</section>
 
@@ -302,12 +302,12 @@ get_header();
 				<h2>Client Portal</h2>
 				<p>The client portal is a set of pages hosted on your WordPress site where clients can review proposals, track payments, and (on Agency) interact with their projects. It is available on Pro and Agency plans.</p>
 
-				<h3>How clients log in</h3>
+				<h3 class="h4">How clients log in</h3>
 				<p>Client Octopus uses <strong>magic links</strong>. When a proposal is accepted, the client receives an email with a one-time login link. Clicking it authenticates them and redirects to the portal dashboard. Links are single-use and expire after 24 hours. Clients can optionally set a password for future logins.</p>
 				<p>The portal login page lives at <code>/clientoctopus/login</code> on your site. No custom domain or subdomain is required — it runs on the same domain as your WordPress install.</p>
 				<p>Under <strong>Client Octopus &rarr; Settings</strong>, you can upload a <strong>Login Background Image</strong> for this screen. When set, the login card becomes a frosted glass panel with your logo moved inside it, so it stays legible over the photo.</p>
 
-				<h3>Portal pages</h3>
+				<h3 class="h4">Portal pages</h3>
 				<table>
 					<thead>
 						<tr>
@@ -339,11 +339,11 @@ get_header();
 					</tbody>
 				</table>
 
-				<h3>Basic vs Full portal</h3>
+				<h3 class="h4">Basic vs Full portal</h3>
 				<p><strong>Pro (Basic)</strong> — Clients can view proposals, accept or decline, and see payment history. No project access.</p>
 				<p><strong>Agency (Full)</strong> — Clients also see project milestones, can approve deliverables, download files, and message the agency directly from the portal. An unread-message indicator shows on the Projects menu and on the project itself, so a client can see at a glance which project has something new waiting for them.</p>
 
-				<h3>Permalinks</h3>
+				<h3 class="h4">Permalinks</h3>
 				<p>If portal URLs return 404, go to <strong>Settings &rarr; Permalinks</strong> and click <strong>Save Changes</strong> to regenerate the rewrite rules.</p>
 			</section>
 
@@ -353,14 +353,14 @@ get_header();
 				<h2>Payments</h2>
 				<p>Payment collection is available on Pro and Agency plans. Choose <strong>Stripe</strong> or <strong>PayPal</strong> as your active payment provider under <strong>Client Octopus &rarr; Settings &rarr; Payment Provider</strong> — whichever you choose, clients always see a single "Pay Now" button on proposals and invoices, and it routes to that provider automatically.</p>
 
-				<h3>Connecting Stripe</h3>
+				<h3 class="h4">Connecting Stripe</h3>
 				<ol>
 					<li>Log in to your <a href="https://dashboard.stripe.com/apikeys" rel="noopener noreferrer" target="_blank">Stripe dashboard</a> and copy your <strong>Publishable key</strong> and <strong>Secret key</strong>.</li>
 					<li>In your WordPress admin, go to <strong>Client Octopus &rarr; Settings</strong>.</li>
 					<li>Paste both keys into the Stripe API Keys fields and save. The status badge will show <strong>Live</strong> or <strong>Test</strong> depending on which key prefix you entered.</li>
 				</ol>
 
-				<h3>Setting up the webhook</h3>
+				<h3 class="h4">Setting up the webhook</h3>
 				<ol>
 					<li>In your Stripe Dashboard, go to <strong>Developers → Workbench → Webhooks</strong> and click <strong>Add destination</strong>.</li>
 					<li>Select <strong>Webhook endpoint</strong> as the destination type.</li>
@@ -373,7 +373,7 @@ get_header();
 
 				<p><strong>Testing with sandbox mode:</strong> Use your <code>pk_test_…</code> / <code>sk_test_…</code> keys and create a separate webhook endpoint in Stripe pointing to your staging/test site. Test card number <code>4242 4242 4242 4242</code> (any future expiry, any CVC) triggers a successful payment.</p>
 
-				<h3>Connecting PayPal</h3>
+				<h3 class="h4">Connecting PayPal</h3>
 				<ol>
 					<li>Log in to the <a href="https://developer.paypal.com/dashboard/applications" rel="noopener noreferrer" target="_blank">PayPal Developer Dashboard</a> and create (or open) an app under <strong>Apps &amp; Credentials</strong>.</li>
 					<li>Copy the app's <strong>Client ID</strong> and <strong>Secret</strong>.</li>
@@ -383,16 +383,16 @@ get_header();
 				</ol>
 				<p>Switching <strong>Payment Provider</strong> back to Stripe at any time keeps your PayPal credentials saved but inactive — clients will see Stripe checkout again immediately.</p>
 
-				<h3>Deposit payments</h3>
+				<h3 class="h4">Deposit payments</h3>
 				<p>On any proposal, enable payment and set a <strong>deposit percentage</strong> (1–100%). The client pays the deposit when they accept. You can mark the balance as due on project completion, which triggers a second checkout session with your active payment provider.</p>
 
-				<h3>Currencies</h3>
+				<h3 class="h4">Currencies</h3>
 				<p>Client Octopus supports 20 currencies, including GBP, USD, EUR, CAD, AUD, JPY, CHF, NZD, SEK, NOK, DKK, SGD, HKD, INR, PLN, CZK, BRL, MXN, ZAR, and KRW. Set a <strong>Default Currency</strong> in Settings (or during first-time setup) so new proposals and invoices open in the currency you actually bill in, or set the currency on each proposal individually. Existing records keep whichever currency they were created with if you change your default later.</p>
 
-				<h3>Refunds</h3>
+				<h3 class="h4">Refunds</h3>
 				<p>Refunds can be initiated from <strong>Client Octopus &rarr; Proposals</strong> on any completed payment made via Stripe — no manual action in the Stripe dashboard is needed. Refunds for PayPal payments currently need to be issued directly from your PayPal account.</p>
 
-				<h3>Payment failure notifications</h3>
+				<h3 class="h4">Payment failure notifications</h3>
 				<p>If a payment attempt on a proposal or invoice is declined, expired, cancelled, or needs extra verification from the client's bank, both you and the client are emailed automatically. Verification-required attempts get distinct, reassuring copy explaining the next step, rather than reading like a broken card.</p>
 			</section>
 
@@ -402,24 +402,24 @@ get_header();
 				<h2>Projects &amp; Milestones</h2>
 				<p>Projects are available on the <strong>Agency plan</strong> only. When a client accepts a proposal, a project is automatically created and linked to that proposal and client.</p>
 
-				<h3>Project statuses</h3>
+				<h3 class="h4">Project statuses</h3>
 				<ul>
 					<li><strong>Active</strong> — Work is in progress.</li>
 					<li><strong>On Hold</strong> — Paused. Can be reactivated.</li>
 					<li><strong>Completed</strong> — Finished. The project is locked for editing.</li>
 				</ul>
 
-				<h3>Milestones</h3>
+				<h3 class="h4">Milestones</h3>
 				<p>Break a project into milestones under <strong>Client Octopus &rarr; Projects &rarr; [project name]</strong>. Each milestone has a title, description, due date, and status (<strong>Pending</strong>, <strong>In Progress</strong>, <strong>Submitted</strong>, or <strong>Completed</strong>). Milestones can be reordered by dragging.</p>
 				<p>When a client accepts a proposal, a milestone is created automatically for each line item — its name comes from the first line of the line item, with the rest kept as its detail and shown underneath in both the project and the client portal.</p>
 
-				<h3>Approvals</h3>
+				<h3 class="h4">Approvals</h3>
 				<p>Create approval requests against any project for designs, content, deliverables, or other items. The client sees the request in the portal and can approve or reject it with a comment. Statuses: <strong>Pending</strong>, <strong>Approved</strong>, <strong>Rejected</strong>.</p>
 
-				<h3>File uploads</h3>
+				<h3 class="h4">File uploads</h3>
 				<p>Upload files to any project from <strong>Client Octopus &rarr; Projects</strong>. Clients can download them from the portal. Each Agency account has a <strong>1 GB total storage limit</strong> across all projects. Files are stored securely and served via authenticated URLs.</p>
 
-				<h3>Messaging</h3>
+				<h3 class="h4">Messaging</h3>
 				<p>Each project has a message thread visible to both the agency team and the client. Clients send messages from the portal; the agency replies from the WordPress admin. Unread message counts appear as a badge on the <strong>Projects</strong> menu item. Messages are marked read when either party opens the thread.</p>
 			</section>
 
@@ -429,14 +429,14 @@ get_header();
 				<h2>Team Management</h2>
 				<p>Team seats are available on the <strong>Agency plan</strong>. Agency accounts support up to <strong>5 users</strong> (the account owner plus 4 invited members).</p>
 
-				<h3>Inviting a team member</h3>
+				<h3 class="h4">Inviting a team member</h3>
 				<ol>
 					<li>Go to <strong>Client Octopus &rarr; Team &rarr; Invite Member</strong>.</li>
 					<li>Enter the member&rsquo;s email address and assign a role.</li>
 					<li>The invitee receives an email with a link to accept and set up their WordPress account. They are created with the <code>clientoctopus_member</code> role.</li>
 				</ol>
 
-				<h3>Roles</h3>
+				<h3 class="h4">Roles</h3>
 				<table>
 					<thead>
 						<tr>
@@ -469,7 +469,7 @@ get_header();
 				<h2>Webhooks</h2>
 				<p>Webhooks are available on <strong>Pro and Agency</strong>. They allow Client Octopus to notify external services (Zapier, Make, custom endpoints) when events occur.</p>
 
-				<h3>Registering a webhook</h3>
+				<h3 class="h4">Registering a webhook</h3>
 				<ol>
 					<li>Go to <strong>Client Octopus &rarr; Webhooks &rarr; Add Webhook</strong>.</li>
 					<li>Enter the endpoint URL and select which events should trigger it.</li>
@@ -477,10 +477,10 @@ get_header();
 					<li>Use the <strong>Test</strong> button to send a sample payload and confirm delivery.</li>
 				</ol>
 
-				<h3>Sending to Slack</h3>
+				<h3 class="h4">Sending to Slack</h3>
 				<p>Choose <strong>Slack</strong> as the destination type instead of a generic endpoint, and paste the <strong>Incoming Webhook URL</strong> from your Slack workspace (Slack &rarr; Apps &rarr; Incoming Webhooks). Events are formatted as readable chat messages rather than raw JSON, so there's nothing to parse on your end. Since Slack's own webhook format doesn't support the signature header described below, payload verification doesn't apply to a Slack destination.</p>
 
-				<h3>Available events</h3>
+				<h3 class="h4">Available events</h3>
 				<ul>
 					<li><code>proposal.sent</code></li>
 					<li><code>proposal.accepted</code></li>
@@ -502,13 +502,13 @@ get_header();
 					<li><code>lead.captured</code></li>
 				</ul>
 
-				<h3>Delivery and retries</h3>
+				<h3 class="h4">Delivery and retries</h3>
 				<p>Deliveries are queued and sent in the background rather than inline, so triggering an event (like a proposal being accepted) never waits on your endpoint responding. If a delivery fails — your endpoint is down, times out, or returns an error — Client Octopus retries automatically rather than losing the event. A webhook that keeps failing is paused, with the full response from the last attempt recorded so you can diagnose what went wrong.</p>
 
-				<h3>Verifying payloads</h3>
+				<h3 class="h4">Verifying payloads</h3>
 				<p>Every request includes an <code>X-ClientOctopus-Signature</code> header containing an HMAC-SHA256 signature of the raw request body, signed with your webhook secret. Verify this on your endpoint before processing the payload. The last 3 delivery attempts for each webhook are logged and visible in the admin.</p>
 
-				<h3>Example verification (PHP)</h3>
+				<h3 class="h4">Example verification (PHP)</h3>
 <pre><code>$secret   = 'your_webhook_secret';
 $payload  = file_get_contents( 'php://input' );
 $header   = $_SERVER['HTTP_X_CLIENTOCTOPUS_SIGNATURE'] ?? '';
@@ -529,7 +529,7 @@ $data = json_decode( $payload, true );
 				<h2>Automated Reminders</h2>
 				<p>Automated reminders are available on <strong>every plan</strong>, including Free. They send follow-up emails to clients on your behalf so proposals don't stall waiting on a response.</p>
 
-				<h3>Triggers</h3>
+				<h3 class="h4">Triggers</h3>
 				<table>
 					<thead>
 						<tr>
@@ -557,10 +557,10 @@ $data = json_decode( $payload, true );
 					</tbody>
 				</table>
 
-				<h3>Configuring delays</h3>
+				<h3 class="h4">Configuring delays</h3>
 				<p>Each trigger has its own configurable delay, in days, under <strong>Client Octopus &rarr; Settings &rarr; Automations</strong>. Reminders are checked once daily via WordPress cron, so a change to the delay takes effect on the next daily run.</p>
 
-				<h3>Client unsubscribe</h3>
+				<h3 class="h4">Client unsubscribe</h3>
 				<p>Every reminder email carries an unsubscribe link and a preferences page where the client can switch proposal reminders, invoice reminders, call reminders, and testimonial requests on or off individually. Essential emails — proposals, invoices, payment receipts, booking confirmations, portal login links, and approval requests — are never affected, since they concern work already agreed. A client's current preferences, and a link to copy them, are shown on their Client Detail page.</p>
 			</section>
 
@@ -570,19 +570,19 @@ $data = json_decode( $payload, true );
 				<h2>Time Tracking</h2>
 				<p>Time tracking is available on <strong>Pro and Agency</strong> plans under <strong>Client Octopus &rarr; Time</strong>.</p>
 
-				<h3>Starting a timer</h3>
+				<h3 class="h4">Starting a timer</h3>
 				<p>Start a timer from the Time screen, or from the clock icon in the WordPress toolbar on any admin page. The timer lives on your site rather than in your browser, so it keeps running even if you close the tab — it's only stopped when you stop it.</p>
 
-				<h3>Logging time manually</h3>
+				<h3 class="h4">Logging time manually</h3>
 				<p>Prefer to log time after the fact? Add an entry directly with a duration, date, and description. Every entry — timed or manual — is assigned to a client and, on Agency, optionally to a project, and can be marked <strong>non-billable</strong> if it shouldn't be invoiced. Durations can be corrected in place afterwards.</p>
 
-				<h3>Team timesheets (Agency)</h3>
+				<h3 class="h4">Team timesheets (Agency)</h3>
 				<p>On Agency accounts with more than one team member, the timesheet shows who logged each entry and can be filtered by person, so you can see where time is actually going across the team.</p>
 
-				<h3>Hourly rates</h3>
+				<h3 class="h4">Hourly rates</h3>
 				<p>Set a default hourly rate under <strong>Settings</strong>, override it on an individual client, or override it again on a specific project — the most specific rate wins. Each rate carries its own currency and is never converted: billing tracked time onto an invoice in a different currency is refused rather than guessed at. Optionally round tracked time to the nearest 5, 6, 15, or 30 minutes when it's invoiced — your timesheet still shows what actually happened; only the invoiced figure is rounded.</p>
 
-				<h3>Billing tracked time</h3>
+				<h3 class="h4">Billing tracked time</h3>
 				<p>On a draft invoice, click <strong>Add unbilled time</strong> to see everything not yet invoiced for that client. Choose how it's summarised — one line per entry, per day, per project, or as a single total — and it's added as proper quantity-and-rate line items. Hours are never billed twice. Anything older than 60 days is listed but left unticked by default, so old work doesn't get swept onto an invoice by accident. If the invoice is later cancelled or deleted, those hours return to the unbilled pool automatically.</p>
 			</section>
 
@@ -592,7 +592,7 @@ $data = json_decode( $payload, true );
 				<h2>Analytics</h2>
 				<p>The analytics dashboard is available on <strong>Pro and Agency</strong> plans under <strong>Client Octopus &rarr; Analytics</strong>. It gives you an at-a-glance view of your proposal pipeline and revenue performance.</p>
 
-				<h3>Overview metrics</h3>
+				<h3 class="h4">Overview metrics</h3>
 				<table>
 					<thead>
 						<tr>
@@ -620,16 +620,16 @@ $data = json_decode( $payload, true );
 					</tbody>
 				</table>
 
-				<h3>Revenue chart</h3>
+				<h3 class="h4">Revenue chart</h3>
 				<p>The revenue chart plots completed payment totals over time. Use the time filter (This Week / This Month / This Year) to narrow the view. Hover over data points to see exact figures.</p>
 
-				<h3>Proposal performance</h3>
+				<h3 class="h4">Proposal performance</h3>
 				<p>The proposal performance table breaks down each proposal by status, value, and close time, so you can see which types of work convert fastest and at what price point.</p>
 
-				<h3>Exporting data</h3>
+				<h3 class="h4">Exporting data</h3>
 				<p>Click <strong>Export CSV</strong> on the analytics page to download all proposal and payment data for the selected period. The export includes proposal ID, client name, value, status, sent date, accepted date, and payment total — suitable for spreadsheets, accountants, or external reporting tools.</p>
 
-				<h3>Reporting Currency (Pro / Agency)</h3>
+				<h3 class="h4">Reporting Currency (Pro / Agency)</h3>
 				<p>If you bill clients in more than one currency, set a <strong>Reporting Currency</strong> in <strong>Client Octopus &rarr; Settings</strong>. Once set, the Revenue KPI and revenue chart convert every proposal, invoice, and payment into that currency using daily exchange rates, instead of incorrectly adding figures in different currencies together as if they were the same one. This only affects the Analytics dashboard — Client Detail always shows each client's Lifetime Value and Outstanding Balance in their real billed currency, unconverted.</p>
 			</section>
 
@@ -640,7 +640,7 @@ $data = json_decode( $payload, true );
 				<h2>AI Features</h2>
 				<p>AI writing assistance is available on <strong>Pro and Agency</strong> plans. It works inside the proposal editor.</p>
 
-				<h3>How to use it</h3>
+				<h3 class="h4">How to use it</h3>
 				<p>Select any text in the proposal editor and choose an action from the AI toolbar:</p>
 				<ul>
 					<li><strong>Improve</strong> — Rewrite the selection to be clearer and more professional.</li>
@@ -649,7 +649,7 @@ $data = json_decode( $payload, true );
 					<li><strong>Generate</strong> — Produce new content from a brief you enter.</li>
 				</ul>
 
-				<h3>Quotas and limits</h3>
+				<h3 class="h4">Quotas and limits</h3>
 				<table>
 					<thead>
 						<tr>
@@ -674,7 +674,7 @@ $data = json_decode( $payload, true );
 				</table>
 				<p>A 3-second cooldown applies between requests. Quotas reset on the 1st of each month. Shared across your team on Agency.</p>
 
-				<h3>How it works</h3>
+				<h3 class="h4">How it works</h3>
 				<p>AI requests are processed through a Client Octopus relay server. Your WordPress site never calls the AI provider directly. This keeps your credentials private and allows Client Octopus to track costs and enforce plan quotas server-side. Proposal text is sent to the relay only when you trigger an AI action and is not retained after the response is returned.</p>
 			</section>
 
@@ -684,7 +684,7 @@ $data = json_decode( $payload, true );
 				<h2>Settings</h2>
 				<p>All settings are under <strong>Client Octopus &rarr; Settings</strong>, organised into tabs: <strong>Branding</strong>, <strong>Payments</strong>, <strong>Leads</strong>, <strong>Booking</strong>, <strong>Automations</strong>, and <strong>Advanced</strong>. This page requires the WordPress <code>manage_options</code> capability (site administrators only).</p>
 
-				<h3>Branding (all plans)</h3>
+				<h3 class="h4">Branding (all plans)</h3>
 				<table>
 					<thead>
 						<tr>
@@ -744,22 +744,22 @@ $data = json_decode( $payload, true );
 					</tbody>
 				</table>
 
-				<h3>Payment Provider (Pro / Agency)</h3>
+				<h3 class="h4">Payment Provider (Pro / Agency)</h3>
 				<p>Choose <strong>Stripe</strong> or <strong>PayPal</strong> as your active payment provider. Only the credential fields for the selected provider are shown; switching providers doesn't clear the other provider's saved credentials.</p>
 
-				<h3>Stripe API Keys (Pro / Agency)</h3>
+				<h3 class="h4">Stripe API Keys (Pro / Agency)</h3>
 				<p>Enter your Stripe <strong>Publishable Key</strong> (<code>pk_live_&hellip;</code> or <code>pk_test_&hellip;</code>) and <strong>Secret Key</strong> (<code>sk_live_&hellip;</code> or <code>sk_test_&hellip;</code>). A status badge shows whether Client Octopus is in Live or Test mode. See <a href="#payments">Payments</a> for webhook setup.</p>
 
-				<h3>PayPal API Credentials (Pro / Agency)</h3>
+				<h3 class="h4">PayPal API Credentials (Pro / Agency)</h3>
 				<p>Enter your PayPal <strong>Client ID</strong> and <strong>Secret</strong> from the PayPal Developer Dashboard, set <strong>Mode</strong> to Sandbox or Live, and paste in the <strong>Webhook ID</strong> from your configured PayPal webhook. A status badge shows whether Client Octopus is in Live or Test mode. See <a href="#payments">Payments</a> for full setup steps.</p>
 
-				<h3>Testimonial Emails (Pro / Agency)</h3>
+				<h3 class="h4">Testimonial Emails (Pro / Agency)</h3>
 				<p>Enable automated review-request emails sent to clients after their final payment is collected. Configure the email body, the URL you want them to visit (e.g. a Google Reviews or Trustpilot page), and the button label (default: &ldquo;Leave a Review&rdquo;).</p>
 
-				<h3>Translations</h3>
+				<h3 class="h4">Translations</h3>
 				<p>Emails, the Settings and Plan &amp; Usage screens, and the public booking and lead capture forms can be translated using a standard WordPress translation plugin (e.g. Loco Translate) with the included translation template. The React-based admin screens, the client portal, and the client-facing proposal view aren't covered yet.</p>
 
-				<h3>Danger Zone</h3>
+				<h3 class="h4">Danger Zone</h3>
 				<p>By default, uninstalling Client Octopus only removes the plugin's code — your proposals, clients, projects, and invoices stay in your database and are there again if you reinstall or upgrade. To permanently delete all Client Octopus data when the plugin is deleted, enable <strong>Delete all Client Octopus data when this plugin is deleted</strong> under Danger Zone. This is off by default and should only be enabled if you intend to remove Client Octopus and its data for good.</p>
 			</section>
 
@@ -937,7 +937,7 @@ $data = json_decode( $payload, true );
 			<section class="docs-section stack" id="troubleshooting">
 				<h2>Troubleshooting</h2>
 
-				<h3>Client portal pages return 404</h3>
+				<h3 class="h4">Client portal pages return 404</h3>
 				<p>WordPress registers the portal URL on activation. If the pages return 404, the rewrite rules need to be flushed:</p>
 				<ol>
 					<li>Go to <strong>Settings &rarr; Permalinks</strong> in the WordPress admin.</li>
@@ -946,7 +946,7 @@ $data = json_decode( $payload, true );
 				</ol>
 				<p>This only needs to be done once. If the 404 persists after flushing, check that your web server has <code>mod_rewrite</code> enabled and that <code>.htaccess</code> is writable by WordPress.</p>
 
-				<h3>Payment webhook not delivering</h3>
+				<h3 class="h4">Payment webhook not delivering</h3>
 				<p>If payment events are not reaching Client Octopus, work through this checklist:</p>
 				<p><strong>Stripe:</strong></p>
 				<ul>
@@ -962,7 +962,7 @@ $data = json_decode( $payload, true );
 					<li><strong>Endpoint is publicly accessible</strong> — same requirement as Stripe; PayPal cannot reach <code>localhost</code> or sites behind a VPN.</li>
 				</ul>
 
-				<h3>Emails not sending</h3>
+				<h3 class="h4">Emails not sending</h3>
 				<p>Client Octopus sends email via <code>wp_mail()</code>. If emails are not arriving, check your WordPress mail configuration — many hosts block outgoing PHP mail by default. Install an SMTP plugin (e.g. WP Mail SMTP) and configure a transactional mail provider such as Postmark, SendGrid, or Mailgun.</p>
 			</section>
 
@@ -972,19 +972,19 @@ $data = json_decode( $payload, true );
 			<section class="docs-section stack" id="privacy">
 				<h2>Privacy &amp; Data</h2>
 
-				<h3>Where your data is stored</h3>
+				<h3 class="h4">Where your data is stored</h3>
 				<p>All client data — names, email addresses, proposal content, project activity, and file attachments — is stored in your own WordPress database on your own server. Client Octopus does not copy or transmit this data to external servers except where explicitly described below.</p>
 
-				<h3>AI relay</h3>
+				<h3 class="h4">AI relay</h3>
 				<p>When you trigger an AI action in the proposal editor, the selected proposal text is sent to the Client Octopus relay server to process the request. The text is not stored after the response is returned. The relay does not share your content with third parties. No AI actions are triggered automatically — data is only sent when you explicitly click an AI action button.</p>
 
-				<h3>Payments</h3>
+				<h3 class="h4">Payments</h3>
 				<p>Payment card details are handled entirely by your active payment provider (Stripe or PayPal) and never pass through your WordPress site or the Client Octopus relay. Client Octopus stores only the provider's payment/order reference and payment status — never card numbers, CVVs, or bank details.</p>
 
-				<h3>Client portal authentication</h3>
+				<h3 class="h4">Client portal authentication</h3>
 				<p>Clients authenticate via a short-lived magic link sent to their email address. Tokens are single-use and expire after 15 minutes. Session cookies are scoped to your domain and are not shared with any third party.</p>
 
-				<h3>GDPR considerations</h3>
+				<h3 class="h4">GDPR considerations</h3>
 				<p>Because all client data lives in your database, you are the data controller. You are responsible for your own privacy policy, cookie notice, and any data subject requests from your clients. Client Octopus does not act as a data processor on your behalf beyond the AI relay described above.</p>
 				<p>Client Octopus integrates with WordPress's own <strong>Tools &rarr; Export/Erase Personal Data</strong> tools, so you don't have to track down a client's records by hand when a request comes in. An export or erasure request covers client records, leads, booked calls, the name and IP address recorded when a proposal was signed, project messages, approval comments, and unsubscribe preferences. Erasure deletes booked calls, project messages, and approval comments outright; invoices, payments, and accepted proposals are kept but stripped of personal details (including anonymising the signing IP), since accounting records have to be retained for tax purposes — the confirmation shown at the end of an erasure states exactly what was kept and why.</p>
 			</section>
@@ -996,10 +996,10 @@ $data = json_decode( $payload, true );
 				<h2>REST API</h2>
 				<p>Client Octopus exposes a REST API under the base path <code>/wp-json/clientoctopus/v1/</code>. All endpoints return JSON.</p>
 
-				<h3>Authentication</h3>
+				<h3 class="h4">Authentication</h3>
 				<p>Admin endpoints require a WordPress nonce passed in the <code>X-WP-Nonce</code> header (the calling user must be logged in to WordPress and have the <code>manage_clientoctopus</code> capability). Client-facing portal routes accept either a short-lived portal token (passed as a query parameter or <code>Authorization: Bearer</code> header) or a portal session cookie.</p>
 
-				<h3>Admin endpoints</h3>
+				<h3 class="h4">Admin endpoints</h3>
 				<table>
 					<thead>
 						<tr>
@@ -1039,7 +1039,7 @@ $data = json_decode( $payload, true );
 					</tbody>
 				</table>
 
-				<h3>Client-facing portal endpoints</h3>
+				<h3 class="h4">Client-facing portal endpoints</h3>
 				<p>These routes do not require a WordPress login and are used by the client portal frontend.</p>
 				<table>
 					<thead>

@@ -55,182 +55,50 @@ get_header();
      REPLACES — Before vs After
 ════════════════════════════════════════════════════════════════════════════════ -->
 
-	<section class="section section--replaces bg-white">
-		<div class="container animated-up">
+	<section class="section section--statement bg-lightindigo">
+		<div class="container">
 
-			<p class="section-eyebrow">Eight jobs. One plugin.</p>
-			<h2 class="section-heading">Running client work shouldn't require multiple tools</h2>
-			<p class="section-lede">Most freelancers juggle a lead form, a scheduling app, proposals, invoices, email threads, Google Drive, and project trackers just to land and deliver one project.</p>
-			<p class="section-lede">Client Octopus brings the entire client lifecycle into WordPress — from lead to booked call to proposal to payment to delivery.</p>
+			<div class="statement-card animated-up">
+				<h2 class="statement-card__heading">
+					Clients say yes.<br>
+					Deposits arrive.<br>
+					<span class="statement-card__highlight">You get on with the work.</span>
+				</h2>
+				<p class="statement-card__lede">Client Octopus runs your proposals, payments, projects and client portal from inside your WordPress site.</p>
+				<ul class="statement-card__pills">
+					<li>Lead capture</li>
+					<li>Call booking</li>
+					<li>Proposals</li>
+					<li>Invoices</li>
+					<li>Payments</li>
+					<li>Projects</li>
+					<li>Time tracking</li>
+					<li>Client portal</li>
+				</ul>
+			</div>
 
 		</div>
 	</section>
 
 
 	<!-- ═══════════════════════════════════════════════════════════════════════════
-     PIPELINE — Interactive stepper
+     FLOW PARAGRAPH — The whole thing, in one paragraph
 ════════════════════════════════════════════════════════════════════════════════ -->
 
-	<section class="section section--pipeline menu-section bg-stone">
-		<div class="container animated-up">
+	<section class="section section--flow bg-stone">
+		<div class="container">
 
-			<p class="section-eyebrow">How it works</p>
-			<h2 class="section-heading">One workflow from proposal to delivery</h2>
-			<p class="section-lede">From the first proposal to the final payment, Client Octopus keeps your entire client workflow connected inside WordPress.</p>
-
-			<div class="pipeline-stepper">
-
-				<div class="pipeline-track">
-					<button class="pipeline-step" data-stage="0" type="button">
-						<span class="pipeline-step__dot">01</span>
-						<span class="pipeline-step__label">Leads</span>
-					</button>
-					<button class="pipeline-step" data-stage="1" type="button">
-						<span class="pipeline-step__dot">02</span>
-						<span class="pipeline-step__label">Proposal</span>
-					</button>
-					<button class="pipeline-step" data-stage="2" type="button">
-						<span class="pipeline-step__dot">03</span>
-						<span class="pipeline-step__label">Payments</span>
-					</button>
-					<button class="pipeline-step" data-stage="3" type="button">
-						<span class="pipeline-step__dot">04</span>
-						<span class="pipeline-step__label">Projects</span>
-					</button>
-					<button class="pipeline-step" data-stage="4" type="button">
-						<span class="pipeline-step__dot">05</span>
-						<span class="pipeline-step__label">Delivery</span>
-					</button>
-					<!-- <button class="pipeline-step" data-stage="6" type="button">
-						<span class="pipeline-step__dot">06</span>
-						<span class="pipeline-step__label">Retention</span>
-					</button> -->
-				</div>
-
-				<div class="pipeline-panel is-active">
-
-					<div class="pipeline-panel__content">
-						<h3 class="pipeline-panel__headline">Never lose a lead again</h3>
-						<p class="pipeline-panel__desc">
-							Embed a lead capture form on any page and every inquiry lands straight in Client Octopus — no separate form plugin, no missed emails.
-						</p>
-						<ul class="features__list">
-							<li>Choose which fields to show and require</li>
-							<li>Custom labels and a consent line</li>
-							<li>Optional CAPTCHA and rate limiting</li>
-							<li>Automatic reply to the submitter</li>
-							<li>Let leads book a call directly (Pro/Agency)</li>
-							<li>Convert a lead to a client in one click</li>
-						</ul>
-					</div>
-
-					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/client-lead-form.jpg" alt="Wordpress plugin Client Octopus lead capture form" width="1390" height="1600" loading="lazy" />
-					</div>
-
-				</div>
-
-				<div class="pipeline-panel">
-
-					<div class="pipeline-panel__content">
-						<h3 class="pipeline-panel__headline">Proposals that close themselves</h3>
-						<p class="pipeline-panel__desc">
-							Create professional proposals in minutes, send them with one click, and let clients review and accept instantly — no PDFs, no back-and-forth.
-						</p>
-						<ul class="features__list">
-							<li>Pre-built templates</li>
-							<li>Guided 5-step proposal builder</li>
-							<li>Tiered Package Selector pricing</li>
-							<li>Secure client approval links</li>
-							<li>Client e-signature on acceptance</li>
-							<li>AI-assisted proposal writing</li>
-						</ul>
-					</div>
-
-					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/proposal-template-wizard.jpg?v=1" srcset="/static/images/screenshots/proposal-template-wizard-800.jpg 782w, /static/images/screenshots/proposal-template-wizard.jpg 1675w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus proposal builder" width="1675" height="1712" loading="lazy" />
-					</div>
-
-				</div>
-
-				<div class="pipeline-panel">
-
-					<div class="pipeline-panel__content">
-						<h3 class="pipeline-panel__headline">Get paid without friction</h3>
-						<p class="pipeline-panel__desc">
-							Turn accepted proposals into payments instantly with built-in Stripe or PayPal integration, including deposits and remaining balances — all tracked automatically.
-						</p>
-						<ul class="features__list">
-							<li>Accept deposits and final payments</li>
-							<li>One-click "accept & pay" flow</li>
-							<li>Standalone and recurring invoices with instant Pay Now</li>
-							<li>Payment status tracking</li>
-							<li>Automatic email notifications</li>
-						</ul>
-					</div>
-
-					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/admin-payment-notification.jpg?v=1" srcset="/static/images/screenshots/admin-payment-notification-800.jpg 800w, /static/images/screenshots/admin-payment-notification.jpg 1264w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus payment notification email" width="1264" height="1058" loading="lazy" />
-					</div>
-
-				</div>
-
-				<div class="pipeline-panel">
-
-					<div class="pipeline-panel__content">
-						<h3 class="pipeline-panel__headline">Keep every project organised</h3>
-						<p class="pipeline-panel__desc">
-							As soon as a proposal is accepted, a project is created automatically — keeping all client activity, messages, and progress organised in one place.
-						</p>
-						<ul class="features__list">
-							<li>Automatic project creation</li>
-							<li>Project status tracking</li>
-							<li>Client messaging</li>
-							<li>Activity timeline</li>
-						</ul>
-					</div>
-
-					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/admin-project-2.jpg?v=1" srcset="/static/images/screenshots/admin-project-2-800.jpg 800w, /static/images/screenshots/admin-project-2.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus admin project interface" width="1920" height="1441" loading="lazy" />
-					</div>
-
-				</div>
-
-				<div class="pipeline-panel">
-
-					<div class="pipeline-panel__content">
-						<h3 class="pipeline-panel__headline">Deliver work in one place</h3>
-						<p class="pipeline-panel__desc">
-							Collaborate with clients through a dedicated portal where you can share files, request approvals, and keep everything aligned until the work is complete.
-						</p>
-						<ul class="features__list">
-							<li>Dedicated client portal</li>
-							<li>File uploads and sharing</li>
-							<li>Approval requests</li>
-							<li>Final payment requests</li>
-						</ul>
-					</div>
-
-					<div class="pipeline-screenshot" aria-hidden="true">
-						<img src="/static/images/screenshots/client-dashboard.jpg?v=1" srcset="/static/images/screenshots/client-dashboard-800.jpg 800w, /static/images/screenshots/client-dashboard.jpg 1920w" sizes="(max-width: 768px) 100vw, 900px" alt="Wordpress plugin Client Octopus client dashboard" width="1920" height="1197" loading="lazy" />
-					</div>
-
-				</div>
+			<div class="flow-paragraph animated-up">
+				<h2 class="section-heading">The whole thing, in one paragraph.</h2>
+				<p class="flow-paragraph__text">
+					Someone fills in your form <span class="flow-tag">Lead captured</span>. They book a call straight off the confirmation <span class="flow-tag">Call booked</span>. You send a proposal <span class="flow-tag">Sent as a secure link</span>. If they go quiet, a reminder follows up automatically <span class="flow-tag">Reminder sent</span>. They say yes and pay the deposit on the spot <span class="flow-tag">E&#8209;signed &amp; paid</span>. Their project sets itself up <span class="flow-tag">Project created</span>. When the work's done, the final invoice goes out <span class="flow-tag">Final payment requested</span>. Once that clears, a review request follows <span class="flow-tag">Testimonial requested</span>.
+				</p>
+				<p class="flow-paragraph__note"><span class="flow-paragraph__dot"></span> Everything in indigo happens on its own.</p>
 			</div>
 
-
-		</div>
-		<div class="container animated-up pt-12 md:pt-20 lg:pt-24">
-			<p class="section-eyebrow">Beyond the workflow</p>
-			<h2 class="section-heading">See everything Client Octopus can do</h2>
-			<p class="section-lede mb-10">
-				Explore proposals, projects, client portals, analytics, notifications, integrations, and automation tools built to streamline your entire client process.
-			</p>
-			<a class="button button--primary" href="/how-it-works">
-				View Full Platform
-			</a>
 		</div>
 	</section>
+
 
 	<!-- ═══════════════════════════════════════════════════════════════════════════
      FEATURES GRID — 6 cells, 3 × 2
@@ -240,58 +108,39 @@ get_header();
 		<div class="container animated-up">
 
 			<div class="features-heading-block">
-				<p class="section-eyebrow">Why Client Octopus</p>
-				<h2 class="section-heading">Run your entire client workflow from one place</h2>
+				<h2 class="section-heading">Why Client Octopus</h2>
 			</div>
 
-			<div class="cf-features-grid">
+			<div class="cf-features-grid animated-up">
 
-				<div class="feature-cell">
-					<div class="feature-cell__icon">
-						<iconify-icon icon="lucide:file-text" width="22" height="22"></iconify-icon>
-					</div>
-					<h3>From proposal to payment</h3>
-					<p>Create proposals, send standalone invoices, collect deposits, request final balances, and track payments without switching between multiple tools.</p>
+				<div class="feature-cell feature-cell--indigo">
+					<h3>One place. One login.</h3>
+					<p>Proposals, invoices, projects and files, all the way from first proposal to final payment, without switching tools.</p>
 				</div>
 
-				<div class="feature-cell">
-					<div class="feature-cell__icon">
-						<iconify-icon icon="lucide:layout-dashboard" width="22" height="22"></iconify-icon>
-					</div>
-					<h3>A professional client experience</h3>
-					<p>Give clients a branded portal where they can review proposals, pay invoices, approve work, download files, and track progress.</p>
+				<div class="feature-cell feature-cell--stone">
+					<h3>Looks like you hired a designer.</h3>
+					<p>A branded portal where clients review proposals, pay invoices, approve work, and download files.</p>
 				</div>
 
-				<div class="feature-cell">
-					<div class="feature-cell__icon">
-						<iconify-icon icon="lucide:users" width="22" height="22"></iconify-icon>
-					</div>
-					<h3>Built for freelancers & agencies</h3>
-					<p>Designed specifically for client-based businesses managing proposals, projects, payments, and ongoing communication.</p>
+				<div class="feature-cell feature-cell--grey">
+					<h3>Made for people who do the work.</h3>
+					<p>Built for freelancers and agencies managing proposals, projects, payments, and client communication.</p>
 				</div>
 
-				<div class="feature-cell">
-					<div class="feature-cell__icon">
-						<iconify-icon icon="lucide:shield-check" width="22" height="22"></iconify-icon>
-					</div>
-					<h3>Everything stays inside WordPress</h3>
-					<p>Your proposals, projects, files, and client data stay on infrastructure you already own and control.</p>
+				<div class="feature-cell feature-cell--stone">
+					<h3>Your site. Your data.</h3>
+					<p>Everything, including your proposals, projects, files and client data, stays inside the WordPress site you already own.</p>
 				</div>
 
-				<div class="feature-cell">
-					<div class="feature-cell__icon">
-						<iconify-icon icon="lucide:zap" width="22" height="22"></iconify-icon>
-					</div>
-					<h3>Automate repetitive admin work</h3>
-					<p>Automated reminders follow up on stalled proposals, while payment requests, project creation, and external workflows trigger automatically with built-in automation and webhooks.</p>
+				<div class="feature-cell feature-cell--grey">
+					<h3>Admin that does itself.</h3>
+					<p>Reminders, final payment requests, project creation and webhook-triggered workflows all run without you lifting a finger.</p>
 				</div>
 
-				<div class="feature-cell">
-					<div class="feature-cell__icon">
-						<iconify-icon icon="lucide:sparkles" width="22" height="22"></iconify-icon>
-					</div>
-					<h3>AI-assisted proposal writing</h3>
-					<p>Generate proposal sections, improve wording, and create persuasive client-ready copy in seconds using built-in AI tools.</p>
+				<div class="feature-cell feature-cell--indigo">
+					<h3>A first draft in seconds.</h3>
+					<p>Built-in AI helps you generate proposal sections, improve wording, and create client-ready copy.</p>
 				</div>
 
 			</div>
@@ -354,21 +203,8 @@ get_header();
 					<div class="cf-pricing-tier__month-price"><span><sup>&dollar;</sup>9.99</span><span class="cf-pricing-tier__period">/ month</span></div>
 					<div class="cf-pricing-tier__year-price"><span><sup>&dollar;</sup>89</span><span class="cf-pricing-tier__period">/ year</span><span class="cf-save-badge">Save 26%</span></div>
 					<hr class="cf-pricing-divider">
+					<p class="cf-pricing-features__intro">Everything in Free, plus:</p>
 					<ul class="cf-pricing-features">
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Lead Capture</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Unlimited proposals</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Proposal builder</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Package Selector pricing</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Payment Plans</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client Tags</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 1 team seat</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Track viewed, accepted, and declined proposals</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated status notification emails</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Standalone invoices</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Recurring invoices</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated proposal reminders</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client e-signature</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client portal</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Call Booking</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Calendar Sync</li>
@@ -390,33 +226,13 @@ get_header();
 					<div class="cf-pricing-tier__month-price"><span><sup>&dollar;</sup>24.99</span><span class="cf-pricing-tier__period">/ month</span></div>
 					<div class="cf-pricing-tier__year-price"><span><sup>&dollar;</sup>229</span><span class="cf-pricing-tier__period">/ year</span><span class="cf-save-badge">Save 24%</span></div>
 					<hr class="cf-pricing-divider">
+					<p class="cf-pricing-features__intro">Everything in Pro, plus:</p>
 					<ul class="cf-pricing-features">
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Lead Capture</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Unlimited proposals</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Proposal builder</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Package Selector pricing</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Payment Plans</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client Tags</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 10 team seats</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Track viewed, accepted, and declined proposals</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated status notification emails</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Standalone invoices</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Recurring invoices</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated proposal reminders</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client e-signature</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client portal</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Call Booking</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Calendar Sync</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Stripe or PayPal payments</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> "Pay Now" on invoices</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Auto-charge recurring invoices</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Analytics</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Time tracking with team timesheets</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Automated testimonial request</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 10 team seats (up from 1)</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Team timesheets</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 500 AI requests/month</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Priority email support</li>
-						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Project & milestone management</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Project &amp; milestone management</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Approval workflows</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client messaging</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> File uploads</li>
@@ -437,10 +253,18 @@ get_header();
 	<section class="section section--faq menu-section" id="faq">
 		<div class="container animated-up">
 
-			<p class="section-eyebrow">FAQ</p>
-			<h2 class="section-heading">Common questions</h2>
-
 			<div class="faq-layout">
+
+				<div class="faq-intro">
+					<h2 class="section-heading">Common questions</h2>
+					<p class="faq-intro__lede">Straight answers about how Client Octopus works, where your data lives and what's free.</p>
+
+					<div class="faq-contact">
+						<p class="faq-contact__title">Still have a question?</p>
+						<a class="faq-contact__link" href="mailto:info@clientoctopus.com?subject=Website%20Inquiry">Drop us a message &rarr;</a>
+					</div>
+				</div>
+
 				<div class="accordions-wrapper">
 
 
@@ -545,9 +369,6 @@ get_header();
 
 				</div>
 
-				<div class="faq-contact">
-					<p>Still have a question? <a href="mailto:info@clientoctopus.com?subject=Website%20Inquiry">Drop us a message →</a></p>
-				</div>
 			</div>
 
 		</div>
@@ -558,15 +379,14 @@ get_header();
      CTA STRIP
 ════════════════════════════════════════════════════════════════════════════════ -->
 
-	<section class="section section--cta-strip bg-lightindigo">
+	<section class="section section--cta-strip bg-indigo">
 		<div class="container animated-up">
 
-			<h2>Stop running your business<br>across seven different tools</h2>
-			<p>Get Client Octopus free and see how much simpler it can be to run client work from inside WordPress.</p>
+			<h2>Start free.<br>Upgrade when you're ready.</h2>
 
 			<div class="cta-strip__actions">
 				<a class="button button--primary plan-button" data-plan-id="48154" href="#">Get Client Octopus free</a>
-				<a class="button button--ghost" href="#pricing">See pricing</a>
+				<a class="button button--ghost button--white" href="#pricing">See pricing</a>
 			</div>
 
 		</div>

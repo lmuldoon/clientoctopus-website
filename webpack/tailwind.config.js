@@ -39,7 +39,8 @@ module.exports = {
     fontWeight: {
       normal: 400,
       medium: 600,
-      bold: 700
+      bold: 700,
+      extrabold: 800
     },
     lineHeight: {
       'tight': 'var(--font-lineheighttight)',
@@ -51,8 +52,8 @@ module.exports = {
           "300": 'clamp(0.75rem, 0.713rem + 0.1852vw, 0.875rem)',
           "400": 'clamp(0.875rem, 0.838rem + 0.1852vw, 1rem)',
           "500": 'clamp(1.25rem, 1.1759rem + 0.3704vw, 1.5rem)',
-          "600": 'clamp(1.37em, 1.21em + 0.8vw, 1.78em)',
-          "700": 'clamp(1.71em, 1.45em + 1.29vw, 2.37em)',
+          "600": 'clamp(1.7em, 1.45em + 1.2vw, 2.4em)',
+          "700": 'clamp(1.9em, 1.6em + 1.5vw, 2.75em)',
           "800": 'clamp(1.875rem, 1.3194rem + 2.7778vw, 3.75rem)',
         },
         color: {
