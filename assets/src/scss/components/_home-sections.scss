@@ -566,13 +566,20 @@
 	}
 
 	.button--primary {
-		background: var(--color-white);
-		color: var(--color-indigo);
-		border-color: var(--color-white);
+		background: var(--color-white) !important;
+		color: var(--color-indigo) !important;
+		border-color: var(--color-white) !important;
 
 		&:hover {
-			background: var(--color-lightindigo);
-			border-color: var(--color-lightindigo);
+			background: var(--color-lightindigo) !important;
+			border-color: var(--color-lightindigo) !important;
+		}
+	}
+	.button--ghost {
+		background-color: transparent !important;
+		&:hover {
+			background-color: var(--color-white) !important;
+			color: var(--color-indigo) !important;
 		}
 	}
 }

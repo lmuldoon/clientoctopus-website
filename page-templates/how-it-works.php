@@ -326,7 +326,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="section section--cta-strip bg-indigo">
+	<section class="section section--cta-strip section--gradient">
 		<div class="container animated-up">
 
 			<h2>Ready to streamline your client workflow?</h2>

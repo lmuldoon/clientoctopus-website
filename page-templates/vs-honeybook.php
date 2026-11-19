@@ -208,36 +208,44 @@ get_header();
 	<section class="section section--faq menu-section bg-stone" id="faq">
 		<div class="container animated-up">
 
-			<p class="section-eyebrow">FAQ</p>
-			<h2 class="section-heading">Common questions</h2>
-
 			<div class="faq-layout">
+
+				<div class="faq-intro">
+					<h2 class="section-heading">Common questions</h2>
+					<p class="faq-intro__lede">Straight answers on how Client Octopus compares with HoneyBook.</p>
+
+					<div class="faq-contact">
+						<p class="faq-contact__title">Still have a question?</p>
+						<a class="faq-contact__link" href="mailto:info@clientoctopus.com?subject=Website%20Inquiry">Drop us a message &rarr;</a>
+					</div>
+				</div>
+
 				<div class="accordions-wrapper">
 
 					<div class="accordion">
 						<div class="js-accordion-trigger">
-							<h3 class="section-subheading">Is Client Octopus really free, or is that just a trial?</h3>
+							<h3>Is Client Octopus really free, or is that just a trial?</h3>
 						</div>
 						<div class="accordion-content">
-							<p class="section-lede">It's a real free plan, not a trial — unlimited proposals, invoices, and lead capture with no time limit. Upgrade to Pro or Agency only when you need payments, the client portal, call booking, or team features.</p>
+							<p>It's a real free plan, not a trial — unlimited proposals, invoices, and lead capture with no time limit. Upgrade to Pro or Agency only when you need payments, the client portal, call booking, or team features.</p>
 						</div>
 					</div>
 
 					<div class="accordion">
 						<div class="js-accordion-trigger">
-							<h3 class="section-subheading">Do I need to already have a WordPress site to use Client Octopus?</h3>
+							<h3>Do I need to already have a WordPress site to use Client Octopus?</h3>
 						</div>
 						<div class="accordion-content">
-							<p class="section-lede">Yes — Client Octopus is a WordPress plugin, so it installs into an existing WordPress site. If you don't run WordPress and don't plan to, a standalone platform like HoneyBook will fit more naturally.</p>
+							<p>Yes — Client Octopus is a WordPress plugin, so it installs into an existing WordPress site. If you don't run WordPress and don't plan to, a standalone platform like HoneyBook will fit more naturally.</p>
 						</div>
 					</div>
 
 					<div class="accordion">
 						<div class="js-accordion-trigger">
-							<h3 class="section-subheading">Does Client Octopus have an AI assistant like HoneyBook AI?</h3>
+							<h3>Does Client Octopus have an AI assistant like HoneyBook AI?</h3>
 						</div>
 						<div class="accordion-content">
-							<p class="section-lede">Client Octopus includes AI writing tools scoped to proposal content — improving, shortening, making copy more persuasive, or generating new sections from a brief — on Pro and Agency plans. It's more focused than a general-purpose assistant, aimed specifically at getting proposals written faster.</p>
+							<p>Client Octopus includes AI writing tools scoped to proposal content — improving, shortening, making copy more persuasive, or generating new sections from a brief — on Pro and Agency plans. It's more focused than a general-purpose assistant, aimed specifically at getting proposals written faster.</p>
 						</div>
 					</div>
 
@@ -249,7 +257,7 @@ get_header();
 
 	<!-- ─── CTA ─────────────────────────────────────────────────────── -->
 
-	<section class="section section--cta-strip bg-indigo">
+	<section class="section section--cta-strip section--gradient">
 		<div class="container animated-up">
 			<h2>Try Client Octopus free</h2>
 			<p class="section-lede">No trial clock — the free plan runs indefinitely, so you can see how it fits your workflow before you decide anything.</p>

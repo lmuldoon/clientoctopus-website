@@ -183,36 +183,44 @@ get_header();
 	<section class="section section--faq menu-section bg-stone" id="faq">
 		<div class="container animated-up">
 
-			<p class="section-eyebrow">FAQ</p>
-			<h2 class="section-heading">Common questions</h2>
-
 			<div class="faq-layout">
+
+				<div class="faq-intro">
+					<h2 class="section-heading">Common questions</h2>
+					<p class="faq-intro__lede">Straight answers on how Client Octopus compares with PandaDoc.</p>
+
+					<div class="faq-contact">
+						<p class="faq-contact__title">Still have a question?</p>
+						<a class="faq-contact__link" href="mailto:info@clientoctopus.com?subject=Website%20Inquiry">Drop us a message &rarr;</a>
+					</div>
+				</div>
+
 				<div class="accordions-wrapper">
 
 					<div class="accordion">
 						<div class="js-accordion-trigger">
-							<h3 class="section-subheading">Is Client Octopus really free, or is that just a trial?</h3>
+							<h3>Is Client Octopus really free, or is that just a trial?</h3>
 						</div>
 						<div class="accordion-content">
-							<p class="section-lede">It's a real free plan, not a trial, and there's no document cap — unlike PandaDoc's free plan, which is limited to 5 documents a month. Upgrade to Pro or Agency only when you need payments, the client portal, or team features.</p>
+							<p>It's a real free plan, not a trial, and there's no document cap — unlike PandaDoc's free plan, which is limited to 5 documents a month. Upgrade to Pro or Agency only when you need payments, the client portal, or team features.</p>
 						</div>
 					</div>
 
 					<div class="accordion">
 						<div class="js-accordion-trigger">
-							<h3 class="section-subheading">Do I need to already have a WordPress site to use Client Octopus?</h3>
+							<h3>Do I need to already have a WordPress site to use Client Octopus?</h3>
 						</div>
 						<div class="accordion-content">
-							<p class="section-lede">Yes — Client Octopus is a WordPress plugin, so it installs into an existing WordPress site. If you don't run WordPress and don't plan to, a standalone platform like PandaDoc will fit more naturally.</p>
+							<p>Yes — Client Octopus is a WordPress plugin, so it installs into an existing WordPress site. If you don't run WordPress and don't plan to, a standalone platform like PandaDoc will fit more naturally.</p>
 						</div>
 					</div>
 
 					<div class="accordion">
 						<div class="js-accordion-trigger">
-							<h3 class="section-subheading">Does Client Octopus do everything PandaDoc does?</h3>
+							<h3>Does Client Octopus do everything PandaDoc does?</h3>
 						</div>
 						<div class="accordion-content">
-							<p class="section-lede">Not quite — PandaDoc has more general-purpose document and contract tooling (beyond sales proposals) and a more mature e-signature product overall. Client Octopus is narrower by design: it's built specifically around the freelancer/agency client workflow — proposal, invoice, payment, portal — rather than documents in general.</p>
+							<p>Not quite — PandaDoc has more general-purpose document and contract tooling (beyond sales proposals) and a more mature e-signature product overall. Client Octopus is narrower by design: it's built specifically around the freelancer/agency client workflow — proposal, invoice, payment, portal — rather than documents in general.</p>
 						</div>
 					</div>
 
@@ -224,7 +232,7 @@ get_header();
 
 	<!-- ─── CTA ─────────────────────────────────────────────────────── -->
 
-	<section class="section section--cta-strip bg-indigo">
+	<section class="section section--cta-strip section--gradient">
 		<div class="container animated-up">
 			<h2>Try Client Octopus free</h2>
 			<p class="section-lede">No document cap, no trial clock — the free plan runs indefinitely.</p>

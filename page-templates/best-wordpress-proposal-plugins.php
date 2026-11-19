@@ -154,7 +154,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="section section--cta-strip bg-indigo">
+	<section class="section section--cta-strip section--gradient">
 		<div class="container animated-up">
 			<h2>Want to try the WordPress-native option?</h2>
 			<p>Client Octopus is free on WordPress.org — no trial clock, no credit card required.</p>

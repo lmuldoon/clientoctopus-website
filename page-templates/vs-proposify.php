@@ -178,36 +178,44 @@ get_header();
 	<section class="section section--faq menu-section bg-stone" id="faq">
 		<div class="container animated-up">
 
-			<p class="section-eyebrow">FAQ</p>
-			<h2 class="section-heading">Common questions</h2>
-
 			<div class="faq-layout">
+
+				<div class="faq-intro">
+					<h2 class="section-heading">Common questions</h2>
+					<p class="faq-intro__lede">Straight answers on how Client Octopus compares with Proposify.</p>
+
+					<div class="faq-contact">
+						<p class="faq-contact__title">Still have a question?</p>
+						<a class="faq-contact__link" href="mailto:info@clientoctopus.com?subject=Website%20Inquiry">Drop us a message &rarr;</a>
+					</div>
+				</div>
+
 				<div class="accordions-wrapper">
 
 					<div class="accordion">
 						<div class="js-accordion-trigger">
-							<h3 class="section-subheading">Is Client Octopus really free, or is that just a trial?</h3>
+							<h3>Is Client Octopus really free, or is that just a trial?</h3>
 						</div>
 						<div class="accordion-content">
-							<p class="section-lede">It's a real free plan, not a trial — unlike Proposify's 14-day trial with no permanent free tier. Upgrade to Pro or Agency only when you need payments, the client portal, or team features.</p>
+							<p>It's a real free plan, not a trial — unlike Proposify's 14-day trial with no permanent free tier. Upgrade to Pro or Agency only when you need payments, the client portal, or team features.</p>
 						</div>
 					</div>
 
 					<div class="accordion">
 						<div class="js-accordion-trigger">
-							<h3 class="section-subheading">Does Client Octopus handle recurring payments like a subscription?</h3>
+							<h3>Does Client Octopus handle recurring payments like a subscription?</h3>
 						</div>
 						<div class="accordion-content">
-							<p class="section-lede">Yes — recurring invoices and instalment-based Payment Plans are built into every plan, including Free for the invoicing side. This is a genuine gap in Proposify, which only takes a one-time or deposit payment at signature by its own support documentation.</p>
+							<p>Yes — recurring invoices and instalment-based Payment Plans are built into every plan, including Free for the invoicing side. This is a genuine gap in Proposify, which only takes a one-time or deposit payment at signature by its own support documentation.</p>
 						</div>
 					</div>
 
 					<div class="accordion">
 						<div class="js-accordion-trigger">
-							<h3 class="section-subheading">Do I need to already have a WordPress site to use Client Octopus?</h3>
+							<h3>Do I need to already have a WordPress site to use Client Octopus?</h3>
 						</div>
 						<div class="accordion-content">
-							<p class="section-lede">Yes — Client Octopus is a WordPress plugin, so it installs into an existing WordPress site. If you don't run WordPress and don't plan to, a standalone platform like Proposify will fit more naturally.</p>
+							<p>Yes — Client Octopus is a WordPress plugin, so it installs into an existing WordPress site. If you don't run WordPress and don't plan to, a standalone platform like Proposify will fit more naturally.</p>
 						</div>
 					</div>
 
@@ -219,7 +227,7 @@ get_header();
 
 	<!-- ─── CTA ─────────────────────────────────────────────────────── -->
 
-	<section class="section section--cta-strip bg-indigo">
+	<section class="section section--cta-strip section--gradient">
 		<div class="container animated-up">
 			<h2>Try Client Octopus free</h2>
 			<p class="section-lede">No trial clock, and recurring billing is built in from day one.</p>

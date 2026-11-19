@@ -43,6 +43,15 @@
 	}
 }
 
+// On stone sections (comparison pages) the pills go white so they stand out
+.bg-stone .accordion {
+	background: var(--color-white);
+
+	&:has(.js-accordion-trigger.is-open) {
+		background: var(--color-lightindigo);
+	}
+}
+
 .js-accordion-trigger {
 	display: flex;
 	align-items: center;

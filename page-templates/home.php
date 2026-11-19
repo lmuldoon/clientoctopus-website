@@ -379,7 +379,7 @@ get_header();
      CTA STRIP
 ════════════════════════════════════════════════════════════════════════════════ -->
 
-	<section class="section section--cta-strip bg-indigo">
+	<section class="section section--cta-strip section--gradient">
 		<div class="container animated-up">
 
 			<h2>Start free.<br>Upgrade when you're ready.</h2>
