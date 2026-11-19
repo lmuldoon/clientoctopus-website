@@ -90,7 +90,7 @@ get_header();
 
 			<div class="flow-paragraph animated-up">
 				<h2 class="section-heading">The whole thing, in one paragraph.</h2>
-				<p class="flow-paragraph__text">
+				<p class="flow-paragraph__text" data-split-words>
 					Someone fills in your form <span class="flow-tag">Lead captured</span>. They book a call straight off the confirmation <span class="flow-tag">Call booked</span>. You send a proposal <span class="flow-tag">Sent as a secure link</span>. If they go quiet, a reminder follows up automatically <span class="flow-tag">Reminder sent</span>. They say yes and pay the deposit on the spot <span class="flow-tag">E&#8209;signed &amp; paid</span>. Their project sets itself up <span class="flow-tag">Project created</span>. When the work's done, the final invoice goes out <span class="flow-tag">Final payment requested</span>. Once that clears, a review request follows <span class="flow-tag">Testimonial requested</span>.
 				</p>
 				<p class="flow-paragraph__note"><span class="flow-paragraph__dot"></span> Everything in indigo happens on its own.</p>

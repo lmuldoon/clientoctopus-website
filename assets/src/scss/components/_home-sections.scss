@@ -204,6 +204,11 @@
 	margin: 0.2em 0;
 }
 
+// When animations.js wraps a pill in a word mask, keep it centred on the line like before
+.flow-paragraph__text .hero-word:has(> .hero-word__inner > .flow-tag) {
+	vertical-align: middle;
+}
+
 .flow-paragraph__note {
 	display: flex;
 	align-items: center;

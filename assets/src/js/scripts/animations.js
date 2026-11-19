@@ -19,6 +19,7 @@ export function initAnimations() {
 	animateHero();
 	animateElements();
 	animatePricingCards();
+	animateFlowParagraph();
 	initMagneticButtons();
 
 	$('html').removeClass('no-gsap').addClass('gsap');
@@ -179,6 +180,65 @@ function animateHero() {
 
 // ─── SCROLL REVEAL ─────────────────────────────────────────────────────────────
 
+// "The whole thing, in one paragraph": the same masked word rise as the hero heading,
+// played once when the paragraph scrolls into view. The step pills rise with the words.
+// Without JS, or with reduced motion, the paragraph simply shows as normal.
+function animateFlowParagraph() {
+	const text = document.querySelector('.flow-paragraph__text');
+	if (!text) return;
+
+	// The stylesheet hides every .animated-up child until it is revealed; this paragraph
+	// opts out of that reveal (data-split-words), so it has to un-hide itself.
+	if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		gsap.set(text, { opacity: 1 });
+		return;
+	}
+
+	const mask = (child) => {
+		const outer = document.createElement('span');
+		outer.className = 'hero-word';
+		const inner = document.createElement('span');
+		inner.className = 'hero-word__inner';
+		inner.appendChild(child);
+		outer.appendChild(inner);
+		return outer;
+	};
+
+	Array.from(text.childNodes).forEach((node) => {
+		if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('flow-tag')) {
+			const placeholder = document.createComment('');
+			node.replaceWith(placeholder);
+			placeholder.replaceWith(mask(node));
+			return;
+		}
+		if (node.nodeType !== Node.TEXT_NODE || !node.textContent.trim()) return;
+		const frag = document.createDocumentFragment();
+		node.textContent.split(/(\s+)/).forEach((part) => {
+			if (!part) return;
+			frag.appendChild(/^\s+$/.test(part) ? document.createTextNode(part) : mask(document.createTextNode(part)));
+		});
+		node.replaceWith(frag);
+	});
+
+	const inners = text.querySelectorAll('.hero-word__inner');
+	gsap.set(inners, { y: '115%' });
+	gsap.set(text, { opacity: 1 }); // words are now tucked below their masks, so show the paragraph
+
+	ScrollTrigger.create({
+		trigger: text,
+		start: 'top 85%',
+		once: true,
+		onEnter: () => {
+			gsap.to(inners, {
+				y: '0%',
+				stagger: { amount: 1.4 },
+				duration: 0.75,
+				ease: 'power3.out',
+			});
+		},
+	});
+}
+
 function animateElements() {
 
 	// Parallax hero image scroll-out
@@ -251,7 +311,8 @@ function animateElements() {
 
 	// ── .animated-up — upward fade-in, slightly staggered ───────────────────
 	gsap.utils.toArray(".animated-up").forEach((elem) => {
-		const children = elem.children;
+		// Children marked data-split-words run their own word animation
+		const children = Array.from(elem.children).filter((child) => !child.hasAttribute('data-split-words'));
 
 		ScrollTrigger.create({
 			trigger: elem,
