@@ -65,7 +65,7 @@ get_header();
 					<span class="statement-card__highlight">You get on with the work.</span>
 				</h2>
 				<p class="statement-card__lede">Client Octopus runs your proposals, payments, projects and client portal from inside your WordPress site.</p>
-				<ul class="statement-card__pills">
+				<ul class="statement-card__pills animated-up">
 					<li>Lead capture</li>
 					<li>Call booking</li>
 					<li>Proposals</li>
