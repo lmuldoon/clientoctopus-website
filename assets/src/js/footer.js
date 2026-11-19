@@ -122,7 +122,8 @@ $(window).on('scroll', debounce(function () {
 		.not('[role="tab"]')
 		.not('.glightbox-inline')
 		.filter(function () {
-			return !$(this).closest('.docs-page').length; // docs.js switches sections itself
+			// docs.js switches sections itself; nav-toggle.js scrolls for the mobile menu
+			return !$(this).closest('.docs-page, #js-mobile-nav').length;
 		})
 		.on('click', function (event) {
 			if (

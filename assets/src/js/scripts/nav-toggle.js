@@ -20,23 +20,23 @@ function init() {
 	$(document).on('click', '#js-mobile-nav a', function (e) {
 		if (!isOpen) return;
 
-		const href = this.getAttribute('href');
-		const isAnchor = href && href.startsWith('#') && href.length > 1;
+		// Links like "/#features" point at this page when we're already on the homepage.
+		// The page is scroll-locked while the menu is open, so scroll only after
+		// closeMenu() → ViewportScroll.enable() has restored the body position.
+		const samePage = this.hash.length > 1 &&
+			this.pathname.replace(/\/$/, '') === location.pathname.replace(/\/$/, '') &&
+			this.hostname === location.hostname;
+		const target = samePage ? document.getElementById(decodeURIComponent(this.hash.slice(1))) : null;
 
-		if (isAnchor) {
-			// Prevent the smooth scroll handler from running — we handle scrolling ourselves
-			// after ViewportScroll.enable() has restored the body position.
+		if (target) {
 			e.preventDefault();
 			closeMenu();
 
-			const target = document.querySelector(href);
-			if (target) {
-				requestAnimationFrame(() => {
-					const headerHeight = document.querySelector('.site-header').offsetHeight;
-					const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-					window.scrollTo({ top, behavior: 'smooth' });
-				});
-			}
+			requestAnimationFrame(() => {
+				const headerHeight = document.querySelector('.site-header').offsetHeight;
+				const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+				window.scrollTo({ top, behavior: 'smooth' });
+			});
 		} else {
 			closeMenu();
 		}
