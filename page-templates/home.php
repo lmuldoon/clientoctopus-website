@@ -182,11 +182,13 @@ get_header();
 					<hr class="cf-pricing-divider">
 					<ul class="cf-pricing-features">
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Lead Capture</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Sales pipeline with deal values</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Unlimited proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Proposal builder</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Package Selector pricing</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Payment Plans</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Client Tags</li>
+						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Multiple contacts per client</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> 1 team seat</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Track viewed, accepted, and declined proposals</li>
 						<li><span class="cf-check"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span> Collect client feedback and revisions</li>
@@ -294,7 +296,7 @@ get_header();
 							<h3>Can I collect leads before they become clients?</h3>
 						</div>
 						<div class="accordion-content">
-							<p>Yes, on all plans. Embed the lead capture form on any page with the [clientoctopus_lead_form] shortcode. You choose which fields to show and require, add a consent line, and optionally enable Cloudflare Turnstile CAPTCHA and submission rate limits to help prevent automated spam. Every submission lands in a dedicated Leads admin screen where you can track status, mark as contacted, archive, or convert a lead straight into a client record.</p>
+							<p>Yes, on all plans. Embed the lead capture form on any page with the [clientoctopus_lead_form] shortcode. You choose which fields to show and require, add a consent line, and optionally enable Cloudflare Turnstile CAPTCHA and submission rate limits to help prevent automated spam. Every submission lands in a dedicated Leads screen and moves through a simple sales pipeline, from New to Won or Lost, with an optional deal value, follow-up date and source. Your open pipeline is totalled above the list, per currency, and a won lead converts straight into a client record in one click.</p>
 						</div>
 					</div>
 

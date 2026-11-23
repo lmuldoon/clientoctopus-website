@@ -28,6 +28,30 @@ get_header();
 		<div class="container small-text-container">
 			<div class="changelog-entry animated-up">
 				<div class="changelog-entry__header">
+					<h2 class="changelog-entry__version">1.4.7</h2>
+					<span class="changelog-entry__date">November 2026</span>
+					<span class="badge badge--release">Update</span>
+				</div>
+				<div class="stack changelog-entry__body">
+					<h3>New</h3>
+					<ul>
+						<li>A sales pipeline for your leads. Two new stages, Proposal Sent and Lost, join New, Contacted, Won and Archived, and you change a lead's stage from a dropdown in its own row, so moving an enquiry along takes one click. The filters above the table cover every stage, each with a running count</li>
+						<li>Leads can now carry an opportunity value, an expected close date, a next follow-up date, a source and, if one is lost, a note of why. The value has its own column, and the open pipeline total sits above the table, listed separately per currency so a mix of pounds and dollars is never added together into one meaningless figure</li>
+						<li>Multiple contacts per client. Add as many people at a client company as you need, with name, email, role and phone, and tick the ones who should be copied in on emails you send that client. Your accounts contact gets the invoices and your project contact gets the updates, without you forwarding anything. Reminder emails go to each person individually, so everyone can unsubscribe for themselves, and portal sign-in links are never copied to anyone</li>
+						<li>Export logged time to CSV, and filter the timesheet by date. Pick a from and to date on the Time screen and the list, the total and the export all narrow together. The export has a row per entry: date, client, project, who logged it, the description, the duration in minutes and decimal hours, and the rate and value for anything already invoiced. Unbilled time shows no rate, because it hasn't been fixed yet (Pro &amp; Agency)</li>
+						<li>Two new webhooks for leads: one when a lead moves between stages, and one when a lead becomes a client, which carries the new client's ID so an external tool can join the two up. Lead capture is free on every plan; webhooks remain Pro &amp; Agency</li>
+						<li>Lead CSV exports, and lead data exported through Tools &rarr; Export Personal Data, now include all of the new fields</li>
+					</ul>
+
+					<h3>Fixes</h3>
+					<ul>
+						<li>The client portal's Payments screen is now one list of everything a client has paid, with a single correct total. Proposal payments and paid invoices used to be two separate tables, each with its own subtotal and no overall figure, and a payment that appeared in both was counted twice. Each payment now appears once, linking to its invoice, its receipt, or both</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="changelog-entry animated-up">
+				<div class="changelog-entry__header">
 					<h2 class="changelog-entry__version">1.4.6</h2>
 					<span class="changelog-entry__date">November 2026</span>
 					<span class="badge badge--release">Update</span>

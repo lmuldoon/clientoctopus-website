@@ -298,10 +298,18 @@ $docs_start = [
 					</div>
 <pre><code>[clientoctopus_lead_form]</code></pre>
 				</div>
-				<p>Under <strong>Client Octopus &rarr; Settings &rarr; Leads</strong>, choose which fields to show (Name and Email are always on; Phone, Company, Message, Budget Range, and Preferred Contact Method are optional), mark any of them as required, and customise their labels. You can also add a consent line for the visitor to agree to before submitting.</p>
+				<p>Under <strong>Client Octopus &rarr; Settings &rarr; Leads</strong>, choose which fields to show (Name and Email are always on; Phone, Company, Message, Budget Range, Preferred Contact Method, and Source are optional), mark any of them as required, and customise their labels. You can also add a consent line for the visitor to agree to before submitting.</p>
 
-				<h3 class="h4">Where submissions go</h3>
-				<p>Every submission lands in the <strong>Leads</strong> admin screen, where you can filter by status (<strong>New</strong>, <strong>Contacted</strong>, <strong>Archived</strong>), mark a lead as contacted, archive it, or <strong>convert it straight into a client record</strong> with one click.</p>
+				<h3 class="h4">Sales pipeline</h3>
+				<p>Every submission lands in the <strong>Leads</strong> admin screen as a <strong>New</strong> lead. From there it moves through six stages: <strong>New</strong>, <strong>Contacted</strong>, <strong>Proposal Sent</strong>, <strong>Won</strong>, <strong>Lost</strong> and <strong>Archived</strong>. Change a lead's stage from the dropdown in its own row, so moving an enquiry along takes one click. The filters above the table cover every stage, each with a running count.</p>
+				<p>A lead is <strong>Won</strong> when you <strong>convert it into a client record</strong>, which also takes one click. The lead stays in your list, linked to the client it became.</p>
+
+				<h3 class="h4">Opportunity details</h3>
+				<p>Each lead can carry an <strong>opportunity value</strong> (with its own currency), an <strong>expected close date</strong>, a <strong>next follow-up date</strong>, a <strong>source</strong> such as a referral or a directory listing, and, if it's lost, a <strong>note of why</strong>.</p>
+				<p>The value has its own column, and the <strong>open pipeline</strong> (everything in New, Contacted or Proposal Sent) is totalled above the table. If your leads are in more than one currency, the total is listed separately for each one rather than added together, so a mix of pounds and dollars is never shown as one meaningless figure.</p>
+
+				<h3 class="h4">Exporting leads</h3>
+				<p>Export your leads to CSV from the Leads screen. The export includes the stage, source, value, currency, expected close date, next follow-up date and lost reason alongside the form fields.</p>
 
 				<h3 class="h4">Spam prevention</h3>
 				<p>Optionally enable <strong>Cloudflare Turnstile</strong> CAPTCHA and configure submission-rate limits under Settings &rarr; Leads to help block automated spam. Both are off by default.</p>
@@ -322,6 +330,15 @@ $docs_start = [
 
 				<h3 class="h4">Client Detail</h3>
 				<p>Opening a client shows an <strong>Activity Timeline</strong> of every proposal, invoice, and payment associated with them, so you don't have to piece their history together from separate admin screens. Quick-create buttons let you start a new Proposal, Invoice, or Recurring Invoice already prefilled with that client, and two stats — <strong>Lifetime Value</strong> and <strong>Outstanding Balance</strong> — sit at the top of the page. If a client has been billed in more than one currency, both stats are shown broken out per currency rather than added together into one misleading number.</p>
+
+				<h3 class="h4">Contacts</h3>
+				<p>A client record has one main email address, but most companies have more than one person you deal with. Add as many <strong>contacts</strong> to a client as you need, each with a name, email, role and phone number. Contacts are free on every plan.</p>
+				<p>Tick <strong>Cc</strong> on anyone who should be copied in on the emails you send that client, such as invoices, proposals and project updates. New contacts are ticked by default. Reminder emails are sent to each ticked contact individually rather than as a copy, so everyone can unsubscribe for themselves without switching anything off for the client.</p>
+				<div class="docs-callout">
+					<span class="docs-callout__label">Tip</span>
+					<p>Add the client's accounts team as a contact with Cc ticked. They'll get the invoices and payment reminders directly, without you forwarding anything.</p>
+				</div>
+				<p>Contacts are people to email, not people who can sign in. Portal sign-in links only ever go to the client's main email address and are never copied to a contact. A contact can be stored without an email address if you just want them on record.</p>
 
 				<h3 class="h4">Tags</h3>
 				<p>Add custom tags to any client to organise and filter your client list — useful for grouping by service type, retainer status, referral source, or anything else that matters to your workflow. Manage the tags available across your account from the <strong>Manage Tags</strong> screen.</p>
@@ -620,7 +637,7 @@ CHECKOUT.ORDER.VOIDED</code></pre>
 						</tr>
 						<tr>
 							<td><code>/clientoctopus/payments</code></td>
-							<td>Payment history and receipts, including invoice payments</td>
+							<td>One list of everything the client has paid, with a single total. Each payment links to its invoice, its receipt, or both</td>
 						</tr>
 						<tr>
 							<td><code>/clientoctopus/projects</code></td>
@@ -756,7 +773,10 @@ CHECKOUT.ORDER.VOIDED</code></pre>
 					<li><code>approval.responded</code></li>
 					<li><code>message.sent</code></li>
 					<li><code>lead.captured</code></li>
+					<li><code>lead.status_changed</code>: a lead moved to a different pipeline stage</li>
+					<li><code>lead.converted</code>: a lead became a client. The payload includes the new client's ID, so an external tool can link the two records</li>
 				</ul>
+				<p>You'll only be offered events for features on your plan. The project, milestone, approval and message events need <strong>Agency</strong>, because projects and messaging are Agency features.</p>
 
 				<h3 class="h4">Delivery and retries</h3>
 				<p>Deliveries are queued and sent in the background rather than inline, so triggering an event (like a proposal being accepted) never waits on your endpoint responding. If a delivery fails — your endpoint is down, times out, or returns an error — Client Octopus retries automatically rather than losing the event. A webhook that keeps failing is paused, with the full response from the last attempt recorded so you can diagnose what went wrong.</p>
@@ -856,6 +876,16 @@ $data = json_decode( $payload, true );
 
 				<h3 class="h4">Billing tracked time</h3>
 				<p>On a draft invoice, click <strong>Add unbilled time</strong> to see everything not yet invoiced for that client. Choose how it's summarised — one line per entry, per day, per project, or as a single total — and it's added as proper quantity-and-rate line items. Hours are never billed twice. Anything older than 60 days is listed but left unticked by default, so old work doesn't get swept onto an invoice by accident. If the invoice is later cancelled or deleted, those hours return to the unbilled pool automatically.</p>
+
+				<h3 class="h4">Filtering and exporting</h3>
+				<p>Pick a <strong>from</strong> and <strong>to</strong> date on the Time screen and the list, the total and the export all narrow to that range together. Click <strong>Export CSV</strong> to download the result, with one row per entry:</p>
+				<ul>
+					<li>Date, client, project and who logged it</li>
+					<li>The description</li>
+					<li>The duration, in minutes and in decimal hours</li>
+					<li>The rate and value, for entries that have already been invoiced</li>
+				</ul>
+				<p>Unbilled entries deliberately show no rate. The rate isn't fixed until the time is invoiced, because a client or project rate can still change before then.</p>
 
 				<?php $docs_pager('time-tracking'); ?>
 			</section>
@@ -1081,6 +1111,12 @@ $data = json_decode( $payload, true );
 							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
 						</tr>
 						<tr>
+							<td>Sales pipeline &amp; deal values</td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+							<td><span class="docs-tick" aria-label="Included"><iconify-icon icon="lucide:check" width="12" height="12"></iconify-icon></span></td>
+						</tr>
+						<tr>
 							<td>Proposals</td>
 							<td>Unlimited</td>
 							<td>Unlimited</td>
@@ -1290,7 +1326,7 @@ $data = json_decode( $payload, true );
 
 				<h3 class="h4">GDPR considerations</h3>
 				<p>Because all client data lives in your database, you are the data controller. You are responsible for your own privacy policy, cookie notice, and any data subject requests from your clients. Client Octopus does not act as a data processor on your behalf beyond the AI relay described above.</p>
-				<p>Client Octopus integrates with WordPress's own <strong>Tools &rarr; Export/Erase Personal Data</strong> tools, so you don't have to track down a client's records by hand when a request comes in. An export or erasure request covers client records, leads, booked calls, the name and IP address recorded when a proposal was signed, project messages, approval comments, and unsubscribe preferences. Erasure deletes booked calls, project messages, and approval comments outright; invoices, payments, and accepted proposals are kept but stripped of personal details (including anonymising the signing IP), since accounting records have to be retained for tax purposes — the confirmation shown at the end of an erasure states exactly what was kept and why.</p>
+				<p>Client Octopus integrates with WordPress's own <strong>Tools &rarr; Export/Erase Personal Data</strong> tools, so you don't have to track down a client's records by hand when a request comes in. An export or erasure request covers client records, client contacts, leads, booked calls, the name and IP address recorded when a proposal was signed, project messages, approval comments, and unsubscribe preferences. Erasure deletes booked calls, project messages, approval comments, and client contacts outright; invoices, payments, and accepted proposals are kept but stripped of personal details (including anonymising the signing IP), since accounting records have to be retained for tax purposes — the confirmation shown at the end of an erasure states exactly what was kept and why.</p>
 
 				<?php $docs_pager('privacy'); ?>
 			</section>
@@ -1340,7 +1376,7 @@ $data = json_decode( $payload, true );
 						<tr><td>GET</td><td><code>/automations</code></td><td>List automation reminder settings</td></tr>
 						<tr><td>POST</td><td><code>/automations/{trigger}</code></td><td>Update a reminder trigger's settings</td></tr>
 						<tr><td>GET</td><td><code>/leads</code></td><td>List leads</td></tr>
-						<tr><td>POST</td><td><code>/leads/{id}/status</code></td><td>Update a lead's status (new / contacted / archived)</td></tr>
+						<tr><td>PATCH</td><td><code>/leads/{id}</code></td><td>Update a lead's stage (new / contacted / proposal_sent / converted / lost / archived), value, currency, dates, source and lost reason</td></tr>
 						<tr><td>POST</td><td><code>/leads/{id}/convert</code></td><td>Convert a lead into a client</td></tr>
 						<tr><td>GET</td><td><code>/bookings</code></td><td>List bookings (Pro/Agency)</td></tr>
 						<tr><td>POST</td><td><code>/bookings/{id}/cancel</code></td><td>Cancel a booking (Pro/Agency)</td></tr>
