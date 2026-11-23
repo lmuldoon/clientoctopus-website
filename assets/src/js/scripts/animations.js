@@ -158,10 +158,32 @@ function animateHero() {
 
 	// ── Hero image ────────────────────────────────────────────────────────────
 	if (heroImg) {
+		const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		// Entrance: fade and rise only. Scale belongs to the scroll effect below,
+		// so the two never fight over the same property.
 		gsap.fromTo(heroImg,
-			{ opacity: 0, y: 36, scale: 0.97 },
-			{ opacity: 1, y: 0, scale: 1, duration: 1.1, ease: 'power3.out', delay: 0.55 }
+			{ opacity: 0, y: 36 },
+			{ opacity: 1, y: 0, duration: 1.1, ease: 'power3.out', delay: 0.55 }
 		);
+
+		// Scroll: the screenshot grows to full width as you scroll down, anchored to
+		// the bottom of the hero so it stays sitting on the section edge.
+		if (!reduceMotion) {
+			gsap.fromTo(heroImg,
+				{ scale: 1, transformOrigin: '50% 100%' },
+				{
+					scale: 1.15,
+					ease: 'none',
+					scrollTrigger: {
+						trigger: '.hero',
+						start: 'top top',
+						end: 'bottom top',
+						scrub: 0.4,
+					},
+				}
+			);
+		}
 	}
 
 	// ── Header drop-in ────────────────────────────────────────────────────────
