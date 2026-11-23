@@ -56,6 +56,9 @@ get_header();
 ════════════════════════════════════════════════════════════════════════════════ -->
 
 	<section class="section section--statement bg-lightindigo">
+		<div class="statement-tentacle" aria-hidden="true">
+			<?php include_asset('static/tentacle.svg'); ?>
+		</div>
 		<div class="container">
 
 			<div class="statement-card animated-up">
