@@ -328,7 +328,7 @@
 	&:nth-child(3) .feature-cell__tentacle { right: 4%; bottom: -30%; height: 120%; transform: scaleX(-1) rotate(-20deg); }
 	&:nth-child(4) .feature-cell__tentacle { left: -22%; top: 50%; height: 115%; transform: translateY(-50%) rotate(90deg) scaleX(-1); }
 	&:nth-child(5) .feature-cell__tentacle { right: -20%; bottom: -38%; height: 120%; transform: rotate(-40deg); }
-	&:nth-child(6) .feature-cell__tentacle { right: -4%; top: -20%; height: 105%; transform: scaleX(-1) rotate(150deg); }
+	&:nth-child(6) .feature-cell__tentacle { left: 10%; top: -38%; height: 120%; transform: scaleX(-1) rotate(180deg); }
 
 	&--indigo {
 		background: var(--color-lightindigo);
