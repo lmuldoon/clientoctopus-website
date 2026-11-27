@@ -117,31 +117,37 @@ get_header();
 			<div class="cf-features-grid animated-up">
 
 				<div class="feature-cell feature-cell--indigo">
+					<div class="feature-cell__tentacle" aria-hidden="true"><?php include_asset('static/tentacle.svg'); ?></div>
 					<h3>One place. One login.</h3>
 					<p>Proposals, invoices, projects and files, all the way from first proposal to final payment, without switching tools.</p>
 				</div>
 
 				<div class="feature-cell feature-cell--stone">
+					<div class="feature-cell__tentacle" aria-hidden="true"><?php include_asset('static/tentacle.svg'); ?></div>
 					<h3>Looks like you hired a designer.</h3>
 					<p>A branded portal where clients review proposals, pay invoices, approve work, and download files.</p>
 				</div>
 
 				<div class="feature-cell feature-cell--grey">
+					<div class="feature-cell__tentacle" aria-hidden="true"><?php include_asset('static/tentacle.svg'); ?></div>
 					<h3>Made for people who do the work.</h3>
 					<p>Built for freelancers and agencies managing proposals, projects, payments, and client communication.</p>
 				</div>
 
 				<div class="feature-cell feature-cell--stone">
+					<div class="feature-cell__tentacle" aria-hidden="true"><?php include_asset('static/tentacle.svg'); ?></div>
 					<h3>Your site. Your data.</h3>
 					<p>Everything, including your proposals, projects, files and client data, stays inside the WordPress site you already own.</p>
 				</div>
 
 				<div class="feature-cell feature-cell--grey">
+					<div class="feature-cell__tentacle" aria-hidden="true"><?php include_asset('static/tentacle.svg'); ?></div>
 					<h3>Admin that does itself.</h3>
 					<p>Reminders, final payment requests, project creation and webhook-triggered workflows all run without you lifting a finger.</p>
 				</div>
 
 				<div class="feature-cell feature-cell--indigo">
+					<div class="feature-cell__tentacle" aria-hidden="true"><?php include_asset('static/tentacle.svg'); ?></div>
 					<h3>A first draft in seconds.</h3>
 					<p>Built-in AI helps you generate proposal sections, improve wording, and create client-ready copy.</p>
 				</div>
